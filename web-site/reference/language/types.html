@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Types</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/lib/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h2>Prompto built-in types</h2>
+
+            <p>Like most languages, Prompto comes with built-in types for commonly used types of values.<br/>
+                Atomic types are built-in types which can hold a single 'atomic' value: text, number, date and so forth.
+                Collection types are built-in types which can hold multiple values, typically of the same atomic type.<br/>
+                Prompto also supports composed types, but these are user defined (although Prompto libraries may define some).
+                See attributes and categories for the definition of composed types.
+            </p>
+
+            <h2>Atomic types</h2>
+            <p>Atomic types are built-in types which can only hold a single 'atomic' value.</p>
+
+            <h2>Text</h2>
+
+            <p>The Text built-in type is used for values such as a name or description, where the textual representation
+                and the meaning are equivalent.<br/>
+                All Text values use <a target = "_blank" href="http://unicode.org">Unicode</a> internally.<br/>
+                A Text literal must be enclosed in double quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    "This is a text literal."
+                </code>
+            </div>
+            <br/>
+            If a Text literal must contain a double-quote, that double-quote must be escaped using the anti-slash '\' character.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    "This text literal contains two \"double quotes\"."
+                </code>
+            </div>
+            <br/>
+            Consequently, if a Text literal must contain the anti-slash'\' character, the '\' character must be escaped using the '\' character.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    "This text literal contains one anti-slash: \\."
+                </code>
+            </div>
+            <br/>
+            Additionally, Text literals support the following special characters:<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    "\t"	-> Tab<br/>
+                    "\b"	-> Back space<br/>
+                    "\n"	-> New line<br/>
+                    "\r"	-> Carriage return<br/>
+                    "\f"	-> Form feed<br/>
+                </code>
+            </div>
+            <br/>
+            Finally, Text literals support <a target = "_blank" href="http://unicode.org">Unicode</a> characters in the form of UTF-16 hexadecimal characters:<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    "delta: \u0394" -> delta: &delta;
+                </code>
+            </div>
+            <br/>
+            </p>
+
+            <h2>Character</h2>
+
+            <p>The Character built-in type is used for easy manipulation of single characters.<br/>
+                Like Text values, all Character values use <a target = "_blank" href="http://unicode.org">Unicode</a> internally.<br/>
+                Character literals support the same escape characters as Text literals.<br/>
+                A Character literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    'c' -> the 'c' character
+                </code>
+            </div>
+            </p>
+
+            <h2>Boolean</h2>
+
+            <p>The Boolean built-in type is used exclusively for the values true and false.<br/>
+                A Boolean literal is simply one of the words <code>true</code> or <code>false</code>.<br/>
+                Alternately, Prompto also supports the words <code>True</code> and <code>False</code>.
+            </p>
+
+            <h2>Integer</h2>
+
+            <p>The Integer built-in type is used for integral numbers, using 8 bytes, thus ranging from -2<sup>63</sup> to 2<sup>63</sup>-1.<br/>
+                An Integer literal is simply a sequence of digits, such as <code>13465</code>.<br/>
+                Prompto also supports Integer literals using hexadecimal notation, such as <code>0xA3B2FE</code>.<br/>
+                Finally, Prompto supports 2 special Integers, MIN_INTEGER and MAX_INTEGER.
+            </p>
+
+            <h2>Decimal</h2>
+
+            <p>The Decimal built-in type is used for non integral numbers, using 8 bytes as specified by
+                <a target = "_blank" href="http://grouper.ieee.org/groups/754/">IEE 754</a>.<br/>
+                A Decimal literal is simply a sequence of digits, followed by a dot and another sequence of digits, such as <code>13465.02</code>.<br/>
+                Prompto also supports Decimal literals using scientific notation, such as <code>0.074e32</code>.<br/>
+            </p>
+
+            <h2>Time</h2>
+
+            <p>The Time built-in type is used for to represent a time of day. It does not support time zones.<br/>
+                A Time literal is a sequence of 2 to 4 integers, separated by a semi colon ':' or a dot for the last one,
+                representing the hour of day, the minute, the optional second and the optional millisecond.<br/>
+                A Time literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
+                A Time literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    '13:07' -> 13 hours and 7 minutes<br/>
+                    '13:07:02.013' -> 13 hours, 7 minutes, 2 seconds and 13 milliseconds
+                </code>
+            </div>
+            </p>
+
+            <h2>Date</h2>
+
+            <p>The Date built-in type is used to represent a day. It does not support time zones.<br/>
+                A Date literal is a sequence of 3 integers, separated by a hyphen '-',
+                representing the year, the month and the day of the month.<br/>
+                A Date literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
+                A Date literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    '1981-05-12' -> 12th of May of year 1981
+                </code>
+            </div>
+            </p>
+
+
+            <h2>DateTime</h2>
+
+            <p>The DateTime built-in type is used for to represent an instant, with time zone support.<br/>
+                A DateTime literal is formed by a Date literal, followed by a 'T', followed by a Time literal,
+                optionally followed by a time zone offset.<br/>
+                A DateTime literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
+                A DateTime literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    '1981-05-12T13:02:11.002' -> 13 hours, 2 minutes, 11 seconds and 2 milliseconds on the 12th of May of year 1981<br/>
+                    '1981-05-12T13:02:11.002+0200' -> same date time as above, in the GMT + 02:00 time zone
+                </code>
+            </div>
+            </p>
+
+
+            <h2>Period</h2>
+
+            <p>The Period built-in type is used for to represent a period of time, or a duration.<br/>
+                A Period literal is formed by a 'P' followed by a sequence of integral quantities preceded by their unit, see examples.<br/>
+                Day level units and time level units are separated by a 'T', as in DateTime literals.<br/>
+                A Period literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
+                A Period literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    'PY3W2' -> 3 years + 2 weeks<br/>
+                    'PM4D1' -> 4 months + 1 day<br/>
+                    'PD1TH2' -> 1 day + 2 hours<br/>
+                    'PTM4S173' -> 4 minutes + 173 seconds<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>UUID</h2>
+
+            <p>The UUID built-in type is a type often used in IT systems such as databases, to provide unique identifiers.<br/>
+                A UUID generator is a system which using specific hardware unique data such as MAC address, and current instant,
+                is able to generate a globally <b><i>U</i></b>niversal <b><i>U</i></b>nique <b><i>ID</i></b>entifier.<br/>
+                A UUID literal is a sequence of characters, digits and hyphens which conform to the <a target="_blank" href="https://tools.ietf.org/html/rfc4122">RFC 4122 specification</a>.<br/>
+                A UUID literal must be enclosed in single quotes.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    '123e4567-e89b-12d3-a456-426655440000' -> a valid UUID<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Collection types</h2>
+
+            <p>Collection types are built-in types which can hold multiple values, typically of the same atomic type.<br/></p>
+
+            <h2>List</h2>
+
+            <p>The List built-in type is used to keep together 0 or more items of the same type.<br/>
+                The items themselves can be of any type.<br/>
+                A List literal must be enclosed in square brackets '[' and ']', the items being separated by a comma ','.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    [12, 15, -3] -> a List of 3 Integers<br/>
+                    ["Paris", "London", "Singapore"] -> a List of 3 Texts<br/>
+                </code>
+            </div>
+            <br/>
+            Items in a List can be accessed individually using their position.<br/>
+            Positions start at 1 and end at the list length.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    a = [12, 15, -3] -> assign a List of 3 Integers to variable 'a'<br/>
+                    a[1] -> get item at position 1 in List referenced by variable 'a' i.e. the Integer 12<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Tuple</h2>
+
+            <p>The Tuple built-in type is used to keep together 0 or more items of different types.<br/>
+                The items themselves can be of any type.<br/>
+                A Tuple literal must be enclosed in parenthesis '(' and ')', the items being separated by a comma ','.<br/>
+                For Tuple comprising 0 or 1 item, because the above could be interpreted as a parenthesized expression, a comma ',' must precede the right parenthesis.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    (,) -> the empty Tuple
+                    (3.14,) -> a Tuple of 1 item<br/>
+                    ("Paris", '2015-06-12', -113.87) -> a Tuple of 3 items<br/>
+                </code>
+            </div>
+            <br/>
+            Items in a Tuple can be accessed individually using their position.<br/>
+            Positions start at 1 and end at the list length.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    a = ("Paris", '2015-06-12', -113.87) -> assign a Tuple of 3 items to variable 'a'<br/>
+                    a[1] -> get item at position 1 in Tuple referenced by variable 'a' i.e. the Text "Paris"<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Set</h2>
+
+            <p>The Set built-in type is used to keep together 0 or more <b><i>distinct</i></b> items of the same type.<br/>
+                The items themselves can be of any type.<br/>
+                A Set literal must be enclosed in angle brackets '<' and '>', the items being separated by a comma ','.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    <12, 15, -3> -> a set of 3 Integers<br/>
+                    <"Paris", "London", "Singapore"> -> a Set of 3 Texts<br/>
+                </code>
+            </div>
+            <br/>
+            Items in a Set can be accessed individually using their position.<br/>
+            However this is discouraged, because the position in the Set may change internally when ensuring uniqueness.<br/>
+            Set items are generally accessed using iterators or predicates.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    s = <12, 15, -3> -> assign a Set of 3 Integers to variable 's'<br/>
+                    for each i in s -> iterate over items in Set referenced by variable 's'<br/>
+                    s contains 12 -> return true if Set referenced by variable 's' contains the Integer 12<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Dictionary</h2>
+
+            <p>The Dictionary built-in type is used to keep together 0 or more items of the same type and access them using a Text key.<br/>
+                The items themselves can be of any type.<br/>
+                A Dictionary literal must be enclosed in curly brackets '{' and '}', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    {} -> an empty Dictionary<br/>
+                    { "Paris" : "France", "London" : "England", "Berlin" : "Germany" } -> a Dictionary of 3 keys and Text values<br/>
+                </code>
+            </div>
+            <br/>
+            Items in a Dictionary can be accessed individually using their key.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    d = { "Paris" : "France", "London" : "England" } -> assign a Dictionary of 2 Texts to variable 'd'<br/>
+                    d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable 'd' i.e. "France"<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Range</h2>
+
+            <p>The Range built-in type is used to create sequences of 1 or more items of the same discrete type.<br/>
+                The items themselves can only be of type Character, Integer, Date or Time.<br/>
+                A Range literal must be enclosed in square brackets '[' and ']', the start and end value being separated by 2 dots '..'.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    [1..17] -> all Integers ranging from 1 to 17 included<br/>
+                    ['c'..'k'] -> all Characters ranging from 'c' to 'k' included (using their Unicode value)<br/>
+                    ['2012-01-01'..'2014-04-01'] -> all Dates ranging from '2012-01-01' to '2014-04-01'<br/>
+                    ['20:01:01'..'23:02:02'] -> all Times ranging from '20:01:01' to '23:02:02', with a 1 second increment<br/>
+                </code>
+            </div>
+            <br/>
+            Items in a Range can be accessed individually using their position.<br/>
+            Positions start at 1 and end at the Range length.<br/><br/>
+            <div style="margin-left: 50px">
+                <code>
+                    r = [2..17] -> assign a Range of Integers to variable 'r'<br/>
+                    r[4] -> get item at position 4 in Range referenced by variable 'r' i.e. the Integer 5<br/>
+                </code>
+            </div>
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dialects</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/lib/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h2>Prompto dialects</h2>
+
+            <p>Information technologists can have very different backgrounds.<br/>
+                Some are very technical, with strong skills in OOP languages such as Java or C#.<br/>
+                Some have grown their programming skills from scripting languages such as Python.<br/>
+                Others have little or no coding experience, and work more on functional specifications, project
+                management or testing.<br/>
+                All these information technologists participate actively in the development.<br/>
+                At Prompto, we believe they are all developers, and should have equal access to code.
+            </p>
+
+            <h2>Syntax is a detail</h2>
+
+            <p>To facilitate the conversation between all types of developers, Prompto comes with not one "language" but
+                three.<br/>
+                Prompto calls these dialects, as they are not independant languages, but rather 3 syntactic variations of the same language concepts.<br/>
+                Prompto dialects are a collaborative tool which helps technologists work together.<br/>
+                They eliminate the barrier of having to learn a formal grammar only to read code.<br/>
+                They make it very easy for any developer to adopt the Prompto platform, whatever his/her coding
+                background.
+            </p>
+
+            <h2>The Objy dialect aka "O"</h2>
+
+            <p>Objy uses a syntax that tries to follow as much as possible the syntax of OOP languages such as C++, Java
+                or C#.<br/>
+                Since Prompto introduces new concepts, the Objy syntax sometimes differs from these languages.<br/>
+                But structuring elements are very similar: semi-colons to end statements, curly braces to group multiple
+                statements, etc...<br/>
+                Here is an example:<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    method main ( Text{} options ) {<br/>
+                    <div style="margin-left: 20px">
+                        print("/" + (15 + 12));
+                        print("/" + (15 + 3.5));
+                    </div>
+                    }<br/>
+                </code>
+            </div>
+            </p>
+            <h2>The Snaky dialect aka "S"</h2>
+
+            <p>Snaky uses a syntax that tries to follow as much as possible the syntax of the Python language.<br/>
+                Since Prompto introduces new concepts, the Snaky syntax sometimes differs from the Python syntax.<br/>
+                But structuring elements are very similar: one statement per line, colon and indentation to group multiple
+                statements, etc...<br/>
+                Here is an example:<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    def main(options:Text{}):<br/>
+                    <div style="margin-left: 20px">
+                    print("/" + (15 + 12))<br/>
+                    print("/" + (15 + 3.5))
+                    </div>
+                </code>
+            </div>
+            </p>
+            <h2>The Engly dialect aka "E"</h2>
+
+            <p>Engly is a syntax that tries to mimic English.<br/>
+                The intent is that developers with little or no coding background should be able to read code without having to learn the formalism of other dialects.<br/>
+                The structure is very similar to Snaky, but it removes parenthesis, which are replaced by plain English keywords.<br/>
+                Here is an example:<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    define main as method receiving Text{} options doing:<br/>
+                    <div style="margin-left: 20px">
+                        print("/" + (15 + 12))<br/>
+                        print("/" + (15 + 3.5))
+                    </div>
+                </code>
+            </div>
+            </p>
+            <h2>Seamless translation between dialects</h2>
+
+            <p>Prompto tools provide seamless translation from one dialect to another.<br/>
+                Practically, you simply need to select the dialect of your choice.<br/>
+                This makes it very easy for any developer to view any code in his/her preferred dialect.<br/>
+                It also makes it very easy for a developer to switch dialect in the future, since no rewriting is needed.<br/>
+                You can experience this translation by exploring the examples in this documentation.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
