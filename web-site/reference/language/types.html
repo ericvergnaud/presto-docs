@@ -29,7 +29,8 @@
             <p>Like most languages, Prompto comes with built-in types for commonly used types of values.<br/>
                 Atomic types are built-in types which can hold a single 'atomic' value: text, number, date and so forth.
                 Collection types are built-in types which can hold multiple values, typically of the same atomic type.<br/>
-                Prompto also supports composed types, but these are user defined (although Prompto libraries may define some).
+                Special types are built-in types which have no textual representation, but are useful for manipulating key programming objects<br/>
+                Prompto also supports composed types, however these are user defined (although Prompto libraries may define some).
                 See attributes and categories for the definition of composed types.
             </p>
 
@@ -181,6 +182,20 @@
             </div>
             </p>
 
+            <h2>Blob</h2>
+
+            <p>The Blob (<b><i>B</i></b>inary <b><i>L</i></b>arge <b><i>OB</i></b>ject) built-in type is a type used to hold an arbitray list of raw bytes.<br/>
+                A Blob has a mime type, which is useful to describe the type of the binary data, notably over the Internet.<br/>
+                There is no Blob literal.<br/>
+            </p>
+
+            <h2>Image</h2>
+
+            <p>The Image built-in type is a specialized Blob type used to hold displayable bynary data, such a JPEG image.<br/>
+                An Image has a mime type, which is useful to describe the type of the binary data, notably over the Internet.<br/>
+                There is no Image literal.<br/>
+            </p>
+
             <h2>UUID</h2>
 
             <p>The UUID built-in type is a type often used in IT systems such as databases, to provide unique identifiers.<br/>
@@ -281,13 +296,21 @@
                 </code>
             </div>
             <br/>
-            Items in a Dictionary can be accessed individually using their key.<br/>
+            Items in a Dictionary can be accessed individually using their key.<br/><br/>
             <div style="margin-left: 50px">
                 <code>
                     d = { "Paris" : "France", "London" : "England" } -> assign a Dictionary of 2 Texts to variable 'd'<br/>
                     d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable 'd' i.e. "France"<br/>
                 </code>
             </div>
+            </p>
+
+            <h2>Document</h2>
+
+            <p>The Document built-in type is used to manipulate arbitrary data structures with loose typing.<br/>
+                A Document has items which can be of any type, atomic, collection or Document.<br/>
+                A Document is useful to carry data read from the store, from files or from the Internet, and convert it to typed data.<br/>
+                A Document is also useful to write typed data to the store, to files or to the Internet.<br/>
             </p>
 
             <h2>Range</h2>
@@ -310,6 +333,59 @@
                 <code>
                     r = [2..17] -> assign a Range of Integers to variable 'r'<br/>
                     r[4] -> get item at position 4 in Range referenced by variable 'r' i.e. the Integer 5<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Special types</h2>
+            <p>Special types are built-in types which are used in specific situations.</p>
+
+            <h2>Any</h2>
+
+            <p>The Any built-in type is a general type to represent any type.<br/>
+                This type is useful for describing parameter types by attribute.<br/>
+                It can also be useful to hold typed collections where the type is not known at compile time.<br/>
+                It is also useful to represent opaque native types.<br/>
+            </p>
+
+            <h2>Method</h2>
+
+            <p>The Method built-in type is a type used to hold Prompto methods.<br/>
+                Prompto supports passing methods as parameters.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    m = myMethod -> assign the method 'myMethod' to variable 'm'<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Code</h2>
+
+            <p>The Code built-in type is a type used to represent Prompto code.<br/>
+                Prompto supports passing code snippets as parameters, so this is useful for passing code to methods.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    c = Code: a + b -> assign the Prompto code 'a + b' to variable 'c'<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Iterator</h2>
+
+            <p>The Iterator built-in type is a type produced by Prompto when transforming a collection inline.<br/>
+             <div style="margin-left: 50px">
+                <code>
+                    x + 1 for each x in [1..5] -> returns an Iterator which will produce an item on each iteration<br/>
+                </code>
+            </div>
+            </p>
+
+            <h2>Cursor</h2>
+
+            <p>The Cursor built-in type is a type used to navigate through data returned by the data store.<br/>
+            <div style="margin-left: 50px">
+                <code>
+                    c = fetch all -> returns a Cursor which will produce an item on each iteration<br/>
                 </code>
             </div>
             </p>
