@@ -61,7 +61,7 @@
         function translatePromptoCode(content, from, to, editor) {
             var message =  {
                 id : ++nextMessageId,
-                type : "translate",
+                verb : "translate",
                 data : {
                     content : content,
                     from : from,
@@ -76,7 +76,12 @@
         }
 
     </script>
-
+    <style type="text/css" media="screen">
+        .frame {
+            margin-left: 0px !important;
+            padding-left: 0px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -106,9 +111,9 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div class="embed-responsive embed-responsive-4by3">
- 			<iframe name="content-frame" class="embed-responsive-item" src="about/index.html"></iframe>
+<div class="container-fluid frame">
+    <div class="embed-responsive embed-responsive-4by3" >
+        <iframe name="content-frame" class="embed-responsive-item" src="about/index.html" />
     </div>
 </div>
 

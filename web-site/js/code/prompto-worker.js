@@ -7,7 +7,7 @@ importScripts("../lib/prompto.bundle.js");
 // manage events
 onmessage = function(event) {
     var message = event.data;
-    var handler = dispatch[message.type];
+    var handler = dispatch[message.verb];
     var data = handler(message.data);
     var response = {
         inResponseTo : message.id,
