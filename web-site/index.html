@@ -29,12 +29,52 @@
     <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
     <!-- ensure content menu is highlighted -->
     <script type="text/javascript">
+
+        var promptoWorker = null;
+        var nextMessageId = -1;
+        var messageHandlers = {};
+
         $(document).ready(function () {
+            createPromptoWorker();
+            installNavigationEventHandler();
+         });
+
+        function createPromptoWorker() {
+            // the purpose of this worker is to avoid loading the prompto runtime with each code displayer
+            promptoWorker = new Worker("js/code/prompto-worker.js");
+            promptoWorker.onmessage = function(event) {
+                var message = event.data;
+                // find handler, remove it, run it
+                var handler = messageHandlers[message.inResponseTo];
+                delete messageHandlers[message.inResponseTo];
+                handler(message.data);
+            };
+        }
+
+        function installNavigationEventHandler() {
             $('ul.nav > li').click(function (e) {
                 $('ul.nav > li').removeClass('active');
                 $(this).addClass('active');
             });
-        });
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            var message =  {
+                id : ++nextMessageId,
+                type : "translate",
+                data : {
+                    content : content,
+                    from : from,
+                    to : to
+                }
+            };
+            // register handler for this message's response
+            messageHandlers[message.id] = function(data) {
+                editor.setValue(data.translated, -1);
+            };
+            promptoWorker.postMessage(message);
+        }
+
     </script>
 
 </head>

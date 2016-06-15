@@ -28,65 +28,28 @@
     <script src="../js/lib/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript">
 
-        console.log = parent.print;
-
-        function setDialect(dialect) {
-            var mode = editor.getSession().getMode();
-            mode.setDialect(dialect);
-        }
-
-        function setProject(dbId, loadDependencies) {
-            var mode = editor.getSession().getMode();
-            mode.setProject(dbId, loadDependencies);
-        }
-
-        function setContent(id) {
-            var session = editor.getSession();
-            var mode = session.getMode();
-            mode.setContent(id);
-            var ro = id ? id.core : false;
-            editor.setReadOnly(ro);
-            session.setScrollTop(0);
-        }
-
-        function destroy(id) {
-            var session = editor.getSession();
-            var mode = session.getMode();
-            mode.destroy(id);
-            session.setScrollTop(0);
-        }
-
-        function commit() {
-            var session = editor.getSession();
-            var mode = session.getMode();
-            mode.commit();
-        }
-
-        function setValue(value) {
-            editor.setValue(value, -1);
-        }
-
-        function runMethod(id, runMode) {
-            var session = editor.getSession();
-            var mode = session.getMode();
-            mode.runMethod(id, runMode);
-        }
-
-        // a utility method to inspect worker data in Firefox/Safari
-        function inspect(name) {
-            var session = editor.getSession();
-            var mode = session.getMode();
-            mode.inspect(name);
-        }
-
-        function done(data) {
-            parent.done(data);
-        }
-
-
         $(document).ready(function () {
-            parent.editorReady();
-        });
+            installDialectEventHandler();
+            notifyParent();
+         });
+
+        function installDialectEventHandler() {
+            $(".dialect").click(function(e) {
+                // translate
+                var from = editor.getSession().getMode().getDialect();
+                var to = this.getAttribute("dialect");
+                editor.getSession().getMode().setDialect(to);
+                var content = editor.getValue();
+                parent.translatePromptoCode(content, from, to, editor);
+                // update UI
+                $(".dialect").removeClass("active");
+                $(this).addClass('active');
+           });
+        }
+
+        function notifyParent() {
+            parent.editorReady(this, editor);
+        }
 
     </script>
     <style type="text/css" media="screen">
@@ -94,12 +57,25 @@
             position: absolute;
             top: 0;
             right: 0;
-            bottom: 0;
+            bottom: 28px;
             left: 0;
         }
         .ace_error-word {
             position: absolute;
             border-bottom: 2px dotted red;
+        }
+        .navbar-fixed-bottom {
+            height:28px !important;
+            min-height:28px !important;
+        }
+        .navbar-fixed-bottom > ul > li > a {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+            height: 27px;
+            line-height: 27px;
+            font-size: 0.8em !important;
         }
     </style>
 
@@ -107,20 +83,28 @@
 
 <body>
 
-    <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <ul class="nav nav-tabs">
+            <li dialect="E" class="dialect active"><a>Engly</a></li>
+            <li dialect="O" class="dialect"><a>Objy</a></li>
+            <li dialect="S" class="dialect"><a>Snaky</a></li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
         <div id="editor"></div>
         <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../js/ide/mode-prompto.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/code/mode-prompto.js" type="text/javascript" charset="utf-8"></script>
         <script>
             var editor = ace.edit("editor");
-            editor.getSession().$editor = editor;
-            editor.getSession().setUseWorker(false);
             editor.$blockScrolling = Infinity;
+            editor.setReadOnly(true);
+            editor.setShowPrintMargin(false);
+            editor.setHighlightActiveLine(false);
+            editor.renderer.setShowGutter(false);
+            editor.renderer.$cursorLayer.element.style.display = "none";
             editor.setTheme("ace/theme/eclipse");
-            editor.setValue("", -1);
             editor.getSession().setMode("ace/mode/prompto");
             editor.getSession().getMode().setDialect("E"); // start with something
-            editor.getSession().setUseWorker(true);
         </script>
     </div>
 

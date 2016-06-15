@@ -110,7 +110,6 @@ ace.define('ace/mode/prompto',["require","exports","module","ace/range","ace/lib
     var oop = require("ace/lib/oop");
     var TextMode = require("ace/mode/text").Mode;
     var PromptoHighlightRules = require("ace/mode/prompto_highlight_rules").PromptoHighlightRules;
-    var WorkerClient = require("ace/worker/worker_client").WorkerClient;
     var Range = ace.require("ace/range").Range;
 
     var Mode = function() {
@@ -120,83 +119,12 @@ ace.define('ace/mode/prompto',["require","exports","module","ace/range","ace/lib
 
     (function() {
 
+        this.getDialect = function() {
+            return this.$dialect;
+        };
+
         this.setDialect = function(dialect) {
             this.$dialect = dialect;
-            this.$worker && this.$worker.send("setDialect", [ this.$dialect ] );
-        };
-
-        this.setContent = function(id) {
-            this.$worker && this.$worker.send("setContent", [ id ] );
-        };
-
-        this.destroy = function(id) {
-            this.$worker && this.$worker.send("destroy", [ id ] );
-        };
-
-        this.setProject = function(dbId, loadDependencies) {
-            this.$worker && this.$worker.send("setProject", [ dbId, loadDependencies ] );
-        };
-
-        this.commit = function(dbId) {
-            this.$worker && this.$worker.send("commit", [ dbId ] );
-        };
-
-        this.runMethod = function(id, mode) {
-            this.$worker && this.$worker.send("runMethod", [ id, mode ] );
-        };
-
-        // a utility method to inspect worker data in Firefox/Safari
-        this.inspect = function(name) {
-            this.$worker && this.$worker.send("inspect", [ name ] );
-        };
-
-        this.createWorker = function(session) {
-            this.$worker = new WorkerClient(["ace"], "ace/worker/prompto", "PromptoWorker", "../js/ide/worker-prompto.js");
-            this.$worker.send("setDialect", [ this.$dialect ] );
-            this.$worker.attachToDocument(session.getDocument());
-
-            var $markers = [];
-
-            this.$worker.on("errors", function(e) {
-                session.setAnnotations(e.data);
-            });
-
-            this.$worker.on("annotate", function(e) {
-                session.setAnnotations(e.data);
-                while($markers.length)
-                    session.removeMarker($markers.pop());
-                e.data.map( function(a) {
-                    var range = new Range(a.row, a.column, a.endRow, a.endColumn);
-                    var marker = session.addMarker(range, "ace_error-word", "text", true);
-                    $markers.push(marker);
-                });
-            });
-
-            this.$worker.on("terminate", function() {
-                session.clearAnnotations();
-            });
-
-            this.$worker.on("value", function(v) {
-                session.setValue(v.data);
-                session.$editor.focus();
-                session.$editor.focus();
-            });
-
-            this.$worker.on("catalog", function(v) {
-                parent.catalogUpdated(v.data);
-            });
-
-            this.$worker.on("done", function(v) {
-                parent.done(v.data);
-            });
-
-            // a utility method to inspect worker data in Firefox/Safari
-            this.$worker.on("inspected", function(v) {
-                parent.inspected(v.data);
-            });
-
-            return this.$worker;
-
         };
 
         this.$id = "ace/mode/prompto";
