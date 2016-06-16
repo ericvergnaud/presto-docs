@@ -29,22 +29,58 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+            showHideRunButton();
             installDialectEventHandler();
             notifyParent();
          });
 
+        function showHideRunButton() {
+            var visibility = "hidden";
+            var iframe = parent.document.getElementsByName(window.name);
+            if(iframe.length) {
+                visibility = iframe[0].hasAttribute("runnable") ? "visible" : "hidden";
+            }
+            $("#run-button").css("visibility", visibility);
+            $("#run-button").click(function(e) {
+                var text = $(this).html();
+                if(text=="Done") {
+                    $("#input").css("visibility", "visible");
+                    $("#output").css("visibility", "hidden");
+                    $(this).html("Try it!");
+                } else {
+                    $("#input").css("visibility", "hidden");
+                    $("#output").css("visibility", "visible");
+                    $(this).html("Done");
+                    executePromptoCode();
+                }
+            });
+        }
+
+        function executePromptoCode() {
+            $("#output").html("");
+            var dialect = editor.getSession().getMode().getDialect();
+            var content = editor.getValue();
+            var printer = function(value) {
+                $("#output").html($("#output").html() + value + "<br/>");
+            }
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
         function installDialectEventHandler() {
             $(".dialect").click(function(e) {
-                // translate
-                var from = editor.getSession().getMode().getDialect();
-                var to = this.getAttribute("dialect");
-                editor.getSession().getMode().setDialect(to);
-                var content = editor.getValue();
-                parent.translatePromptoCode(content, from, to, editor);
+                var dialect = this.getAttribute("dialect");
+                translatePromptoCode(dialect);
                 // update UI
                 $(".dialect").removeClass("active");
                 $(this).addClass('active');
            });
+        }
+
+        function translatePromptoCode(to) {
+            var from = editor.getSession().getMode().getDialect();
+            editor.getSession().getMode().setDialect(to);
+            var content = editor.getValue();
+            parent.translatePromptoCode(content, from, to, editor);
         }
 
         function notifyParent() {
@@ -69,45 +105,66 @@
             min-height:28px !important;
         }
         .navbar-fixed-bottom > ul > li > a {
+            font-size: 0.8em !important;
             padding-top: 0px;
             padding-bottom: 0px;
             padding-left: 5px;
             padding-right: 5px;
             height: 27px;
             line-height: 27px;
+        }
+        .navbar-btn {
+            height:22px !important;
+            min-height:22px !important;
             font-size: 0.8em !important;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-right: 5px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        #input {
+            visibility: visible;
+        }
+        #output {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
         }
     </style>
 
 </head>
 
 <body>
-
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <ul class="nav nav-tabs">
-            <li dialect="E" class="dialect active"><a>Engly</a></li>
-            <li dialect="O" class="dialect"><a>Objy</a></li>
-            <li dialect="S" class="dialect"><a>Snaky</a></li>
-        </ul>
-    </nav>
-    <div class="container-fluid">
-        <div id="editor"></div>
-        <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../js/code/mode-prompto.js" type="text/javascript" charset="utf-8"></script>
-        <script>
-            var editor = ace.edit("editor");
-            editor.$blockScrolling = Infinity;
-            editor.setReadOnly(true);
-            editor.setShowPrintMargin(false);
-            editor.setHighlightActiveLine(false);
-            editor.renderer.setShowGutter(false);
-            editor.renderer.$cursorLayer.element.style.display = "none";
-            editor.setTheme("ace/theme/eclipse");
-            editor.getSession().setMode("ace/mode/prompto");
-            editor.getSession().getMode().setDialect("E"); // start with something
-        </script>
+    <div id="input">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <button id="run-button" type="button" class="btn btn-default navbar-btn pull-right">Try it!</button>
+            <ul class="nav nav-tabs">
+                <li dialect="E" class="dialect active"><a>Engly</a></li>
+                <li dialect="O" class="dialect"><a>Objy</a></li>
+                <li dialect="S" class="dialect"><a>Snaky</a></li>
+            </ul>
+        </nav>
+        <div class="container-fluid">
+            <div id="editor"></div>
+            <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+            <script src="../js/code/mode-prompto.js" type="text/javascript" charset="utf-8"></script>
+            <script>
+                var editor = ace.edit("editor");
+                editor.$blockScrolling = Infinity;
+                editor.setReadOnly(true);
+                editor.setShowPrintMargin(false);
+                editor.setHighlightActiveLine(false);
+                editor.renderer.setShowGutter(false);
+                editor.renderer.$cursorLayer.element.style.display = "none";
+                editor.setTheme("ace/theme/eclipse");
+                editor.getSession().setMode("ace/mode/prompto");
+                editor.getSession().getMode().setDialect("E"); // start with something
+            </script>
+        </div>
     </div>
-
+    <div id="output" class="container-fluid" />
 </body>
 </html>
 

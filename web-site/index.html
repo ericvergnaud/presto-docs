@@ -46,7 +46,8 @@
                 var message = event.data;
                 // find handler, remove it, run it
                 var handler = messageHandlers[message.inResponseTo];
-                delete messageHandlers[message.inResponseTo];
+                if(!message.keepHandlerAlive)
+                    delete messageHandlers[message.inResponseTo];
                 handler(message.data);
             };
         }
@@ -68,12 +69,29 @@
                     to : to
                 }
             };
-            // register handler for this message's response
+            // register handler for this message's responses
             messageHandlers[message.id] = function(data) {
                 editor.setValue(data.translated, -1);
             };
             promptoWorker.postMessage(message);
         }
+
+        function executePromptoCode(content, dialect, printer) {
+            var message =  {
+                id : ++nextMessageId,
+                verb : "execute",
+                data : {
+                    content : content,
+                    dialect : dialect
+                }
+            };
+            // register handler for this message's responses
+            messageHandlers[message.id] = function(data) {
+                printer(data.toPrint);
+            };
+            promptoWorker.postMessage(message);
+        }
+
 
     </script>
     <style type="text/css" media="screen">
