@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    a = 3'
+            + "\n" + '    b = a'
+            + "\n" + '    c = 3'
+            + "\n" + '    print "a is b -> " + (a is b)'
+            + "\n" + '    print "a is c -> " + (a is c)'
+            + "\n" + '    print "a is not b -> " + (a is not b)'
+            + "\n" + '    print "a is not c -> " + (a is not c)',
+            c2 : 'define main as method doing:'
+            + "\n" + '    a = 2'
+            + "\n" + '    b = 2'
+            + "\n" + '    c = 3'
+            + "\n" + '    print "a = b -> " + (a = b)'
+            + "\n" + '    print "a = c -> " + (a = c)'
+            + "\n" + '    print "a <> b -> " + (a <> b)'
+            + "\n" + '    print "a <> c -> " + (a <> c)',
+            c3 : 'define main as method doing:'
+            + "\n" + '    a = "hello"'
+            + "\n" + '    b = "HELLO"'
+            + "\n" + '    c = "HEEELLLOOO"'
+            + "\n" + '    print "a ~ b -> " + (a ~ b)'
+            + "\n" + '    print "a ~ c -> " + (a ~ c)',
+            c4 : 'define main as method doing:'
+            + "\n" + '    a = 2'
+            + "\n" + '    print "a is an Integer -> " + (a is an Integer)'
+            + "\n" + '    print "a is a Text -> " + (a is a Text)'
+            + "\n" + '    print "a is not an Integer -> " + (a is not an Integer)'
+            + "\n" + '    print "a is not a Text -> " + (a is not a Text)'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Equality expressions</h2>
+
+        <p>Equality expressions are used to check for equality (or inequality) of 2 expressions.<br/>
+            An expression is a code fragment which produces a <code>Boolean</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+            In the context of programming, equality can have 2 meanings, whether 2 values are the same computable object, or the values themselves are actually equal.<br/>
+        </p>
+        <h3>
+            Checking equality of objects
+        </h3>
+        <p>Checking equality of objects is done using the <code>is</code> operator.<br/>
+            Inequality of objects is checked using the <code>is not</code> operator.<br/>
+            In the below example, <code>a</code> and <code>b</code> refer to the same value.<br/>
+            On the other hand, <code>a</code> and <code>c</code> refer to different values (although those values are equal).
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <h3>
+            Checking equality of values
+        </h3>
+        <p>Comparing equality of values is done using the <code>=</code> operator in E, or the <code>==</code> operator in O or S.<br/>
+            Inequality of values is checked using the <code><></code> operator in E, or the <code>!=</code> operator in O or S.<br/>
+            In the below example, <code>a</code> and <code>b</code> have the same value.<br/>
+            On the other hand, <code>a</code> and <code>c</code> have different values.
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Checking rough equality of values
+        </h3>
+        <p>Strict equality is not always desirable. For example <code>"hello"</code> and <code>"HELLO"</code> are not equal values.<br/>
+            However, it is sometimes desirable to treat them as equal.<br/>
+            Rough equality applies to <code>Text</code> values only (this may be extended in the future).<br/>
+            Rough equality of values is checked using the <code>~</code> operator in E, or the <code>~=</code> operator in O or S.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Checking value type
+        </h3>
+        <p>Prompto also lets you check compatibility of the type of a value and a given type.<br/>
+            This is done using the <code>is a</code> and <code>is not a</code> operators.<br/>
+            In the below example, <code>a</code> is an <code>Integer</code> and is not a <code>Text</code>.
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+    </div>
+</body>
+</html>
