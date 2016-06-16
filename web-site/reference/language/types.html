@@ -23,9 +23,23 @@
 <body>
 <div class="container">
     <div class="row">
+        <h2>Types</h2>
+
+        <p>This section describes types in the Prompto language.</p>
+        <p>Programming languages are used to manipulate all sorts of values: text, image, numbers, time...<br/>
+            Most languages associate values with types. This is required to determine which operations can be performed on a value, and how.<br/>
+            Values can be provided using inline <i>literals</i>, like <code>123</code> or <code>"John"</code>.<br/>
+            Values can also be read from a database, files, the internet and so forth.<br/>
+            In both cases, manipulating values is often done using variables, which associate a name with a value.<br/>
+            Writing <code>a = 123</code> binds the name <code>a</code> with the integer <code>123</code>.<br/>
+            As a consequence, the type of <code>a</code> is integer.<br/>
+            Prompto is statically typed, which means that the type of a variable cannot change.<br/>
+            Prompto uses type inference, which means that generally, types only need to be declared for method parameters.<br/>
+        </p>
+
         <h2>Prompto technical types</h2>
 
-        <p>Like most languages, Prompto comes with built-in types for commonly used types of values.<br/>
+         <p>Prompto comes with built-in types for commonly used types of values.<br/>
             Prompto calls them <i>technical types</i>, because they are defined by their technical structure rather than their meaning.<br/>
             Value types are technical types which can hold a single 'atomic' value: text, number, date and so forth.
             Collection types are technical types which can hold multiple values, typically of the same atomic type.<br/>
@@ -35,12 +49,19 @@
             See attributes and categories for the definition of semantic and composed types.
         </p>
 
+        <p>Being statically typed, Prompto sometimes requires that the type of an object be specified.<br/>
+            This is achieved by simply providing the type name.<br/>
+            The exact syntax depends on the dialect and the fragment being defined.<br/>
+            The below is an example of an attribute declaration in the E dialect.
+        <pre><code>define name as Text attribute</code></pre>
+        </p>
+
         <h2>Value types</h2>
         <p>Value types are technical types which can only hold a single 'atomic' value.</p>
 
         <h2>Text</h2>
 
-        <p>The Text type is a technical type used for values such as a name or description, where the textual representation
+        <p>The <code>Text</code> type is a technical type used for values such as a name or description, where the textual representation
             and the meaning are equivalent.<br/>
             All Text values use <a target = "_blank" href="http://unicode.org">Unicode</a> internally.<br/>
             A Text literal must be enclosed in double quotes.<br/>
@@ -67,7 +88,7 @@
 
         <h2>Character</h2>
 
-        <p>The Character type is a technical type used for easy manipulation of single characters.<br/>
+        <p>The <code>Character</code> type is a technical type used for easy manipulation of single characters.<br/>
             Like Text values, all Character values use <a target = "_blank" href="http://unicode.org">Unicode</a> internally.<br/>
             Character literals support the same escape characters as Text literals.<br/>
             A Character literal must be enclosed in single quotes.<br/>
@@ -76,14 +97,14 @@
 
         <h2>Boolean</h2>
 
-        <p>The Boolean type is a technical type used exclusively for the values true and false.<br/>
+        <p>The <code>Boolean</code> type is a technical type used exclusively for the values true and false.<br/>
             A Boolean literal is simply one of the words <code>true</code> or <code>false</code>.<br/>
             Alternately, Prompto also supports the words <code>True</code> and <code>False</code>.
         </p>
 
         <h2>Integer</h2>
 
-        <p>The Integer type is a technical type used for integral numbers, using 8 bytes, thus ranging from -2<sup>63</sup> to 2<sup>63</sup>-1.<br/>
+        <p>The <code>Integer</code> type is a technical type used for integral numbers, using 8 bytes, thus ranging from -2<sup>63</sup> to 2<sup>63</sup>-1.<br/>
             An Integer literal is simply a sequence of digits, such as <code>13465</code>.<br/>
             Prompto also supports Integer literals using hexadecimal notation, such as <code>0xA3B2FE</code>.<br/>
             Finally, Prompto supports 2 special Integers, <code>MIN_INTEGER</code> and <code>MAX_INTEGER</code>.
@@ -91,7 +112,7 @@
 
         <h2>Decimal</h2>
 
-        <p>The Decimal type is a technical type used for non integral numbers, using 8 bytes as specified by
+        <p>The <code>Decimal</code> type is a technical type used for non integral numbers, using 8 bytes as specified by
             <a target = "_blank" href="http://grouper.ieee.org/groups/754/">IEE 754</a>.<br/>
             A Decimal literal is simply a sequence of digits, followed by a dot and another sequence of digits, such as <code>13465.02</code>.<br/>
             Prompto also supports Decimal literals using scientific notation, such as <code>0.074e32</code>.<br/>
@@ -99,7 +120,7 @@
 
         <h2>Time</h2>
 
-        <p>The Time type is a technical type used for to represent a time of day. It does not support time zones.<br/>
+        <p>The <code>Time</code> type is a technical type used for to represent a time of day. It does not support time zones.<br/>
             A Time literal is a sequence of 2 to 4 integers, separated by a semi colon ':' or a dot for the last one,
             representing the hour of day, the minute, the optional second and the optional millisecond.<br/>
             A Time literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
@@ -110,7 +131,7 @@
 
         <h2>Date</h2>
 
-        <p>The Date type is a technical type used to represent a day. It does not support time zones.<br/>
+        <p>The <code>Date</code> type is a technical type used to represent a day. It does not support time zones.<br/>
             A Date literal is a sequence of 3 integers, separated by a hyphen '-',
             representing the year, the month and the day of the month.<br/>
             A Date literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
@@ -121,7 +142,7 @@
 
         <h2>DateTime</h2>
 
-        <p>The DateTime type is a technical type used to represent an instant, with time zone support.<br/>
+        <p>The <code>DateTime</code> type is a technical type used to represent an instant, with time zone support.<br/>
             A DateTime literal is formed by a Date literal, followed by a 'T', followed by a Time literal,
             optionally followed by a time zone offset.<br/>
             A DateTime literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
@@ -133,7 +154,7 @@
 
         <h2>Period</h2>
 
-        <p>The Period type is a technical type used to represent a period of time, or a duration.<br/>
+        <p>The <code>Period</code> type is a technical type used to represent a period of time, or a duration.<br/>
             A Period literal is formed by a 'P' followed by a sequence of integral quantities preceded by their unit, see examples.<br/>
             Day level units and time level units are separated by a 'T', as in DateTime literals.<br/>
             A Period literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
@@ -146,21 +167,21 @@
 
         <h2>Blob</h2>
 
-        <p>The Blob (<b>B</b>inary <b>L</b>arge <b>OB</b>ject) type is a technical type used to hold an arbitray list of raw bytes.<br/>
+        <p>The <code>Blob</code> (<b>B</b>inary <b>L</b>arge <b>OB</b>ject) type is a technical type used to hold an arbitray list of raw bytes.<br/>
             A Blob has a mime type, which is useful to describe the type of the binary data, notably over the Internet.<br/>
             There is no Blob literal.<br/>
         </p>
 
         <h2>Image</h2>
 
-        <p>The Image type is a specialized Blob type used to hold displayable binary data, such as a JPEG image.<br/>
+        <p>The <code>Image</code> type is a specialized Blob type used to hold displayable binary data, such as a JPEG image.<br/>
             An Image has a mime type, which is useful to describe the type of the binary data, notably over the Internet.<br/>
             There is no Image literal.<br/>
         </p>
 
         <h2>UUID</h2>
 
-        <p>The UUID type is a technical type often used in IT systems such as databases, to provide unique identifiers.<br/>
+        <p>The <code>UUID</code> type is a technical type often used in IT systems such as databases, to provide unique identifiers.<br/>
             A UUID generator is a system which using specific hardware unique data such as MAC address, and current instant,
             is able to generate a globally <b>U</b>niversal <b>U</b>nique <b>ID</b>entifier.<br/>
             A UUID literal is a sequence of characters, digits and hyphens which conform to the <a target="_blank" href="https://tools.ietf.org/html/rfc4122">RFC 4122 specification</a>.<br/>
@@ -176,6 +197,8 @@
 
         <p>The List type is a technical type used to keep together 0 or more items of the same type.<br/>
             The items themselves can be of any type.<br/>
+            A List type is declared by adding square brackets '[]' after the item type.
+            <pre><code>Text[] -> the type Text list</code></pre>
             A List literal must be enclosed in square brackets '[' and ']', the items being separated by a comma ','.<br/>
         <pre><code>[12, 15, -3] -> a List of 3 Integers
 ["Paris", "London", "Singapore"] -> a List of 3 Texts</code></pre>
@@ -190,7 +213,9 @@ a[1] -> get item at position 1 in List referenced by variable 'a' i.e. the Integ
 
         <p>The Tuple type is a technical type used to keep together 0 or more items of different types.<br/>
             The items themselves can be of any type.<br/>
-            A Tuple literal must be enclosed in parenthesis '(' and ')', the items being separated by a comma ','.<br/>
+            A Tuple type is declared as follows.
+        <pre><code>(,) -> the type Tuple</code></pre>
+        A Tuple literal must be enclosed in parenthesis '(' and ')', the items being separated by a comma ','.<br/>
             For Tuple comprising 0 or 1 item, because the above could be interpreted as a parenthesized expression, a comma ',' must precede the right parenthesis.<br/>
         <pre><code>(,) -> the empty Tuple
 (3.14,) -> a Tuple of 1 item
@@ -206,6 +231,8 @@ a[1] -> get item at position 1 in Tuple referenced by variable 'a' i.e. the Text
 
         <p>The Set type is a technical type used to keep together 0 or more <b><i>distinct</i></b> items of the same type.<br/>
             The items themselves can be of any type.<br/>
+            A Set type is declared by adding angle brackets '<>' after the item type.
+        <pre><code>Text<> -> the type Text set</code></pre>
             A Set literal must be enclosed in angle brackets '<' and '>', the items being separated by a comma ','.<br/>
         <pre><code><12, 15, -3> -> a set of 3 Integers
 <"Paris", "London", "Singapore"> -> a Set of 3 Texts</code></pre>
@@ -222,6 +249,8 @@ s contains 12 -> return true if Set referenced by variable 's' contains the Inte
 
         <p>The Dictionary type is a technical type used to keep together 0 or more items of the same type and access them using a Text key.<br/>
             The items themselves can be of any type.<br/>
+            A Dictionary type is declared by adding curly brackets '{}' after the item type.
+        <pre><code>Text{} -> the type Text dictionary</code></pre>
             A Dictionary literal must be enclosed in curly brackets '{' and '}', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
         <pre><code>{} -> an empty Dictionary
 { "Paris" : "France", "London" : "England", "Berlin" : "Germany" } -> a Dictionary of 3 keys and Text values</code></pre>
@@ -233,7 +262,7 @@ d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable '
 
         <h2>Document</h2>
 
-        <p>The Document type is a technical type used to manipulate arbitrary data structures with loose typing.<br/>
+        <p>The <code>Document</code> type is a technical type used to manipulate arbitrary data structures with loose typing.<br/>
             A Document has items which can be of any type, atomic, collection or Document.<br/>
             A Document is useful to carry data read from the store, from files or from the Internet, and convert it to typed data.<br/>
             A Document is also useful to write typed data to the store, to files or to the Internet.<br/>
@@ -243,6 +272,8 @@ d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable '
 
         <p>The Range type is a technical type used to create sequences of 1 or more items of the same discrete type.<br/>
             The items themselves can only be of type Character, Integer, Date or Time.<br/>
+            A Range type is declared by adding 2 dots enclosed in square brackets '[..]' after the item type.
+        <pre><code>Integer[..] -> the type Integer range</code></pre>
             A Range literal must be enclosed in square brackets '[' and ']', the start and end value being separated by 2 dots '..'.<br/>
         <pre><code>[1..17] -> all Integers ranging from 1 to 17 included
 ['c'..'k'] -> all Characters ranging from 'c' to 'k' included (using their Unicode value)
@@ -260,34 +291,35 @@ r[4] -> get item at position 4 in Range referenced by variable 'r' i.e. the Inte
 
         <h2>Any</h2>
 
-        <p>The Any type is a general technical type to represent any type of data.<br/>
+        <p>The <code>Any</code> type is a general technical type to represent any type of data.<br/>
             This type is useful for describing value types when the actual type is not known at compile time.<br/>
-            It is also useful to represent opaque native types.<br/>
+            It is also useful to hold opaque native values.<br/>
         </p>
 
         <h2>Method</h2>
 
-        <p>The Method type is a technical type used to hold Prompto methods.<br/>
-            Prompto supports passing methods as parameters.<br/>
+        <p>The <code>Method</code> type is a technical type used to hold Prompto methods.<br/>
+            Method types are declared implicitly when declaring methods.<br/>
+            Prompto supports assigning methods to variables and passing them as parameters.<br/>
         <pre><code>m = myMethod -> assign the method 'myMethod' to variable 'm'</code></pre>
         </p>
 
         <h2>Code</h2>
 
-        <p>The Code type is a technical type used to represent Prompto code.<br/>
+        <p>The <code>Code</code> type is a technical type used to represent Prompto code.<br/>
             Prompto supports passing code snippets as parameters, so this is useful for passing code to methods.<br/>
         <pre><code>c = Code: a + b -> assign the Prompto code 'a + b' to variable 'c'</code></pre>
         </p>
 
         <h2>Iterator</h2>
 
-        <p>The Iterator type is a technical type produced by Prompto when transforming a collection inline.<br/>
+        <p>The <code>Iterator</code> type is a technical type produced by Prompto when transforming a collection inline.<br/>
          <pre><code>x + 1 for each x in [1..5] -> returns an Iterator which will produce an item on each iteration</code></pre>
         </p>
 
         <h2>Cursor</h2>
 
-        <p>The Cursor type is a technical type used to navigate through data returned by the data store.<br/>
+        <p>The <code>Cursor</code> type is a technical type used to navigate through data returned by the data store.<br/>
         <pre><code>c = fetch all -> returns a Cursor which will produce an item on each iteration</code></pre>
         </p>
     </div>

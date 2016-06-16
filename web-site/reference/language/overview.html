@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Overview</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Overview</h2>
+
+        <p>Prompto is a platform for building and running information systems.<br/>
+        It comprises different components:<br/>
+        <ul>
+            <li>a code store used to store and distribute application code across the infrastructure</li>
+            <li>data store adapters, used to store business data in popular distributed data stores</li>
+            <li>administration tools, used to manage execution of applications on the infrastructure</li>
+            <li>development tools, used to build applications, test them, and validate them</li>
+            <li>a programming language, named Prompto</li>
+        </ul>
+        This reference focuses on the programming language, and may sometimes refer to other components.
+        </p>
+
+        <h2>Business applications</h2>
+
+        <p>Business applications are applications which focus on business logic and user interaction,
+            as opposed to middleware applications which focus on technical tasks such as data storage,
+            message broadcasting, or serving web pages.<br/>
+            Business applications typically make heavy use of a database, and span across multiple components: database, back end and front end.<br/>
+            Prompto is designed to help organizations be more effective in building business applications.<br/>
+            It achieves this by focusing on business logic, integration and presentation, while still relying for technical tasks
+            on the exceptional ecosystems available from traditional platforms.
+        </p>
+
+        <h2>Run everywhere</h2>
+
+        <p>Business applications are typically built using languages such as Java, C#, Python, JavaScript and Swift.<br/>
+            There is a Prompto runtime for each of those host languages, and they are 100% compatible with each other.<br/>
+            Prompto runs as part of its host languages and thus fully integrates with them.<br/>
+            Prompto comprises data manipulation instructions which remove the need to program in SQL.<br/>
+            Prompto runs in Java, C#, Python or JavaScript. It natively integrates with any back end infrastucture.<br/>
+            Prompto also runs in browsers, Java RCP, .Net RCP and native iOS applications (Swift runtime not available yet).
+        </p>
+
+        <h2>Interpreted <i>and</i> compiled</h2>
+
+        <p>Prompto runs in both interpreted and compiled mode.<br/>
+            The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
+            The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR byte code (compiler not available yet).<br/>
+            The Python 2 and Python 3 runtimes come with an interpreter and a transpiler which is able to transpile Prompto code to Python byte code (transpiler not available yet).<br/>
+            The JavaScript runtime come withs an interpreter and a transpiler which is able to transpile Prompto code to JavaScript code (transpiler not available yet).<br/>
+            The Swift runtime is planned but not available yet.
+        </p>
+
+        <h2>Statically inferred types</h2>
+
+        <p>Prompto uses static typing, like Java or C# do. This is required to ensure best performance on these platforms.<br/>
+            However, Prompto relies heavily on type inference, thus freeing the developer from having to declare obvious types.<br/>
+            When writing <code>a = 123</code> code, it is obvious that <code>a</code> is an integer, so there is no need to declare it.<br/>
+            Method parameter types still need to be declared though, because they cannot be inferred.
+        </p>
+
+        <h2>Reified attributes</h2>
+
+        <p>Prompto introduces reified attributes, a simple and effective way to model data.<br/>
+            Attributes are also known as fields, properties or columns.<br/>
+            In most data models (relational, object, noSql), they have limited scope: table or object definition.<br/>
+            Reified attributes are attributes defined globally. Being global, they can then be shared by all tables and object definitions.<br/>
+            Amongst other benefits, reified attributes:
+            <ul>
+                <li>enable new search capabilities</li>
+                <li>enable a single data model across all application tiers</li>
+                <li>enable enterprise level controlled vocabularies</li>
+                <li>enable semantic types, as opposed to technical types</li>
+                <li>eliminate the <a href"https://en.wikipedia.org/wiki/Multiple_inheritance">deadly diamond problem</a></li>
+                <li>eliminate the <a href"https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">impedance mismatch problem</a></li>
+            </ul>
+        </p>
+
+        <h2>Global names</h2>
+
+        <p>Prompto names are global i.e. there is no concept of namespace in Prompto.<br/>
+            At Prompto, we believe namespaces make sense for technical components, but not for business domains.<br/>
+            If a given name has a different meaning in 2 departments of the same business, then it is likely to create business issues, unrelated to IT.
+            That problem should be solved by adopting common terminology across departments, not through IT islands.<br/>
+            A side-effect of having global names is that names need to be chosen carefully.<br/>
+            At Prompto, we believe this is a feature: it encourages high quality of naming.<br/>
+        </p>
+
+        <h2>Prompto dialects: syntax is a detail</h2>
+
+        <p>To facilitate the conversation between all types of developers, Prompto comes with not one "language" but three.<br/>
+            Prompto calls these dialects, as they are not independant languages, but rather 3 syntactic variations of the same language concepts.<br/>
+            They make it very easy for any developer to adopt the Prompto platform, whatever his/her coding background.<br/>
+            Prompto dialects seamlessly translate to one another.<br>
+            By doing so, they eliminate the barrier of having to learn a formal grammar only to read code.<br/>
+            They are a collaborative tool which helps technologists work together.
+        </p>
+
+
+    </div>
+</body>
+</html>
