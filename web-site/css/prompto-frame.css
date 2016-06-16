@@ -107,3 +107,9 @@ body {
 p code {
     color: #0D0998;
 }
+
+.displayer {
+    margin-left: 30px;
+    width: 600px;
+}
+
