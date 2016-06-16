@@ -61,12 +61,18 @@
         <h2>Interpreted <i>and</i> compiled</h2>
 
         <p>Prompto runs in both interpreted and compiled mode.<br/>
+            There are good reasons for supporting both interpreted and compiled mode:
+            <ul>
+                <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
+                <li>Incorrect code will fail to compile. The interpreter is able to run incorrect code, which can be useful during development.</li>
+                <li>Transpiled code (in Python and JavaScript) is hard to debug because it does not map exactly to Prompto code.</li>
+            </ul>
             The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
             The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR byte code (compiler not available yet).<br/>
             The Python 2 and Python 3 runtimes come with an interpreter and a transpiler which is able to transpile Prompto code to Python byte code (transpiler not available yet).<br/>
             The JavaScript runtime come withs an interpreter and a transpiler which is able to transpile Prompto code to JavaScript code (transpiler not available yet).<br/>
             The Swift runtime is planned but not available yet.
-        </p>
+       </p>
 
         <h2>Statically inferred types</h2>
 

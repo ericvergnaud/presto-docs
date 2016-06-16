@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Comparison expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    a = "some text"'
+            + "\n" + '    b = "some other text"'
+            + "\n" + '    c = "some text"'
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)',
+            c2 : 'define main as method doing:'
+            + "\n" + "    a = 'x'"
+            + "\n" + "    b = 'y'"
+            + "\n" + "    c = 'x'"
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)',
+            c3 : 'define main as method doing:'
+            + "\n" + '    a = 2'
+            + "\n" + '    b = 3'
+            + "\n" + '    c = 2.0'
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)',
+            c4 : 'define main as method doing:'
+            + "\n" + "    a = '2012-03-12'"
+            + "\n" + "    b = '2012-04-13'"
+            + "\n" + "    c = '2012-03-12'"
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)',
+            c5 : 'define main as method doing:'
+            + "\n" + "    a = '13:03:17.007'"
+            + "\n" + "    b = '08:19:14'"
+            + "\n" + "    c = '13:03:17.007'"
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)',
+            c6 : 'define main as method doing:'
+            + "\n" + "    a = '2012-03-12T13:03:17.007+02:00'"
+            + "\n" + "    b = '2012-04-13T08:19:14'"
+            + "\n" + "    c = '2012-03-12T13:03:17.007+02:00'"
+            + "\n" + '    print "a < b -> " + (a < b)'
+            + "\n" + '    print "a > b -> " + (a > b)'
+            + "\n" + '    print "a >= c -> " + (a >= c)'
+            + "\n" + '    print "a <= c -> " + (a <= c)'
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Comparison expressions</h2>
+
+        <p>Comparison expressions are used to compare expressions with order in mind (which is greater?).<br/>
+            A comparison expression is a code fragment which produces a <code>Boolean</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+            Prompto supports the following comparison operators: <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> and <code>&gt;=</code>.<br/>
+            Please note that <code>&lt;</code> and <code>&gt;=</code> are mutually exlusive, same for <code>&lt;=</code> and <code>&gt;</code>.<br/>
+            Also note that Prompto can only compare compatible values (it does not make sense to compare text and number).
+        </p>
+        <h3>Comparing Text values</h3>
+
+        <p>Prompto compares Text values lexicographically i.e. using their underlying Unicode representation.</p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Comparing Character values</h3>
+
+        <p>Prompto compares Character values lexicographically i.e. using their underlying Unicode representation.</p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Comparing Integer and Decimal values</h3>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Comparing Date values</h3>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <h3>Comparing Time values</h3>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <h3>Comparing DateTime values</h3>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Comparing user defined values</h3>
+
+        <p>Prompto supports user defined comparisons. See categories for details.</p>
+    </div>
+</body>
+</html>
