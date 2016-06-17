@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Multiply expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    a = 2'
+            + "\n" + '    b = 3'
+            + "\n" + '    c = 4.0'
+            + "\n" + '    d = 2.7'
+            + "\n" + '    print "a * b -> " + (a * b)'
+            + "\n" + '    print "a * c -> " + (a * c)'
+            + "\n" + '    print "c * d -> " + (c * d)'
+            + "\n" + '    print "c * b -> " + (c * a)',
+            c2 : 'define main as method doing:'
+            + "\n" + "    a = 'x'"
+            + "\n" + '    b = "hello "'
+            + "\n" + '    c = 4'
+            + "\n" + '    print "a * c -> " + (a * c)'
+            + "\n" + '    print "b * c -> " + (b * c)',
+            c3 : 'define main as method doing:'
+            + "\n" + "    a = 'P3DT11M3S'"
+            + "\n" + "    b = 3"
+            + "\n" + '    print "a * b -> " + (a * b)',
+            c4 : 'define main as method doing:'
+            + "\n" + "    a = [1, 2, 3]"
+            + "\n" + "    b = 3"
+            + "\n" + '    print "a * b -> " + (a * b)'
+         };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Multiply expressions</h2>
+
+        <p>Multiply expressions are used to multiply 2 values.<br/>
+            A multiply expression is a code fragment which produces a value, whose type is determined by the values being subtracted, and which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+            A multiply expression has the form <code>a * b</code>.<br/>
+            The <code>*</code> operator is used because <code>x</code> being a letter, it can be used as a name, which would be confusing.
+        </p>
+        <h3>
+            Multiplying Integer and Decimal values
+        </h3>
+        <p>Multiplying Integer and Decimal values returns an Integer value if both values are Integer, and a Decimal otherwise.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Multiplying Text or Character and Integer values
+        </h3>
+        <p>Multiplying Text or Character and Integer values returns a Text value, where the left-hand side is concatenated <i>n</i> times.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Multiplying Period and Integer values
+        </h3>
+        <p>Multiplying Period and Integer values returns a Period value.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Multiplying List and Integer values
+        </h3>
+        <p>Multiplying List and Integer values returns a List value, where the left-hand side is added to itself <i>n</i> times.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Multiplying user defined values</h3>
+
+        <p>Prompto supports multiplying user defined values. See categories for details.</p>
+
+    </div>
+</body>
+</html>
