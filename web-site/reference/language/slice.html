@@ -24,46 +24,24 @@
 
         var samples =  {
             c1 : 'define main as method doing:'
-            + "\n" + '    a = (1=1)'
-            + "\n" + '    b = (1=2)'
-            + "\n" + '    c = (2=2)'
-            + "\n" + '    print "a and b -> " + (a and b)'
-            + "\n" + '    print "a and c -> " + (a and c)',
+            + "\n" + '    a = [1, 2, 3, 7, 11, 19]'
+            + "\n" + '    print "a[2:4] -> " + a[2:4]'
+            + "\n" + '    print "a[2:-2] -> " + a[2:-2]'
+            + "\n" + '    print "a[:4] -> " + a[:4]'
+            + "\n" + '    print "a[3:] -> " + a[3:]',
             c2 : 'define main as method doing:'
-            + "\n" + '    a = (1=1)'
-            + "\n" + '    b = (1=2)'
-            + "\n" + '    c = (2=3)'
-            + "\n" + '    print "a or b -> " + (a or b)'
-            + "\n" + '    print "b or c -> " + (b or c)',
+            + "\n" + '    a = [13..22]'
+            + "\n" + '    print "a[2:4] -> " + a[2:4]'
+            + "\n" + '    print "a[2:-2] -> " + a[2:-2]'
+            + "\n" + '    print "a[:4] -> " + a[:4]'
+            + "\n" + '    print "a[3:] -> " + a[3:]',
             c3 : 'define main as method doing:'
-            + "\n" + '    a = true'
-            + "\n" + '    b = false'
-            + "\n" + '    print "not a -> " + (not a)'
-            + "\n" + '    print "not b -> " + (not b)',
-            c4 : 'define main as method doing:'
-            + "\n" + "    a = '2012-03-12'"
-            + "\n" + "    b = '2012-04-13'"
-            + "\n" + "    c = '2012-03-12'"
-            + "\n" + '    print "a < b -> " + (a < b)'
-            + "\n" + '    print "a > b -> " + (a > b)'
-            + "\n" + '    print "a >= c -> " + (a >= c)'
-            + "\n" + '    print "a <= c -> " + (a <= c)',
-            c5 : 'define main as method doing:'
-            + "\n" + "    a = '13:03:17.007'"
-            + "\n" + "    b = '08:19:14'"
-            + "\n" + "    c = '13:03:17.007'"
-            + "\n" + '    print "a < b -> " + (a < b)'
-            + "\n" + '    print "a > b -> " + (a > b)'
-            + "\n" + '    print "a >= c -> " + (a >= c)'
-            + "\n" + '    print "a <= c -> " + (a <= c)',
-            c6 : 'define main as method doing:'
-            + "\n" + "    a = '2012-03-12T13:03:17.007+02:00'"
-            + "\n" + "    b = '2012-04-13T08:19:14'"
-            + "\n" + "    c = '2012-03-12T13:03:17.007+02:00'"
-            + "\n" + '    print "a < b -> " + (a < b)'
-            + "\n" + '    print "a > b -> " + (a > b)'
-            + "\n" + '    print "a >= c -> " + (a >= c)'
-            + "\n" + '    print "a <= c -> " + (a <= c)'
+            + "\n" + '    a = "Some text"'
+            + "\n" + '    print "a[2:4] -> " + a[2:4]'
+            + "\n" + '    print "a[2:-2] -> " + a[2:-2]'
+            + "\n" + '    print "a[:4] -> " + a[:4]'
+            + "\n" + '    print "a[3:] -> " + a[3:]'
+
         };
 
         function editorReady(frame, editor) {
@@ -86,51 +64,44 @@
 
         <h2>Slice expressions</h2>
 
-        <h3>Logical AND</h3>
-
-        <p>Logical AND expressions are used to check both of 2 Boolean values.<br/>
-            A logical AND expression is a code fragment which produces a <code>Boolean</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
-            A logical AND expression has the form <code>a <i>op</i> b</code> where <code>a</code> and <code>b</code> are Boolean values and <code><i>op</i></code> is one the following comparison operators:<br/>
-        <ul>
-            <li><code>and</code> in the E and S dialects</li>
-            <li><code>&amp;&amp;</code> in the O dialect</li>
-        </ul>
+        <p>Slice expressions are used to extract a sub-collection of a collection value.<br/>
+            A Slice is a code fragment which produces a value, whose type is determined by the value being retrieved,
+            which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+            A Slice expression has the form <code><i>collection</i>[<i>start</i>:<i>end</i>]</code>
+            where <code>collection</code> is a collection value and <code>start</code> and <code>end</code> are Integer values.<br/>
+            Either <code><i>start</i></code> or <code><i>end</i></code> can be omitted, but not both. If omitted, they are replaced by their default value
+            i.e. 1 and <i>n</i> where <i>n</i> is the number of collection items.<br/>
+            The <code><i>end</i></code> value can be negative, in which case Prompto will count backwards.<br/>
+            Both <code><i>start</i></code> and <code><i>end</i></code> items are included in the result.<br/>
+            If either <code><i>start</i></code> or <code><i>end</i></code> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
         </p>
 
-        <p>Prompto is guaranteed to check <code>a</code> first, and only check <code>b</code> if <code>a</code> is true.<br/>
+        <h3>List slice</h3>
+
+        <p>The type of the resulting value is the same as the List value.<br/>
+
         <div>
             <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h3>Logical OR</h3>
+        <h3>Range slice</h3>
 
-        <p>Logical OR expressions are used to check either of 2 Boolean values.<br/>
-            A logical OR expression is a code fragment which produces a <code>Boolean</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
-            A logical OR expression has the form <code>a <i>op</i> b</code> where <code>a</code> and <code>b</code> are Boolean values and <code><i>op</i></code> is one the following comparison operators:<br/>
-        <ul>
-            <li><code>or</code> in the E and S dialects</li>
-            <li><code>||</code> in the O dialect</li>
-        </ul>
-        </p>
+        <p>The type of the resulting value is the same as the Range value.<br/>
 
-        <p>Prompto is guaranteed to check <code>a</code> first, and only check <code>b</code> if <code>a</code> is false.<br/>
         <div>
             <iframe class="displayer" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h3>Logical NOT</h3>
+        <h3>Text slice</h3>
 
-        <p>Logical NOT expressions are used to reverse Boolean values.<br/>
-            A logical NOT expression is a code fragment which produces a <code>Boolean</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
-            A logical NOT expression has the form <code><i>op</i> a</code> where <code>a</code> is a Boolean value and <code><i>op</i></code> is one the following comparison operators:<br/>
-        <ul>
-            <li><code>not</code> in the E and S dialects</li>
-            <li><code>!</code> in the O dialect</li>
-        </ul>
+        <p>Although Text values are considered 'atomic' by Prompto, it can be convenient to sometimes treat them as a List of Character.<br/>
+            The type of the resulting value is a Text.
         </p>
+
         <div>
             <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
+
     </div>
 </body>
 </html>

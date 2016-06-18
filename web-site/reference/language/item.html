@@ -89,14 +89,14 @@
             An item expression is a code fragment which produces a value, whose type is determined by the value being retrieved,
             which can then be used as an input for other operations: print, write, method call and so forth.<br/>
             An item expression has the form <code><i>collection</i>[<i>item</i>]</code> where <code>collection</code>
-            is any collection value and <code>item</code> has the type expected by <code><i>collection</i></code>.<br/>
+            is a collection value and <code>item</code> has the type expected by <code><i>collection</i></code>.<br/>
         </p>
 
         <h3>List item</h3>
 
         <p>An item from a List value must be retrieved using an Integer, ranging from 1 to <i>n</i> where <i>n</i> is the number of items in the List value.<br/>
             If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
-            The type of the resulting value depends on the List type.
+            The type of the resulting value is the List item type.
         </p>
 
         <div>
@@ -118,7 +118,7 @@
 
         <p>An item from a Range value must be retrieved using an Integer, ranging from 1 to <i>n</i> where <i>n</i> is the number of items in the Range value.<br/>
             If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
-            The type of the resulting value depends on the Range type.
+            The type of the resulting value is the Range item type.
         </p>
 
         <div>
@@ -129,7 +129,7 @@
 
         <p>An item from a Dictionary value must be retrieved using a Text key.<br/>
             If the Dictionary has no value for the key, it will return the <code>null</code> value.<br/>
-            The type of the resulting value depends on the Dictionary type.
+            The type of the resulting value is the Dictionary item type.
         </p>
 
         <div>
@@ -166,7 +166,7 @@
             It can however be convenient during development to retrieve Set items. This is the <i>only</i> reason why Prompto supports this feature.</p>
         <p>An item from a Set value must be retrieved using an Integer, ranging from 1 to <i>n</i> where <i>n</i> is the number of items in the Set value.<br/>
             If the <i>item</i> value is out range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
-            The type of the resulting value depends on the Set type.
+            The type of the resulting value is the Set item type.
         </p>
         <p><b>You must NOT use Set items in production code. This feature is for development only.</b><br/>
         <div>
