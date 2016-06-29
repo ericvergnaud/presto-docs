@@ -133,4 +133,16 @@ code > i {
     height: 260px;
 }
 
+.displayer-16-lines {
+    height: 290px;
+}
+
+.displayer-18-lines {
+    height: 320px;
+}
+
+.displayer-20-lines {
+    height: 350px;
+}
+
 
