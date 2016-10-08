@@ -4,6 +4,36 @@ importScripts("../lib/require.js");
 // only load prompto once require is loaded
 importScripts("../lib/prompto.bundle.js");
 
+function loadText(url, success) {
+    var xhr = new XMLHttpRequest();
+    xhr.onerror = function(e) {
+        self.console.log("Error " + e.target.status + " occurred while receiving the document.");
+        return null;
+    };
+    xhr.onload = function(e) {
+        success(xhr.responseText);
+    };
+    xhr.open('GET', url);
+    if(url[0]!="/" && url[0]!=".")
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhr.send(null);
+};
+
+// create global context
+var librariesContext = prompto.runtime.Context.newGlobalContext();
+loadText("../../prompto/prompto.pec", function(code) {
+    var decls = parse(code, "E");
+    decls.register(this.librariesContext);
+    // remove the original "print" method
+    var decl = { name: "print" };
+    this.librariesContext.unregisterMethodDeclaration(decl,"any");
+    // replace "print" with a custom "print" method
+    code = "native method print ( any value ) { JavaScript: console.log(value.toString()); }"
+    decls = parse(code, "O");
+    decls.register(this.librariesContext);
+
+});
+
 
 // manage events
 onmessage = function(event) {
@@ -29,7 +59,7 @@ function translate(message) {
     var data = message.data;
     var decls = parse(data.content, data.from);
     var dialect = prompto.parser.Dialect[data.to];
-    var context = prompto.runtime.Context.newGlobalContext();
+    var context = this.librariesContext.newChildContext();
     var writer = new prompto.utils.CodeWriter(dialect, context);
     decls.toDialect(writer);
     return {
@@ -52,12 +82,8 @@ function execute(message) {
     };
     // execute code
     var data = message.data;
-    var context = prompto.runtime.Context.newGlobalContext();
+    var context = this.librariesContext.newChildContext();
     console.log("Running sample...")
-    // need a "print" method
-    var printCode = "native method print ( any value ) { JavaScript: console.log(value.toString()); }"
-    decls = parse(printCode, "O");
-    decls.register(context);
     // parse incoming code
     var decls = parse(data.content, data.dialect);
     decls.register(context);

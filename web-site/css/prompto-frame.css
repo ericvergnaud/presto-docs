@@ -115,6 +115,15 @@ code > i {
 .displayer {
     margin-left: 30px;
     width: 600px;
+    height: 140px;
+}
+
+.displayer-4-lines {
+    height: 110px;
+}
+
+.displayer-6-lines {
+    height: 140px;
 }
 
 .displayer-8-lines {

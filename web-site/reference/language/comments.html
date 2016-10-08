@@ -44,16 +44,18 @@
 
         <p>Prompto supports comments in the form of line comments.<br/>
             A line comment is a line of text starting by <code>//</code> in E and O dialects, or <code>#</code> in S dialect.<br/>
-            Because Prompto code is ususally not stored in files, a comment cannot be attached to a file location.
-            Instead, a comment is always attached to the next non-comment line of code.
+            Prompto code is ususally not stored in files, so a comment cannot be attached to a file location.
+            Instead, a comment is always attached to the next non-comment line of code.<br/>
+            In the below example, the line comment is attached to the attribute declaration.
          </p>
 
         <div>
             <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
         <br/>
-        <p>Prompto does not support Java-style inline comments <code>/* ... */</code>, because it would be impossible to place them when translating code from one dialect to another.<br/>
-            For the same reason, Prompto does not support end of line comments, such as <code>a = 2 // assign 2 to a</code>.<br/>
+        <p>Prompto does not support Java-style inline comments <code>/* ... */</code>,
+            because it would be impossible to place them when translating code from one dialect to another.
+            For the same reason, Prompto does not support end of line comments, such as <code>a = 2 <i>// assign 2 to a</i></code>.
             The O dialect ignores line breaks, while the E and S dialects don't, so they would dangle around when translated.
         </p>
 

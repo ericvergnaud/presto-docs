@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Read expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    content = read from Url with "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" as path'
+            + "\n" + '    print content',
+            c2 : 'define name as Text attribute'
+            + "\n"
+            + "\n" + 'define Person as category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p = Person with "John" as name'
+            + "\n" + '    print "p is an Integer -> " + (p is an Integer)'
+            + "\n" + '    print "p is a Person -> " + (p is a Person)',
+            c3 : 'define name as Text attribute'
+            + "\n" + 'define job as Text attribute'
+            + "\n"
+            + "\n" + 'define Person as category with attribute name'
+            + "\n" + 'define Employee as Person with attribute job'
+            + "\n"
+            + "\n" + 'define createPersonOrEmployee as method receiving name and job returning Person doing:'
+            + "\n" + '    if job is nothing:'
+            + "\n" + '        return Person with name as name'
+            + "\n" + '    else:'
+            + "\n" + '        return Employee with name as name and job as job'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    // the below sets the type of p to Person'
+            + "\n" + '    p = createPersonOrEmployee with "John" as name and "manager" as job'
+            + "\n" + '    // it would be illegal to refer to p.job here, because job is not an attribute of Person'
+            + "\n" + '    if p is an Employee:'
+            + "\n" + '        // now p is treated as an Employee'
+            + "\n" + '        print "job of Employee p -> " + p.job'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Read expressions</h2>
+
+        <p>Read expressions are used to read content from a resource.<br/>
+            A read expression is a code fragment which produces a <code>Text</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+        </p>
+        <h3>
+            Reading the content of an inline resource
+        </h3>
+        <p>Reading the content of a resource can be achieved using an inline resource.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
+        </div>
+
+        <h3>
+            Checking type of user defined values
+        </h3>
+        <p>When checking type of user defined values, Prompto checks for compatibility rather than equality.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Auto downcast
+        </h3>
+        <p>When checking type of user defined values in an <code>if</code> statement, Prompto automatically downcasts the value type for the corresponding statements.
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-20-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+
+    </div>
+</body>
+</html>

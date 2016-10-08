@@ -42,7 +42,7 @@
         <p>Business applications are applications which focus on business logic and user interaction,
             as opposed to middleware applications which focus on technical tasks such as data storage,
             message broadcasting, or serving web pages.<br/>
-            Business applications typically make heavy use of a database, and span across multiple components: database, back end and front end.<br/>
+            Business applications typically make heavy use of a data store, and span across multiple components: data store, back end and front end.<br/>
             Prompto is designed to help organizations be more effective in building business applications.<br/>
             It achieves this by focusing on business logic, integration and presentation, while still relying for technical tasks
             on the exceptional ecosystems available from traditional platforms.
@@ -50,7 +50,7 @@
 
         <h2>Run everywhere</h2>
 
-        <p>Business applications are typically built using languages such as Java, C#, Python, JavaScript and Swift.<br/>
+        <p>Business applications are typically built using languages such as Java, C#, Python, JavaScript or Swift.<br/>
             There is a Prompto runtime for each of those host languages, and they are 100% compatible with each other.<br/>
             Prompto runs as part of its host languages and thus fully integrates with them.<br/>
             Prompto comprises data manipulation instructions which remove the need to program in SQL.<br/>
@@ -77,7 +77,7 @@
         <h2>Statically inferred types</h2>
 
         <p>Prompto uses static typing, like Java or C# do. This is required to ensure best performance on these platforms.<br/>
-            However, Prompto relies heavily on type inference, thus freeing the developer from having to declare obvious types.<br/>
+            Prompto implements type inference, thus freeing the developer from having to declare obvious types.<br/>
             When writing <code>a = 123</code> code, it is obvious that <code>a</code> is an integer, so there is no need to declare it.<br/>
             Method parameter types still need to be declared though, because they cannot be inferred.
         </p>
@@ -109,17 +109,17 @@
             At Prompto, we believe this is a feature: it encourages high quality of naming.<br/>
         </p>
 
-        <h2>Global and dynamic polymorphic methods methods</h2>
+        <h2>Global and dynamic polymorphic methods</h2>
 
         <p>Prompto methods can either be attached to object definitions or be global, like in Python or JavaScript.<br/>
-            Prompto methods are polymorphic i.e. 2 methods can coexist if they accept a different set of parameters, like in Java or C#.<br/>
+            Prompto methods are polymorphic i.e. 2 methods with the same name can coexist if they accept a different set of parameters, like in Java or C#.<br/>
             However Prompto goes a step further by selecting the most appropriate method at runtime rather than compile time.<br/>
             This feature greatly simplifies development and data modeling, by eliminating the need for <a href="https://en.wikipedia.org/wiki/Double_dispatch">double dispatch</a>.
         </p>
 
         <h2>Prompto dialects: syntax is a detail</h2>
 
-        <p>To facilitate the conversation between all types of developers, Prompto comes with not one "language" but three.<br/>
+        <p>To facilitate the conversation between all breeds of developers, Prompto comes with not one "language" but three.<br/>
             Prompto calls these dialects, as they are not independant languages, but rather 3 syntactic variations of the same language concepts.<br/>
             They make it very easy for any developer to adopt the Prompto platform, whatever his/her coding background.<br/>
             Prompto dialects seamlessly translate to one another.<br>
