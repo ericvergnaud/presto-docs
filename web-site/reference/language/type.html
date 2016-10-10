@@ -29,16 +29,13 @@
             + "\n" + '    print "a is a Text -> " + (a is a Text)'
             + "\n" + '    print "a is not an Integer -> " + (a is not an Integer)'
             + "\n" + '    print "a is not a Text -> " + (a is not a Text)',
-            c2 : 'define name as Text attribute'
-            + "\n"
-            + "\n" + 'define Person as category with attribute name'
+            c2 : 'define Person as category with attribute name'
             + "\n"
             + "\n" + 'define main as method doing:'
             + "\n" + '    p = Person with "John" as name'
             + "\n" + '    print "p is an Integer -> " + (p is an Integer)'
             + "\n" + '    print "p is a Person -> " + (p is a Person)',
-            c3 : 'define name as Text attribute'
-            + "\n" + 'define job as Text attribute'
+            c3 : 'define job as Text attribute'
             + "\n"
             + "\n" + 'define Person as category with attribute name'
             + "\n" + 'define Employee as Person with attribute job'
@@ -52,7 +49,8 @@
             + "\n" + 'define main as method doing:'
             + "\n" + '    // the below sets the type of p to Person'
             + "\n" + '    p = createPersonOrEmployee with "John" as name and "manager" as job'
-            + "\n" + '    // it would be illegal to refer to p.job here, because job is not an attribute of Person'
+            + "\n" + '    // it would be illegal to refer to p.job here'
+            + "\n" + '    // because job is not an attribute of Person'
             + "\n" + '    if p is an Employee:'
             + "\n" + '        // now p is treated as an Employee'
             + "\n" + '        print "job of Employee p -> " + p.job'

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Types</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Collection types</h2>
+
+        <p>Collection types are technical types which can hold multiple values, typically of the same value type.<br/></p>
+
+        <h2>List</h2>
+
+        <p>The List type is a technical type used to keep together 0 or more items of the same type.<br/>
+            The items themselves can be of any type.<br/>
+            A List type is declared by adding square brackets '[]' after the item type.
+            <pre><code>Text[] -> the type Text list</code></pre>
+            A List literal must be enclosed in square brackets '[' and ']', the items being separated by a comma ','.<br/>
+        <pre><code>[12, 15, -3] -> a List of 3 Integers
+["Paris", "London", "Singapore"] -> a List of 3 Texts</code></pre>
+        <br/>
+        Items in a List can be accessed individually using their position.<br/>
+        Positions start at 1 and end at the list length.<br/><br/>
+        <pre><code>a = [12, 15, -3] -> assign a List of 3 Integers to variable 'a'
+a[1] -> get item at position 1 in List referenced by variable 'a' i.e. the Integer 12</code></pre>
+        </p>
+
+        <h2>Tuple</h2>
+
+        <p>The Tuple type is a technical type used to keep together 0 or more items of different types.<br/>
+            The items themselves can be of any type.<br/>
+            A Tuple type is declared as follows.
+        <pre><code>(,) -> the type Tuple</code></pre>
+        A Tuple literal must be enclosed in parenthesis '(' and ')', the items being separated by a comma ','.<br/>
+            For Tuple comprising 0 or 1 item, because the above could be interpreted as a parenthesized expression, a comma ',' must precede the right parenthesis.<br/>
+        <pre><code>(,) -> the empty Tuple
+(3.14,) -> a Tuple of 1 item
+("Paris", '2015-06-12', -113.87) -> a Tuple of 3 items</code></pre>
+        <br/>
+        Items in a Tuple can be accessed individually using their position.<br/>
+        Positions start at 1 and end at the list length.<br/><br/>
+        <pre><code>a = ("Paris", '2015-06-12', -113.87) -> assign a Tuple of 3 items to variable 'a'
+a[1] -> get item at position 1 in Tuple referenced by variable 'a' i.e. the Text "Paris"</code></pre>
+        </p>
+
+        <h2>Set</h2>
+
+        <p>The Set type is a technical type used to keep together 0 or more <b><i>distinct</i></b> items of the same type.<br/>
+            The items themselves can be of any type.<br/>
+            A Set type is declared by adding angle brackets '<>' after the item type.
+        <pre><code>Text<> -> the type Text set</code></pre>
+            A Set literal must be enclosed in angle brackets '<' and '>', the items being separated by a comma ','.<br/>
+        <pre><code><12, 15, -3> -> a set of 3 Integers
+<"Paris", "London", "Singapore"> -> a Set of 3 Texts</code></pre>
+        <br/>
+        Items in a Set can be accessed individually using their position.<br/>
+        However this is discouraged, because the position in the Set may change internally when ensuring uniqueness.<br/>
+        Set items are generally accessed using iterators or predicates.<br/><br/>
+        <pre><code>s = <12, 15, -3> -> assign a Set of 3 Integers to variable 's'
+for each i in s -> iterate over items in Set referenced by variable 's'
+s contains 12 -> return true if Set referenced by variable 's' contains the Integer 12</code></pre>
+        </p>
+
+        <h2>Dictionary</h2>
+
+        <p>The Dictionary type is a technical type used to keep together 0 or more items of the same type and access them using a Text key.<br/>
+            The items themselves can be of any type.<br/>
+            A Dictionary type is declared by adding curly brackets '{}' after the item type.
+        <pre><code>Text{} -> the type Text dictionary</code></pre>
+            A Dictionary literal must be enclosed in curly brackets '{' and '}', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
+        <pre><code>{} -> an empty Dictionary
+{ "Paris" : "France", "London" : "England", "Berlin" : "Germany" } -> a Dictionary of 3 keys and Text values</code></pre>
+        <br/>
+        Items in a Dictionary can be accessed individually using their key.<br/><br/>
+        <pre><code>d = { "Paris" : "France", "London" : "England" } -> assign a Dictionary of 2 Texts to variable 'd'
+d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable 'd' i.e. "France"</code></pre>
+        </p>
+
+        <h2>Document</h2>
+
+        <p>The <code>Document</code> type is a technical type used to manipulate arbitrary data structures with loose typing.<br/>
+            A Document has items which can be of any type, atomic, collection or Document.<br/>
+            A Document is useful to carry data read from the store, from files or from the Internet, and convert it to typed data.<br/>
+            A Document is also useful to write typed data to the store, to files or to the Internet.<br/>
+        </p>
+
+        <h2>Range</h2>
+
+        <p>The Range type is a technical type used to create sequences of 1 or more items of the same discrete type.<br/>
+            The items themselves can only be of type Character, Integer, Date or Time.<br/>
+            A Range type is declared by adding 2 dots enclosed in square brackets '[..]' after the item type.
+        <pre><code>Integer[..] -> the type Integer range</code></pre>
+            A Range literal must be enclosed in square brackets '[' and ']', the start and end value being separated by 2 dots '..'.<br/>
+        <pre><code>[1..17] -> all Integers ranging from 1 to 17 included
+['c'..'k'] -> all Characters ranging from 'c' to 'k' included (using their Unicode value)
+['2012-01-01'..'2014-04-01'] -> all Dates ranging from '2012-01-01' to '2014-04-01'
+['20:01:01'..'23:02:02'] -> all Times ranging from '20:01:01' to '23:02:02', with a 1 second increment</code></pre>
+        <br/>
+        Items in a Range can be accessed individually using their position.<br/>
+        Positions start at 1 and end at the Range length.<br/><br/>
+        <pre><code>r = [2..17] -> assign a Range of Integers to variable 'r'
+r[4] -> get item at position 4 in Range referenced by variable 'r' i.e. the Integer 5</code></pre>
+        </p>
+
+    </div>
+</body>
+</html>

@@ -19,7 +19,7 @@ function loadText(url, success) {
     xhr.send(null);
 };
 
-// create global context
+// create global context with pre-loaded libraries
 var librariesContext = prompto.runtime.Context.newGlobalContext();
 loadText("../../prompto/prompto.pec", function(code) {
     var decls = parse(code, "E");
@@ -56,10 +56,13 @@ function parse(content, dialect) {
 
 // translate code to dialect
 function translate(message) {
+    // parse incoming code
     var data = message.data;
+    var context = this.librariesContext.clone();
     var decls = parse(data.content, data.from);
+    decls.register(context);
+    // translate it
     var dialect = prompto.parser.Dialect[data.to];
-    var context = this.librariesContext.newChildContext();
     var writer = new prompto.utils.CodeWriter(dialect, context);
     decls.toDialect(writer);
     return {
@@ -80,11 +83,10 @@ function execute(message) {
             }
         });
     };
-    // execute code
-    var data = message.data;
-    var context = this.librariesContext.newChildContext();
-    console.log("Running sample...")
     // parse incoming code
+    var data = message.data;
+    var context = this.librariesContext.clone();
+    console.log("Running sample...")
     var decls = parse(data.content, data.dialect);
     decls.register(context);
     // run "main" method

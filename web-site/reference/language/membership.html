@@ -39,21 +39,30 @@
             + "\n" + '    r = [2..11]'
             + "\n" + '    a = 5'
             + "\n" + '    b = (3, 11, 14)'
-            + "\n" + '    print "a in r -> " + (a in b)'
+            + "\n" + '    print "a in r -> " + (a in r)'
             + "\n" + '    print "r contains any b -> " + (r contains any b)'
             + "\n" + '    print "r contains all b -> " + (r contains all b)',
             c3 : 'define main as method doing:'
-            + "\n" + '    a = "hello"'
-            + "\n" + '    b = "HELLO"'
-            + "\n" + '    c = "HEEELLLOOO"'
-            + "\n" + '    print "a ~ b -> " + (a ~ b)'
-            + "\n" + '    print "a ~ c -> " + (a ~ c)',
+            + "\n" + '    l = [2, 3, 6]'
+            + "\n" + '    a = 5'
+            + "\n" + '    b = (3, 6, 14)'
+            + "\n" + '    print "a in l -> " + (a in l)'
+            + "\n" + '    print "l contains any b -> " + (l contains any b)'
+            + "\n" + '    print "l contains all b -> " + (l contains all b)',
             c4 : 'define main as method doing:'
-            + "\n" + '    a = 2'
-            + "\n" + '    print "a is an Integer -> " + (a is an Integer)'
-            + "\n" + '    print "a is a Text -> " + (a is a Text)'
-            + "\n" + '    print "a is not an Integer -> " + (a is not an Integer)'
-            + "\n" + '    print "a is not a Text -> " + (a is not a Text)'
+            + "\n" + '    s = <2, 3, 6>'
+            + "\n" + '    a = 5'
+            + "\n" + '    b = (3, 6, 14)'
+            + "\n" + '    print "a in s -> " + (a in s)'
+            + "\n" + '    print "s contains any b -> " + (s contains any b)'
+            + "\n" + '    print "s contains all b -> " + (s contains all b)',
+            c5 : 'define main as method doing:'
+            + "\n" + '    t = (2, "John", 6.5)'
+            + "\n" + '    a = "John"'
+            + "\n" + '    b = (3, "John", 14)'
+            + "\n" + '    print "a in t -> " + (a in t)'
+            + "\n" + '    print "t contains any b -> " + (t contains any b)'
+            + "\n" + '    print "t contains all b -> " + (t contains all b)'
 
         };
 
@@ -112,7 +121,7 @@
         </p>
 
         <div>
-            <iframe class="displayer" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
         <h3>
@@ -122,7 +131,7 @@
         </p>
 
         <div>
-            <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
 
@@ -133,7 +142,7 @@
         </p>
 
         <div>
-            <iframe class="displayer" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
         <h3>
@@ -143,7 +152,7 @@
         </p>
 
         <div>
-            <iframe class="displayer" name="c5" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
         <h3>

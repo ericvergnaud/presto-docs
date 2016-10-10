@@ -31,16 +31,7 @@
                 + "\n"
                 + "\n" + 'define main as method doing:'
                 + "\n" + '    print "ok -> " + checkValue "ok"'
-                + "\n" + '    print "other -> " + checkValue "other"',
-            c2 : 'define name as Text attribute'
-                + "\n"
-                + "\n" +'define SomeObject as category with attribute name, and methods:'
-                + "\n" + '    define SomeMethod as method receiving name doing:'
-                + "\n" + '        return this.name + " " + name'
-                + "\n"
-                + "\n" + 'define main as method doing:'
-                + "\n" + '    s = SomeObject with "Hello" as name'
-                + "\n" + '    print "name -> " + s.SomeMethod "John"'
+                + "\n" + '    print "other -> " + checkValue "other"'
         };
 
         function editorReady(frame, editor) {
@@ -77,25 +68,6 @@
             <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p>Please note that whatever the dialect, the <i>null</i> value always prints out as <i>'null'</i>.</p>
-
-        <h3><i>This/self</i> value</h3>
-
-        <p>Prompto supports user defined types, named categories, for which specialized methods can also be defined.<br/>
-            When executing those methods, it can be necessary to refer to the current object.<br/>
-            This is achieved using the <i>this</i> value.<br/>
-            A <i>this</i> value has the following form:<br/>
-        <ul>
-            <li><code>this</code> in the E dialect</li>
-            <li><code>self</code> in the S dialect</li>
-            <li><code>this</code> in the O dialect</li>
-        </ul>
-        </p>
-        <div>
-            <iframe class="displayer displayer-14-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
-        </div>
-        <p>Please note that in the above example, <i>this</i> is used to disambiguate the <i>name</i> parameter from the <i>name</i> attribute.<br/>
-            In Prompto category methods, <i>this</i> is implicit.<br/>
-            This is similar to Java and C#, but opposite to Python or JavaScript.</p>
 
     </div>
 </body>
