@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Mutability</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Mutability</h2>
+
+        <p>Programs are used to <i>alter</i> data. They do this either by introducing new data, transforming existing data or deleting it.<br/>
+            Naturally, many programming languages let developers alter data: C, C++, Java, C#, Python, JavaScript...<br/>
+            As an example, a JavaScript object can be modified as follows:</p>
+<pre><code>var person = { name : "John", gender : "Male", profession: "Engineer" }
+// now modify the person
+person.profession = "Manager";</code></pre>
+        <p>The above has the benefit of simplicity. However, as programs grow and become more complex,
+            notably when multiple executions threads can run in parallel, it can become very difficult to control
+            what happens when data used by the program changes.<br/>
+            This has led the industry to provide a different breed of programming languages, known as <i>functional</i> languages.<br/>
+            Examples of such languages are Haskell, Erlang, F#, Clojure, and to a certain extent Scala.<br/>
+            Their common characteristic is that instead of modifying existing data, they rather produce <i>new</i> data
+            from the existing data and the required alterations.<br/>
+            As an example, the above fragment could be written <i>functionally</i> as follows:
+            </p>
+<pre><code>var person = { name : "John", gender : "Male", profession: "Engineer"
+// create a function to produce a modified person
+function modifiedPersonWithProfession(person, newProfession) {
+    return { name : person.name, profession : newProfession };
+}
+// call that function
+person = modifiedPersonWithProfession(person, "Manager");</code></pre>
+        <p>Notice that the original object is not modified, instead a new object is created,
+            and assigned to the <i>person</i> variable. By doing so, if any other variable refers to the original object,
+            its behavior will remain predictable.<br/>
+            See https://en.wikipedia.org/wiki/Functional_programming for more background on functional programming.
+        </p>
+        <p>
+            At Prompto, we believe in functional programming, however we also notice a few things:<br/>
+            <ul>
+                <li>It is a bit awkward for a language to not alter data when the purpose of <i>every</i> program is actually to alter data.
+            This contradiction sometimes generates a lot of complexity.</li>
+                <li>While it is generally wrong to share mutable data across parts of a program, there are places where it is 100% safe,
+                    much simpler and much faster to mutate data, such as input/output and initialization.</li>
+                </ul>
+            From there, we decided it would be better, rather than force developers into a stiff model, to instead let you decide when to use mutable data.
+        </p>
+
+        <h2>Mutable <i>variables</i> vs mutable <i>values</i></h2>
+
+         <p>In Prompto, all <i>variables</i> are mutable. It is perfectly legal to write the following 2 assignments:</p>
+        <pre><code>a = 1.347<br>a = 2.013</code></pre>
+        <p>
+            In this example, the value <i>1.347</i> remains unchanged, but <i>a</i> now refers to another value.
+            Prompto <i>values</i> on the other hand are by default immutable. For example, you <i>cannot</i> change the value of a default list,
+            instead you must produce a new list composed from the <i>old</i> list and additional data, as follows:
+            </p>
+        <pre><code>list = [1, 2, 3]<br>list = list + [4, 5]</code></pre>
+        <p>Now let's imagine you need to change the second item of the above list from 2 to 5. Using an immutable list,
+            you would have to write the following:</p>
+        <pre><code>list = list[1:1] + [5] + list[3:3]</code></pre>
+        <p>This is both hard to read, and slow to execute. If <i>list</i> only exists within a small and well controlled scope,
+            it could be much simpler and faster to use a <i>mutable</i> list instead, as follows:</p>
+        <pre><code>list = mutable [1, 2, 3]<br>list[2] = 5</code></pre>
+        <p>Please note that the above code would be illegal if the <i>mutable</i> keyword was omitted.</p>
+        <p>Also note that only collection and category values can be marked <i>mutable</i>.</p>
+
+        <h2>Mutability guardians</h2>
+
+        <p>Things can rapidly become more complex when you start passing variables as parameters to methods, or returning them from method bodies.<br/>
+        Prompto lets you declare <i>mutable</i> parameters, using the following syntax:</p>
+        <pre><code>define doStuff as method receiving mutable Text[] list and Integer someData</code></pre>
+        <p>In this example, the <i>list</i> parameter is mutable, while the <i>someData</i> parameter is not.<br/>
+        Prompto ensures that:<ul>
+        <li>only mutable values are passed as mutable parameters</li>
+        <li>only immutable values are passed as immutable parameters</li>
+        </ul></p>
+
+    </div>
+</body>
+</html>
