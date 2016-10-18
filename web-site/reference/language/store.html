@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Delete and store statements</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    p2 = Person with "Sophie" as name'
+            + "\n" + '    store p1, p2'
+            + "\n" + '    p3 = fetch one Person where name = "John"'
+            + "\n" + '    print "Person.name -> " + p3.name',
+            c2 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    store p1'
+            + "\n" + '    p2 = fetch one mutable Person where name = "John"'
+            + "\n" + '    print "Person.name -> " + p2.name'
+            + "\n" + '    p2.name = "Edgar"'
+            + "\n" + '    store p2'
+            + "\n" + '    p3 = fetch one Person where name = "Edgar"'
+            + "\n" + '    print "Person.name -> " + p3.name',
+            c3 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    store p1'
+            + "\n" + '    p2 = fetch one Person where name = "John"'
+            + "\n" + '    print "Person.name -> " + p2.name'
+            + "\n" + '    delete p2'
+            + "\n" + '    p3 = fetch one Person where name = "John"'
+            + "\n" + '    if p3 is nothing:'
+            + "\n" + '        print "deleted!"',
+            c4 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    store p1'
+            + "\n" + '    p2 = Person with "Edgar" as name'
+            + "\n" + '    delete p1 and store p2'
+            + "\n" + '    p3 = fetch one Person where name = "John"'
+            + "\n" + '    if p3 is nothing:'
+            + "\n" + '        print "deleted!"'
+            + "\n" + '    p4 = fetch one Person where name = "Edgar"'
+            + "\n" + '    print "Person.name -> " + p4.name'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Delete and store statements</h2>
+
+        <p>The Prompto language comes with a built-in data storage mechanism. Which data store is effectively used is determined through configuration.
+        By default, Prompto uses is a built-in in-memory non persistent data store, which helps get started and run tests.</p>
+
+        <p>A data store generally provides guarantees of availability, scalability and consistency.
+            However, from a language standpoint, the only relevant characteristic is consistency aka ACID (Atomicity, Consistency, Isolation, Durability).
+            Many data stores generally provide consistency through transactions, however this does not scale well.
+            Instead, other data stores only provide consistency using grouped CRUD operations (CReate, Update, Delete).
+            To ensure compatibility with most data stores, Prompto requires consistency only.</p>
+        <p>Consistency in Prompto is achieved by grouping multiple CRUD operations in a single statement. A delete and store statement allows that grouping.</p>
+        <p>A delete and store statement has the form <code>store <i>obj1, obj2 ... objn</i></code> eventually preceded by <code>delete <i>obj1, obj2 ... objn</i></code>,
+            where <code>obj<i>i</i></code> is any valid category expression.
+        </p>
+
+        <h3>
+            Storing new objects
+        </h3>
+        <p>Prompto can store any object for which the category is marked as <code><i>storable</i></code>, as follows:</p>
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <h3>
+            Updating existing objects
+        </h3>
+        <p>Prompto storable objects have a built-in database id attribute, namely <code>dbId</code> provided by the data store.
+            Only objects fetched from the store can be updated, and those objects carry their <code>dbId</code>.
+            These objects must also be mutable, so the language can modify attributes.<br/>
+            Updating these objects can be simply done by storing them, as follows:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Deleting objects
+        </h3>
+        <p>Prompto storable objects have a built-in database id attribute, namely <code>dbId</code> provided by the data store.
+            Only objects fetched from the store can be deleted, and those objects carry their <code>dbId</code>.
+            Deleting these objects can be simply done by as follows:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Deleting and storing atomically.
+        </h3>
+        <p>To ensure consistency of data, Prompto supports deleting and storing multiple objects in a single statment, as follows:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+    </div>
+</body>
+</html>
