@@ -89,7 +89,8 @@ function execute(message) {
     console.log("Running sample...")
     var decls = parse(data.content, data.dialect);
     decls.register(context);
-    // run "main" method
+    // run "main" method, using fresh store
+    prompto.store.Store.instance = new prompto.store.MemStore();
     prompto.runtime.Interpreter.interpret(context, "main", "");
     // done
     return {
