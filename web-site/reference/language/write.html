@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Read expressions</title>
+    <title>Write statements</title>
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,19 +24,17 @@
 
         var samples =  {
             c1 : 'define main as method doing:'
-            + "\n" + '    location = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.css"'
-            + "\n" + '    content = read from Url with location as path'
-            + "\n" + '    print content',
+            + "\n" + '    write "some content" to Buffer'
+            + "\n" + '    print "\\"some content\\" has been written to Buffer"',
             c2 : 'define main as method doing:'
             + "\n" + '    with buffer = Buffer, do:'
             + "\n" + '        write "some content" to buffer'
-            + "\n" + '        write "more content" to buffer'
+            + "\n" + '        write "other content" to buffer'
             + "\n" + '        // read back the 2 lines'
             + "\n" + '        content = read from buffer'
             + "\n" + '        print content'
             + "\n" + '        content = read from buffer'
-            + "\n" + '        print content',
-
+            + "\n" + '        print content'
 
         };
 
@@ -58,17 +56,19 @@
 <div class="container">
     <div class="row">
 
-        <h2>Read expressions</h2>
+        <h2>Write statements</h2>
 
-        <p>Read expressions are used to read content from a resource such as a file or a web site.<br/>
-            A read expression is a code fragment which produces a <code>Text</code> value, which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+        <p>Write expressions are used to write content to a resource such as a file or a web site.
         </p>
         <h3>
-            Reading the entire content of an <i>inlined</i> resource
+            Writing the entire content to an <i>inlined</i> resource
         </h3>
-        <p>Reading the entire content of a resource can be achieved using an <i>inlined</i> resource.<br/>
-            An <i>inlined</i> resource is initialized directly within a <code>read</code> expression.<br/>
-            This is very useful for small files or small messages received from incoming network connections.<br/>
+        <p>Writing the entire content to a resource can be achieved using an <i>inlined</i> resource.<br/>
+            An <i>inlined</i> resource is initialized directly within a <code>write</code> statement.<br/>
+            This is very useful for small files or small messages sent to outgoing network connections.<br/>
+            It is however impossible to demonstrate within a browser, where programmatic access to local files is prohibited for security reasons.<br/>
+            In the below example, we write to an <i>inlined</i> Buffer instead.<br/>
+            The Buffer only exists during the execution of the statement, and therefore it cannot be read back to display its content.
         </p>
 
         <div>
@@ -76,9 +76,9 @@
         </div>
 
         <h3>
-            Reading content line by line from a <i>managed</i> resource
+            Writing content line by line to a <i>managed</i> resource
         </h3>
-        <p>Reading content line by line from a resource can be achieved using a <i>managed</i> resource.<br/>
+        <p>Writing content line by line to a resource can be achieved using a <i>managed</i> resource.<br/>
             A <i>managed</i> resource is initialized through a <code>with</code> clause followed by a list of statements.<br/>
             The resource is said to be <i>managed</i> because Prompto will take care of resource cleanup when it exits
             the statements controlled by <code>with</code> clause.
@@ -87,9 +87,7 @@
         <div>
             <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
-
         <p>It is illegal to call <code>write</code> or <code>read</code> on a resource which is neither <i>managed</i> nor <i>inlined</i>.</p>
-
 
     </div>
 </body>
