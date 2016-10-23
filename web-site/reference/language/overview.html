@@ -51,11 +51,13 @@
         <h2>Run everywhere</h2>
 
         <p>Business applications are typically built using languages such as Java, C#, Python, JavaScript or Swift.<br/>
-            There is a Prompto runtime for each of those host languages, and they are 100% compatible with each other.<br/>
+            Prompto does not aim to compete with these languages, but rather to complement them with a specific focus
+            on business data modeling and storage.<br/>
+            There is a Prompto runtime for each of the above host languages, and they are 100% compatible with each other.<br/>
             Prompto runs as part of its host languages and thus fully integrates with them.<br/>
             Prompto comprises data manipulation instructions which remove the need to program in SQL.<br/>
-            Prompto runs in Java, C#, Python or JavaScript. It natively integrates with any back end infrastucture.<br/>
-            Prompto also runs in browsers, Java RCP, .Net RCP and native iOS applications (Swift runtime not available yet).
+            Prompto natively integrates with any back end infrastucture, browsers, Java RCP, .Net RCP
+            and native iOS applications <i>(Swift runtime not available yet)</i>.
         </p>
 
         <h2>Interpreted <i>and</i> compiled</h2>
@@ -68,10 +70,10 @@
                 <li>Transpiled code (in Python and JavaScript) is hard to debug because it does not map exactly to Prompto code.</li>
             </ul>
             The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
-            The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR byte code (compiler not available yet).<br/>
-            The Python 2 and Python 3 runtimes come with an interpreter and a transpiler which is able to transpile Prompto code to Python byte code (transpiler not available yet).<br/>
-            The JavaScript runtime come withs an interpreter and a transpiler which is able to transpile Prompto code to JavaScript code (transpiler not available yet).<br/>
-            The Swift runtime is planned but not available yet.
+            The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR byte code <i>(compiler not available yet)</i>.<br/>
+            The Python 2 and Python 3 runtimes come with an interpreter and a transpiler which is able to transpile Prompto code to Python byte code <i>(transpiler not available yet)</i>.<br/>
+            The JavaScript runtime come withs an interpreter and a transpiler which is able to transpile Prompto code to JavaScript code <i>(transpiler not available yet)</i>.<br/>
+            <i>The Swift runtime is planned but not available yet</i>.
        </p>
 
         <h2>Statically inferred types</h2>
@@ -84,10 +86,10 @@
 
         <h2>Reified attributes</h2>
 
-        <p>Prompto introduces reified attributes, a simple and effective way to model data.<br/>
+        <p>Prompto introduces reified attributes, a simple and effective way to model business data.<br/>
             Attributes are also known as fields, properties or columns.<br/>
             In most data models (relational, object, noSql), they have limited scope: table or object definition.<br/>
-            Reified attributes are attributes defined globally. Being global, they can then be shared by all tables and object definitions.<br/>
+            Reified attributes are attributes defined <i>globally</i>. Being global, they become shared by all tables and object definitions.<br/>
             Amongst other benefits, reified attributes:
             <ul>
                 <li>enable new search capabilities</li>
@@ -113,16 +115,16 @@
 
         <p>Prompto methods can either be attached to object definitions or be global, like in Python or JavaScript.<br/>
             Prompto methods are polymorphic i.e. 2 methods with the same name can coexist if they accept a different set of parameters, like in Java or C#.<br/>
-            However Prompto goes a step further by selecting the most appropriate method at runtime rather than compile time.<br/>
+            However Prompto goes a step further by selecting the most appropriate method at <i>execution time</i> rather than <i>compile time</i>.<br/>
             This feature greatly simplifies development and data modeling, by eliminating the need for <a href="https://en.wikipedia.org/wiki/Double_dispatch">double dispatch</a>.
         </p>
 
         <h2>Prompto dialects: syntax is a detail</h2>
 
         <p>To facilitate the conversation between all breeds of developers, Prompto comes with not one "language" but three.<br/>
-            Prompto calls these dialects, as they are not independant languages, but rather 3 syntactic variations of the same language concepts.<br/>
-            They make it very easy for any developer to adopt the Prompto platform, whatever his/her coding background.<br/>
-            Prompto dialects seamlessly translate to one another.<br>
+            Prompto calls these <i>dialects</i>, as they are not independant languages, but rather 3 syntactic variations of the same language concepts.<br/>
+            They make it very easy for any developer to adopt the Prompto platform, whatever his/her technical background.<br/>
+            Prompto <i>dialects</i> seamlessly translate to one another.<br>
             By doing so, they eliminate the barrier of having to learn a formal grammar only to read code.<br/>
             They are a collaborative tool which helps technologists work together.
         </p>
