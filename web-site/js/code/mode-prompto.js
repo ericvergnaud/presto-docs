@@ -18,7 +18,7 @@ ace.define('ace/mode/prompto_highlight_rules',["require","exports","module","ace
         );
 
         var modifiers = (
-            "abstract|enumerated|extends|mutable|native|sorted|storable"
+            "abstract|desc|descending|enumerated|extends|mutable|native|storable"
         );
 
         var operators = (
@@ -31,7 +31,7 @@ ace.define('ace/mode/prompto_highlight_rules',["require","exports","module","ace
         );
 
         var functions = (
-            "write|read|close|open|execute|invoke|pass|fetch|flush|store"
+            "write|read|close|open|execute|invoke|pass|fetch|flush|sorted|store"
         );
 
         var constants = (
