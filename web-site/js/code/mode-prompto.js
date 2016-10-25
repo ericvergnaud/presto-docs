@@ -6,7 +6,7 @@ ace.define('ace/mode/prompto_highlight_rules',["require","exports","module","ace
     var PromptoHighlightRules = function() {
 
         var controls = (
-            "always|case|catch|default|do|each|else|except|finally|for|from|if|" +
+            "always|break|case|catch|default|do|each|else|except|finally|for|from|if|" +
             "on|otherwise|raise|return|switch|throw|to|try|with|when|where|while"
         );
 
