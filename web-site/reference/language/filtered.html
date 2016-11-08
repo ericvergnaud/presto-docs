@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fetch expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    list = [ 1, 2, 3, 4, 5, 6 ]'
+            + "\n" + '    even_items = list filtered with item where item % 2 = 0'
+            + "\n" + '    print "even_items -> " + even_items'
+       };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Filtered expressions</h2>
+
+        <p>Filtered expressions are used to filter content of a collection.</p>
+
+        <h3>
+            Filtering a collection
+        </h3>
+        <p>Filtering a collection produces an <code>Iterator</code> value, which can then be used as an input for other constructs.<br/>
+            Such an expression has the form <code>fetch any <i>item</i> from <i>collection</i> where <i>predicate</i> ( and/or <i>predicate</i> )</code>,
+                where <code><i>item</i></code> is a valid variable identifier, <code><i>collection</i></code> is a collection expression
+                and <code><i>predicate</i></code> is a boolean expression in which <code><i>item</i></code> can be used to represent the current
+                collection item being evaluated.</p>
+        <p/>
+        <div>
+            <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

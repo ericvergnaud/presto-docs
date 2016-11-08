@@ -95,7 +95,8 @@
             However, from a language standpoint, the only relevant characteristic is consistency aka ACID (Atomicity, Consistency, Isolation, Durability).
             Many data stores provide consistency through transactions, however this does not scale well.
             Instead, other data stores provide consistency using grouped CRUD operations (CReate, Update, Delete).
-            To ensure compatibility with most data stores, Prompto only requires the data store to support consistency, not transactions.</p>
+            To ensure compatibility with most data stores, Prompto only requires the data store to support consistency, not transactions.
+            Prompto also caters for asynchronous consistency of certain data stores, using the <code>flush</code> statement.</p>
         <p>Consistency in Prompto is achieved by grouping multiple CRUD operations in a single statement. A delete and store statement allows that grouping.</p>
         <p>A delete and store statement has the form <code>store <i>obj1, obj2 ... objn</i></code> eventually preceded by <code>delete <i>obj1, obj2 ... objn</i></code>,
             where <code>obj<i>i</i></code> is any valid category expression.

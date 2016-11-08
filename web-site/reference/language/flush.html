@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Flush statements</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    p2 = Person with "Sophie" as name'
+            + "\n" + '    store p1, p2'
+            + "\n" + '    flush'
+            + "\n" + '    p3 = fetch one Person where name = "John"'
+            + "\n" + '    print "Person.name -> " + p3.name'
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Flush statements</h2>
+
+        <p>The Prompto language comes with a built-in data storage mechanism. Which data store is effectively used is determined through configuration.
+        By default, Prompto uses a built-in in-memory non persistent data store, which helps get started and run tests.</p>
+
+        <p>A data store generally provides guarantees of availability, scalability and consistency.
+            However, from a language standpoint, the only relevant characteristic is consistency aka ACID (Atomicity, Consistency, Isolation, Durability).
+            Many data stores provide consistency through transactions, however this does not scale well.
+            Instead, other data stores provide consistency using grouped CRUD operations (CReate, Update, Delete).
+            To ensure compatibility with most data stores, Prompto only requires the data store to support consistency, not transactions.
+            However, some data stores only provide asynchronous consistency of CRUD operations.
+            As an example, SOLR indexes data asynchronous, which may have the unfortunate consequence that newly inserted data is not found
+            by indexed queries.
+        </p>
+
+        <p>The <code>flush</code> statement instructs the data store to synchronously flush any pending operation, thus ensuring
+            that all data previously inserted can be accessed by queries.</p>
+        <p>A flush statement has the form <code>flush</code>.</p>
+        <p>Flush statements should be used with parcimony, as they may slow down storage dramatically, depending on the data store used.</p>
+
+        <h3>
+            Flushing the store
+        </h3>
+        <p>Prompto instructs the store to flush its data as follows:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -90,7 +90,7 @@ function execute(message) {
     var decls = parse(data.content, data.dialect);
     decls.register(context);
     // run "main" method, using fresh store
-    prompto.store.Store.instance = new prompto.store.MemStore();
+    prompto.store.DataStore.instance = new prompto.memstore.MemStore();
     prompto.runtime.Interpreter.interpret(context, "main", "");
     // done
     return {
