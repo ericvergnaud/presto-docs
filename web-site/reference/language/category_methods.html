@@ -43,56 +43,43 @@
             + "\n" + "    print x.name",
             c5 : "define myMethod as method receiving Integer x, Integer y and Integer z doing:"
             + "\n" + "    return x + y + z",
-            c6 : "define myMethod as method receiving Integer x, Integer y and Integer z = 3 doing:"
+            c6 : "define myOverloadedMethod as method receiving Integer x doing:"
+            + "\n" + "    return x"
+            + "\n" + "define myOverloadedMethod as method receiving Integer x and Integer y doing:"
+            + "\n" + "    return x + y"
+            + "\n" + "define myOverloadedMethod as method receiving Integer x, Integer y and Integer z doing:"
             + "\n" + "    return x + y + z",
-            c7 : "define myMethod as method receiving Integer x, Integer y and Integer z = 3 doing:"
-            + "\n" + '    print "3 ints added: " + (x + y + z)'
-            + "\n"
-            + "\n" + "define main as method doing:"
-            + "\n" + "    myMethod with 3 as x, 7 as y and 22 as z"
-            + "\n" + "    // using default value for 'z'"
-            + "\n" + "    myMethod with 3 as x and 7 as y",
-            c8 : "define OverloadedMethod as method receiving Integer x doing:"
-            + "\n" + '    print "1 argument:" + x'
-            + "\n" + "define OverloadedMethod as method receiving Integer x and Integer y doing:"
-            + "\n" + '    print "2 arguments:" + x + " and " + y'
-            + "\n"
-            + "\n" + "define main as method doing:"
-            + "\n" + "    OverloadedMethod with 3 as x and 7 as y",
-            c9 : "define OverloadedMethod as method receiving Integer x doing:"
-            + "\n" + '    print "Received Integer argument:" + x'
-            + "\n" + "define OverloadedMethod as method receiving Text x doing:"
-            + "\n" + '    print "Received Text argument:" + x'
-            + "\n"
-            + "\n" + "define main as method doing:"
-            + "\n" + '    OverloadedMethod with "Hello" as x',
-            c10 : "define perimeter as Decimal attribute"
-            + "\n" + "define Shape as category with attribute perimeter"
+            c7 : "define edgeCount as Integer attribute"
+            + "\n" + "define Shape as category with attribute edgeCount"
             + "\n" + "define Square as Shape"
-            + "\n" + "define Circle as Shape"
+            + "\n" + "define Triangle as Shape"
+            + "\n"
+            + "\n" + "define printShape as method receiving Shape shape doing:"
+            + "\n" + '    print "Shape"'
+            + "\n" + "define printShape as method receiving Square shape doing:"
+            + "\n" + '    print "Square"'
+            + "\n" + "define printShape as method receiving Triangle shape doing:"
+            + "\n" + '    return "Triangle"',
+            c8 : "define edgeCount as Integer attribute"
+            + "\n" + "define Shape as category with attribute edgeCount"
+            + "\n" + "define Square as Shape"
+            + "\n" + "define Triangle as Shape"
             + "\n"
             + "\n" + "define printShape as abstract method receiving Shape shape"
             + "\n" + "define printShape as method receiving Square shape doing:"
-            + "\n" + '    print "Square side is " + (shape.perimeter / 4)'
-            + "\n" + "define printShape as method receiving Circle shape doing:"
-            + "\n" + '    print "Circle radius is " + (shape.perimeter / (PI*2))'
+            + "\n" + '    print "Square"'
+            + "\n" + "define printShape as method receiving Triangle shape doing:"
+            + "\n" + '    return "Triangle"',
+            c9 : "define displayMethod as abstract method receiving Text value"
+            + "\n"
+            + "\n" + "define someMethod as method receiving Text t and displayMethod doing:"
+            + "\n" + '    displayMethod t'
+            + "\n"
+            + "\n" + "define displayScreen as method receiving Text t doing:"
+            + "\n" + '    print t'
             + "\n"
             + "\n" + "define main as method doing:"
-            + "\n" + '    s = Square with 40.0 as perimeter'
-            + "\n" + '    c = Circle with 40.0 as perimeter'
-            + "\n" + '    shapes = [ s as Shape, c as Shape ]'
-            + "\n" + '    for each ss in shapes:'
-            + "\n" + '        printShape with ss as shape',
-            c11 : "define displayMethod as abstract method receiving Text value"
-            + "\n"
-            + "\n" + "define someMethod as method receiving Text value and displayMethod doing:"
-            + "\n" + '    displayMethod value'
-            + "\n"
-            + "\n" + "define displayScreen as method receiving Text value doing:"
-            + "\n" + '    print value'
-            + "\n"
-            + "\n" + "define main as method doing:"
-            + "\n" + '    someMethod with "Hello" as value and Method: displayScreen as displayMethod'
+            + "\n" + '    someMethod with "Hello" as t and displayScreen as displayMethod'
 
         };
 
@@ -183,64 +170,39 @@
         <div>
             <iframe class="displayer displayer-4-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
-        <p/>
-        <h3>Default argument values</h3>
-        <p>Prompto supports <i>default</i> argument values, which remove the need to always pass all arguments to a method.</p>
-        <p>Default argument values must be <i>constant</i> values, i.e. they cannot vary during program execution. Good candidates are literals, null, and enumerated values.</p>
-        <div>
-            <iframe class="displayer displayer-4-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
-        </div>
-        <p/>
-        <h3>Calling methods</h3>
-        <p>Calling methods is done simply using the method name optionally followed by its arguments name and value pairs.</p>
-        <p>Naming the arguments is mandatory in Prompto, except when a method accepts only 1 argument.</p>
-        <p>Thanks to naming, arguments can be provided in any sequence, and makes it clear how the arguments are used.</p>
-        <div>
-            <iframe class="displayer displayer-8-lines" name="c7" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
-        </div>
-        <p/>
         <h3>Method <i>overloading</i></h3>
-        <p>Prompto supports method <i>overloading</i>, where 2 methods have the same name but different parameters.</p>
+        <p>Prompto supports method <i>overloading</i>, where 2 methods have the same name but unrelated parameters.</p>
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p/>
         <p>When a method is <i>overloaded</i>, Prompto selects the most appropriate one based on the best match of the <i>proposed</i> parameters
-            with respect to the required arguments. This matching if performed using the sequence of the parameters in the method call.</p>
-        <p>In the below example, the 2 methods have the same name, but a different number of arguments:</p>
-        <div>
-            <iframe class="displayer displayer-10-lines" name="c8" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
-        </div>
-        <p/>
+            with respect to the required arguments. This matching if performed using the sequence of the parameteres in the method call.</p>
 
-        <p>Method <i>overloading</i> also works with different argument types.</p>
-         <p>Each <i>overridden</i> method provides a behavior specific to its argument types.</p>
-        <p/>
+        <h3>Method <i>overriding</i></h3>
+        <p>Prompto supports method <i>overriding</i>, where a method can be overloaded using different but compatible parameters.
+            Each <i>overridden</i> method provides a behavior specific to its argument types.</p>
         <div>
-            <iframe class="displayer displayer-10-lines" name="c9" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-12-lines" name="c7" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
-        <p/>
-        <p>When a method is <i>overloaded</i>, Prompto selects the most appropriate one at runtime i.e. the one for which the <i>actual</i> parameters best match the required method arguments,
+        <p>When a method is <i>overridden</i>, Prompto selects the most appropriate one at runtime i.e. the one for which the <i>actual</i> parameters best match the required method arguments,
             based on the sequence of the method call. This is different from many languages such as Java, C# or C++,
             where the resolution is decided at compile time. </p>
 
         <h3><i>Abstract</i> methods</h3>
-        <p>Prompto supports <code><i>abstract</i></code> methods, a special type of method, which <i>must</i> be overloaded.</p>
+        <p>Prompto supports <code><i>abstract</i></code> methods, a special type of method, which <i>must</i> be overridden.</p>
             Abstract methods are resolved at runtime based on the actual type of the value.</p>
-        <p>Abstract methods are well suited when no actual behaviour can be determined for an argument type (such as the below <i>Shape</i>).</p>
-        <p>In the below example, we do not know how to print a shape, only how to print specific shape types.</p>
-        <p>In order to print a list of shapes without knowing their type, we use an abstract method.</p>
         <div>
-            <iframe class="displayer displayer-20-lines" name="c10" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-12-lines" name="c8" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
-        <p/>
+        <p>Abstract methods are well suited when no actual behaviour can be determined for an argument type (such as <i>Shape</i>).</p>
         <p/>
         <h3><i>Abstract</i> methods as arguments</h3>
-        <p>Abstract methods can also be used as arguments for other methods:</p>
+        <p>Abstract methods can also be used as arguments for other method definitions:</p>
         <div>
-            <iframe class="displayer displayer-12-lines" name="c11" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-12-lines" name="c9" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
-        <p>In the above example, we show how to pass both a value: <i>Hello</i> and a method: <code><i>displayScreen</i></code> to another method: <code><i>someMethod</i></code>.</p>
-        <p>The method: <code><i>someMethod</i></code> then invokes the method received as an argument, using the the value also received as an argument.</p>
         <p>The method caller is responsible for providing a non abstract method compatible with the argument's method type.</p>
-        <p>pleqse note that the in the E dialect only, the <code>Method:</code> keyword is required to let Prompto decide whether to pass <code><i>displayScreen</i></code> directly as an argument,
-        or to invoke it and pass the result.</p>
     </div>
 </body>
 </html>
