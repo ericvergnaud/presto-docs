@@ -52,6 +52,19 @@
             + "\n" + '    c = fetch all where preferredColor = "blue"'
             + "\n" + '    for each p in c:'
             + "\n" + '        print "p -> " + p',
+            c4 : 'define preferredColor as storable Text attribute'
+            + "\n" + 'define Person as storable category with attributes name and preferredColor'
+            + "\n" + 'define Member as storable Person'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name and "red" as preferredColor'
+            + "\n" + '    p2 = Person with "Sophie" as name and "blue" as preferredColor'
+            + "\n" + '    p3 = Member with "Alex" as name and "blue" as preferredColor'
+            + "\n" + '    p4 = Member with "Gwyneth" as name and "blue" as preferredColor'
+            + "\n" + '    store p1, p2, p3, p4'
+            + "\n" + '    c = fetch all Member where preferredColor = "blue"'
+            + "\n" + '    for each p in c:'
+            + "\n" + '        print "p -> " + p',
 
         };
 
@@ -113,6 +126,18 @@
             <iframe class="displayer displayer-14-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
         </div>
 
+        <h3>
+            Fetching multiple objects with a given category
+        </h3>
+        <p>Similarly to fetching one object, fetching multiple objects expressions can be specialized to return only objects of a given user type.<br/>
+            The item type of the cursor to which the object is assigned is the specified user type.<br/>
+            The type of each object retrieved is the type the object had the last time the object was stored.<br/>
+            The type is specified as follows:
+        <p/>
+        <div>
+            <iframe class="displayer displayer-14-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
+        </div>
+        <p>When running the above example, you'll notice that Person "Sophie" is not returned because it is not a Member.<br/>
 
     </div>
 </body>
