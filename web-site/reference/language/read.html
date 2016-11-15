@@ -25,16 +25,16 @@
         var samples =  {
             c1 : 'define main as method doing:'
             + "\n" + '    location = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.css"'
-            + "\n" + '    content = read from Url with location as path'
+            + "\n" + '    content = read all from Url with location as path'
             + "\n" + '    print content',
             c2 : 'define main as method doing:'
             + "\n" + '    with buffer = Buffer, do:'
             + "\n" + '        write "some content" to buffer'
             + "\n" + '        write "more content" to buffer'
             + "\n" + '        // read back the 2 lines'
-            + "\n" + '        content = read from buffer'
+            + "\n" + '        content = read one from buffer'
             + "\n" + '        print content'
-            + "\n" + '        content = read from buffer'
+            + "\n" + '        content = read one from buffer'
             + "\n" + '        print content',
 
 
