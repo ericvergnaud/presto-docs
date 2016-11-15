@@ -65,6 +65,38 @@
             + "\n" + '    c = fetch all Member where preferredColor = "blue"'
             + "\n" + '    for each p in c:'
             + "\n" + '        print "p -> " + p',
+            c5 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p1 = Person with "John" as name'
+            + "\n" + '    p2 = Person with "Sophie" as name'
+            + "\n" + '    p3 = Person with "Alex" as name'
+            + "\n" + '    store p1, p2, p3'
+            + "\n" + '    c = fetch all order by name'
+            + "\n" + '    print "sorted by name ascending:"'
+            + "\n" + '    for each p in c:'
+            + "\n" + '        print "p -> " + p'
+            + "\n" + '    print "sorted by name descending:"'
+            + "\n" + '    c = fetch all order by name descending'
+            + "\n" + '    for each p in c:'
+            + "\n" + '        print "p -> " + p',
+            c6 : 'define Person as storable category with attribute name'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    for each i in [10..40]:'
+            + "\n" + '        p = Person with ("person " + i) as name'
+            + "\n" + '        store p'
+            + "\n" + '    print "rows 10 to 15:"'
+            + "\n" + '    c = fetch rows 10 to 15 order by name'
+            + "\n" + '    for each p in c:'
+            + "\n" + '        print "p -> " + p'
+            + "\n" + '    print "count:" + c.count'
+            + "\n" + '    print "rows 22 to 24:"'
+            + "\n" + '    c = fetch rows 22 to 24 order by name'
+            + "\n" + '    for each p in c:'
+            + "\n" + '        print "p -> " + p'
+            + "\n" + '    print "count:" + c.count'
+            + "\n" + '    print "totalCount:" + c.totalCount'
 
         };
 
@@ -138,7 +170,30 @@
             <iframe class="displayer displayer-14-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
         </div>
         <p>When running the above example, you'll notice that Person "Sophie" is not returned because it is not a Member.<br/>
+        <p>Searching on child fields is not supported yet (it depends heaviliy on the Store implementation capabilities).<br/>
 
+        <h3>
+            Sorting fetched objects
+        </h3>
+        <p>When fetching multiple objects, Prompto lets you specify the order in which the objects are retrieved.<br/>
+            This is done by specifying one or more sort attributes, and the sort direction, as follows:
+        <p/>
+        <div>
+            <iframe class="displayer displayer-16-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
+        </div>
+        <p>Sorting on child fields is not supported yet (it depends heaviliy on the Store implementation capabilities).<br/>
+        <h3>
+            Paging results
+        </h3>
+        <p>When fetching a large number of objects, it can be convenient to only retrieve a subset of them.</p>
+        <p>This is particularly convenient when paging results in a web site.</p>
+        <p>Prompto lets you specify a slice of objects to be retrieved, as follows:
+        <p/>
+        <div>
+            <iframe class="displayer displayer-20-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html" runnable with-framework></iframe>
+        </div>
+        <p>Additionally, the Cursor object returned by the fetch expression has 2 attributes: <code>count</code> and <code>totalCount</code>,
+            which can be used to know how many objects are being returned, and how many objects in the Store satisfy the query before slicing.<br/>
     </div>
 </body>
 </html>
