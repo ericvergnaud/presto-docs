@@ -7,7 +7,7 @@ define Any as native category with attributes id and text, and bindings:
 		Python3: Any from module: prompto.value.Any
 		JavaScript: Any from module: prompto/value/Any.js
 
-and methods:
+and methods: 
 
 	define id as getter doing:
 		Java: return System.identityHashCode(self);
@@ -15,7 +15,7 @@ and methods:
 		Python2: return id(self)
 		Python3: return id(self)
 		JavaScript: return self.id;
-
+	
 	define text as getter doing:
 		Java: return self.toString();
 		C#: return self.ToString();
@@ -48,42 +48,42 @@ define getAllAttributes as native method returning Attribute[] doing:
 
 define "findAttribute id" as test method doing:
 	a = findAttribute "id"
-and verifying:
+and verifying: 
 	a is an Attribute
 	a.name = "id"
 
 define "findAttribute name" as test method doing:
 	a = findAttribute "name"
-and verifying:
+and verifying: 
 	a is an Attribute
-	a.name = "name"
+	a.name = "name" 
 
-define "findAttribute text" as test method doing:
+define "findAttribute text" as test method doing: 
 	a = findAttribute "text"
-and verifying:
+and verifying: 
 	a is an Attribute
 	a.name = "text"
 
 define "at least 3 items getAllAttributes" as test method doing:
-	l = getAllAttributes
-and verifying:
+	l = getAllAttributes 
+and verifying: 
 	l is an Attribute[]
 	l.count >= 3
 // runtime reference of any object
 define id as Any attribute
 // database reference of stored object
 define dbId as Any attribute
-// any object has a text attribute, used for display
+// any object has a text attribute, used for display 
 define text as storable Text attribute with value and words index
-// many objects have a name, it is not unique
+// many objects have a name, it is not unique 
 define name as storable Text attribute with key and value index
-// many objects have a description, it is not unique
+// many objects have a description, it is not unique 
 define description as storable Text attribute with words index
-// many objects have a version, it is not unique
+// many objects have a version, it is not unique 
 define version as storable Text attribute
-// many objects have a user, it is not unique
+// many objects have a user, it is not unique 
 define user as storable Text attribute with key and value index
-// many objects have an image, it is not unique
+// many objects have an image, it is not unique 
 define image as storable Image attribute
 // many events have a timeStamp
 define timeStamp as storable DateTime attribute
@@ -108,12 +108,12 @@ define now as native method returning DateTime doing:
 	Python3: return datetime.utcnow() from module: datetime
 	JavaScript: return new Date();
 
-define "now is a DateTime" as test method doing:
+define "now is a DateTime" as test method doing: 
 	a = now
-and verifying:
-	a is a DateTime
+and verifying: 
+	a is a DateTime 
 define Buffer as native resource with attribute text, and bindings:
-
+	
 	define category bindings as:
 		Java: prompto.io.Buffer
 		C#: prompto.io.Buffer
@@ -126,8 +126,8 @@ define "writes to Buffer" as test method doing:
 	with buffer = Buffer, do:
 		write "some content" to buffer
 		write "other content" to buffer
-		content = buffer.text
-and verifying:
+		content = buffer.text	
+and verifying: 
 	"some content" in content
 	"other content" in content
 
@@ -136,7 +136,7 @@ define Writer as native category with bindings:
 	define category bindings as:
 		Java: java.io.PrintStream
 		C#: System.IO.TextWriter
-		Python2: StringIO from module: StringIO
+		Python2: StringIO from module: StringIO 
 		Python3: StringIO from module: io
 		JavaScript: writer from module: prompto/io/io.js
 
@@ -164,14 +164,14 @@ define printNative as native method receiving any value and Writer writer doing:
 define print as method receiving any value doing:
 	writer = invoke: stdout
 	printNative value with writer as writer
-
+	
 define printLine as method receiving any value doing:
 	writer = invoke: stdout
-	value = "" + value + "\n"
+	value = "" + value + "\n" 
 	printNative value with writer as writer
 
 define PrintWriter as category with attribute text, and methods:
-
+	
 	define print as method receiving any value doing:
 		if text is nothing:
 			text = "" + value
@@ -192,27 +192,27 @@ define "print a text" as test method doing:
 	w = mutable PrintWriter
 	print "Hello" with w as writer
 	print " John" with w as writer
-and verifying:
+and verifying: 
 	w.text = "Hello John"
 
 define "print an integer" as test method doing:
 	w = mutable PrintWriter
 	print 12345 with w as writer
-and verifying:
-	w.text = "12345"
+and verifying: 
+	w.text = "12345" 
 
 define "printLine a text" as test method doing:
 	w = mutable PrintWriter
 	print "Hello" with w as writer
 	printLine " John" with w as writer
-and verifying:
+and verifying: 
 	w.text = "Hello John\n"
 
 define "printLine an integer" as test method doing:
 	w = mutable PrintWriter
 	printLine 12345 with w as writer
-and verifying:
-	w.text = "12345\n"
+and verifying: 
+	w.text = "12345\n" 
 define htmlEncode as native method receiving Text value returning Text doing:
 	Java: return prompto.internet.Html.encode(value);
 	C#: return System.Net.WebUtility.HtmlEncode(value);
@@ -259,7 +259,7 @@ define getHttpSession as native method returning Document doing:
 	Python3: return getHttpSession() from module: prompto.server.Server
 	JavaScript: return getHttpSession(); from module: prompto/server/Server.js
 define Url as native resource with attributes path and encoding, and bindings:
-
+	
 	define category bindings as:
 		Java: prompto.internet.Url
 		C#: prompto.internet.Url
@@ -269,13 +269,13 @@ define Url as native resource with attributes path and encoding, and bindings:
 
 define "reads from www.html5rocks.com" as test method doing:
 	// need a cross-domain enabled page for browser testing
-	content = read from Url with "https://www.html5rocks.com/en/" as path
-and verifying:
+	content = read all from Url with "https://www.html5rocks.com/en/" as path
+and verifying: 
 	content contains "HTML5 Rocks"
 
 define iterateCsv as native method receiving text, Text{} columnNames = nothing, Character separator = ',', Character quote = '"' returning Iterator<Document> doing:
 	Java: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote);
-	C#: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote);
+	C#: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote); 
 	Python2: return csvIterate(text, columnNames, separator, quote) from module: prompto.reader.CSVReader
 	Python3: return csvIterate(text, columnNames, separator, quote) from module: prompto.reader.CSVReader
 	JavaScript: return csvIterate(text, columnNames, separator, quote); from module: prompto/reader/CSVReader.js
@@ -283,7 +283,7 @@ define iterateCsv as native method receiving text, Text{} columnNames = nothing,
 
 define readCsv as native method receiving text, Text{} columnNames = nothing, Character separator = ',', Character quote = '"' returning Document[] doing:
 	Java: return prompto.reader.CSVReader.read(text, columnNames, separator, quote);
-	C#: return prompto.reader.CSVReader.read(text, columnNames, separator, quote);
+	C#: return prompto.reader.CSVReader.read(text, columnNames, separator, quote); 
 	Python2: return csvRead(text, columnNames, separator, quote) from module: prompto.reader.CSVReader
 	Python3: return csvRead(text, columnNames, separator, quote) from module: prompto.reader.CSVReader
 	JavaScript: return csvRead(text, columnNames, separator, quote); from module: prompto/reader/CSVReader.js
@@ -291,7 +291,7 @@ define readCsv as native method receiving text, Text{} columnNames = nothing, Ch
 
 define "reads from csv text" as test method doing:
 	docs = readCsv with "id,name\n1,John\n2,Riou\\, Sylvie\n" as text
-and verifying:
+and verifying: 
 	docs.count = 2
 	docs[1].id = "1"
 	docs[1].name = "John"
@@ -300,20 +300,20 @@ and verifying:
 
 define "iterates from csv text" as test method doing:
 	iterCsv = iterateCsv with "id,name\n1,John\n2,Riou\\, Sylvie\n" as text
-	docs = [] as Document[]
+	docs = [] as Document[] 
 	for each doc in iterCsv:
 		docs = docs + [doc]
-and verifying:
+and verifying: 
 	docs.count = 2
 	docs[1].id = "1"
 	docs[1].name = "John"
 	docs[2].id = "2"
 	docs[2].name = "Riou, Sylvie"
-
+	
 define "maps csv headers" as test method doing:
 	names = { "Code" : "id", "Name" : "name" }
 	docs = readCsv with "Code,Name\n1,John\n2,Riou\\, Sylvie\n" as text and names as columnNames
-and verifying:
+and verifying: 
 	docs.count = 2
 	docs[1].id = "1"
 	docs[1].name = "John"

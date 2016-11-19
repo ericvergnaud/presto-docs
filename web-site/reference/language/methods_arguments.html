@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define nickName as Text attribute"
+            + "\n"
+            + "\n" + "define Customer as category with attribute nickName"
+            + "\n"
+            + "\n" + "define printNickName as method receiving nickName doing:"
+            + "\n" + "    print nickName"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    c = Customer with "Monroe" as nickName'
+            + "\n" + "    printNickName with c.nickName as nickName",
+            c2 : "define nickName as Text attribute"
+            + "\n"
+            + "\n" + "define Customer as category with attribute nickName"
+            + "\n"
+            + "\n" + "define printNickName as method receiving nickName doing:"
+            + "\n" + "    print nickName"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    c = Customer with "Monroe" as nickName'
+            + "\n" + "    printNickName c",
+            c3 : "define printSomeText as method receiving Text t doing:"
+            + "\n" + "    print t"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    printSomeText with "Hello" as t',
+            c4 : "define shortName as Text attribute"
+            + "\n"
+            + "\n" + "define printShortName as method receiving any x with attribute shortName doing:"
+            + "\n" + "    print x.shortName"
+            + "\n"
+            + "\n" + "define Product as category with attribute shortName"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    p = Product with "Prompto" as shortName'
+            + "\n" + "    printShortName p",
+            c5 : "define shortName as Text attribute"
+            + "\n" + "define Product as category with attribute shortName"
+            + "\n" + "define family as Text attribute"
+            + "\n" + "define Software as Product with attribute family"
+            + "\n"
+            + "\n" + "define printFamily as method receiving Product p with attribute family doing:"
+            + "\n" + "    print p.family"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    c = Software with "Prompto" as shortName and "software" as family'
+            + "\n" + "    printFamily c",
+            c6 : "define shortName as Text attribute"
+            + "\n" + "define Product as category with attribute shortName"
+            + "\n"
+            + "\n" + "define addStuff as method receiving someName and Text suffix doing:"
+            + "\n" + "    return someName + suffix"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    p = Product with "Prompto" as shortName'
+            + "\n" + '    addStuff p with " is there!" as suffix',
+            c7 : "define add3Integers as method receiving Integer x, Integer y and Integer z = 3 doing:"
+            + "\n" + "    return x + y + z"
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + "    add3Integers with 7 as x and 22 as y"
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Methods arguments</h2>
+
+        <p>A Prompto method can accept 0 or more arguments.</p>
+        <p>Arguments must be declared (there is no implicit argument such as <i>arguments</i> in JavaScript).</p>
+        <p>Arguments are typed, in one of the following ways:</p>
+            <ul>
+                <li><b>Attribute argument</b>, with the form <code><i>name</i></code>, where <code><i>name</i></code> is an existing Attribute name.</p>
+                    <div>
+                        <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+                    </div>
+                    <p/>
+                    <p>When the attribute is the first argument, it can be automatically <i>extracted</i> from the object:</p>
+                    <div>
+                        <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+                    </div>
+                    <p/>
+                </li>
+                <li><b>Typed argument</b>, with the form <code><i>Type x</i></code>, where <code><i>type</i></code> is an existing Type name
+                    and <code><i>x</i></code> can be any valid variable identifier.</p>
+                    <div>
+                        <iframe class="displayer displayer-6-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+                    </div>
+                    <p/>
+                </li>
+                <li><b>Anonymous type attribute argument</b>, with the form <code>any <i>x</i> with attribute <i>name</i></code>, where <code><i>x</i></code> can be any valid variable
+                    identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than one attribute.</p>
+                    <div>
+                        <iframe class="displayer displayer-10-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+                    </div>
+                    <p/>
+                </li>
+                <li><b>Extended type argument</b>, with the form <code><i>Type x</i> with attribute <i>name</i></code>,
+                    where <code><i>type</i></code> is an existing category name, <code><i>x</i></code> can be any valid variable
+                    identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than one attribute.</p>
+                    <div>
+                        <iframe class="displayer displayer-10-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+                    </div>
+                    <p/>
+                </li>
+            </ul>
+        </p>
+        <h4>Mixing argument types</h4>
+        <p>When a method expects mutiple arguments, argument types can be mixed as required. </p>
+        <p>When mutiple arguments are declared, they must be separated by commas. In E dialect only, the last comma is replaced by the <code>and</code> keyword.</p>
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <h4>Default argument values</h4>
+        <p>Prompto supports <i>default</i> argument values, which remove the need to always pass all arguments to a method.</p>
+        <p>Default argument values must be <i>constant</i> values, i.e. they cannot vary during program execution. Good candidates are literals, null, and enumerated values.</p>
+        <div>
+            <iframe class="displayer displayer-6-lines" name="c7" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+    </div>
+</body>
+</html>

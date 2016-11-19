@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define firstName as Text attribute"
+                + "\n" + "define lastName as Text attribute"
+                + "\n" + "define dateOfBirth as Date attribute"
+                + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth",
+            c2 : "define firstName as Text attribute"
+            + "\n" + "define lastName as Text attribute"
+            + "\n" + "define dateOfBirth as Date attribute"
+            + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth"
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + "    p = Person with \"Arthur\" as firstName, \"Rimbaud\" as lastName and '1854-10-20' as dateOfBirth"
+            + "\n" + '    print p',
+            c3 : "define firstName as Text attribute"
+            + "\n" + "define lastName as Text attribute"
+            + "\n" + "define dateOfBirth as Date attribute"
+            + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth"
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p = Person with "Arthur" as firstName'
+            + "\n" + '    print p',
+            c4 : "define fullName as Text attribute"
+            + "\n" + "define Person as category with attribute fullName"
+            + "\n"
+            + "\n" + 'define title as Text attribute'
+            + "\n" + 'define author as Person attribute'
+            + "\n" + 'define Book as category with attribute author'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p = Person with "Arthur" as fullName'
+            + "\n" + '    b = Book with "My life" as title and p as person'
+            + "\n" + '    print b'
+
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Categories</h2>
+
+        <p>Prompto lets developers define custom types using <i>category</i> types.
+            A <i>category</i> type is defined by composing 1 or more attributes.<br/>
+            A simple <i>category</i> type is defined by simply listing its attributes, as follows:
+         </p>
+        <p/>
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p/>
+        <p><i>Prompto categories play a role similar to <code>classes</code> in OOP languages.</i></p>
+        <h3>Creating objects i.e. category instances</h3>
+
+        <p><i>In Prompto, all values are objects. However it is common to use the word object as a shortcut for category instance.</i></p>
+        <p>Creating an object i.e. instantiating a category is done by using its name optionally followed by attribute assignments.</p>
+        <p>The syntax varies depending on the dialect, as follows:</p>
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <p>Attribute assignments are optional, it is legal to assign only some attributes or none.</p>
+
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <h3>Category as attribute type</h3>
+        <p>Once a category is defined, it can be used as a type for attribute definitions.</p>
+        <p>In the below example, we define a <i>Person</i> category. We then define a <i>person</i> attribute with type <i>Person</i>.
+        We then use this <i>person</i> attribute to define the <i>Book</i> category:</p>
+        <p/>
+        <div>
+            <iframe class="displayer displayer-16-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+    </div>
+</body>
+</html>

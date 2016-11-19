@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define add3Integers as method receiving Integer x, Integer y and Integer z doing:"
+            + "\n" + '    print "3 integers added: " + (x + y + z)'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + "    add3Integers with 3 as z, 7 as x and 22 as y",
+            c2 : "define printInteger as method receiving Integer x doing:"
+            + "\n" + '    print "x -> " + x'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + "    printInteger 22"
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Methods basics</h2>
+
+        <p>Prompto supports both <i>global</i> methods and <i>category</i> methods.</p>
+        <p>In this section, we describe <i>global</i> methods only, <i>category</i> methods are described in the <i>Categories</i> section.</p>
+        <p>A method is identified by its prototype, defined by its name and its accepted arguments.</p>
+
+        <h3>Defining methods</h3>
+        <p>A method is defined by declaring its prototype and optional return value, followed by the method statements.</p>
+        <p>The minimal prototype has the following form:
+        <ul>
+            <li>In E dialect: <code>define <i>methodName</i> as method doing:</code></li>
+            <li>In O dialect: <code><i>methodName</i>() {}</code></li>
+            <li>In S dialect: <code>def <i>methodName</i>():</code></li>
+        </ul>
+        </p>
+        <h3>Method names</h3>
+        <p>A method name can be any valid identifier i.e. a word starting with a letter and followed by any number of letters or digits.</p>
+        <p/>
+        <h3>Method return types</h3>
+        <p>A Prompto method can return any number of values.</p>
+        <p>If no value is returned, the return type is known as <code>Void</code> type.</p>
+        <p>If more than one value is returned, the return type is <code>Tuple</code>.</p>
+        <p>If exactly 1 value is returned, the return type can be specified. When not specified, it is inferred by Prompto.</p>
+        <p>Specifying the return type is done as follows:
+        <ul>
+            <li>In E dialect: <code>define <i>methodName</i> as method returning <i>Type</i> doing:</code> </li>
+            <li>In O dialect: <code><i>Type method methodName</i>() {}</code></li>
+            <li>In S dialect: <code>def <i>methodName</i>() -> <i>Type</i>:</code></li>
+        </ul>
+        where <code><i>Type</i></code> is the name of an existing type.
+        </p>
+        <h3>Calling methods</h3>
+        <p>Calling methods is done simply using the method name optionally followed by its arguments name and value pairs.</p>
+        <p>Thanks to naming, arguments can be provided in any sequence, and makes it clear how the arguments are used.</p>
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <p>Naming the arguments is mandatory in Prompto.</p>
+        <p>However, argument name can be omitted when a method accepts only 1 argument.</p>
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+    </div>
+</body>
+</html>
