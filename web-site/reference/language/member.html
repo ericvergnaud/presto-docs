@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Member expressions</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    t = "This is a text"'
+            + "\n" + '    print "number of characters in t -> " + t.count'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Member expressions</h2>
+
+        <p>Member expressions are used to retrieve the value of an attribute of an object.<br/>
+            An member expression is a code fragment which produces a value whose type is determined by the attribute type,
+            which can then be used as an input for other operations: print, write, method call and so forth.<br/>
+            Member expressions have the following form:<br/>
+            <code><i>instance</i>.<i>name</i></code>, where <code><i>instance</i></code> is any value and <code><i>name</i></code>
+            is the name of a an attribute supported by this value.
+        </p>
+        <p>Prompto uses the same syntax for built-in attributes and user defined ones.<p/>
+        <p/>
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+
+    </div>
+</body>
+</html>
