@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Types</title>
+    <title>Period type</title>
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,19 +23,21 @@
 <body>
 <div class="container">
     <div class="row">
-    <h2>Special types</h2>
-        <p>Special types are technical types which do not hold information and only live during program execution.</p>
 
-        <p>Prompto defines the following special types:
-        <ul>
-            <li>Any</li>
-            <li>Method</li>
-            <li>Code</li>
-            <li>Iterator</li>
-            <li>Cursor</li>
-            <li>Worker</li>
-        </ul>
+        <h2>Period</h2>
+
+        <p>The <code>Period</code> type is a technical type used to represent a period of time, or a duration.<br/>
+            A Period literal is formed by a 'P' followed by a sequence of integral quantities preceded by their unit, see examples.<br/>
+            Day level units and time level units are separated by a 'T', as in DateTime literals.<br/>
+            A Period literal conforms to the <a target="_blank" href="http://www.iso.org/iso/home/standards/iso8601.htm">ISO 8601 format</a>.<br/>
+            A Period literal must be enclosed in single quotes.<br/>
+        <pre><code>'PY3W2' -> 3 years + 2 weeks
+'PM4D1' -> 4 months + 1 day
+'PD1TH2' -> 1 day + 2 hours
+'PTM4S173' -> 4 minutes + 173 seconds</code></pre>
         </p>
+
+
 
     </div>
 </body>

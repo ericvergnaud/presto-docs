@@ -28,11 +28,19 @@
                 + "\n" + '    SOUTH with "South" as value'
                 + "\n" + '    EAST with "East" as value'
                 + "\n" + '    WEST with "West" as value',
-            c2 : "define DecimalConstant as enumerated Decimal with symbols:"
-                + "\n" + "    PI with 3.141592653589793 as value"
+            c2 : "define SomeConstant as enumerated Decimal with symbols:"
+                + "\n" + "    AVOGADRO with 6.022140857 as value"
                 + "\n"
                 + "\n" + 'define main as method doing:'
-                + "\n" + '    print "PI is equal to " + PI'
+                + "\n" + '    print "AVOGADRO is equal to " + AVOGADRO',
+            c3 : "define SomeConstant as enumerated Decimal with symbols:"
+            + "\n" + "    AVOGADRO with 6.022140857 as value"
+            + "\n" + "    FARADAY with 96485.33289 as value"
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    print "SomeConstant.symbols -> " + SomeConstant.symbols'
+            + "\n" + '    print "AVOGADRO.name -> " + AVOGADRO.name'
+            + "\n" + '    print "FARADAY.value -> " + FARADAY.value'
 
         };
 
@@ -74,6 +82,23 @@
         <div>
             <iframe class="displayer" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
+
+        <h3>
+            Enumeration attributes
+        </h3>
+        <p>Enumeration values have the following attributes:<br/>
+        <ul>
+            <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
+            <li><code>name</code>: returns the name of the enumerated symbol as a Text value</li>
+            <li><code>value</code>: returns the value represented by the enumerated symbol.
+                The exact type of the value is determined by the exact type of the enumeration</li>
+        </ul>
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
         <h3>Enumerations of user defined types</h3>
         <p>Prompto supports Enumerations of user defined types. See Categories for details.</p>
     </div>

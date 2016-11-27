@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Types</title>
+    <title>Blob type</title>
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,19 +23,14 @@
 <body>
 <div class="container">
     <div class="row">
-    <h2>Special types</h2>
-        <p>Special types are technical types which do not hold information and only live during program execution.</p>
+        <h2>Blob</h2>
 
-        <p>Prompto defines the following special types:
-        <ul>
-            <li>Any</li>
-            <li>Method</li>
-            <li>Code</li>
-            <li>Iterator</li>
-            <li>Cursor</li>
-            <li>Worker</li>
-        </ul>
+        <p>The <code>Blob</code> (<b>B</b>inary <b>L</b>arge <b>OB</b>ject) type is a technical type used to hold an arbitray list of raw bytes.<br/>
+            A Blob has a mime type, which is useful to describe the type of the binary data, notably over the Internet.<br/>
+            There is no Blob literal, a Blob can only be read from an external resource, and written to it.<br/>
+            By design, Prompto has no byte manipulation capabilities.
         </p>
+
 
     </div>
 </body>
