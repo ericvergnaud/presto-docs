@@ -19,6 +19,42 @@
     <script src="../../js/lib/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : 'define main as method doing:'
+            + "\n" + '    doc = Document'
+            + "\n" + '    doc.town = "Toulouse"'
+            + "\n" + '    doc.population = 600000'
+            + "\n" + '    print "doc -> " + doc',
+            c2 : 'define main as method doing:'
+            + "\n" + '    doc = Document'
+            + "\n" + '    doc.type = "Town"'
+            + "\n" + '    doc.town.name = "Toulouse"'
+            + "\n" + '    doc.town.population = 600000'
+            + "\n" + '    print "doc -> " + doc',
+            c3 : 'define main as method doing:'
+            + "\n" + '    doc = Document'
+            + "\n" + '    doc.types = mutable ["Town","Person", "Company"]'
+            + "\n" + '    doc.types[2] = "Employee"'
+            + "\n" + '    print "doc -> " + doc'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
 </head>
 <body>
 <div class="container">
@@ -29,9 +65,36 @@
         <p>The <code>Document</code> type is a technical type used to manipulate arbitrary data structures with loose typing.<br/>
             A Document has items which can be of any type, atomic, collection or Document.<br/>
             A Document is useful to read data from the store, from files or from the Internet, and convert it to typed data.<br/>
-            A Document is also useful to write typed data to the store, to files or to the Internet.<br/>
         </p>
 
+        <h3>Creating a Document</h3>
+        <p>Creating a Document is done simply by using the <code>Document</code> keyword and assigning it to a variable.<br/>
+            Once the document is created, it can be populated simply by assigning values to members. Both member definition and
+            member population occur at the same time i.e. a document has no predefined members.
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Populating <i>deep</i> members</h3>
+        <p>A <i>deep</i> member is a member that is not directly accessible from the root of a Document.<br/>
+            Prompto creates missing members on the fly, making it very easy to populate them:
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+
+        <h3>Populating list members</h3>
+        <p>Document members can be lists:
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-8-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
 
     </div>
 </body>
