@@ -54,17 +54,22 @@
 
         <h2>Flush statements</h2>
 
-        <p>The Prompto language comes with a built-in data storage mechanism. Which data store is effectively used is determined through configuration.
-        By default, Prompto uses a built-in in-memory non persistent data store, which helps get started and run tests.</p>
+        <p>The Prompto language comes with a built-in data storage mechanism.</p>>
+        <p>
+            This mechanism relies on 3rd party data store implementations. Which data store technology is effectively used is determined through configuration.
+            Without configuration, Prompto uses a built-in in-memory non persistent data store, which helps get started and run tests, but is not supported for production.
+        </p>
 
         <p>A data store generally provides guarantees of availability, scalability and consistency.
-            However, from a language standpoint, the only relevant characteristic is consistency aka ACID (Atomicity, Consistency, Isolation, Durability).
+            However, from a programming language standpoint, the only relevant characteristic is consistency aka ACID (Atomicity, Consistency, Isolation, Durability).
             Many data stores provide consistency through transactions, however this does not scale well.
-            Instead, other data stores provide consistency using grouped CRUD operations (CReate, Update, Delete).
+            Instead, other data stores provide consistency using grouped CRUD operations (<b>CR</b>eate, <b>U</b>pdate, <b>D</b>elete).
             To ensure compatibility with most data stores, Prompto only requires the data store to support consistency, not transactions.
-            However, some data stores only provide asynchronous consistency of CRUD operations.
-            As an example, SOLR indexes data asynchronous, which may have the unfortunate consequence that newly inserted data is not found
-            by indexed queries.
+        </p>
+
+        <p>However, some data stores only provide <i>asynchronous</i> consistency of CRUD operations.
+            As an example, SOLR indexes data asynchronously, which has the unfortunate consequence that newly inserted data may not be found
+            by indexed queries ran immediately after storing the data.
         </p>
 
         <p>The <code>flush</code> statement instructs the data store to synchronously flush any pending operation, thus ensuring

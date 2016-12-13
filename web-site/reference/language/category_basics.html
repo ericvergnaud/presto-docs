@@ -24,10 +24,6 @@
 
         var samples =  {
             c1 : "define firstName as Text attribute"
-                + "\n" + "define lastName as Text attribute"
-                + "\n" + "define dateOfBirth as Date attribute"
-                + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth",
-            c2 : "define firstName as Text attribute"
             + "\n" + "define lastName as Text attribute"
             + "\n" + "define dateOfBirth as Date attribute"
             + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth"
@@ -35,7 +31,7 @@
             + "\n" + 'define main as method doing:'
             + "\n" + "    p = Person with \"Arthur\" as firstName, \"Rimbaud\" as lastName and '1854-10-20' as dateOfBirth"
             + "\n" + '    print p',
-            c3 : "define firstName as Text attribute"
+            c2 : "define firstName as Text attribute"
             + "\n" + "define lastName as Text attribute"
             + "\n" + "define dateOfBirth as Date attribute"
             + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth"
@@ -43,7 +39,7 @@
             + "\n" + 'define main as method doing:'
             + "\n" + '    p = Person with "Arthur" as firstName'
             + "\n" + '    print p',
-            c4 : "define fullName as Text attribute"
+            c3 : "define fullName as Text attribute"
             + "\n" + "define Person as category with attribute fullName"
             + "\n"
             + "\n" + 'define title as Text attribute'
@@ -76,31 +72,19 @@
 <body>
 <div class="container">
     <div class="row">
-        <h2>Categories</h2>
+         <h2>Creating objects i.e. category instances</h2>
 
-        <p>Prompto lets developers define custom types using <i>category</i> types.
-            A <i>category</i> type is defined by composing 1 or more attributes.<br/>
-            A simple <i>category</i> type is defined by simply listing its attributes, as follows:
-         </p>
-        <p/>
-        <div>
-            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
-        </div>
-        <p/>
-        <p><i>Prompto categories play a role similar to <code>classes</code> in OOP languages.</i></p>
-        <h3>Creating objects i.e. category instances</h3>
-
-        <p><i>In Prompto, all values are objects. However it is common to use the word object as a shortcut for category instance.</i></p>
-        <p>Creating an object i.e. instantiating a category is done by using its name optionally followed by attribute assignments.</p>
+        <p>In Prompto, all values (number, text, user defined...) are <i>objects</i>. However it is common to use the word <i>object</i> as a nickname for <i>category instance</i>.</p>
+        <p>Creating an object i.e. instantiating a category is done by using its name, optionally followed by attribute assignments.</p>
         <p>The syntax varies depending on the dialect, as follows:</p>
         <div>
-            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
-
-        <p>Attribute assignments are optional, it is legal to assign only some attributes or none.</p>
+    <p/>
+        <p>Attribute assignments are optional, it is legal to assign only some attributes, or none.</p>
 
         <div>
-            <iframe class="displayer displayer-10-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p/>
         <h3>Category as attribute type</h3>
@@ -109,7 +93,7 @@
         We then use this <i>person</i> attribute to define the <i>Book</i> category:</p>
         <p/>
         <div>
-            <iframe class="displayer displayer-16-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-16-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
     </div>

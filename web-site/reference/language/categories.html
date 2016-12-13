@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Comments</title>
+    <title>Categories</title>
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,8 +23,10 @@
     <script type="text/javascript">
 
         var samples =  {
-            c1 : "// a simple comment attached to a declaration"
-                + "\n" + "define someName as Text attribute"
+            c1 : "define firstName as Text attribute"
+                + "\n" + "define lastName as Text attribute"
+                + "\n" + "define dateOfBirth as Date attribute"
+                + "\n" + "define Person as category with attributes firstName, lastName and dateOfBirth"
         };
 
         function editorReady(frame, editor) {
@@ -35,30 +37,28 @@
             parent.translatePromptoCode(content, from, to, editor);
         }
 
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+
     </script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <h2>Comments</h2>
+        <h2>Categories</h2>
 
-        <p>Prompto supports comments in the form of line comments.<br/>
-            A line comment is a line of text starting by <code>//</code> in E and O dialects, or <code>#</code> in M dialect.<br/>
-            Prompto code is ususally not stored in files, so a comment cannot be attached to a file location.
-            Instead, a comment is always attached to the next non-comment line of code.<br/>
-            In the below example, the line comment is attached to the attribute declaration.
+        <p>Prompto lets developers define custom types using <i>category</i> types.
+            A <i>category</i> type is defined by composing 1 or more attributes, and/or existing category types.<br/>
+            A simple <i>category</i> type is defined by simply listing its attributes, as follows:
          </p>
-
+        <p/>
         <div>
-            <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
-        <br/>
-        <p>Prompto does not support Java-style inline comments <code>/* ... */</code>,
-            because it would be impossible to place them when translating code from one dialect to another.
-            For the same reason, Prompto does not support end of line comments, such as <code>a = 2 <i>// assign 2 to a</i></code>.
-            The O dialect ignores line breaks, while the E and M dialects don't, so they would dangle around when translated.
-        </p>
-
+        <p/>
+        <p><i>Prompto categories play a role similar to <code>classes</code> in OOP languages.</i></p>
     </div>
 </body>
 </html>
