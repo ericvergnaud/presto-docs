@@ -42,264 +42,303 @@
         }
 
     </script>
+    <style type="text/css" media="screen">
+        .sidebar {
+            padding-top: 10px;
+            padding-bottom: 40px;
+        }
+        .iframe-container {
+            position: fixed;
+            padding: 0;
+            top: 0;
+            left: 16%;
+            width: 84%;
+            height: 100%;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            display: block;
+            border: 0;
+            top: 0;
+            left: 0;
+            height: 96%;
+            width: 100%;
+            overflow: auto;
+        }
+    </style>
 
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2 sidebar">
-            <div class="sidebar-module">
-                <h4>Language</h4>
-                <ul class="list-unstyled">
-                    <li class=active">
-                        <a target="content" href="language/overview.html">Overview</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/dialects.html">Dialects</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/keywords.html">Keywords</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/identifiers.html">Identifiers</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/types.html">Types</a>
+<div class="col-md-2 sidebar">
+    <div class="sidebar-module">
+        <h4>Language</h4>
+        <ul class="list-unstyled">
+            <li class=active">
+                <a target="content" href="language/overview.html">Overview</a>
+            </li>
+            <li>
+                <a target="content" href="language/dialects.html">Dialects</a>
+            </li>
+            <li>
+                <a target="content" href="language/keywords.html">Keywords</a>
+            </li>
+            <li>
+                <a target="content" href="language/identifiers.html">Identifiers</a>
+            </li>
+            <li>
+                <a target="content" href="language/types.html">Types</a>
+                <ul>
+                    <li><a target="content" href="language/atomic-types.html">Atomic types</a>
                         <ul>
-                            <li><a target="content" href="language/atomic-types.html">Atomic types</a>
-                                <ul>
-                                    <li><a target="content" href="language/text-type.html">Text</a></li>
-                                    <li><a target="content" href="language/integer-type.html">Integer</a></li>
-                                    <li><a target="content" href="language/decimal-type.html">Decimal</a></li>
-                                    <li><a target="content" href="language/boolean-type.html">Boolean</a></li>
-                                    <li><a target="content" href="language/character-type.html">Character</a></li>
-                                    <li><a target="content" href="language/date-type.html">Date</a></li>
-                                    <li><a target="content" href="language/time-type.html">Time</a></li>
-                                    <li><a target="content" href="language/datetime-type.html">DateTime</a></li>
-                                    <li><a target="content" href="language/period-type.html">Period</a></li>
-                                    <li><a target="content" href="language/uuid-type.html">UUID</a></li>
-                                    <li><a target="content" href="language/blob-type.html">Blob</a></li>
-                                    <li><a target="content" href="language/image-type.html">Image</a></li>
-                                </ul>
-                            </li>
-                            <li><a target="content" href="language/collection-types.html">Collection types</a>
-                                <ul>
-                                    <li><a target="content" href="language/list-type.html">List</a></li>
-                                    <li><a target="content" href="language/tuple-type.html">Tuple</a></li>
-                                    <li><a target="content" href="language/set-type.html">Set</a></li>
-                                    <li><a target="content" href="language/range-type.html">Range</a></li>
-                                    <li><a target="content" href="language/dict-type.html">Dictionary</a></li>
-                                </ul>
-                            </li>
-                            <li><a target="content" href="language/document-type.html">Document</a></li>
-                            <li><a target="content" href="language/attributes.html">Attribute</a></li>
-                            <li><a target="content" href="language/enumerations.html">Enumeration</a></li>
-                            <li><a target="content" href="language/special-types.html">Special types</a>
-                                <ul>
-                                    <li><a target="content" href="language/any-type.html">Any</a></li>
-                                    <li><a target="content" href="language/iterator-type.html">Iterator</a></li>
-                                    <li><a target="content" href="language/cursor-type.html">Cursor</a></li>
-                                    <li><a target="content" href="language/code-type.html">Code</a></li>
-                                    <li><a target="content" href="language/method-type.html">Method</a></li>
-                                    <li><a target="content" href="language/worker-type.html">Worker</a></li>
-                                </ul>
-                            </li>
+                            <li><a target="content" href="language/text-type.html">Text</a></li>
+                            <li><a target="content" href="language/integer-type.html">Integer</a></li>
+                            <li><a target="content" href="language/decimal-type.html">Decimal</a></li>
+                            <li><a target="content" href="language/boolean-type.html">Boolean</a></li>
+                            <li><a target="content" href="language/character-type.html">Character</a></li>
+                            <li><a target="content" href="language/date-type.html">Date</a></li>
+                            <li><a target="content" href="language/time-type.html">Time</a></li>
+                            <li><a target="content" href="language/datetime-type.html">DateTime</a></li>
+                            <li><a target="content" href="language/period-type.html">Period</a></li>
+                            <li><a target="content" href="language/uuid-type.html">UUID</a></li>
+                            <li><a target="content" href="language/blob-type.html">Blob</a></li>
+                            <li><a target="content" href="language/image-type.html">Image</a></li>
                         </ul>
                     </li>
+                    <li><a target="content" href="language/collection-types.html">Collection types</a>
+                        <ul>
+                            <li><a target="content" href="language/list-type.html">List</a></li>
+                            <li><a target="content" href="language/tuple-type.html">Tuple</a></li>
+                            <li><a target="content" href="language/set-type.html">Set</a></li>
+                            <li><a target="content" href="language/range-type.html">Range</a></li>
+                            <li><a target="content" href="language/dict-type.html">Dictionary</a></li>
+                        </ul>
+                    </li>
+                    <li><a target="content" href="language/document-type.html">Document</a></li>
+                    <li><a target="content" href="language/attributes.html">Attribute</a></li>
+                    <li><a target="content" href="language/enumerations.html">Enumeration</a></li>
+                    <li><a target="content" href="language/special-types.html">Special types</a>
+                        <ul>
+                            <li><a target="content" href="language/any-type.html">Any</a></li>
+                            <li><a target="content" href="language/iterator-type.html">Iterator</a></li>
+                            <li><a target="content" href="language/cursor-type.html">Cursor</a></li>
+                            <li><a target="content" href="language/code-type.html">Code</a></li>
+                            <li><a target="content" href="language/method-type.html">Method</a></li>
+                            <li><a target="content" href="language/worker-type.html">Worker</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a target="content" href="language/mutability.html">Mutability</a>
+            </li>
+            <li>
+                <a target="content" href="language/methods.html">Methods</a>
+                <ul>
                     <li>
-                        <a target="content" href="language/mutability.html">Mutability</a>
+                        <a target="content" href="language/methods_basics.html">Definition</a>
                     </li>
                     <li>
-                        <a target="content" href="language/methods.html">Methods</a>
-                        <ul>
-                            <li>
-                                <a target="content" href="language/methods_basics.html">Definition</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/methods_arguments.html">Arguments</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/methods_overloading.html">Overloading</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/methods_abstract.html">Abstract methods</a>
-                            </li>
-                        </ul>
+                        <a target="content" href="language/methods_calling.html">Calling</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/methods_arguments.html">Arguments</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/methods_overloading.html">Overloading</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/methods_abstract.html">Abstract methods</a>
+                    </li>
+                </ul>
 
+            </li>
+            <li>
+                <a target="content" href="language/statements.html">Statements</a>
+                <ul>
+                    <li>
+                        <a target="content" href="language/comments.html">Comments</a>
                     </li>
                     <li>
-                        <a target="content" href="language/statements.html">Statements</a>
+                        <a target="content" href="language/assignments.html">Assigments</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/if-else.html">If else</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/switch.html">Switch</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/for-each.html">For each</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/while.html">While</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/do-while.html">Do while</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/return.html">Return</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/write.html">Write</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/store.html">Store</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/flush.html">Flush</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a target="content" href="language/expressions.html">Expressions</a>
+                <ul>
+                    <li>
+                        <a target="content" href="language/precedence.html">Precedence</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/nothing.html">Nothing</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/this.html">This</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/equality.html">Equality</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/comparison.html">Comparison</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/minus.html">Minus</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/add.html">Add</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/subtract.html">Subtract</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/multiply.html">Multiply</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/divide.html">Divide</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/logical.html">Logical</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/ternary.html">Ternary</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/item.html">Item</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/slice.html">Slice</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/filtered.html">Filtered</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/sorted.html">Sorted</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/membership.html">Membership</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/type.html">Type</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/member.html">Member</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/method.html">Method</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/code.html">Code</a>
+                    </li>
+                   <li>
+                        <a target="content" href="language/read.html">Read</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+           </li>
+            <li>
+                <a target="content" href="language/categories.html">Categories</a>
+                <ul>
+                    <li>
+                        <a target="content" href="language/category_basics.html">Creation</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/category_storage.html">Storage</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/category_inheritance.html">Inheritance</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/category_getters.html">Getters and setters</a>
+                    </li>
+                    <li>
+                        <a target="content" href="language/category_methods.html">Methods</a>
                         <ul>
                             <li>
-                                <a target="content" href="language/comments.html">Comments</a>
+                                <a target="content" href="language/category_methods_basics.html">Definition</a>
                             </li>
                             <li>
-                                <a target="content" href="language/assignments.html">Assigments</a>
+                                <a target="content" href="language/category_methods_calling.html">Calling</a>
                             </li>
                             <li>
-                                <a target="content" href="language/if-else.html">If else</a>
+                                <a target="content" href="language/category_methods_arguments.html">Arguments</a>
                             </li>
                             <li>
-                                <a target="content" href="language/switch.html">Switch</a>
+                                <a target="content" href="language/category_methods_overloading.html">Overloading</a>
                             </li>
                             <li>
-                                <a target="content" href="language/for-each.html">For each</a>
+                                <a target="content" href="language/category_methods_overriding.html">Overriding</a>
                             </li>
-                            <li>
-                                <a target="content" href="language/while.html">While</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/do-while.html">Do while</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/return.html">Return</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/write.html">Write</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/store.html">Store</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/flush.html">Flush</a>
-                            </li>
-                        </ul>
+                         </ul>
                     </li>
                     <li>
-                        <a target="content" href="language/expressions.html">Expressions</a>
-                        <ul>
-                            <li>
-                                <a target="content" href="language/precedence.html">Precedence</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/nothing.html">Nothing</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/this.html">This</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/equality.html">Equality</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/comparison.html">Comparison</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/minus.html">Minus</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/add.html">Add</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/subtract.html">Subtract</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/multiply.html">Multiply</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/divide.html">Divide</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/logical.html">Logical</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/ternary.html">Ternary</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/item.html">Item</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/slice.html">Slice</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/filtered.html">Filtered</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/sorted.html">Sorted</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/membership.html">Membership</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/type.html">Type</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/member.html">Member</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/method.html">Method</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/code.html">Code</a>
-                            </li>
-                           <li>
-                                <a target="content" href="language/read.html">Read</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/fetch.html">Fetch</a>
-                            </li>
-                        </ul>
-                   </li>
-                    <li>
-                        <a target="content" href="language/categories.html">Categories</a>
-                        <ul>
-                            <li>
-                                <a target="content" href="language/category_basics.html">Creation</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_storage.html">Storage</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_inheritance.html">Inheritance</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_getters.html">Getters and setters</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_methods.html">Methods</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_abstract.html">Abstract categories</a>
-                            </li>
-                            <li>
-                                <a target="content" href="language/category_enumerations.html">Enumerated categories</a>
-                            </li>
-                        </ul>
+                        <a target="content" href="language/category_abstract.html">Abstract categories</a>
                     </li>
                     <li>
-                        <a target="content" href="language/resources.html">Resources</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/workers.html">Workers</a>
+                        <a target="content" href="language/category_enumerations.html">Enumerated categories</a>
                     </li>
                     <li>
                         <a target="content" href="language/singletons.html">Singletons</a>
                     </li>
-                    <li>
-                        <a target="content" href="language/errors.html">Errors</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/bindings.html">Native bindings</a>
-                    </li>
-                    <li>
-                        <a target="content" href="language/testing.html">Testing</a>
-                    </li>
                 </ul>
-                <h4>Libraries</h4>
-                <ul id="Libraries" class="list-group">
-                </ul>
-               <h4>Scripting</h4>
-                <ul id="Scripting" class="list-group">
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-10 col-md-offset-2 main" style="padding: 0px">
-        <div class="embed-responsive embed-responsive-4by3 collapse in">
-            <iframe name="content" class="embed-responsive-item" src="language/overview.html"></iframe>
-        </div>
+            </li>
+            <li>
+                <a target="content" href="language/resources.html">Resources</a>
+            </li>
+            <li>
+                <a target="content" href="language/workers.html">Workers</a>
+            </li>
+            <li>
+                <a target="content" href="language/errors.html">Errors</a>
+            </li>
+            <li>
+                <a target="content" href="language/bindings.html">Native bindings</a>
+            </li>
+            <li>
+                <a target="content" href="language/testing.html">Testing</a>
+            </li>
+        </ul>
+        <h4>Libraries</h4>
+        <ul id="Libraries" class="list-group">
+        </ul>
+       <h4>Scripting</h4>
+        <ul id="Scripting" class="list-group">
+        </ul>
     </div>
 </div>
+<div class="col-md-10 col-md-offset-2 main" style="padding: 0px">
+        <div class="iframe-container">
+            <iframe name="content" src="language/overview.html"></iframe>
+        </div>
 </div>
 </body>
 </html>

@@ -66,7 +66,7 @@
             There are good reasons for supporting both interpreted and compiled mode:
             <ul>
                 <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
-                <li>Incorrect code will fail to compile. The interpreter is able to run incorrect code, which can be useful during development.</li>
+                <li>The interpreter is able to run incorrect code, which can be useful during development. Incorrect code will fail to compile.</li>
                 <li>Transpiled code (in Python and JavaScript) is hard to debug because it does not map exactly to Prompto code.</li>
             </ul>
             The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
@@ -78,8 +78,8 @@
 
         <h2>Statically inferred types</h2>
 
-        <p>Prompto uses static typing, like Java or C# do. This is required to ensure best performance on these platforms.<br/>
-            Prompto implements type inference, thus freeing the developer from having to declare obvious types.<br/>
+        <p>Prompto uses static typing, like Java or C# do. This ensures best performance on all platforms.<br/>
+            Prompto implements type inference, thus freeing the developer from having to declare obvious types:<br/>
             When writing <code>a = 123</code> code, it is obvious that <code>a</code> is an integer, so there is no need to declare it.<br/>
             Method parameter types still need to be declared though, because they cannot be inferred.
         </p>

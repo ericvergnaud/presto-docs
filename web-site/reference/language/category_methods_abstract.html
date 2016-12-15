@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define perimeter as Decimal attribute"
+            + "\n" + "define Shape as category with attribute perimeter"
+            + "\n" + "define Square as Shape"
+            + "\n" + "define Circle as Shape"
+            + "\n"
+            + "\n" + "define printShape as abstract method receiving Shape shape"
+            + "\n" + "define printShape as method receiving Square shape doing:"
+            + "\n" + '    print "Square side is " + (shape.perimeter / 4)'
+            + "\n" + "define printShape as method receiving Circle shape doing:"
+            + "\n" + '    print "Circle radius is " + (shape.perimeter / (PI*2))'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    s = Square with 40.0 as perimeter'
+            + "\n" + '    c = Circle with 40.0 as perimeter'
+            + "\n" + '    shapes = [ s as Shape, c as Shape ]'
+            + "\n" + '    for each ss in shapes:'
+            + "\n" + '        printShape with ss as shape',
+            c2 : "define displayMethod as abstract method receiving Text value"
+            + "\n"
+            + "\n" + "define someMethod as method receiving Text value and displayMethod doing:"
+            + "\n" + '    displayMethod value'
+            + "\n"
+            + "\n" + "define displayScreen as method receiving Text value doing:"
+            + "\n" + '    print value'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    someMethod with "Hello" as value and Method: displayScreen as displayMethod'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2><i>Abstract</i> methods</h2>
+        <p>Prompto supports <code><i>abstract</i></code> methods, a special type of method, which <i>must</i> be overloaded.</p>
+            Abstract methods are resolved at runtime based on the actual type of the value.</p>
+        <p>Abstract methods are well suited when no actual behaviour can be determined for an argument type (such as the below <i>Shape</i>).</p>
+        <p>In the below example, we do not know how to print a shape, only how to print specific shape types.</p>
+        <p>In order to print a list of shapes without knowing their type, we use an abstract method.</p>
+        <div>
+            <iframe class="displayer displayer-20-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <p/>
+        <h3><i>Abstract</i> methods as arguments</h3>
+        <p>Abstract methods can also be used as arguments for other methods:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p>In the above example, we show how to pass both a value: <i>Hello</i> and a method: <code><i>displayScreen</i></code> to another method: <code><i>someMethod</i></code>.</p>
+        <p>The method: <code><i>someMethod</i></code> then invokes the method received as an argument, using the value also received as an argument.</p>
+        <p>The method caller is responsible for providing a non abstract method compatible with the argument's method type.</p>
+        <p>Please note that in the E dialect only, the <code>Method:</code> keyword is required to let Prompto decide whether to pass <code><i>displayScreen</i></code>
+            directly as an argument, or to invoke it and pass the result. This is not required in O and M dialects, where method invocation requires parenthesis.</p>
+    </div>
+</body>
+</html>

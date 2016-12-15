@@ -43,21 +43,19 @@
             + "\n" + "define main as method doing:"
             + "\n" + '    c = Customer with "Monroe" as nickName'
             + "\n" + "    printNickName c",
-            c3 : "define printSomeText as method receiving Text t doing:"
-            + "\n" + "    print t"
+            c3 : "define printSomeText as method receiving Text value doing:"
+            + "\n" + "    print value"
             + "\n"
             + "\n" + "define main as method doing:"
-            + "\n" + '    printSomeText with "Hello" as t',
-            c4 : "define shortName as Text attribute"
+            + "\n" + '    printSomeText with "Hello" as value',
+            c4 : "define printName as method receiving any x with attribute name doing:"
+            + "\n" + "    print x.name"
             + "\n"
-            + "\n" + "define printShortName as method receiving any x with attribute shortName doing:"
-            + "\n" + "    print x.shortName"
-            + "\n"
-            + "\n" + "define Product as category with attribute shortName"
+            + "\n" + "define Product as category with attribute name"
             + "\n"
             + "\n" + "define main as method doing:"
-            + "\n" + '    p = Product with "Prompto" as shortName'
-            + "\n" + "    printShortName p",
+            + "\n" + '    p = Product with "Prompto" as name'
+            + "\n" + "    printName p",
             c5 : "define shortName as Text attribute"
             + "\n" + "define Product as category with attribute shortName"
             + "\n" + "define family as Text attribute"
@@ -106,6 +104,7 @@
 
         <p>A Prompto method can accept 0 or more arguments.</p>
         <p>Arguments must be declared (there is no implicit argument such as <i>arguments</i> in JavaScript).</p>
+        <p>When mutiple arguments are declared, they must be separated by commas. In E dialect only, the last comma is replaced by the <code>and</code> keyword.</p>
         <p>Arguments are typed, in one of the following ways:</p>
             <ul>
                 <li><b>Attribute argument</b>, with the form <code><i>name</i></code>, where <code><i>name</i></code> is an existing Attribute name.</p>
@@ -145,7 +144,6 @@
         </p>
         <h4>Mixing argument types</h4>
         <p>When a method expects mutiple arguments, argument types can be mixed as required. </p>
-        <p>When mutiple arguments are declared, they must be separated by commas. In E dialect only, the last comma is replaced by the <code>and</code> keyword.</p>
         <div>
             <iframe class="displayer displayer-10-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>

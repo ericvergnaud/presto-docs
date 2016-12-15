@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define welcome as method receiving Text prefix and Text suffix doing:"
+            + "\n" + '        print prefix + name + suffix'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    person = Person with "Marylin" as name'
+            + "\n" + '    person.welcome with "Hello " as prefix and ", how are you?" as suffix',
+            c2 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define welcome as method receiving Text prefix and Text suffix doing:"
+            + "\n" + '        print prefix + name + suffix'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    person = Person with "Marylin" as name'
+            + "\n" + '    person.welcome with ", how are you?" as suffix and "Hello " as prefix',
+            c3 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define welcome as method receiving Text prefix doing:"
+            + "\n" + '        print prefix + name'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    person = Person with "Marylin" as name'
+            + "\n" + '    person.welcome "Hello "'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <h2>Calling category methods</h2>
+        <p>Calling category methods is done simply by appending to the category instance variable a '.' followed by the method name,
+            optionally followed by its arguments name and value pairs.</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <p>Thanks to naming, arguments can be provided in any sequence, which makes it clear how the arguments are used.</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+        <p>Naming the arguments is mandatory in Prompto.</p>
+        <p>However, when a method accepts only 1 argument, the argument name can be omitted:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+    </div>
+</body>
+</html>

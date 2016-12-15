@@ -20,14 +20,53 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
 
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define printName as method doing:"
+            + "\n" + '        print "Person name is " + name',
+            c2 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define welcome as method receiving Text prefix and Text suffix doing:"
+            + "\n" + '        print prefix + name + suffix'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    person = Person with "Marylin" as name'
+            + "\n" + '    person.welcome with "Hello " as prefix and ", how are you?" as suffix',
+            c3 : "define Person as category with attribute name, and methods:"
+            + "\n"
+            + "\n" + "    define welcome as method receiving Text prefix doing:"
+            + "\n" + '        print prefix + name'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    person = Person with "Marylin" as name'
+            + "\n" + '    person.welcome "Hello "'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
 </head>
 <body>
 <div class="container">
     <div class="row">
 
-        <h2>Defining methods</h2>
-        <p>A method is identified by its prototype, defined by its name and its accepted arguments.</p>
-        <p>A method is defined by declaring its prototype and optional return value, followed by the method statements.</p>
+        <h2>Defining category methods</h2>
+        <p>A category method is identified by its category and its prototype, defined by its name and its accepted arguments.</p>
+        <p>A category method is defined by declaring, within a category definition, its prototype and optional return value, followed by the method statements.</p>
         <p>The minimal prototype has the following form:
         <ul>
             <li>In E dialect: <code>define <i>methodName</i> as method doing:</code></li>
@@ -35,6 +74,11 @@
             <li>In M dialect: <code>def <i>methodName</i>():</code></li>
         </ul>
         </p>
+        <p>A category method must be defined within a category definition, as follows:</p>
+        <div>
+            <iframe class="displayer displayer-6-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p/>
         <h3>Method names</h3>
         <p>A method name can be any valid identifier i.e. a word starting with a letter and followed by any number of letters or digits.</p>
         <p/>
@@ -52,6 +96,6 @@
         </p>
         <p>If more than one value is returned, the return type is <code>Tuple</code>. This can be convenient for quick development
             but should not be used for large scale applications, because Prompto does not infer the type of Tuple elements.</p>
-    </div>
+     </div>
 </body>
 </html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define someName as Text attribute"
+            + "\n"
+            + "\n" + "define myMethod as method receiving someName doing:"
+            + "\n" + "    print someName",
+            c2 : "define myMethod as method receiving Text x doing:"
+            + "\n" + "    print x",
+            c3 : "define someName as Text attribute"
+            + "\n"
+            + "\n" + "define Customer as category with attribute someName"
+            + "\n"
+            + "\n" + "define sector as Text attribute"
+            + "\n"
+            + "\n" + "define myMethod as method receiving Customer c with attribute sector doing:"
+            + "\n" + "    print c.sector",
+            c4 : "define someName as Text attribute"
+            + "\n"
+            + "\n" + "define myMethod as method receiving any x with attribute someName doing:"
+            + "\n" + "    print x.name",
+            c5 : "define myMethod as method receiving Integer x, Integer y and Integer z doing:"
+            + "\n" + "    return x + y + z",
+            c6 : "define myOverloadedMethod as method receiving Integer x doing:"
+            + "\n" + "    return x"
+            + "\n" + "define myOverloadedMethod as method receiving Integer x and Integer y doing:"
+            + "\n" + "    return x + y"
+            + "\n" + "define myOverloadedMethod as method receiving Integer x, Integer y and Integer z doing:"
+            + "\n" + "    return x + y + z",
+            c7 : "define edgeCount as Integer attribute"
+            + "\n" + "define Shape as category with attribute edgeCount"
+            + "\n" + "define Square as Shape"
+            + "\n" + "define Triangle as Shape"
+            + "\n"
+            + "\n" + "define printShape as method receiving Shape shape doing:"
+            + "\n" + '    print "Shape"'
+            + "\n" + "define printShape as method receiving Square shape doing:"
+            + "\n" + '    print "Square"'
+            + "\n" + "define printShape as method receiving Triangle shape doing:"
+            + "\n" + '    return "Triangle"',
+            c8 : "define edgeCount as Integer attribute"
+            + "\n" + "define Shape as category with attribute edgeCount"
+            + "\n" + "define Square as Shape"
+            + "\n" + "define Triangle as Shape"
+            + "\n"
+            + "\n" + "define printShape as abstract method receiving Shape shape"
+            + "\n" + "define printShape as method receiving Square shape doing:"
+            + "\n" + '    print "Square"'
+            + "\n" + "define printShape as method receiving Triangle shape doing:"
+            + "\n" + '    return "Triangle"',
+            c9 : "define displayMethod as abstract method receiving Text value"
+            + "\n"
+            + "\n" + "define someMethod as method receiving Text t and displayMethod doing:"
+            + "\n" + '    displayMethod t'
+            + "\n"
+            + "\n" + "define displayScreen as method receiving Text t doing:"
+            + "\n" + '    print t'
+            + "\n"
+            + "\n" + "define main as method doing:"
+            + "\n" + '    someMethod with "Hello" as t and displayScreen as displayMethod'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Methods</h2>
+
+        <p>Prompto supports both <i>global</i> methods and <i>category</i> methods.</p>
+        <p>In this section, we describe <i>category</i> methods only, <i>global</i> methods are described in the <i>Methods</i> section.</p>
+        <p>A category method is identified by its prototype, defined by its name and its accepted arguments.</p>
+
+        <h3>Defining category methods</h3>
+        <p>A category method is defined by declaring, within a category definition, its prototype and optional return value, followed by the method statements.</p>
+        <p>The minimal prototype has the following form:
+        <ul>
+            <li>In E dialect: <code>define <i>methodName</i> as method doing:</code></li>
+            <li>In O dialect: <code><i>methodName</i>() {}</code></li>
+            <li>In M dialect: <code>def <i>methodName</i>():</code></li>
+        </ul>
+        </p>
+        <h3>Method names</h3>
+        <p>A method name can be any valid identifier i.e. a word starting with a letter and followed by any number of letters or digits.</p>
+        <h3>Method return types</h3>
+        <p>A Prompto method can return any number of values.</p>
+        <p>If no value is returned, the return type is known as <code>Void</code> type.</p>
+        <p>If more than one value is returned, the return type is <code>Tuple</code>.</p>
+        <p>If exactly 1 value is returned, the return type can be specified. When not specified, it is inferred by Prompto.</p>
+        <p>Specifying the return type is done as follows:
+        <ul>
+            <li>In E dialect: <code>define <i>methodName</i> as method returning <i>Type</i> doing:</code> </li>
+            <li>In O dialect: <code><i>Type methodName</i>() {}</code></li>
+            <li>In M dialect: <code>def <i>methodName</i>() -> <i>Type</i>:</code></li>
+        </ul>
+        where <code><i>Type</i></code> is the name of an existing type.
+        </p>
+        <h3>Method arguments</h3>
+        <p>A Prompto method can accept 0 or more arguments.</p>
+        <p>Arguments must be declared (there is no implicit argument such as <i>arguments</i> in JavaScript).</p>
+        <p>Arguments are typed, in one of the following ways:</p>
+            <ul>
+                <li>Attribute argument, with the form <p><code><i>name</i></code>, where <code><i>name</i></code> is an existing Attribute name.</p>
+                    <div>
+                        <iframe class="displayer displayer-6-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+                    </div>
+                    <br/>
+                </li>
+                <li>Explicitly typed argument, with the form <p><code><i>Type x</i></code>, where <code><i>type</i></code> is an existing Type name
+                    and <code><i>x</i></code> can be any valid variable identifier.</p>
+                    <div>
+                        <iframe class="displayer displayer-4-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+                    </div>
+                    <br/>
+                </li>
+                <li>Extended type argument, with the form <p><code><i>Type x</i> with attribute <i>name</i></code>,
+                    where <code><i>type</i></code> is an existing category name, <code><i>x</i></code> can be any valid variable
+                    identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than one attribute.</p>
+                    <div>
+                        <iframe class="displayer displayer-10-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+                    </div>
+                    <br/>
+                </li>
+                <li>Anonymous type argument, with the form <p><code>any <i>x</i> with attribute <i>name</i></code>, where <code><i>x</i></code> can be any valid variable
+                    identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than one attribute.</p>
+                    <div>
+                        <iframe class="displayer" name="c4" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+                    </div>
+                    <br/>
+                </li>
+            </ul>
+        </p>
+        <p>When mutiple arguments are declared, argument types can be mixed as required. </p>
+        <p>When mutiple arguments are declared, they must be separated by commas. In E dialect only, the last comma is replaced by the <code>and</code> keyword.</p>
+        <div>
+            <iframe class="displayer displayer-4-lines" name="c5" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <h3>Method <i>overloading</i></h3>
+        <p>Prompto supports method <i>overloading</i>, where 2 methods have the same name but unrelated parameters.</p>
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c6" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p/>
+        <p>When a method is <i>overloaded</i>, Prompto selects the most appropriate one based on the best match of the <i>proposed</i> parameters
+            with respect to the required arguments. This matching if performed using the sequence of the parameteres in the method call.</p>
+
+        <h3>Method <i>overriding</i></h3>
+        <p>Prompto supports method <i>overriding</i>, where a method can be overloaded using different but compatible parameters.
+            Each <i>overridden</i> method provides a behavior specific to its argument types.</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c7" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p>When a method is <i>overridden</i>, Prompto selects the most appropriate one at runtime i.e. the one for which the <i>actual</i> parameters best match the required method arguments,
+            based on the sequence of the method call. This is different from many languages such as Java, C# or C++,
+            where the resolution is decided at compile time. </p>
+
+        <h3><i>Abstract</i> methods</h3>
+        <p>Prompto supports <code><i>abstract</i></code> methods, a special type of method, which <i>must</i> be overridden.</p>
+            Abstract methods are resolved at runtime based on the actual type of the value.</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c8" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p>Abstract methods are well suited when no actual behaviour can be determined for an argument type (such as <i>Shape</i>).</p>
+        <p/>
+        <h3><i>Abstract</i> methods as arguments</h3>
+        <p>Abstract methods can also be used as arguments for other method definitions:</p>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c9" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <p>The method caller is responsible for providing a non abstract method compatible with the argument's method type.</p>
+    </div>
+</body>
+</html>
