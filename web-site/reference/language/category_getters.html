@@ -107,7 +107,8 @@
             <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
         </div>
         <p/>
-        <p>This is because the <i>Person</i> object assigned to variable <i>p</i> is not marked as <code>mutable</code>. The below code will run:</p>
+        <p>This is because the <i>Person</i> object assigned to variable <i>p</i> is not marked as <code>mutable</code>.</p>
+        <p>In order to set an attribute value, the category instance must me marked as mutable when created. The below code will run:</p>
         <p/>
         <div>
             <iframe class="displayer displayer-10-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
@@ -118,8 +119,12 @@
         <p>Category attributes can normally be set on <code>mutable</code> objects using <code><i>instance</i>.<i>name</i> = <i>expression</i></code>,
             where <code><i>instance</i></code> is a value, <code><i>name</i></code> is the name of a an attribute supported by this value, and <code><i>expression</i></code>
             is an expression returning a value compatible with the type of <code><i>name</i></code>.<br/>
-            This covers most use cases, but there are situations where you want to validate the value in a way which is not supported by attribute constraints,
-            transform the value "on the fly" rather than just store it, or take the opportunity to populate other values.
+            This covers most use cases, but there are situations where you want to:
+            <ul>
+                <li>validate the value in a way which is not supported by attribute constraints</li>
+                <li>transform the value "on the fly" rather than just store it</li>
+                <li>take the opportunity to populate other values</li>
+            </ul>
             This is where <i>setters</i> are useful.<br/>
             <i>Setters</i> are special methods defined as part of a category definition, and attached to a particular attribute name.
             When a setter is defined and a piece of code tries to set the corresponding attribute, including when the object is created,

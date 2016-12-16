@@ -39,19 +39,6 @@
             + "\n" + 'define main as method doing:'
             + "\n" + '    p = Person with "Arthur" as firstName'
             + "\n" + '    print p',
-            c3 : "define fullName as Text attribute"
-            + "\n" + "define Person as category with attribute fullName"
-            + "\n"
-            + "\n" + 'define title as Text attribute'
-            + "\n" + 'define author as Person attribute'
-            + "\n" + 'define Book as category with attribute author'
-            + "\n"
-            + "\n" + 'define main as method doing:'
-            + "\n" + '    p = Person with "Arthur" as fullName'
-            + "\n" + '    b = Book with "My life" as title and p as person'
-            + "\n" + '    print b'
-
-
         };
 
         function editorReady(frame, editor) {
@@ -86,15 +73,7 @@
         <div>
             <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
-        <p/>
-        <h3>Category as attribute type</h3>
-        <p>Once a category is defined, it can be used as a type for attribute definitions.</p>
-        <p>In the below example, we define a <i>Person</i> category. We then define a <i>person</i> attribute with type <i>Person</i>.
-        We then use this <i>person</i> attribute to define the <i>Book</i> category:</p>
-        <p/>
-        <div>
-            <iframe class="displayer displayer-16-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
-        </div>
+
 
     </div>
 </body>
