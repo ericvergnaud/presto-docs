@@ -23,20 +23,28 @@
     <script type="text/javascript">
 
         var samples =  {
-            c1 : "define OverloadedMethod as method receiving Integer x doing:"
-            + "\n" + '    print "1 argument:" + x'
-            + "\n" + "define OverloadedMethod as method receiving Integer x and Integer y doing:"
-            + "\n" + '    print "2 arguments:" + x + " and " + y'
+            c1 : "define SomeCategory as category with attribute text, and methods:"
+            + "\n"
+            + "\n" + '    define overloadedMethod as method receiving Integer x doing:'
+            + "\n" + '        print text + " with 1 argument:" + x'
+            + "\n"
+            + "\n" + "    define overloadedMethod as method receiving Integer x and Integer y doing:"
+            + "\n" + '        print text + " with 2 arguments:" + x + " and " + y'
             + "\n"
             + "\n" + "define main as method doing:"
-            + "\n" + "    OverloadedMethod with 3 as x and 7 as y",
-            c2 : "define OverloadedMethod as method receiving Integer x doing:"
-            + "\n" + '    print "Received Integer argument:" + x'
-            + "\n" + "define OverloadedMethod as method receiving Text x doing:"
-            + "\n" + '    print "Received Text argument:" + x'
+            + "\n" + '    cat = SomeCategory with "Called" as text'
+            + "\n" + "    cat.overloadedMethod with 3 as x and 7 as y",
+            c2 : "define SomeCategory as category with attribute text, and methods:"
+            + "\n"
+            + "\n" + '    define overloadedMethod as method receiving Integer x doing:'
+            + "\n" + '        print text + " with Integer argument:" + x'
+            + "\n"
+            + "\n" + '    define overloadedMethod as method receiving Text x doing:'
+            + "\n" + '        print text + " with Text argument:" + x'
             + "\n"
             + "\n" + "define main as method doing:"
-            + "\n" + '    OverloadedMethod with "Hello" as x'
+            + "\n" + '    cat = SomeCategory with "Called" as text'
+            + "\n" + '    cat.overloadedMethod with "Hello" as x'
         };
 
         function editorReady(frame, editor) {
@@ -56,26 +64,26 @@
 <body>
 <div class="container">
     <div class="row">
-        <h2>Overloading methods</h2>
+        <h2>Overloading category methods</h2>
 
-        <p>Prompto supports method <i>overloading</i>, where 2 methods have the same name but different parameters.</p>
-        <p>When a method is <i>overloaded</i>, Prompto selects the most appropriate one based on the best match of the <i>proposed</i> parameters
+        <p>Prompto supports category method <i>overloading</i>, where 2 methods of the same category have the same name but different parameters.</p>
+        <p>When a category method is <i>overloaded</i>, Prompto selects the most appropriate one based on the best match of the <i>proposed</i> parameters
             with respect to the required arguments. This matching is performed using the sequence of the parameters in the method call.</p>
         <p>In the below example, the 2 methods have the same name, but a different number of arguments:</p>
         <div>
-            <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-16-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p/>
 
-        <p>Method <i>overloading</i> also works with different argument types.</p>
+        <p>Category method <i>overloading</i> also works with different argument types.</p>
          <p>Each <i>overridden</i> method provides a behavior specific to its argument types.</p>
         <p/>
         <div>
-            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-16-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p/>
-        <p>When a method is <i>overloaded</i>, Prompto selects the most appropriate one at runtime i.e. the one for which the <i>actual</i> parameters best match the required method arguments,
-            based on the sequence of the method call. This is different from many languages such as Java, C# or C++,
+        <p>When a category method is <i>overloaded</i>, Prompto selects the most appropriate one at runtime i.e. the one for which the <i>actual</i> parameters best match the required method arguments,
+            based on the sequence of the method call. This is different from many OOP languages such as Java, C# or C++,
             where the resolution is decided at compile time. </p>
 
 
