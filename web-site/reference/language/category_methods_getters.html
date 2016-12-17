@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define firstName as Text attribute"
+            + "\n" + "define lastName as Text attribute"
+            + "\n" + "define fullName as Text attribute"
+            + "\n" + "define Person as category with attributes firstName, lastName and fullName, and methods: "
+            + "\n"
+            + "\n" + "    define fullName as getter doing:"
+            + "\n" + '        return firstName + " " + lastName'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p = Person with "Arthur" as firstName and "Rimbaud" as lastName'
+            + "\n" + '    print "fullName -> " + p.fullName'
+
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Getters</h2>
+
+        <p>Category attributes can be accessed using <code><i>instance</i>.<i>name</i></code>, where <code><i>instance</i></code> is a value and <code><i>name</i></code>
+            is the name of a an attribute supported by this value.<br/>
+            This covers most use cases, but there are situations where you want the returned value to be computed, rather than just read from the object.
+            This is where <i>getters</i> are useful.<br/>
+            <i>Getters</i> are special methods defined as part of a category definition, and attached to a particular attribute name.
+            When a getter is defined and a piece of code tries to read the corresponding attribute, Prompto will call the <i>getter</i> instead.<br/>
+            In the below example, we define a <i>getter</i> for a <i>fullName</i> attribute:
+         </p>
+        <p/>
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <p/>
+        <h4>Cyclical dependencies</h4>
+        <p><i>Prompto manages cyclical dependencies between getters. Cyclical dependencies occur when for example getter for 'a' reads 'b' and getter for 'b' reads 'a'.
+            During the execution of a getter body, it is guaranteed that the getter being executed will not be called again for the current object
+            until the execution of the initial getter is complete.</i></p>
+        <p/>
+    </div>
+</div>
+</body>
+</html>

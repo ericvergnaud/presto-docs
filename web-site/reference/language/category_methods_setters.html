@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 :  "define fullName as Text attribute"
+            + "\n" + "define initials as Text attribute"
+            + "\n" + "define Person as category with attributes fullName and initials, and methods:"
+            + "\n"
+            + "\n" + "    define fullName as setter doing:"
+            + "\n" + '        // in a setter the attribute name refers to the value received, not to the attribute member'
+            + "\n" + '        fullName = fullName.toCapitalized'
+            + "\n" + '        initials = ""'
+            + "\n" + '        for each word in fullName.split:'
+            + "\n" + '            initials = initials + word[1]'
+            + "\n" + '        return fullName'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    p = Person with "arthur rimbaud" as fullName'
+            + "\n" + '    print "p -> " + p'
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <p class="row">
+        <h2>Setters</h2>
+
+        <p>Attribute values are normally set siply by copying the value provided when creating objects or assigning a value to an attribute.</p>
+
+        <p>This covers most use cases, but there are situations where you want to:
+
+        <ul>
+                <li>validate the value in a way which is not supported by attribute constraints</li>
+                <li>transform the value "on the fly" rather than just store it</li>
+                <li>take the opportunity to populate other values</li>
+            </ul>
+        </p>
+    <p>This is where <i>setters</i> are useful.</p>
+    <p><i>Setters</i> are special methods defined as part of a category definition, and attached to a particular attribute name.
+        When a setter is defined and a piece of code tries to set the corresponding attribute, including when the object is created,
+        Prompto will call the <i>setter</i> to transform the value prior to setting it.<br/>
+        Within the setter method body, the name of the attribute being set holds the value received, which can be used for whatever purpose.
+        The setter is a function which MUST return the value to be written.</p><p>
+        In the below example, we define a <i>setter</i> for a <i>fullName</i> attribute which returns a capitalized value, and sets the <i>initials</i> attribute:
+        </p>
+
+        <p/>
+        <div>
+            <iframe class="displayer displayer-16-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+        <p/>
+
+
+        <h4>Cyclical dependencies</h4>
+        <p><i>Prompto manages cyclical dependencies between setters. Cyclical dependencies occur when for example setter for 'a' sets 'b' and setter for 'b' sets 'a'.
+            During the execution of a setter body, it is guaranteed that the setter being executed will not be called again for the current object
+            until the execution of the initial setter is complete.</i></p>
+         <p/>
+
+    </div>
+</div>
+</body>
+</html>
