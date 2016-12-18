@@ -47,7 +47,25 @@
             + "\n"
             + "\n" + 'define main as method doing:'
             + "\n" + '    print "BICYCLE.name -> " + BICYCLE.name'
-            + "\n" + '    print "Vehicle.symbols -> " + Vehicle.symbols'
+            + "\n" + '    print "Vehicle.symbols -> " + Vehicle.symbols',
+            c4 : "define motor as Boolean attribute"
+            + "\n" + 'define seats as Integer attribute'
+            + "\n" + 'define MobileDevice as category with attributes motor and seats, and methods:'
+            + "\n"
+            + "\n" + '    define printSpeed as method doing:'
+            + "\n" + '        speed = 200 / seats'
+            + "\n" + '        if not motor:'
+            + "\n" + '            speed = speed / 2'
+            + "\n" + '        print "speed -> " +  speed'
+            + "\n"
+            + "\n" + 'define Vehicle as enumerated MobileDevice with symbols:'
+            + "\n" + '    BICYCLE with false as motor and 1 as seats'
+            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
+            + "\n" + '    CAR with true as motor and 4 as seats'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    MOTORBIKE.printSpeed'
+
 
         };
 
@@ -106,6 +124,21 @@
 
         <div>
             <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Enumeration methods
+        </h3>
+        <p>Category enumerations do not directly support methods. However, they can be derived from existing categories, making it easy to provide custom methods.</p>
+        <p>In the below example, we:
+        <ul>
+            <li>define a 'MobileDevice' category with a 'printSpeed' method</li>
+            <li>define a 'Vehicle' enumeration which derives from 'MobileDevice'</li>
+            <li>call the 'printSpeed' method on an enumerated instance</li>
+        </ul>
+        </p>
+        <div>
+            <iframe class="displayer displayer-20-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
         <h3>Enumerations of built-in types</h3>
