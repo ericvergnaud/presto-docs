@@ -38,9 +38,9 @@
             + "\n" + "    FARADAY with 96485.33289 as value"
             + "\n"
             + "\n" + 'define main as method doing:'
-            + "\n" + '    print "SomeConstant.symbols -> " + SomeConstant.symbols'
             + "\n" + '    print "AVOGADRO.name -> " + AVOGADRO.name'
             + "\n" + '    print "FARADAY.value -> " + FARADAY.value'
+            + "\n" + '    print "SomeConstant.symbols -> " + SomeConstant.symbols'
 
         };
 
@@ -67,6 +67,7 @@
             Enumerations are practical to refer to values using symbols, rather than provide the same value again and again in your code.<br/>
             Prompto supports enumerations of both built-in and user defined types.<br/>
             This section describes enumerations of built-in types.<br/>
+            The below is an example:
          </p>
 
         <div>
@@ -86,13 +87,17 @@
         <h3>
             Enumeration attributes
         </h3>
-        <p>Enumeration values have the following attributes:<br/>
+        <p>Each enumerated symbol has the following attributes:<br/>
         <ul>
-            <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
             <li><code>name</code>: returns the name of the enumerated symbol as a Text value</li>
             <li><code>value</code>: returns the value represented by the enumerated symbol.
                 The exact type of the value is determined by the exact type of the enumeration</li>
         </ul>
+        </p>
+        <p>The enumeration itself has the following attributes:<br/>
+            <ul>
+        <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
+    </ul>
         </p>
 
         <div>
