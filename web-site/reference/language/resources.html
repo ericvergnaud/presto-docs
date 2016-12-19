@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Resources</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples =  {
+            c1 : "define motor as Boolean attribute"
+            + "\n" + 'define seats as Integer attribute'
+            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
+            + "\n" + '    BICYCLE with false as motor and 1 as seats'
+            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
+            + "\n" + '    CAR with true as motor and 4 as seats',
+            c2 : "define motor as Boolean attribute"
+            + "\n" + 'define seats as Integer attribute'
+            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
+            + "\n" + '    BICYCLE with false as motor and 1 as seats'
+            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
+            + "\n" + '    CAR with true as motor and 4 as seats'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    print "MOTORBIKE -> " + MOTORBIKE',
+            c3 : "define motor as Boolean attribute"
+            + "\n" + 'define seats as Integer attribute'
+            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
+            + "\n" + '    BICYCLE with false as motor and 1 as seats'
+            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
+            + "\n" + '    CAR with true as motor and 4 as seats'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    print "BICYCLE.name -> " + BICYCLE.name'
+            + "\n" + '    print "Vehicle.symbols -> " + Vehicle.symbols',
+            c4 : "define motor as Boolean attribute"
+            + "\n" + 'define seats as Integer attribute'
+            + "\n" + 'define MobileDevice as category with attributes motor and seats, and methods:'
+            + "\n"
+            + "\n" + '    define printSpeed as method doing:'
+            + "\n" + '        speed = 200 / seats'
+            + "\n" + '        if not motor:'
+            + "\n" + '            speed = speed / 2'
+            + "\n" + '        print "speed -> " +  speed'
+            + "\n"
+            + "\n" + 'define Vehicle as enumerated MobileDevice with symbols:'
+            + "\n" + '    BICYCLE with false as motor and 1 as seats'
+            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
+            + "\n" + '    CAR with true as motor and 4 as seats'
+            + "\n"
+            + "\n" + 'define main as method doing:'
+            + "\n" + '    MOTORBIKE.printSpeed'
+
+
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Resources</h2>
+
+        <p>A resource is a special kind of category for .<br/>
+            Enumerations are practical to refer to values using symbols, rather than provide the same value again and again in your code.<br/>
+            Prompto supports enumerations of both built-in and category types.<br/>
+            This section describes enumerations of category types.<br/>
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+        </div>
+        <br/>
+        <p>Enumerated symbols are global definitions. You cannot redefine the above name <code>MOTORBIKE</code> elsewhere.<br/>
+            Enumeration symbols must be composed of uppercase letters, digits and '_' only. The first character cannot be a digit.<br/>
+            This makes it easy to recognize enumerated symbols at first glance.<br/>
+        </p>
+        <p>Once an enumerated symbol is defined, it can be used anywhere in place of the value itself.<br/>
+        </p>
+        <div>
+            <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Enumeration attributes
+        </h3>
+        <p>On top of their category attributes, category enumeration values have the following attributes:<br/>
+        <ul>
+             <li><code>name</code>: returns the name of the enumerated symbol as a Text value</li>
+        </ul>
+        </p>
+        <p>The enumeration itself has the following attributes:<br/>
+        <ul>
+            <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
+        </ul>
+        </p>
+
+        <div>
+            <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>
+            Enumeration methods
+        </h3>
+        <p>Category enumerations do not directly support methods. However, they can be derived from existing categories, making it easy to provide custom methods.</p>
+        <p>In the below example, we:
+        <ul>
+            <li>define a 'MobileDevice' category with a 'printSpeed' method</li>
+            <li>define a 'Vehicle' enumeration which derives from 'MobileDevice'</li>
+            <li>call the 'printSpeed' method on an enumerated instance</li>
+        </ul>
+        </p>
+        <div>
+            <iframe class="displayer displayer-20-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+
+        <h3>Enumerations of built-in types</h3>
+        <p>Prompto supports Enumerations of built-in types. See Enumerations for details.</p>
+    </div>
+</body>
+</html>
