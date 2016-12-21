@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Errors</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/prompto-frame.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/lib/jquery.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+
+        var samples = {
+            c1: "define printText as native method receiving Text value doing:"
+            + "\n" + "    Java: System.out.print(value);"
+            + "\n" + "    C#: System.Console.Write(value);"
+            + "\n" + '    Python2: print(objects=value,end="")'
+            + "\n" + '    Python3: print(objects=value,end="")'
+            + "\n" + "    JavaScript: process.stdout.write(value);"
+        };
+
+        function editorReady(frame, editor) {
+            editor.setValue(samples[frame.name], -1);
+        }
+
+        function translatePromptoCode(content, from, to, editor) {
+            parent.translatePromptoCode(content, from, to, editor);
+        }
+
+        function executePromptoCode(content, dialect, printer) {
+            parent.executePromptoCode(content, dialect, printer);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>Binding global methods</h2>
+        <p>Binding global methods is done as follows:</p>
+
+
+        <div>
+            <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" ></iframe>
+        </div>
+        <p>Notice the <code>native</code> keyword in the method definition. This denotes a native binding method.</p>
+        <p>The method body must then comprise exactly 1 binding statement per
+            supported host language. The statement must be a single one (list of statements separated by ';' is not supported).</p>
+        <p>When a <i>native</i> method is executed, Prompto converts the parameter values from Prompto types to their equivalent native type.
+        It then looks for the native statement matching the host language, and executes it. If the statement is an expression or function call
+            returning a value, it converts that value from its native type to the corresponding Prompto type.</p>
+        <p>If a <i>native</i> method returns a value, the return type <i>must</i> be specified. This is because Python and JavaScript have no support
+            for static typing, thus preventing Prompto from inferring the return type.</p>
+
+        <h4>Binding methods with Java methods</h4>
+        <p>Binding methods with Java methods is done by using the <code>Java:</code> keyword, followed by a Java statement, ending with a semicolon.</p>
+        <p>If the Java statement is a method call, that method must be static.</p>
+        <p>The method must be preceded by the fully qualified class name i.e. including full package, except for <i>java.lang</i> package.</p>
+        <pre>Java: return prompto.internet.Html.encode(value);</pre>
+        <p>If the Prompto method must return a value, the Java statement must start with the <code>return</code> keyword.</p>
+
+        <h4>Binding methods with C# methods</h4>
+        <p>Binding methods with C# methods is done by using the <code>C#:</code> keyword, followed by a C# statement, ending with a semicolon.</p>
+        <p>If the C# statement is a method call, that method must be static.</p>
+        <p>The method must be preceded by the fully qualified class name i.e. including namespace.</p>
+        <pre>C#: return System.Net.WebUtility.HtmlEncode(value);</pre>
+        <p>If the Prompto method must return a value, the C# statement must start with the <code>return</code> keyword.</p>
+
+        <h4>Binding methods with Python 2 functions</h4>
+        <p>Binding methods with Python 2 functions is done by using the <code>Python2:</code> keyword, followed by a Python 2 statement.</p>
+        <p>If the Python 2 statement refers to a method or variable which does not belong to the global namespace,
+            the import module must be provided, as follows:
+            <pre>Python2: return escape(value) from module: cgi</pre></p>
+        <p>If the Prompto method must return a value, the Python statement must start with the <code>return</code> keyword.</p>
+
+        <h4>Binding methods with Python 3 functions</h4>
+        <p>Binding methods with Python 3 functions is done by using the <code>Python2:</code> keyword, followed by a Python 3 statement.</p>
+        <p>If the Python 3 statement refers to a method or variable which does not belong to the global namespace,
+            the import module must be provided, as follows:
+        <pre>Python2: return escape(value) from module: html</pre></p>
+        <p>If the Prompto method must return a value, the Python statement must start with the <code>return</code> keyword.</p>
+
+
+        <h4>Binding methods with JavaScript functions</h4>
+        <p>Binding methods with JavaScript functions is done by using the <code>JavaScript:</code> keyword, followed by a JavaScript statement, ending with a semicolon.</p>
+        <p>If the JavaScript is a method or variable which does not belong to the global namespace, the import module must be provided, as follows:
+        <pre>JavaScript: return Encoder.htmlEncode(value); from module: prompto/internet/Html.js</pre></p>
+        <p>If the Prompto method must return a value, the JavaScript statement must start with the <code>return</code> keyword.</p>
+
+</body>
+</html>
