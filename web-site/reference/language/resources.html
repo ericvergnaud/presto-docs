@@ -71,10 +71,12 @@
         <h2>Resources</h2>
 
         <p>Some system resources require careful handling. For example, when you open a file for writing, the file is locked and becomes unavailable for reading by other programs,
-            or other parts of your application. Similar constraints apply to other objects: network sockets and objects which use them such as Urls, database connections, and so one.</p>
-        <p>A Prompto <code>resource</code> is a specialized category designed to take care of these precious resources, and free them automatically as soon as possible.
-            Prompto resources are generally native, although Prompto also supports non native resources.</p>
-
+            or other parts of your application. Similar constraints apply to other objects: network objects such as Urls, database connections, and so on.</p>
+        <p>A Prompto <code>resource</code> is a specialized native category designed to take care of these precious resources, and free them automatically as soon as possible.
+            To achieve this, Prompto requires resources to be either <i>inlined</i> or <i>managed</i>. An <i>inlined</i> resource is one that is not assigned to a variable,
+            but rather used as an expression, and cannot therefore be accessed more than once. A <i>managed</i> resource is one that is protected using a <code>with</code> block.</p>
+        <p>It is illegal to <code>read</code> or <code>write</code> a resource which is neither <i>managed</i> nor <i>inlined</i>.</p>
+        <p>Prompto resources are used to read and write text. There is no support for binary data. If required, binary data should be handled and converted to or from Prompto objects using the host language.</p>
 
         <h3>Reading text from a resource</h3>
 
@@ -90,7 +92,7 @@
             <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h4>Read the text line by line</h4>
+        <h4>Read the text line by line from a <i>managed</i> resource</h4>
 
         <p>To read the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
 
@@ -112,7 +114,7 @@
             <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h4>Writing the text line by line</h4>
+        <h4>Writing the text line by line to a <i>managed</i> resource</h4>
 
         <p>To write the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
 
@@ -121,10 +123,10 @@
         </div>
 
 
-        <h3>Prompto resource specification</h3>
-        <p>A Prompto <code>resource</code> must provide:
+        <h3>Prompto native resource specification</h3>
+        <p>A Prompto native resource must implement:
             <ul>
-                <li>a <i>close</i> method, which is called automatically by Prompto when appropriate. This method cannt be called directly by Prompto code.</li>
+                <li>a <i>close</i> method, which is called automatically by Prompto when appropriate. This method cannot be called directly by Prompto code.</li>
                 <li>a <i>isReadable</i> method, which is called to check whether a resource supports <code>read</code> methods</li>
                 <li>a <i>isWritable</i> method, which is called to check whether a resource supports <code>write</code> methods</li>
                 <li>a <i>readLine</i> method, which must return the <i>next</i> line of text from the resource, or <code>null</code> if no more data is available</li>
@@ -132,6 +134,7 @@
                 <li>a <i>writeLine</i> method, which must <i>append</i> a line of text to the resource</li>
                 <li>a <i>writeFully</i> method, which must <i>overwrite</i> the entire content of the resource with the incoming text</li>
             </ul>
+            <i><a target="_blank" href="https://github.com/prompto/prompto-libraries/blob/master/console/buffer.pec">see an example in Prompto</a></i><br/>
             <i><a target="_blank" href="https://github.com/prompto/prompto-java/blob/master/Java-Runtime/src/main/java/prompto/io/Buffer.java">see an example in Java</a></i><br/>
             <i><a target="_blank" href="https://github.com/prompto/prompto-csharp/blob/master/CSharp-Runtime/src/prompto/io/Buffer.cs">see an example in C#</a></i><br/>
             <i><a target="_blank" href="https://github.com/prompto/prompto-python2/blob/master/Python2-Runtime/src/main/prompto/io/Buffer.py">see an example in Python</a></i><br/>
