@@ -31,10 +31,10 @@
             + "\n" + '        write "some content" to buffer'
             + "\n" + '        write "other content" to buffer'
             + "\n" + '        // read back the 2 lines'
-            + "\n" + '        content = read from buffer'
-            + "\n" + '        print content'
-            + "\n" + '        content = read from buffer'
-            + "\n" + '        print content'
+            + "\n" + '        line = read one from buffer'
+            + "\n" + '        print line'
+            + "\n" + '        line = read one from buffer'
+            + "\n" + '        print line'
 
         };
 
@@ -68,7 +68,7 @@
             This is very useful for small files or small messages sent to outgoing network connections.<br/>
             It is however impossible to demonstrate within a browser, where programmatic access to local files is prohibited for security reasons.<br/>
             In the below example, we write to an <i>inlined</i> Buffer instead.<br/>
-            The Buffer only exists during the execution of the statement, and therefore it cannot be read back to display its content.
+            <i>( the Buffer only exists during the execution of the statement, and therefore it cannot be read back to display its content )</i>
         </p>
 
         <div>

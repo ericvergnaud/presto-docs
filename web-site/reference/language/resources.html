@@ -23,49 +23,31 @@
     <script type="text/javascript">
 
         var samples =  {
-            c1 : "define motor as Boolean attribute"
-            + "\n" + 'define seats as Integer attribute'
-            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
-            + "\n" + '    BICYCLE with false as motor and 1 as seats'
-            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
-            + "\n" + '    CAR with true as motor and 4 as seats',
-            c2 : "define motor as Boolean attribute"
-            + "\n" + 'define seats as Integer attribute'
-            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
-            + "\n" + '    BICYCLE with false as motor and 1 as seats'
-            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
-            + "\n" + '    CAR with true as motor and 4 as seats'
-            + "\n"
-            + "\n" + 'define main as method doing:'
-            + "\n" + '    print "MOTORBIKE -> " + MOTORBIKE',
-            c3 : "define motor as Boolean attribute"
-            + "\n" + 'define seats as Integer attribute'
-            + "\n" + 'define Vehicle as enumerated category with attributes motor and seats, and symbols:'
-            + "\n" + '    BICYCLE with false as motor and 1 as seats'
-            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
-            + "\n" + '    CAR with true as motor and 4 as seats'
-            + "\n"
-            + "\n" + 'define main as method doing:'
-            + "\n" + '    print "BICYCLE.name -> " + BICYCLE.name'
-            + "\n" + '    print "Vehicle.symbols -> " + Vehicle.symbols',
-            c4 : "define motor as Boolean attribute"
-            + "\n" + 'define seats as Integer attribute'
-            + "\n" + 'define MobileDevice as category with attributes motor and seats, and methods:'
-            + "\n"
-            + "\n" + '    define printSpeed as method doing:'
-            + "\n" + '        speed = 200 / seats'
-            + "\n" + '        if not motor:'
-            + "\n" + '            speed = speed / 2'
-            + "\n" + '        print "speed -> " +  speed'
-            + "\n"
-            + "\n" + 'define Vehicle as enumerated MobileDevice with symbols:'
-            + "\n" + '    BICYCLE with false as motor and 1 as seats'
-            + "\n" + '    MOTORBIKE with true as motor and 2 as seats'
-            + "\n" + '    CAR with true as motor and 4 as seats'
-            + "\n"
-            + "\n" + 'define main as method doing:'
-            + "\n" + '    MOTORBIKE.printSpeed'
-
+            c1 : "define main as method doing:"
+            + "\n" + '    location = "https://raw.githubusercontent.com/prompto/prompto-samples/master/sample-text-file.txt"'
+            + "\n" + '    content = read all from Url with location as path'
+            + "\n" + '    print content',
+            c2 : "define main as method doing:"
+            + "\n" + '    location = "https://raw.githubusercontent.com/prompto/prompto-samples/master/sample-text-file.txt"'
+            + "\n" + '    with url = Url with location as path, do:'
+            + "\n" + '        line = read one from url'
+            + "\n" + '        print "line -> " + line'
+            + "\n" + '        line = read one from url'
+            + "\n" + '        print "line -> " + line'
+            + "\n" + '        line = read one from url'
+            + "\n" + '        print "line -> " + line',
+            c3 : "define main as method doing:"
+            + "\n" + '    content = "some content"'
+            + "\n" + '    write content to Buffer'
+            + "\n" + '    print "\'" + content + "\' -> has been written to Buffer"',
+            c4 : "define main as method doing:"
+            + "\n" + '    content = "<empty>"'
+            + "\n" + '    with buffer = Buffer, do:'
+            + "\n" + '        write "some content" to buffer'
+            + "\n" + '        write "other content" to buffer'
+            + "\n" + '        // read back the 2 above lines'
+            + "\n" + '        content = read all from buffer'
+            + "\n" + '    print content'
 
         };
 
@@ -88,61 +70,74 @@
     <div class="row">
         <h2>Resources</h2>
 
-        <p>A resource is a special kind of category for .<br/>
-            Enumerations are practical to refer to values using symbols, rather than provide the same value again and again in your code.<br/>
-            Prompto supports enumerations of both built-in and category types.<br/>
-            This section describes enumerations of category types.<br/>
-        </p>
+        <p>Some system resources require careful handling. For example, when you open a file for writing, the file is locked and becomes unavailable for reading by other programs,
+            or other parts of your application. Similar constraints apply to other objects: network sockets and objects which use them such as Urls, database connections, and so one.</p>
+        <p>A Prompto <code>resource</code> is a specialized category designed to take care of these precious resources, and free them automatically as soon as possible.
+            Prompto resources are generally native, although Prompto also supports non native resources.</p>
+
+
+        <h3>Reading text from a resource</h3>
+
+        <p><i>In the below examples, we use a Url resource. File resources are not accessible from a browser.</i></p>
+
+        <p>Prompto resources can be used to read text, either line per line, or all lines at once.</p>
+
+        <h4>Read all the text from an <i>inlined</i> resource</h4>
+
+        <p>When reading all the lines at once, you can simply specify the resource as a parameter to the <code>read all</code> statement.</p>
 
         <div>
-            <iframe class="displayer displayer-10-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html"></iframe>
+            <iframe class="displayer" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
-        <br/>
-        <p>Enumerated symbols are global definitions. You cannot redefine the above name <code>MOTORBIKE</code> elsewhere.<br/>
-            Enumeration symbols must be composed of uppercase letters, digits and '_' only. The first character cannot be a digit.<br/>
-            This makes it easy to recognize enumerated symbols at first glance.<br/>
-        </p>
-        <p>Once an enumerated symbol is defined, it can be used anywhere in place of the value itself.<br/>
-        </p>
+
+        <h4>Read the text line by line</h4>
+
+        <p>To read the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
+
         <div>
             <iframe class="displayer displayer-10-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h3>
-            Enumeration attributes
-        </h3>
-        <p>On top of their category attributes, category enumeration values have the following attributes:<br/>
-        <ul>
-             <li><code>name</code>: returns the name of the enumerated symbol as a Text value</li>
-        </ul>
-        </p>
-        <p>The enumeration itself has the following attributes:<br/>
-        <ul>
-            <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
-        </ul>
-        </p>
+        <h3>Writing text to a resource</h3>
+
+        <p><i>In the below examples, we use a Buffer resource. File resources are not accessible from a browser.</i></p>
+
+        <p>Prompto can write text to resources, either line per line, or all lines at once.</p>
+
+        <h4>Writing all the text to an <i>inlined</i> resource</h4>
+
+        <p>When writing all the text at once, you can simply specify the resource as a parameter to the <code>write</code> statement.</p>
 
         <div>
-            <iframe class="displayer displayer-12-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h3>
-            Enumeration methods
-        </h3>
-        <p>Category enumerations do not directly support methods. However, they can be derived from existing categories, making it easy to provide custom methods.</p>
-        <p>In the below example, we:
-        <ul>
-            <li>define a 'MobileDevice' category with a 'printSpeed' method</li>
-            <li>define a 'Vehicle' enumeration which derives from 'MobileDevice'</li>
-            <li>call the 'printSpeed' method on an enumerated instance</li>
-        </ul>
-        </p>
+        <h4>Writing the text line by line</h4>
+
+        <p>To write the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
+
         <div>
-            <iframe class="displayer displayer-20-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-10-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
 
-        <h3>Enumerations of built-in types</h3>
-        <p>Prompto supports Enumerations of built-in types. See Enumerations for details.</p>
+
+        <h3>Prompto resource specification</h3>
+        <p>A Prompto <code>resource</code> must provide:
+            <ul>
+                <li>a <i>close</i> method, which is called automatically by Prompto when appropriate. This method cannt be called directly by Prompto code.</li>
+                <li>a <i>isReadable</i> method, which is called to check whether a resource supports <code>read</code> methods</li>
+                <li>a <i>isWritable</i> method, which is called to check whether a resource supports <code>write</code> methods</li>
+                <li>a <i>readLine</i> method, which must return the <i>next</i> line of text from the resource, or <code>null</code> if no more data is available</li>
+                <li>a <i>readFully</i> method, which must return the entire text from the resource, or <code>null</code> if no data is available</li>
+                <li>a <i>writeLine</i> method, which must <i>append</i> a line of text to the resource</li>
+                <li>a <i>writeFully</i> method, which must <i>overwrite</i> the entire content of the resource with the incoming text</li>
+            </ul>
+            <i><a target="_blank" href="https://github.com/prompto/prompto-java/blob/master/Java-Runtime/src/main/java/prompto/io/Buffer.java">see an example in Java</a></i><br/>
+            <i><a target="_blank" href="https://github.com/prompto/prompto-csharp/blob/master/CSharp-Runtime/src/prompto/io/Buffer.cs">see an example in C#</a></i><br/>
+            <i><a target="_blank" href="https://github.com/prompto/prompto-python2/blob/master/Python2-Runtime/src/main/prompto/io/Buffer.py">see an example in Python</a></i><br/>
+            <i><a target="_blank" href="https://github.com/prompto/prompto-javascript/blob/master/JavaScript-Runtime/src/main/prompto/io/Buffer.js">see an example in JavaScript</a></i>
+        </p>
+
     </div>
 </body>
 </html>

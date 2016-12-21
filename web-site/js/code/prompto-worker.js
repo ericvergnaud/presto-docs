@@ -28,7 +28,7 @@ loadText("../../prompto/prompto.pec", function(code) {
     var decl = { name: "print" };
     this.librariesContext.unregisterMethodDeclaration(decl,"any");
     // replace "print" with a custom "print" method
-    code = "native method print ( any value ) { JavaScript: console.log(value.toString()); }"
+    code = "native method print ( any value ) { JavaScript: console.log(value.toString()); }";
     decls = parse(code, "O");
     decls.register(this.librariesContext);
 

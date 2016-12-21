@@ -61,9 +61,14 @@
             var dialect = editor.getSession().getMode().getDialect();
             var content = editor.getValue();
             var printer = function(value) {
-                // encode html reserved characters
-                value = jQuery('<div/>').text(value).html();
-                $("#output").html($("#output").html() + value + "<br/>");
+                var lines = value.split('\n');
+                lines.map(function(value) {
+                    if (value.length > 0) {
+                        // encode html reserved characters (using <div/> as a container)
+                        value = jQuery('<div/>').text(value).html();
+                        $("#output").html($("#output").html() + value + "<br/>");
+                    }
+                });
             }
             parent.executePromptoCode(content, dialect, printer);
         }
