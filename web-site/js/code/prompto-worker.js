@@ -89,9 +89,14 @@ function execute(message) {
     console.log("Running sample...")
     var decls = parse(data.content, data.dialect);
     decls.register(context);
+    var testName = null;
+    decls.map(function(decl) { if(decl instanceof prompto.declaration.TestMethodDeclaration) testName = decl.name;});
     // run "main" method, using fresh store
     prompto.store.DataStore.instance = new prompto.memstore.MemStore();
-    prompto.runtime.Interpreter.interpret(context, "main", "");
+    if(testName)
+        prompto.runtime.Interpreter.interpretTest(context, testName);
+    else
+        prompto.runtime.Interpreter.interpret(context, "main", "");
     // done
     return {
         toPrint: "Success!"

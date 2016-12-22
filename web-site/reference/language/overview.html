@@ -66,7 +66,7 @@
             There are good reasons for supporting both interpreted and compiled mode:
             <ul>
                 <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
-                <li>The interpreter is able to run incorrect code, which can be useful during development. Incorrect code will fail to compile.</li>
+                <li>The interpreter is able to run incorrect code, notably tests, which can be useful during development. Incorrect code will fail to compile.</li>
                 <li>Transpiled code (in Python and JavaScript) is hard to debug because it does not map exactly to Prompto code.</li>
             </ul>
             The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
