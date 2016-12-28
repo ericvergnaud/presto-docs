@@ -36,6 +36,16 @@
             on the exceptional ecosystems available from traditional platforms.
         </p>
 
+        <h2>Run everywhere</h2>
+
+        <p>Business applications often involve UI, server-side business logic and data storage. This currently requires developing
+            in multiple languages. Prompto removes this requirement and greatly simplifies development by providing a single language
+            for UI, server-side logic and data modelling.<br/>
+            This is achieved by extending existing languages rather than replace them. There is a Prompto runtime for Java,
+            C#, Python, JavaScript and Swift. Prompto does not compete with these languages, but rather complements them with a specific focus
+            on business data modeling and storage.<br/>
+        </p>
+
         <h2>Build and run in the cloud</h2>
 
         <p>The Prompto language is designed for cloud deployment. A strong requirement of cloud deployment
@@ -49,15 +59,11 @@
             rather than machine code, and compiling/transpiling it on demand based on the environment.
         </p>
 
-        <h2>Run everywhere, integrate every app</h2>
+        <h2>Easy integration</h2>
 
-        <p>Business applications are traditionally built using languages such as Java, C#, Python, JavaScript or Swift.<br/>
-            Prompto does not aim to compete with these languages, but rather to complement them with a specific focus
-            on business data modeling and storage.<br/>
+        <p>Existing business applications are often built using languages such as Java, C#, Python, JavaScript or Swift.<br/>
             There is a Prompto runtime for each of the above host languages, and they are 100% compatible with each other.<br/>
-            Prompto runs as part of its host languages and thus fully integrates with them.<br/>
-            Prompto comprises data manipulation instructions which remove the need to program in SQL.<br/>
-            Prompto natively integrates with any back end infrastucture, browsers, Java RCP, .Net RCP
+            Prompto natively integrates with any web browser, any back end infrastucture, and rich clients such as Java RCP, .Net RCP
             and native iOS applications <i>(Swift runtime not available yet)</i>.
         </p>
 
@@ -67,8 +73,8 @@
             There are good reasons for supporting both interpreted and compiled mode:
             <ul>
                 <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
-                <li>The interpreter is able to run incorrect code, notably tests, which can be useful during development. Incorrect code will fail to compile.</li>
-                <li>Transpiled code (in Python and JavaScript) is hard to debug because it does not map exactly to Prompto code.</li>
+                <li>The interpreter is able to run incorrect code, notably tests, which can be useful during development, while incorrect code will fail to compile.</li>
+                <li>Transpiled code (in Python and JavaScript) is sometimes hard to debug because it does not always map exactly to Prompto code.</li>
             </ul>
             The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM byte code.<br/>
             The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR byte code <i>(compiler not available yet)</i>.<br/>
@@ -127,7 +133,7 @@
             They make it very easy for any developer to adopt the Prompto platform, whatever his/her technical background.<br/>
             Prompto <i>dialects</i> seamlessly translate to one another.<br>
             By doing so, they eliminate the barrier of having to learn a formal grammar only to read code.<br/>
-            They are a collaborative tool which helps technologists work together.
+            Prompto <i>dialects</i> are collaborative tools which help technologists work together.
         </p>
 
 
