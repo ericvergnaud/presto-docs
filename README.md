@@ -1,2 +1,2 @@
-# presto-docs
-Presto documentation web site
+# prompto-docs
+Prompto documentation web site
