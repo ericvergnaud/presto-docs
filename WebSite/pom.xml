@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.prompto</groupId>
 	<artifactId>WebSite</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 
 	<build>
 		<plugins>
@@ -17,6 +17,19 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>prompto.website.Application</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -24,7 +37,7 @@
 		<dependency>
 			<groupId>org.prompto</groupId>
 			<artifactId>Server</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</dependency>
 	</dependencies>
 
