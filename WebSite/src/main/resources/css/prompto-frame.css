@@ -2,10 +2,9 @@
  * Base structure
  */
 
-/* Move down content because we have a fixed navbar that is 50px tall */
 body {
     padding-top: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 
@@ -60,6 +59,8 @@ body {
     padding-right: 20px;
     padding-left: 20px;
 }
+
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
@@ -163,4 +164,12 @@ code > i {
     height: 410px;
 }
 
+.sidebar ul {
+    padding-left: 25px;
+}
 
+@media (max-width: 991px) {
+	.sidebar ul {
+	    padding-left: 15px;
+	}	
+}
