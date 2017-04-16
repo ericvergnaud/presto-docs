@@ -66,11 +66,31 @@
         try {
         	return new URL(location.href);
         } catch(e) {
-        	var p = Object.create(location);
-        	// need to set writable, because WorkerLocation is read-only
-        	Object.defineProperty(p, "href", {writable:true});
-        	return p;
-        }
+            var URL = function(initHref) {
+                var href;
+                Object.defineProperty(this, 'href', {
+                    get: function() {
+                        return href;
+                    },
+                    set: function(value) {
+                        var m, p, s;
+                        m = value.match(/^(\w+:\/\/[\w\d\.\-_]+)?(.*)/);
+                        p = m[2].replace(/[^\w\d$\-_\.+\/%]|%(?![0-9a-fA-F]{2})/g, "");
+                        p = p[0] == "/" ? p : location.path + p;
+                        s = "";
+                        p.replace(/\/(?:[^\/]*|$)/g, function(m) {
+                            if (m == "/.." && s.length > 1)
+                                s = s.substr(0, s.lastIndexOf("/"));
+                            else if (m != "/.")
+                                s += m;
+                        });
+                        href = m[1] ? m[1] + s : location.protocol + "//" + location.host + s;
+                    }
+                });
+                this.href = initHref;
+        };
+        return new URL(location.href);
+    }
     })();
 
 // INFO Module cache

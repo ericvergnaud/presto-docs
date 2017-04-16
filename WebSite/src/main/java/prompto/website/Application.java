@@ -10,13 +10,11 @@ public class Application {
 
 	public static void main(String[] args) throws Throwable {
 		List<String> argsList = new ArrayList<>(Arrays.asList(args));
-		// argsList.add("-resources");
-		// argsList.add("CodeStore.pec, DevCenter.pec");
 		argsList.add("-application");
 		argsList.add("web-site");
 		argsList.add("-version");
 		argsList.add("1.0.0");
-		AppServer.main(argsList.toArray(new String[argsList.size()]), null);
+		AppServer.main(argsList.toArray(new String[argsList.size()]));
 	}
 
 }

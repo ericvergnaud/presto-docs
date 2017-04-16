@@ -73,6 +73,7 @@
             There are good reasons for supporting both interpreted and compiled mode:
             <ul>
                 <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
+                <li>Interpreted code can be modified without restarting the application, which makes development very productive.</li>
                 <li>The interpreter is able to run incorrect code, notably tests, which can be useful during development, while incorrect code will fail to compile.</li>
                 <li>Transpiled code (in Python and JavaScript) is sometimes hard to debug because it does not always map exactly to Prompto code.</li>
             </ul>
