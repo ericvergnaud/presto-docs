@@ -17,7 +17,7 @@ function loadText(url, success) {
     if(url[0]!="/" && url[0]!=".")
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.send(null);
-};
+}
 
 // create global context with pre-loaded libraries
 var librariesContext = prompto.runtime.Context.newGlobalContext();
