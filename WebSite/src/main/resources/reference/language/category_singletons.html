@@ -26,7 +26,7 @@
             c1 : "define login as Text attribute"
             + "\n" + "define password as Text attribute"
             + "\n"
-            + "\n" + "define Configuration as category with attributes login and password"
+            + "\n" + "define Configuration as singleton with attributes login and password"
             + "\n"
             + "\n" + "define main as method doing:"
             + "\n" + '    with Configuration, do:'
@@ -36,7 +36,7 @@
             c2 : "define login as Text attribute"
             + "\n" + "define password as Text attribute"
             + "\n"
-            + "\n" + "define Configuration as category with attributes login and password, and methods:"
+            + "\n" + "define Configuration as singleton with attributes login and password, and methods:"
             + "\n"
             + "\n" + "    define readFromResource as method doing:"
             + "\n" + "        // can't read file from a browser, but you get it"
