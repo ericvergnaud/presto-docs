@@ -2,7 +2,7 @@
 Honey = {'requirePath': ['..']}; // walk up to js folder
 importScripts("../lib/require.js");
 // only load prompto once require is loaded
-importScripts("../lib/prompto.bundle.js");
+importScripts("../lib/prompto.core.bundle.js");
 
 function loadText(url, success) {
     var xhr = new XMLHttpRequest();
