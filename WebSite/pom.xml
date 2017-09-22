@@ -70,7 +70,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/prompto/prompto-docs</connection>
 		<developerConnection>scm:git:https://github.com/prompto/prompto-docs</developerConnection>
-		<tag>Prompto-Docs-0.0.1</tag>
+		<tag>Prompto-Docs-${project.version}</tag>
 		<url>https://github.com/prompto/prompto-docs</url>
 	</scm>
 
