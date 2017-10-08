@@ -40,7 +40,15 @@
             + "\n" + '    print "t.split -> " + l',
             c6: 'define main as method doing:'
             + "\n" + '    t = "  some text trimmed\\t\\n "'
-            + "\n" + '    print "t.trim -> " + t.trim'
+            + "\n" + '    print "t.trim -> " + t.trim',
+            c7: 'define main as method doing:'
+            + "\n" + '    t = "some text with spaces"'
+            + "\n" + '    l = t.replace with " " as toReplace and "_" as replaceWith'
+            + "\n" + '    print "t.replace -> " + l',
+            c8: 'define main as method doing:'
+            + "\n" + '    t = "some text with spaces"'
+            + "\n" + '    l = t.replaceAll with " " as toReplace and "_" as replaceWith'
+            + "\n" + '    print "t.replaceAll -> " + l'
         };
 
         function editorReady(frame, editor) {
@@ -130,6 +138,16 @@
         <li><code>trim</code>: returns a Text with leading and trailing white space trimmed<p/>
             <div>
                 <iframe class="displayer" name="c6" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            </div><p/>
+        </li>
+        <li><code>replace</code>: returns a Text with one occurence replaced<p/>
+            <div>
+                <iframe class="displayer" name="c7" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            </div><p/>
+        </li>
+        <li><code>replaceAll</code>: returns a Text with all occurences replaced<p/>
+            <div>
+                <iframe class="displayer" name="c8" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
             </div><p/>
         </li>
         </ul>
