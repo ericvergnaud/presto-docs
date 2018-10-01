@@ -24,17 +24,20 @@
 
         var samples =  {
             c1 : 'define main as method doing:'
+            + "\n" + '    doc = { town : "Toulouse", population : 600000 }'
+            + "\n" + '    print "doc -> " + doc',
+            c2 : 'define main as method doing:'
             + "\n" + '    doc = Document'
             + "\n" + '    doc.town = "Toulouse"'
             + "\n" + '    doc.population = 600000'
             + "\n" + '    print "doc -> " + doc',
-            c2 : 'define main as method doing:'
+            c3 : 'define main as method doing:'
             + "\n" + '    doc = Document'
             + "\n" + '    doc.type = "Town"'
             + "\n" + '    doc.town.name = "Toulouse"'
             + "\n" + '    doc.town.population = 600000'
             + "\n" + '    print "doc -> " + doc',
-            c3 : 'define main as method doing:'
+            c4 : 'define main as method doing:'
             + "\n" + '    doc = Document'
             + "\n" + '    doc.types = mutable ["Town","Person", "Company"]'
             + "\n" + '    doc.types[2] = "Employee"'
@@ -68,14 +71,29 @@
         </p>
 
         <h3>Creating a Document</h3>
-        <p>Creating a Document is done simply by using the <code>Document</code> keyword and assigning it to a variable.<br/>
-            Once the document is created, it can be populated simply by assigning values to members. Both member definition and
+        <p>Creating a Document is done simply by using a Document literal, enclosed in curly braces '{' and '}', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
+        <pre><code>{} -> an empty Document
+{ "Paris" : "France", "John" : 20000 } -> a Document of 2 keys and  values</code></pre>
+        <p>
+        Document <i>keys</i> starting with a letter and not comprising special characters do not need to be enclosed in double-quotes.</p>
+        <div>
+            <iframe class="displayer displayer-4-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+        </div>
+		<br/>
+		<p>Alternately, a Document can be created using the <code>Document</code> keyword and assigning it to a variable. Once the document is created, it can be populated simply by assigning values to members. Both member definition and
             member population occur at the same time i.e. a document has no predefined members.
         </p>
 
         <div>
-            <iframe class="displayer displayer-8-lines" name="c1" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-6-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
+        
+        <h3>Accessing Document members</h3>
+                Items in a Document can be accessed individually using their key.<br/>
+        <pre><code>d = &lt; "Paris" : "France", "London" : "England" > -> assign a Document of 2 Texts to variable 'd'
+d["Paris"] -> get item with key "Paris" i.e. Document referenced by variable 'd' i.e. "France"</code></pre>
+
+        
 
         <h3>Populating <i>deep</i> members</h3>
         <p>A <i>deep</i> member is a member that is not directly accessible from the root of a Document.<br/>
@@ -83,7 +101,7 @@
         </p>
 
         <div>
-            <iframe class="displayer displayer-8-lines" name="c2" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p/>
 
@@ -92,10 +110,11 @@
         </p>
 
         <div>
-            <iframe class="displayer displayer-8-lines" name="c3" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
+            <iframe class="displayer displayer-8-lines" name="c4" class="embed-responsive-item" src="../../code/displayer.html" runnable></iframe>
         </div>
         <p/>
 
+    </div>
     </div>
 </body>
 </html>
