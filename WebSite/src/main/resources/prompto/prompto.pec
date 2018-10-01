@@ -273,7 +273,7 @@ define "reads from www.html5rocks.com" as test method doing:
 and verifying: 
 	content contains "HTML5 Rocks"
 
-define iterateCsv as native method receiving text, Text{} columnNames = nothing, Character separator = ',', Character quote = '"' returning Iterator<Document> doing:
+define iterateCsv as native method receiving text, Text<:> columnNames = nothing, Character separator = ',', Character quote = '"' returning Iterator<Document> doing:
 	Java: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote);
 	C#: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote); 
 	Python2: return csvIterate(text, columnNames, separator, quote) from module: prompto.reader.CSVReader
@@ -281,7 +281,7 @@ define iterateCsv as native method receiving text, Text{} columnNames = nothing,
 	JavaScript: return csvIterate(text, columnNames, separator, quote); from module: prompto/reader/CSVReader.js
 
 
-define readCsv as native method receiving text, Text{} columnNames = nothing, Character separator = ',', Character quote = '"' returning Document[] doing:
+define readCsv as native method receiving text, Text<:> columnNames = nothing, Character separator = ',', Character quote = '"' returning Document[] doing:
 	Java: return prompto.reader.CSVReader.read(text, columnNames, separator, quote);
 	C#: return prompto.reader.CSVReader.read(text, columnNames, separator, quote); 
 	Python2: return csvRead(text, columnNames, separator, quote) from module: prompto.reader.CSVReader

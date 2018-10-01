@@ -25,7 +25,7 @@
 
         var samples =  {
             c1 : 'define main as method doing:'
-            + "\n" + '    d = { "Paris" : "France", "London" : "England", "Moscow" : "Russia" }'
+            + "\n" + '    d = < "Paris" : "France", "London" : "England", "Moscow" : "Russia" >'
             + "\n" + '    print "d.count -> " + d.count'
             + "\n" + '    print "d.keys -> " + d.keys'
             + "\n" + '    print "d.values -> " + d.values'
@@ -53,14 +53,14 @@
 
         <p>The Dictionary type is a technical type used to keep together 0 or more items of the same type and access them using a Text key.<br/>
             The items themselves can be of any type.<br/>
-            A Dictionary type is declared by adding curly brackets '{}' after the item type.
-        <pre><code>Text{} -> the type Text dictionary</code></pre>
-            A Dictionary literal must be enclosed in curly brackets '{' and '}', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
+            A Dictionary type is declared by adding colon surrounded by angle brackets '<:>' after the item type.
+        <pre><code>Text<:> -> the type Text dictionary</code></pre>
+            A Dictionary literal must be enclosed in angle brackets '<' and '>', the items being separated by a comma ',', the key and value being separated by a semi colon ':'.<br/>
         <pre><code>{} -> an empty Dictionary
-{ "Paris" : "France", "London" : "England", "Berlin" : "Germany" } -> a Dictionary of 3 keys and Text values</code></pre>
+< "Paris" : "France", "London" : "England", "Berlin" : "Germany" > -> a Dictionary of 3 keys and Text values</code></pre>
         <br/>
         Items in a Dictionary can be accessed individually using their key.<br/><br/>
-        <pre><code>d = { "Paris" : "France", "London" : "England" } -> assign a Dictionary of 2 Texts to variable 'd'
+        <pre><code>d = < "Paris" : "France", "London" : "England" > -> assign a Dictionary of 2 Texts to variable 'd'
 d["Paris"] -> get item with key "Paris" i.e. Dictionary referenced by variable 'd' i.e. "France"</code></pre>
         </p>
 

@@ -53,7 +53,7 @@
             But structuring elements are very similar: semi-colons to end statements, curly braces to group multiple
             statements, etc...<br/>
             Here is an example:<br/>
-        <pre><code>method main ( Text{} options ) {
+        <pre><code>method main ( ) {
     print("15 + 3.5");
     print("= 28.5");
 }</code></pre>
@@ -65,7 +65,7 @@
             But structuring elements are very similar: one statement per line, colon and indentation to group multiple
             statements, etc...<br/>
             Here is an example:<br/>
-        <pre><code>def main(options:Text{}):
+        <pre><code>def main(options:Text<:>):
     print("15 + 3.5")
     print("= 28.5")</code></pre>
         </p>
@@ -75,7 +75,7 @@
             The intent is that developers with little or no coding background should be able to read code without having to learn the formalism of other dialects.<br/>
             The structure is very similar to Monty. Additionaly, it removes parenthesis, and many keywords are replaced by plain English words.<br/>
             Here is an example:<br/>
-        <pre><code>define main as method receiving Text{} options doing:
+        <pre><code>define main as method doing:
     print "15 + 3.5"
     print "= 28.5"</code></pre>
         </p>
