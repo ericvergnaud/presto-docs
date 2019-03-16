@@ -1,11 +1,12 @@
 import React from 'react';
 import Topic from "./Topic";
 import AtomicTypes from "./types/AtomicTypes";
+import CollectionTypes from "./types/CollectionTypes";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Types", [ AtomicTypes ]);
+        super("Types", [ AtomicTypes, CollectionTypes ]);
     }
 
     renderContent() {

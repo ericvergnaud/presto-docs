@@ -4,7 +4,7 @@ export default class About extends React.Component {
 
     render() {
         const style = { display: this.props.visible ? "block" : "none" };
-        return <div style={style}>
+        return <div className="about" style={style}>
             <h1>The information system in the cloud</h1>
 
             <h2>Run in the cloud</h2>
