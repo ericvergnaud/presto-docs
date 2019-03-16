@@ -1,0 +1,3 @@
+define main as method doing:
+    t = "SOme TeXt witHout UppeRcase"
+    print "t.toLowerCase -> " + t.toLowerCase
