@@ -1,0 +1,3 @@
+define main as method doing:
+    c = 'X'
+    print "c.codePoint -> " + c.codePoint
