@@ -2,11 +2,15 @@ import React from 'react';
 import Topic from "./Topic";
 import AtomicTypes from "./types/AtomicTypes";
 import CollectionTypes from "./types/CollectionTypes";
+import DocumentType from "./types/DocumentType";
+import AttributeType from "./types/AttributeType";
+import EnumerationType from "./types/EnumerationType";
+import TransientTypes from "./types/TransientTypes";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Types", [ AtomicTypes, CollectionTypes ]);
+        super("Types", [ AtomicTypes, CollectionTypes, DocumentType, AttributeType, EnumerationType, TransientTypes ]);
     }
 
     renderContent() {

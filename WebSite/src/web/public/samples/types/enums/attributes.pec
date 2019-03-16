@@ -1,0 +1,8 @@
+define SomeConstant as enumerated Decimal with symbols:
+    AVOGADRO with 6.022140857 as value
+    FARADAY with 96485.33289 as value
+
+define main as method doing:
+    print "AVOGADRO.name -> " + AVOGADRO.name
+    print "FARADAY.value -> " + FARADAY.value
+    print "SomeConstant.symbols -> " + SomeConstant.symbols
