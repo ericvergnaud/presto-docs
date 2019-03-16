@@ -6,11 +6,12 @@ import IteratorType from "./IteratorType";
 import CursorType from "./CursorType";
 import CodeType from "./CodeType";
 import WorkerType from "./WorkerType";
+import VoidType from "./VoidType";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Transient types", [ AnyType, IteratorType, CursorType, CodeType, MethodType, WorkerType ]);
+        super("Transient types", [ AnyType, VoidType, IteratorType, CursorType, CodeType, MethodType, WorkerType ]);
     }
 
     renderContent(topicSelected) {
@@ -21,6 +22,7 @@ class ThisTopic extends Topic {
             <p>Prompto defines the following transient types:</p>
             <ul>
                 <li>Any</li>
+                <li>Void</li>
                 <li>Method</li>
                 <li>Code</li>
                 <li>Iterator</li>

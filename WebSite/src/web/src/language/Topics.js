@@ -5,8 +5,10 @@ import Overview from "./topics/Overview";
 import Keywords from "./topics/Keywords";
 import Identifiers from "./topics/Identifiers";
 import Types from "./topics/Types";
+import Mutability from "./topics/Mutability";
+import Methods from "./topics/methods/Methods";
 
-const TOPICS = [ Overview, Dialects, Keywords, Identifiers, Types ];
+const TOPICS = [ Overview, Dialects, Keywords, Identifiers, Types, Mutability, Methods ];
 
 export default class Topics extends React.Component {
 

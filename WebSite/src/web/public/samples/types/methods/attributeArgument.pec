@@ -1,0 +1,9 @@
+define nickName as Text attribute
+define Customer as category with attribute nickName
+
+define printNickName as method receiving nickName doing:
+    print nickName
+
+define main as method doing:
+    c = Customer with "Monroe" as nickName
+    printNickName with c.nickName as nickName
