@@ -1,0 +1,7 @@
+define motor as Boolean attribute
+define seats as Integer attribute
+
+define Vehicle as enumerated category with attributes motor and seats, and symbols:
+    BICYCLE with false as motor and 1 as seats
+    MOTORBIKE with true as motor and 2 as seats
+    CAR with true as motor and 4 as seats

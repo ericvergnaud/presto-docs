@@ -61,7 +61,7 @@ function execute(message) {
     console.log("Running sample...")
     const decls = parse(data.content, data.dialect);
     decls.register(context);
-    const testName = null;
+    let testName = null;
     decls.forEach(decl => {
         if(decl instanceof prompto.declaration.TestMethodDeclaration)
             testName = decl.name;

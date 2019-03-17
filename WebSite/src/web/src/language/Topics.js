@@ -11,8 +11,17 @@ import Statements from "./topics/statements/Statements";
 import Comments from "./topics/Comments";
 import Annotations from "./topics/Annotations";
 import Expressions from "./topics/expressions/Expressions";
+import Categories from "./topics/categories/Categories";
+import Singletons from "./topics/Singletons";
+import Enumerations from "./topics/Enumerations";
+import Errors from "./topics/errors/Errors";
+import Testing from "./topics/Testing";
+import Resources from "./topics/Resources";
+import Bindings from "./topics/bindings/Bindings";
+import Workers from "./topics/Workers";
 
-const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Methods, Statements, Expressions ];
+const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
+                    Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Workers, Bindings ];
 
 export default class Topics extends React.Component {
 

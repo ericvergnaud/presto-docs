@@ -1,0 +1,17 @@
+define motor as Boolean attribute
+define seats as Integer attribute
+define MobileDevice as category with attributes motor and seats, and methods:
+
+    define printSpeed as method doing:
+        speed = 200 / seats
+        if not motor:
+            speed = speed / 2
+        print "speed -> " +  speed
+
+define Vehicle as enumerated MobileDevice with symbols:
+    BICYCLE with false as motor and 1 as seats
+    MOTORBIKE with true as motor and 2 as seats
+    CAR with true as motor and 4 as seats
+
+define main as method doing:
+    MOTORBIKE.printSpeed

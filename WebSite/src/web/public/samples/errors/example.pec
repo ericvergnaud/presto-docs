@@ -1,0 +1,5 @@
+define main as method doing:
+    switch on error doing:
+        print "1/0 -> " + 1/0
+    when DIVIDE_BY_ZERO:
+        print error.text

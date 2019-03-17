@@ -27,8 +27,7 @@ class ThisTopic extends Topic {
             <p>The type of the object retrieved is the type it had the last time the object was stored (or null if no
                 object was found).
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/fetch-one-any.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={10} sampleUrl="samples/expressions/fetch-one-any.pec" runnable={true} />
             <br/>
 
             <h3>
@@ -41,8 +40,7 @@ class ThisTopic extends Topic {
                 object was found).<br/>
                 The type is specified as follows:
             </p>
-            <PromptoPlayer lines={12} sampleUrl="samples/expressions/fetch-one-type.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={12} sampleUrl="samples/expressions/fetch-one-type.pec" runnable={true} />
             <br/>
 
             <h3>
@@ -57,8 +55,7 @@ class ThisTopic extends Topic {
                 filter the data.</p>
             <p>The type of each object retrieved is the type it had the last time the object was stored.
             </p>
-            <PromptoPlayer lines={14} sampleUrl="samples/expressions/fetch-all-any.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={14} sampleUrl="samples/expressions/fetch-all-any.pec" runnable={true} />
             <br/>
 
             <h3>
@@ -72,8 +69,7 @@ class ThisTopic extends Topic {
                 stored.<br/>
                 The type is specified as follows:
             </p>
-            <PromptoPlayer lines={14} sampleUrl="samples/expressions/fetch-all-type.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={14} sampleUrl="samples/expressions/fetch-all-type.pec" runnable={true} />
 
             <p>When running the above example, you'll notice that Person "Sophie" is not returned
                 because it is
@@ -90,8 +86,7 @@ class ThisTopic extends Topic {
                 This is done by specifying one or more sort attributes, and the sort direction, as
                 follows:
             </p>
-            <PromptoPlayer lines={16} sampleUrl="samples/expressions/fetch-sorted.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={16} sampleUrl="samples/expressions/fetch-sorted.pec" runnable={true} />
 
             <p>Sorting on child fields is not supported yet (it depends heaviliy on the Store
                 implementation capabilities).</p>
@@ -100,10 +95,9 @@ class ThisTopic extends Topic {
             <h3>Paging results</h3>
             <p>When fetching a large number of objects, it can be convenient to only retrieve a
                 subset of them.<br/>
-            his is particularly convenient when paging results in a web site.<br/>
+            This is particularly convenient when paging results in a web site.<br/>
             Prompto lets you specify a slice of objects to be retrieved, as follows:</p>
-            <PromptoPlayer lines={20} sampleUrl="samples/expressions/fetch-paged.pec" runnable={true}
-                           with-framework={true}/>
+            <PromptoPlayer lines={22} sampleUrl="samples/expressions/fetch-paged.pec" runnable={true} />
 
             <p>Additionally, the Cursor object returned by the fetch expression has 2
                 attributes: <code>count</code> and <code>totalCount</code>,

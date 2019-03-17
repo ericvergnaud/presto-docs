@@ -1,0 +1,8 @@
+define Person as category with attribute name, and methods:
+
+    define welcome as method receiving Text prefix and Text suffix doing:
+        print prefix + name + suffix
+
+define main as method doing:
+    person = Person with "Marylin" as name
+    person.welcome with "Hello " as prefix and ", how are you?" as suffix
