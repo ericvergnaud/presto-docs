@@ -1,0 +1,8 @@
+define Entity as category with attribute name
+
+define main as method doing:
+    e1 = Entity with "Peter" as name
+    e2 = Entity with "Alan" as name
+    e3 = Entity with "John" as name
+    list = [ e1, e2, e3 ]
+    print "sorted -> " + sorted list with name as key

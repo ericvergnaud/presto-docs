@@ -1,0 +1,2 @@
+define name as Text attribute
+define dateOfBirth as Date attribute

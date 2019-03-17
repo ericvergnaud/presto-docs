@@ -1,0 +1,11 @@
+define firstName as storable Text attribute
+define lastName as storable Text attribute
+define dateOfBirth as Date attribute
+define Person as storable category with attributes firstName, lastName and dateOfBirth
+
+define main as method doing:
+    p1 = Person with "Arthur" as firstName, "Rimbaud" as lastName and '1854-10-20' as dateOfBirth
+    store p1
+    print "p1 -> " + p1
+    p2 = fetch one Person where lastName = "Rimbaud"
+    print "p2 -> " + p2

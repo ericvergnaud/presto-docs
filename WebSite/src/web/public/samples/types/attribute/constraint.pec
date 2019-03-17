@@ -1,0 +1,3 @@
+define countryCode as Text attribute matching "[A-Z]{2}"
+define language as Text attribute in ["English", "Chinese", "French"]
+define population as Integer attribute matching value > 0

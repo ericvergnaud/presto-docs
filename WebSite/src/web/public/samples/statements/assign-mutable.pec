@@ -1,0 +1,4 @@
+define main as method doing:
+    a = mutable [1, 2, 3]
+    a[2] = 7
+    print "a -> " + a

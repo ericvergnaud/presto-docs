@@ -1,0 +1,6 @@
+define main as method doing:
+    t = '15:03:19.152'
+    print "t.hour -> " + t.hour
+    print "t.minute -> " + t.minute
+    print "t.second -> " + t.second
+    print "t.millisecond -> " + t.millisecond

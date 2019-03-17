@@ -1,0 +1,5 @@
+define add3Integers as method receiving Integer x, Integer y and Integer z doing:
+    print "3 integers added: " + (x + y + z)
+
+define main as method doing:
+    add3Integers with 7 as x, 22 as y and 3 as z

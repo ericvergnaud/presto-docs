@@ -1,0 +1,12 @@
+define country as Text attribute
+define City as category with attributes name and country
+
+define Person as category with attribute name, and methods:
+
+    define printVisit as method receiving country doing:
+        print name + " has visited " + country
+
+define main as method doing:
+    city = City with "Bombay" as name and "India" as country
+    person = Person with "Edgar" as name
+    person.printVisit city

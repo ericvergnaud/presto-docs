@@ -1,0 +1,8 @@
+define Person as category with attribute name, and methods:
+
+    define printMessage as method receiving Text message doing:
+        print message + name
+
+define main as method doing:
+    person = Person with "Monroe" as name
+    person.printMessage with "Hello, Marylin " as message

@@ -1,0 +1,9 @@
+define main as method doing:
+    a = "Some text "
+    b = '2012-10-24'
+    c = 3
+    d = 'x'
+    print "a + b -> " + (a + b)
+    print "a + c -> " + (a + c)
+    print "a + d -> " + (a + d)
+    print "d + c -> " + (d + c)

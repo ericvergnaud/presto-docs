@@ -1,0 +1,16 @@
+define fullName as Text attribute
+define initials as Text attribute
+
+define Person as category with attributes fullName and initials, and methods:
+
+    define fullName as setter doing:
+        // in a setter the attribute name refers to the value received, not to the attribute member
+        fullName = fullName.toCapitalized
+        initials = ""
+        for each word in fullName.split:
+            initials = initials + word[1]
+        return fullName
+
+define main as method doing:
+    p = Person with "arthur rimbaud" as fullName
+    print "p -> " + p

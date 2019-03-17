@@ -1,0 +1,5 @@
+define printSomeText as method receiving Text value doing:
+    print value
+
+define main as method doing:
+    printSomeText with "Hello" as value

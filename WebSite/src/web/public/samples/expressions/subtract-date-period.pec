@@ -1,0 +1,4 @@
+define main as method doing:
+    a = '2012-10-10'
+    b = 'P3D'
+    print "a - b -> " + (a - b)

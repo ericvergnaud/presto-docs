@@ -1,0 +1,10 @@
+define main as method doing:
+    dt = '2013-04-12T15:03:19.152+02:00'
+    print "dt.year -> " + dt.year
+    print "dt.month -> " + dt.month
+    print "dt.dayOfMonth -> " + dt.dayOfMonth
+    print "dt.dayOfYear -> " + dt.dayOfYear
+    print "dt.hour -> " + dt.hour
+    print "dt.minute -> " + dt.minute
+    print "dt.second -> " + dt.second
+    print "dt.millisecond -> " + dt.millisecond

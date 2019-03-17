@@ -1,0 +1,4 @@
+define main as method doing:
+    content = "some content"
+    write content to Buffer
+    print "'" + content + "' -> has been written to Buffer"

@@ -1,0 +1,7 @@
+define main as method doing:
+    a = 23
+    b = 3
+    c = 34.7
+    // note the need to escape the \ operator in the Text literal
+    print "a \\ b -> " + (a \ b)
+    print "c \\ b -> " + (c \ b)

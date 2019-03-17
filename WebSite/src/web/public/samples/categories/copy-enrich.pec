@@ -1,0 +1,9 @@
+define dateOfBirth as Date attribute
+define Candidate as category with attributes name and dateOfBirth
+define grade as Text attribute
+define Employee as category with attributes name, dateOfBirth and grade
+
+define main as method doing:
+    john = Candidate with "John" as name and '1993-10-20' as dateOfBirth
+    new_joiner = Employee from john with "manager" as grade
+    print new_joiner

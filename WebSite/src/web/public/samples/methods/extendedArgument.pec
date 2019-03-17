@@ -1,0 +1,11 @@
+define shortName as Text attribute
+define Product as category with attribute shortName
+define family as Text attribute
+define Software as Product with attribute family
+
+define printFamily as method receiving Product p with attribute family doing:
+    print p.family
+
+define main as method doing:
+    c = Software with "Prompto" as shortName and "language" as family
+    printFamily c

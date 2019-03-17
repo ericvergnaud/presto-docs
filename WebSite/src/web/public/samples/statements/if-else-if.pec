@@ -1,0 +1,10 @@
+define main as method doing:
+    a = 6
+    if a = 3:
+        print "a = 3"
+    else if a = 4:
+        print "a = 4"
+    else if a = 6:
+        print "a = 6"
+    else:
+        print "a <> 3, 4 and 6"
