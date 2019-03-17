@@ -4,17 +4,19 @@ const globals = self;
 globals.Honey = {'requirePath': ['..']}; // walk up to js folder
 globals.importScripts("/js/lib/require.js", "/js/lib/prompto.core.bundle.js");
 
+const prompto = globals.prompto;
+
 function loadText(url, success) {
     var xhr = new XMLHttpRequest();
     xhr.onerror = function(e) {
-        self.console.log("Error " + e.target.status + " occurred while receiving the document.");
+        console.log("Error " + e.target.status + " occurred while receiving the document.");
         return null;
     };
     xhr.onload = function(e) {
         success(xhr.responseText);
     };
     xhr.open('GET', url);
-    if(url[0]!="/" && url[0]!=".")
+    if(url[0]!=="/" && url[0]!==".")
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.send(null);
 }

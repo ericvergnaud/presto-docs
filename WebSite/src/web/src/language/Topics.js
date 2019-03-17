@@ -4,7 +4,7 @@ import Dialects from "./topics/Dialects";
 import Overview from "./topics/Overview";
 import Keywords from "./topics/Keywords";
 import Identifiers from "./topics/Identifiers";
-import Types from "./topics/Types";
+import Types from "./topics/types/Types";
 import Mutability from "./topics/Mutability";
 import Methods from "./topics/methods/Methods";
 import Statements from "./topics/statements/Statements";
@@ -19,9 +19,10 @@ import Testing from "./topics/Testing";
 import Resources from "./topics/Resources";
 import Bindings from "./topics/bindings/Bindings";
 import Workers from "./topics/Workers";
+import Widgets from "./topics/widgets/Widgets";
 
 const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
-                    Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Workers, Bindings ];
+                    Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Widgets, Workers, Bindings ];
 
 export default class Topics extends React.Component {
 

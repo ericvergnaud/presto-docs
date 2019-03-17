@@ -1,17 +1,17 @@
 import React from 'react';
-import Topic from "./Topic";
+import Topic from "../Topic";
+import PromptoPlayer from "../../../prompto-player/PromptoPlayer";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Workers");
+        super("Css");
     }
 
     renderContent(topicSelected) {
         return <React.Fragment>
-            <h2>Workers</h2>
-
-            <p><i>Under construction</i></p>
+            TODO
+            <PromptoPlayer sampleUrl="samples/types/date/attributes.pec" runnable={true}/>
             </React.Fragment>;
     }
 

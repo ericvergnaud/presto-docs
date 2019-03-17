@@ -13,13 +13,15 @@ import UuidType from "./UuidType";
 import BlobType from "./BlobType";
 import ImageType from "./ImageType";
 import VersionType from "./VersionType";
+import CssType from "./CssType";
+import HtmlType from "./HtmlType";
 
 class ThisTopic extends Topic {
 
     constructor() {
         super("Atomic types", [ TextType, IntegerType, DecimalType, BooleanType, CharacterType,
                                 DateType, TimeType, DateTimeType, PeriodType,
-                                UuidType, VersionType, BlobType, ImageType ]);
+                                UuidType, VersionType, CssType, HtmlType, BlobType, ImageType ]);
     }
 
     renderContent(topicSelected) {
@@ -41,6 +43,8 @@ class ThisTopic extends Topic {
                     <li>Period</li>
                     <li>Uuid</li>
                     <li>Version</li>
+                    <li>Css</li>
+                    <li>Html</li>
                     <li>Blob</li>
                     <li>Image</li>
                 </ul>
