@@ -7,8 +7,11 @@ import Identifiers from "./topics/Identifiers";
 import Types from "./topics/Types";
 import Mutability from "./topics/Mutability";
 import Methods from "./topics/methods/Methods";
+import Statements from "./topics/statements/Statements";
+import Comments from "./topics/Comments";
+import Annotations from "./topics/Annotations";
 
-const TOPICS = [ Overview, Dialects, Keywords, Identifiers, Types, Mutability, Methods ];
+const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Methods, Statements ];
 
 export default class Topics extends React.Component {
 

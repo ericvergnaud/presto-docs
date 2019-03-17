@@ -1,0 +1,9 @@
+define someMethod as method doing:
+    a = 3
+    if a = 3:
+        return "some value"
+    else:
+        return "other value"
+
+define main as method doing:
+    print someMethod

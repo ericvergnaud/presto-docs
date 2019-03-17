@@ -13,14 +13,14 @@ class ThisTopic extends Topic {
             <h2>Calling methods</h2>
             <p>Calling methods is done simply by using the method name optionally followed by its arguments name and
                 value pairs.</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/types/methods/add3Integers.pec" runnable={true}/>
+            <PromptoPlayer lines={8} sampleUrl="samples/methods/add3Integers.pec" runnable={true}/>
             <br/>
             <p>Thanks to naming, arguments can be provided in any sequence, which makes it clear how the arguments are used.</p>
-            <PromptoPlayer lines={8}  sampleUrl="samples/types/methods/namedArguments.pec" runnable={true}/>
+            <PromptoPlayer lines={8}  sampleUrl="samples/methods/namedArguments.pec" runnable={true}/>
             <br/>
             <p>Naming the arguments is mandatory in Prompto. However, when a method accepts only 1 argument, the
                 argument name can be omitted:</p>
-            <PromptoPlayer lines={8}  sampleUrl="samples/types/methods/anonymousArgument.pec" runnable={true}/>
+            <PromptoPlayer lines={8}  sampleUrl="samples/methods/anonymousArgument.pec" runnable={true}/>
             </React.Fragment>;
     }
 

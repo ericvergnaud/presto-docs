@@ -1,0 +1,4 @@
+define main as method doing:
+    for each i, s in ["John", "Janet", "Oswald"]:
+        print "i = " + i
+        print "s = " + s

@@ -1,0 +1,4 @@
+define main as method doing:
+    a = 3 as Decimal
+    a = 4.0
+    print "a -> " + a
