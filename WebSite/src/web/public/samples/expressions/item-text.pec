@@ -1,0 +1,5 @@
+define main as method doing:
+    a = "Some text"
+    b = 7
+    print "a[3] -> " + a[3]
+    print "a[b] -> " + a[b]

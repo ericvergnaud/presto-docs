@@ -1,0 +1,9 @@
+define checkValue as method receiving Text value doing:
+    if value = "ok":
+        return "ok"
+    else:
+        return nothing
+
+define main as method doing:
+    print "ok -> " + checkValue "ok"
+    print "other -> " + checkValue "other"

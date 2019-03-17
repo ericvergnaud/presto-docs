@@ -1,0 +1,4 @@
+define main as method doing:
+    a = 17
+    b = 3
+    print "a % b -> " + (a % b)

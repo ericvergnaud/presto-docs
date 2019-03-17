@@ -1,0 +1,9 @@
+define main as method doing:
+    a = 2
+    b = 3
+    c = 4.0
+    d = 2.7
+    print "a - b -> " + (a - b)
+    print "a - c -> " + (a - c)
+    print "c - d -> " + (c - d)
+    print "c - b -> " + (c - a)

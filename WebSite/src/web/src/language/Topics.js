@@ -10,8 +10,9 @@ import Methods from "./topics/methods/Methods";
 import Statements from "./topics/statements/Statements";
 import Comments from "./topics/Comments";
 import Annotations from "./topics/Annotations";
+import Expressions from "./topics/expressions/Expressions";
 
-const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Methods, Statements ];
+const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Methods, Statements, Expressions ];
 
 export default class Topics extends React.Component {
 
