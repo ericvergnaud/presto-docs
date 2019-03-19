@@ -1,0 +1,8 @@
+define serverMethod as method doing:
+	print "I'm running on the server"
+	return "serverMethod was successfully executed on the server"
+
+define main as method doing:
+    serverMethod then with result:
+        print "this statement is executed in the browser"
+        print "the result is: " + result
