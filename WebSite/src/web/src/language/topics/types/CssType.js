@@ -13,7 +13,7 @@ class ThisTopic extends Topic {
 
             <p>CSS stands for <b>C</b>ascading <b>S</b>tyle <b>S</b>heet.
                 CSS is a Web standard defined <a target="_blank" rel="noopener noreferrer" href="https://www.w3.org/Style/CSS/Overview.en.html">here</a>.
-                The <code>Css</code> type is the type used for CSS expressions.<br/>
+                The <code>Css</code> type is a technical type used for CSS expressions.<br/>
                 A CSS literal is a sequence of 1 or more CSS entries, separated by semi-colons.<br/>
                 A CSS entry comprises exactly:</p>
                     <ul>

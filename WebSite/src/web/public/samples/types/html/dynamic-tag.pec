@@ -1,0 +1,5 @@
+define render as method returning Html doing:
+    ids = [1, 2, 3]
+    return <div>
+            { return <div>{id}</div> for each(id in ids) }
+            </div>

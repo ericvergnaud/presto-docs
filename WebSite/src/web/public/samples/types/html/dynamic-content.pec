@@ -1,0 +1,3 @@
+define render as method returning Html doing:
+    someText = "some text"
+    return <div>{ someText }</div>
