@@ -32,8 +32,9 @@ class ThisTopic extends Topic {
             <h3><i>Async</i> programming</h3>
              <p>The <i>Call</i> then technique is called <i>async</i> programming. It is useful when running code in a browser, to provide the best user experience by avoiding a non-responsive UI.<br/>
                  Without it, the browser would be blocked until the method has completed (which could take seconds or minutes).<br/>
-                 This highlights the need to <i>never</i> make assumptions on the execution sequence of async statements.
-                 Notably, if you call multiple async statements, you should not expect that their respective continuations will be executed in the same sequence.</p>
+                 You should <i>never</i> make assumptions on the execution sequence of async statements.
+                 Notably, if you call multiple async statements, you should not expect that their respective continuations will be executed in the same sequence.<br/>
+                As of writing, Prompto executes async statements only when running in the browser. In other environments, it waits for completion.</p>
              </React.Fragment>;
     }
 
