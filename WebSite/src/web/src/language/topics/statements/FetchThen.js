@@ -18,7 +18,7 @@ class ThisTopic extends Topic {
             <PromptoPlayer lines={10} sampleUrl="samples/statements/fetch-then.pec"/>
             <br/>
             <h3><i>Async</i> programming</h3>
-            <p>The store then technique is called <i>async</i> programming. It is useful when running code in a browser, to provide the best user experience by avoiding a non-responsive UI.<br/>
+            <p>The fetch then technique is called <i>async</i> programming. It is useful when running code in a browser, to provide the best user experience by avoiding a non-responsive UI.<br/>
                 Without it, the browser would be blocked until the data is completely fetched.<br/>
                 You should <i>never</i> make assumptions on the execution sequence of async statements.
                 Notably, if you call multiple async statements, you should not expect that their respective continuations will be executed in the same sequence.<br/>

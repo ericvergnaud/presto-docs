@@ -1,6 +1,38 @@
 import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 
+class TopicWidget extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { collapsed: true };
+        this.clicked = this.clicked.bind(this);
+    }
+
+    clicked() {
+        this.setState({ collapsed: !this.state.collapsed });
+        this.props.topicSelected(this.props.topic);
+    }
+
+    render() {
+        return <>
+            <NavItem onClick={this.clicked}>{this.props.topic.title}</NavItem>
+            { this.renderChildren()}
+        </>;
+    }
+
+    renderChildren() {
+        const children = this.props.topic.children;
+        if(children) {
+            const level = this.props.level + 1;
+            return <Nav className={"topic level-" + level} >
+                { !this.state.collapsed && children.map(t=>t.renderItem(this.props.topicSelected, level), this) }
+            </Nav>;
+        }
+    }
+
+}
+
 export default class Topic {
 
     constructor(title, children) {
@@ -9,17 +41,8 @@ export default class Topic {
     }
 
     renderItem(topicSelected, level) {
-        return <React.Fragment key={this.title}>
-            <NavItem onClick={()=>topicSelected(this)}>{this.title}</NavItem>
-            { this.renderChildren(topicSelected, level + 1)}
-            </React.Fragment>;
-    }
+        return <TopicWidget key={this.title} topic={this} level={level} topicSelected={topicSelected}/>;
+   }
 
-    renderChildren(topicSelected, level) {
-        if(this.children)
-            return <Nav className={"topic level-" + level}>
-                    { this.children.map(t=>t.renderItem(topicSelected, level), this) }
-            </Nav>;
-    }
 
 }
