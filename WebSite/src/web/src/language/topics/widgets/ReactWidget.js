@@ -4,11 +4,12 @@ import PromptoPlayer from "../../../prompto-player/PromptoPlayer";
 import ReactState from "./ReactState";
 import ReactProperties from "./ReactProperties";
 import ReactLifecycle from "./ReactLifecycle";
+import ReactRendering from "./ReactRendering";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("React widgets", [ ReactLifecycle, ReactState, ReactProperties ]);
+        super("React widgets", [ ReactLifecycle, ReactState, ReactProperties, ReactRendering ]);
     }
 
     renderContent(topicSelected) {

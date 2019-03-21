@@ -15,20 +15,24 @@ class ThisTopic extends Topic {
                 To set and access state, React widgets come with 4 methods:</p>
             <ul>
                 <li>getInitialState<br/>
-                    The getInitialState is an optional callback that is called by React to set a controlled component's initial state. It must return a Document.
+                    The getInitialState is an optional callback that is called by React to set a controlled component's initial state. It must return a Document.<br/>
+                    <br/>
                 </li>
 
                 <li>getState<br/>
-                    This method returns the current state of the controlled component, in the form of a Document.
+                    This method returns the current state of the controlled component, in the form of a Document.<br/>
+                    <br/>
                 </li>
 
                 <li>setState<br/>
                     This method sets the new state of the controlled component, in the form of a Document.<br/>
-                    (continuation is not supported yet, but is coming soon).
+                    (continuation is not supported yet, but is coming soon).<br/>
+                    <br/>
                 </li>
 
                  <li>getDerivedStateFromProps<br/>
-                    This method is rarely used, see <a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops" rel="noreferrer noopener">getderivedstatefromprops</a>.
+                    This method is rarely used, see <a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops" rel="noreferrer noopener">getDerivedStateFromProps</a>.<br/>
+                     <br/>
                 </li>
             </ul>
             <p>Here is an example where the 3 common methods are used.</p>

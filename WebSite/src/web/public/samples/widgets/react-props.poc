@@ -1,0 +1,17 @@
+widget Minimal extends ReactWidget {
+
+	Html method render () {
+	    props = getProperties()
+		return <div>{ props.title }</div>;
+	}
+
+}
+
+widget Page extends ReactWidget {
+
+   	Html method render () {
+   	    title = "Some title"
+   		return <Minimal title={title}/>;
+   	}
+
+}

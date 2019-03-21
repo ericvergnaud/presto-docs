@@ -9,7 +9,7 @@ class ThisTopic extends Topic {
 
     renderContent(topicSelected) {
         return <React.Fragment>
-            <img src="/img/ReactLifecycle.jpeg"/>
+            <img src="/img/ReactLifecycle.jpeg" alt=""/>
             </React.Fragment>;
     }
 
