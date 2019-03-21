@@ -20,9 +20,10 @@ import Resources from "./topics/Resources";
 import Bindings from "./topics/bindings/Bindings";
 import Workers from "./topics/Workers";
 import Widgets from "./topics/widgets/Widgets";
+import Events from "./topics/events/Events";
 
 const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
-                    Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Widgets, Workers, Bindings ];
+                    Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Widgets, Events, Workers, Bindings ];
 
 export default class Topics extends React.Component {
 

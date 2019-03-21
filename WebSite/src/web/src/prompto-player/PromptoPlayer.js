@@ -107,7 +107,9 @@ export default class PromptoPlayer extends React.Component {
     constructor(props) {
         super(props);
         this.aceEditor = null;
-        this.state = { value: "some text", dialect: "E", output: null, done: false };
+        const ext = this.props.sampleUrl.substring(this.props.sampleUrl.lastIndexOf("."));
+        const dialect = ext[2].toUpperCase();
+        this.state = { value: "some text", dialect: dialect, output: null, done: false };
     }
 
     componentDidMount() {

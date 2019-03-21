@@ -1,0 +1,16 @@
+widget Minimal extends ReactWidget {
+
+    Document getInitialState() {
+        return { title: "Hello" };
+    }
+
+	Html method render () {
+	    title = getState().title
+		return <div>{ title }</div>;
+	}
+
+	method someMethod() {
+	    setState({ title: "Goodbye" });
+	}
+
+}
