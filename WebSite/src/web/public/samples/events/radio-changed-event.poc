@@ -1,0 +1,23 @@
+widget WidgetWithRadio extends ReactWidget {
+
+    getInitialState() {
+        return { radio: "r1" }
+    }
+
+	method radioChanged(RadioChangedEvent event) {
+		setState({ radio: event.getSelectedRadio() })
+	}
+
+	Html method render () {
+		state = getState();
+		return <div>
+				<Radio id="r1" name="group"
+				        onChange={radioChanged}
+				        value={state.radio=="r1"}>Hello 1!</Radio>
+				<Radio id="r2" name="group"
+				        onChange={radioChanged}
+				        value={state.radio=="r2"}>Hello 2!</Radio>
+			</div>;
+	}
+
+}

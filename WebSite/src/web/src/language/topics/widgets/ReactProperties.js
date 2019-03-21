@@ -16,7 +16,7 @@ class ThisTopic extends Topic {
                 Properties are provided to the widget through attributes set on the Html tag.</p>
             <p>To access properties, React widgets come with 1 method:</p>
             <ul>
-                <li>getProperties<br/>
+                <li><b>getProperties</b><br/>
                     The getProperties is a method that can be called from widget code. It returns a Document.
                 </li>
             </ul>
