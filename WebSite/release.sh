@@ -4,9 +4,10 @@ read -p "version to publish: " version
 read -p "release name: " name
 mvn versions:set -DnewVersion=$version -DgenerateBackupPoms=false
 deploy=$?
-#mvn clean deploy -P deploy -DskipTests=true
+mvn clean deploy -P deploy -DskipTests=true
 mvn versions:set -DnewVersion=0.0.1-SNAPSHOT -DgenerateBackupPoms=false
-if [ $deploy = 0 ] then
+if [ $deploy -eq 0 ] 
+then
 	tag=v$version
 	json="{ \"tag_name\": \"$tag\", \"name\": \"$name\" }"
 	rm -f release.json
@@ -16,5 +17,6 @@ if [ $deploy = 0 ] then
 		 --data @release.json \
 		 --user ericvergnaud:$(cat password.txt) \
 		 --url https://api.github.com/repos/prompto/prompto-docs/releases
+else
+	echo $deploy
 fi
-	 

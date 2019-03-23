@@ -75,7 +75,7 @@
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-				<directory>src/main/web</directory>
+				<directory>src/web/build</directory>
 				<excludes>
 					<!-- provided by Server -->
 					<exclude>js/lib/require.js</exclude>
