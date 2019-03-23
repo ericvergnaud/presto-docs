@@ -20,7 +20,7 @@ class ThisTopic extends Topic {
             </ul>
             <p>In the below example, we capture each RadioChangedEvent, and apply business rules:</p>
             <PromptoPlayer lines={22} sampleUrl="samples/events/radio-changed-event.poc"/>
-            <p><i>(the above Radio is a fictitious widget. See ReactBootstrap for a real example)</i></p>
+            <p><i>(the above Radio widget is a fictitious one. See ReactBootstrap for a real example)</i></p>
             </React.Fragment>;
     }
 
