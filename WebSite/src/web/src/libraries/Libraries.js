@@ -9,8 +9,10 @@ import Parsing from "./topics/Parsing";
 import Cloud from "./topics/cloud/Cloud";
 import Internet from "./topics/internet/Internet";
 import Data from "./topics/data/Data";
+import Server from "./topics/server/Server";
+import Frameworks from "./topics/frameworks/Frameworks";
 
-const TOPICS = [ Overview, Data, Internet, Cloud, Maths, Console, Utilities, Parsing, Attributes ];
+const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud ];
 
 export default class Libraries extends React.Component {
 
