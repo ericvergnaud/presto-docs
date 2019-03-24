@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import Precedence from "./Precedence";
 import Parenthesis from "./Parenthesis";
 import Nothing from "./Nothing";

@@ -5,4 +5,4 @@ define Employee as category with attributes name and dateOfBirth
 define main as method doing:
     john = Candidate with "John" as name and '1993-10-20' as dateOfBirth
     new_joiner = Employee from john
-    print new_joiner
+    printLine new_joiner

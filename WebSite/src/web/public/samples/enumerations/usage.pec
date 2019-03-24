@@ -6,4 +6,4 @@ define Vehicle as enumerated category with attributes motor and seats, and symbo
     CAR with true as motor and 4 as seats
 
 define main as method doing:
-    print "MOTORBIKE -> " + MOTORBIKE
+    printLine "MOTORBIKE -> " + MOTORBIKE

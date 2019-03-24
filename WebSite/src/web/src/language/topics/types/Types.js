@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import AtomicTypes from "./AtomicTypes";
 import CollectionTypes from "./CollectionTypes";
 import DocumentType from "./DocumentType";

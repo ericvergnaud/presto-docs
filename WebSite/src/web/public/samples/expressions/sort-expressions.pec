@@ -5,4 +5,4 @@ define main as method doing:
     e2 = Entity with "John" as name
     e3 = Entity with "Alan" as name
     list = [ e1, e2, e3 ]
-    print "sorted -> " + sorted list with name[2:3] as key
+    printLine "sorted -> " + sorted list with name[2:3] as key

@@ -1,7 +1,7 @@
 define Person as category with attribute name, and methods:
 
     define welcome as method receiving Text prefix doing:
-        print prefix + name
+        printLine prefix + name
 
 define main as method doing:
     person = Person with "Marylin" as name

@@ -3,4 +3,4 @@ define Customer as category with attribute name
 define main as method doing:
     a = mutable Customer with "John" as name
     a.name = "Albert"
-    print "a -> " + a
+    printLine "a -> " + a

@@ -7,4 +7,4 @@ define Book as category with attributes title and author
 define main as method doing:
     p = Person with "Arthur" as name
     b = Book with "My life" as title and p as author
-    print b
+    printLine b

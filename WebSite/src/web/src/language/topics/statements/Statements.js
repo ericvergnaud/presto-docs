@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import Assignment from "./Assignment";
 import IfElse from "./IfElse";
 import Switch from "./Switch";

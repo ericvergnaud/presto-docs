@@ -2,7 +2,7 @@ define myProto as abstract method receiving Text prefix returning Text
             
 define printResultOfMyProto as method receiving myProto doing:
     s = myProto with "Hello" as prefix
-    print s
+    printLine s
 
 define myMethod as method receiving Text prefix returning Text doing:
     return prefix + " John"

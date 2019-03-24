@@ -7,4 +7,4 @@ define main as method doing:
     c1 = Company with "Dell" as name
     store p1, p2, c1
     p3 = fetch one Person where name = "Dell"
-    print "p3 -> " + p3
+    printLine "p3 -> " + p3

@@ -1,6 +1,6 @@
 define main as method doing:
     d = '2013-04-12'
-    print "d.year -> " + d.year
-    print "d.month -> " + d.month
-    print "d.dayOfMonth -> " + d.dayOfMonth
-    print "d.dayOfYear -> " + d.dayOfYear
+    printLine "d.year -> " + d.year
+    printLine "d.month -> " + d.month
+    printLine "d.dayOfMonth -> " + d.dayOfMonth
+    printLine "d.dayOfYear -> " + d.dayOfYear

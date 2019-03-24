@@ -16,4 +16,4 @@ define main as method doing:
     // because job is not an attribute of Person
     if p is an Employee:
         // now p is treated as an Employee
-        print "job of Employee p -> " + p.job
+        printLine "job of Employee p -> " + p.job

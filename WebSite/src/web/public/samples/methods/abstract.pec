@@ -6,10 +6,10 @@ define Circle as Shape
 define printShape as abstract method receiving Shape shape
 
 define printShape as method receiving Square shape doing:
-    print "Square side is " + (shape.perimeter / 4)
+    printLine "Square side is " + (shape.perimeter / 4)
 
 define printShape as method receiving Circle shape doing:
-    print "Circle radius is " + (shape.perimeter / (2 * 3.14159))
+    printLine "Circle radius is " + (shape.perimeter / (2 * 3.14159))
 
 define main as method doing:
     s = Square with 40.0 as perimeter

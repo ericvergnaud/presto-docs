@@ -4,4 +4,4 @@ define Person as category with attribute fullName
 define main as method doing:
     p = mutable Person
     p.fullName = "Arthur Rimbaud"
-    print "p -> " + p
+    printLine "p -> " + p

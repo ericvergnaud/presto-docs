@@ -1,5 +1,5 @@
 define main as method doing:
     t = "some text with spaces"
     l = t.replaceAll with " " as toReplace and "_" as replaceWith
-    print "t.replaceAll -> " + l
+    printLine "t.replaceAll -> " + l
 

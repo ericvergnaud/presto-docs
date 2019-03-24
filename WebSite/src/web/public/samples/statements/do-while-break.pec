@@ -6,5 +6,5 @@ define main as method doing:
         i = i + 1
         if total > 10:
             break
-        print "total = " + total
+        printLine "total = " + total
     while i < 10

@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import Definition from "./methods/Definition";
 import Calling from "./methods/Calling";
 import Arguments from "./methods/Arguments";

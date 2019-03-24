@@ -1,6 +1,6 @@
 define main as method doing:
     a = 2
     if a = 3:
-        print "a = 3"
+        printLine "a = 3"
     else:
-        print "a <> 3"
+        printLine "a <> 3"

@@ -6,4 +6,4 @@ define Person as category with attributes firstName, lastName and dateOfBirth
 
 define main as method doing:
     p = Person with "Arthur" as firstName, "Rimbaud" as lastName and '1854-10-20' as dateOfBirth
-    print p
+    printLine p

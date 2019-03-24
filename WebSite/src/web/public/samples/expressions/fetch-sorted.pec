@@ -6,10 +6,10 @@ define main as method doing:
     p3 = Person with "Alex" as name
     store p1, p2, p3
     c = fetch all order by name
-    print "sorted by name ascending:"
+    printLine "sorted by name ascending:"
     for each p in c:
-        print "p -> " + p
-    print "sorted by name descending:"
+        printLine "p -> " + p
+    printLine "sorted by name descending:"
     c = fetch all order by name descending
     for each p in c:
-        print "p -> " + p
+        printLine "p -> " + p

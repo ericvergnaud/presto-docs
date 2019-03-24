@@ -1,10 +1,10 @@
 define SomeCategory as category with attribute text, and methods:
 
     define overloadedMethod as method receiving Integer x doing:
-        print text + " with Integer argument:" + x
+        printLine text + " with Integer argument:" + x
 
     define overloadedMethod as method receiving Text x doing:
-        print text + " with Text argument:" + x
+        printLine text + " with Text argument:" + x
 
 define main as method doing:
     cat = SomeCategory with "Called" as text

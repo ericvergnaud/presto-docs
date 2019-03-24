@@ -2,5 +2,5 @@ define main as method doing:
     a = "hello"
     b = "HELLO"
     c = "HEEELLLOOO"
-    print "a ~ b -> " + (a ~ b)
-    print "a ~ c -> " + (a ~ c)
+    printLine "a ~ b -> " + (a ~ b)
+    printLine "a ~ c -> " + (a ~ c)

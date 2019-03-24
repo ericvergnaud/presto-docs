@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import AnyType from "./AnyType";
 import MethodType from "./MethodType";
 import IteratorType from "./IteratorType";

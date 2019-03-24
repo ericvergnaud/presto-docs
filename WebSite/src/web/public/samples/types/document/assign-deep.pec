@@ -3,4 +3,4 @@ define main as method doing:
     doc.type = "Town"
     doc.town.name = "Toulouse"
     doc.town.population = 600000
-    print "doc -> " + doc
+    printLine "doc -> " + doc

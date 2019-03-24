@@ -10,4 +10,4 @@ define main as method doing:
     store p1, p2, p3, p4
     c = fetch all Member where preferredColor = "blue"
     for each p in c:
-        print "p -> " + p
+        printLine "p -> " + p

@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import ListType from "./ListType";
 import TupleType from "./TupleType";
 import SetType from "./SetType";

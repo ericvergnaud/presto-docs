@@ -5,4 +5,4 @@ define main as method doing:
     p2 = Person with "Sophie" as name
     store p1, p2
     p3 = fetch one Person where name = "John"
-    print "Person.name -> " + p3.name
+    printLine "Person.name -> " + p3.name

@@ -55,7 +55,7 @@ class PromptoWorkerListener {
         };
         // register handler for this message's responses
         this.messageHandlers[message.id] = data => {
-            callback(data.toPrint);
+            callback(data.toStdOut, data.toStdErr);
         };
         this.worker.postMessage(message);
     }
@@ -94,9 +94,14 @@ class PlayerNavbar extends React.Component {
 class PlayerOutput extends React.Component {
 
     render() {
-        const lines = (this.props.output || "").split("\n");
+        const lines = this.props.output || [];
         return <div className="player-output" style={this.props.style}>
-                {lines.map((s, i) => <React.Fragment key={i}>{s}<br/></React.Fragment>)}
+                {lines.map((line, i) => {
+                    if(line.dest==="stdout")
+                        return <React.Fragment key={i}>{line.text}<br/></React.Fragment>;
+                    else
+                        return <React.Fragment key={i}><font color="red">{line.text}<br/></font></React.Fragment>;
+                })}
                 { this.props.done && <Button onClick={this.props.doneRequested}>Done</Button> }
                 </div>;
     }
@@ -133,11 +138,54 @@ export default class PromptoPlayer extends React.Component {
     }
 
     runRequested() {
-        this.setState({output: ""}, ()=>PROMPTO_WORKER.execute(this.state.value, this.state.dialect, output => {
-            const done = output.startsWith("Success!");
-            output = this.state.output + output + "\n";
-            this.setState({output: output, done: done});
+        this.setState({output: []}, () => PROMPTO_WORKER.execute(this.state.value, this.state.dialect, (stdout, stderr) => {
+            if (stdout)
+                this.addToOutput("stdout", stdout);
+            else if (stderr)
+                this.addToOutput("stderr", stderr);
         }));
+    }
+
+    addToOutput(dest, text) {
+        const nextCR = text.indexOf("\n");
+        if (nextCR < 0 || nextCR === text.length - 1)
+            this.addSingleLineToOutput(dest, text);
+        else
+            this.addMultiLinesToOutput(dest, text);
+    }
+
+    addSingleLineToOutput(dest, text) {
+        const output = this.state.output;
+        const entry = output[output.length - 1] || {dest: "none", text: ""};
+        const done = text.startsWith("Success!");
+        if (done || entry.dest !== dest || entry.text.endsWith("\n"))
+            output.push({dest: dest, text: text});
+        else
+            entry.text += text;
+        this.setState({output: output, done: done});
+    }
+
+    addMultiLinesToOutput(dest, text) {
+        const endsWithCR = text.endsWith("\n");
+        const output = this.state.output;
+        const entry = output[output.length - 1] || {dest: "none", text: ""};
+        const lines = text.split("\n");
+        if(endsWithCR)
+            lines.pop();
+        // add first line
+        if(entry.dest!==dest || entry.text.endsWith("\n"))
+            output.push({dest: dest, text: lines[0] + "\n"});
+        else
+            entry.text += lines[0];
+        // add full lines
+        for(let i=1;i<lines.length-2;i++)
+            output.push({dest: dest, text: lines[i] + "\n"});
+        // add last line
+        const lastEntry = {dest: dest, text: lines[lines.length - 1]};
+        if(endsWithCR)
+            lastEntry.text += "\n";
+        output.push(lastEntry);
+        this.setState({output: output});
     }
 
     render() {

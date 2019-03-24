@@ -2,5 +2,5 @@ define main as method doing:
     a = (1=1)
     b = (1=2)
     c = (2=2)
-    print "a and b -> " + (a and b)
-    print "a and c -> " + (a and c)
+    printLine "a and b -> " + (a and b)
+    printLine "a and c -> " + (a and c)

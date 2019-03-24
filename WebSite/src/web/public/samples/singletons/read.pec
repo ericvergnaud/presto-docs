@@ -4,4 +4,4 @@ define main as method doing:
     with Configuration, do:
         login = "prompto-login"
         password = "xYz3!?th22"
-    print "login -> " + Configuration.login
+    printLine "login -> " + Configuration.login

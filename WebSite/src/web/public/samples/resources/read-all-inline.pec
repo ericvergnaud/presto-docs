@@ -1,4 +1,4 @@
 define main as method doing:
     location = "https://raw.githubusercontent.com/prompto/prompto-samples/master/sample-text-file.txt"
     content = read all from Url with location as path
-    print content
+    printLine content

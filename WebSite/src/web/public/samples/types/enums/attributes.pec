@@ -3,6 +3,6 @@ define SomeConstant as enumerated Decimal with symbols:
     FARADAY with 96485.33289 as value
 
 define main as method doing:
-    print "AVOGADRO.name -> " + AVOGADRO.name
-    print "FARADAY.value -> " + FARADAY.value
-    print "SomeConstant.symbols -> " + SomeConstant.symbols
+    printLine "AVOGADRO.name -> " + AVOGADRO.name
+    printLine "FARADAY.value -> " + FARADAY.value
+    printLine "SomeConstant.symbols -> " + SomeConstant.symbols

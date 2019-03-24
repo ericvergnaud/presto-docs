@@ -13,4 +13,4 @@ define Person as category with attributes fullName and initials, and methods:
 
 define main as method doing:
     p = Person with "arthur rimbaud" as fullName
-    print "p -> " + p
+    printLine "p -> " + p

@@ -4,4 +4,4 @@ define SomeObject as category with attribute name, and methods:
 
 define main as method doing:
     s = SomeObject with "Hello" as name
-    print "name -> " + s.SomeMethod "John"
+    printLine "name -> " + s.SomeMethod "John"

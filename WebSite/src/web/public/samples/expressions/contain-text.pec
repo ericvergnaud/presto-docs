@@ -4,9 +4,9 @@ define main as method doing:
     f = "is"
     a = "hb"
     s = <'h', 'b'>
-    print "c in t -> " + (c in t)
-    print "f not in t -> " + (f not in t)
-    print "a in t -> " + (a in t)
-    print "t has f -> " + (t has f)
-    print "t has any a -> " + (t has any a)
-    print "t has all s -> " + (t has all s)
+    printLine "c in t -> " + (c in t)
+    printLine "f not in t -> " + (f not in t)
+    printLine "a in t -> " + (a in t)
+    printLine "t has f -> " + (t has f)
+    printLine "t has any a -> " + (t has any a)
+    printLine "t has all s -> " + (t has all s)

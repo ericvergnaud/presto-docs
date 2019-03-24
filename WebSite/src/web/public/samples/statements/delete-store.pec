@@ -7,6 +7,6 @@ define main as method doing:
     delete p1 and store p2
     p3 = fetch one Person where name = "John"
     if p3 is nothing:
-        print "deleted!"
+        printLine "deleted!"
     p4 = fetch one Person where name = "Edgar"
-    print "Person.name -> " + p4.name
+    printLine "Person.name -> " + p4.name

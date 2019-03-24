@@ -4,8 +4,8 @@ define main as method doing:
     p1 = Person with "John" as name
     store p1
     p2 = fetch one Person where name = "John"
-    print "Person.name -> " + p2.name
+    printLine "Person.name -> " + p2.name
     delete p2
     p3 = fetch one Person where name = "John"
     if p3 is nothing:
-        print "deleted!"
+        printLine "deleted!"

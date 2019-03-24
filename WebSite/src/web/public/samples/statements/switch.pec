@@ -2,8 +2,8 @@ define main as method doing:
     a = 3
     switch on a:
         when 1:
-            print "a = 1"
+            printLine "a = 1"
         when 3:
-            print "a = 3"
+            printLine "a = 3"
         when 5:
-            print "a = 5"
+            printLine "a = 5"

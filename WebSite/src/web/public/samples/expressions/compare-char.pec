@@ -2,7 +2,7 @@ define main as method doing:
     a = 'x'
     b = 'y'
     c = 'x'
-    print "a < b -> " + (a < b)
-    print "a > b -> " + (a > b)
-    print "a >= c -> " + (a >= c)
-    print "a <= c -> " + (a <= c)
+    printLine "a < b -> " + (a < b)
+    printLine "a > b -> " + (a > b)
+    printLine "a >= c -> " + (a >= c)
+    printLine "a <= c -> " + (a <= c)

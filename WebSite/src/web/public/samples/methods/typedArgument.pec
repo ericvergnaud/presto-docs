@@ -1,5 +1,5 @@
 define printSomeText as method receiving Text value doing:
-    print value
+    printLine value
 
 define main as method doing:
     printSomeText with "Hello" as value

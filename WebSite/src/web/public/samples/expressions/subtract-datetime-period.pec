@@ -1,4 +1,4 @@
 define main as method doing:
     a = '2012-10-10T14:17:11'
     b = 'P3DT11M3S'
-    print "a - b -> " + (a - b)
+    printLine "a - b -> " + (a - b)

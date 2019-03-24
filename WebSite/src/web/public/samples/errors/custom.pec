@@ -10,4 +10,4 @@ define main as method doing:
     switch on error doing:
         checkContent "some invalid content"
     when any:
-        print error.text
+        printLine error.text

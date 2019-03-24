@@ -5,5 +5,5 @@ define checkValue as method receiving Text value doing:
         return nothing
 
 define main as method doing:
-    print "ok -> " + checkValue "ok"
-    print "other -> " + checkValue "other"
+    printLine "ok -> " + checkValue "ok"
+    printLine "other -> " + checkValue "other"

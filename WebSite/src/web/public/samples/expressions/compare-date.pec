@@ -2,7 +2,7 @@ define main as method doing:
     a = '2012-03-12'
     b = '2012-04-13'
     c = '2012-03-12'
-    print "a < b -> " + (a < b)
-    print "a > b -> " + (a > b)
-    print "a >= c -> " + (a >= c)
-    print "a <= c -> " + (a <= c)
+    printLine "a < b -> " + (a < b)
+    printLine "a > b -> " + (a > b)
+    printLine "a >= c -> " + (a >= c)
+    printLine "a <= c -> " + (a <= c)

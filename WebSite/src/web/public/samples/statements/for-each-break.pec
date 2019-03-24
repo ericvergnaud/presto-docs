@@ -1,5 +1,5 @@
 define main as method doing:
     for each person in ["Jane", "John", "Albert"]:
-        print "person = " + person
+        printLine "person = " + person
         if person = "John":
             break

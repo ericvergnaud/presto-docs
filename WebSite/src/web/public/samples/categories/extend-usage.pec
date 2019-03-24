@@ -5,7 +5,7 @@ define company as Text attribute
 define Employee as Person with attribute company
 
 define printPerson as method receiving Person p doing:
-    print "p -> " + p
+    printLine "p -> " + p
 
 define main as method doing:
     e = Employee with "Sally" as fullName and "The world" as company

@@ -8,4 +8,4 @@ define Configuration as singleton with attributes login and password, and method
 define main as method doing:
     with Configuration, do:
         readFromResource
-    print "login -> " + Configuration.login
+    printLine "login -> " + Configuration.login

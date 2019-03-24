@@ -2,6 +2,6 @@ define main as method doing:
     r = [2..11]
     a = 5
     b = (3, 11, 14)
-    print "a in r -> " + (a in r)
-    print "r has any b -> " + (r has any b)
-    print "r has all b -> " + (r has all b)
+    printLine "a in r -> " + (a in r)
+    printLine "r has any b -> " + (r has any b)
+    printLine "r has all b -> " + (r has all b)

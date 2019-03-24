@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "./Topic";
+import Topic from "../../components/Topic";
 
 class ThisTopic extends Topic {
 
@@ -10,6 +10,7 @@ class ThisTopic extends Topic {
     renderContent() {
         return <React.Fragment>
             <h2>Overview</h2>
+            <p><i>This section describes the Prompto syntax and the built-in types. See the Libraries section for additional components.</i></p>
 
             <p>The Prompto language is designed to create business applications in the cloud.</p>
 
@@ -18,10 +19,10 @@ class ThisTopic extends Topic {
                 message broadcasting, or web pages distribution.<br/>
                 Business applications typically make heavy use of a data store, and span across multiple components:
                 data store, back end and front end.<br/>
-                Prompto is designed to help organizations be more effective in building business applications.<br/>
+                Prompto is designed to help developers and organizations be more effective in building business applications.<br/>
                 It achieves this by focusing on business logic, integration and presentation, while still relying for
                 technical tasks
-                on the exceptional ecosystems available from traditional platforms.
+                on the exceptional ecosystems available from existing platforms.
             </p>
 
             <h2>Run everywhere</h2>
@@ -85,8 +86,9 @@ class ThisTopic extends Topic {
                 </li>
             </ul>
             <p>
-                The Java runtime comes with an interpreter and a compiler which is able to compile Prompto code to JVM
-                byte code.<br/>
+                The Java runtime comes with an interpreter, a compiler which is able to compile Prompto code to JVM
+                byte code, and a transpiler which is able to transpile Prompto
+                code to JavaScript code.<br/>
                 The C# runtime comes with an interpreter and a compiler which is able to compile Prompto code to CLR
                 byte code <i>(compiler not available yet)</i>.<br/>
                 The Python 2 and Python 3 runtimes come with an interpreter and a transpiler which is able to transpile
@@ -120,9 +122,9 @@ class ThisTopic extends Topic {
                 <li>enable a single data model across all application tiers</li>
                 <li>enable enterprise level controlled vocabularies</li>
                 <li>enable semantic types, as opposed to technical types</li>
-                <li>eliminate the <a href="https://en.wikipedia.org/wiki/Multiple_inheritance">deadly diamond
+                <li>eliminate the <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multiple_inheritance" target="_blank">deadly diamond
                     problem</a></li>
-                <li>eliminate the <a href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">impedance
+                <li>eliminate the <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch" target="_blank">impedance
                     mismatch problem</a></li>
             </ul>
 
@@ -147,7 +149,7 @@ class ThisTopic extends Topic {
                 However Prompto goes a step further by selecting the most appropriate method at <i>execution
                     time</i> rather than <i>compile time</i>.<br/>
                 This feature greatly simplifies development and data modeling, by eliminating the need for <a
-                    href="https://en.wikipedia.org/wiki/Double_dispatch">double dispatch</a>.
+                    rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Double_dispatch" target="_blank">double dispatch</a>.
             </p>
 
             <h2>Prompto dialects: syntax is a detail</h2>
@@ -162,6 +164,21 @@ class ThisTopic extends Topic {
                     By doing so, they eliminate the barrier of having to learn a formal grammar only to read code.<br/>
                     Prompto <i>dialects</i> are collaborative tools which help technologists work together.
             </p>
+
+            <h3>Disclaimer</h3>
+            <p>The Prompto language is in production. However, we are still improving the language.<br/>
+                Here are some features currently under implementation:</p>
+                <ul>
+                    <li>Support for arrow methods a.k.a lamba</li>
+                    <li>Checked widget property and state types</li>
+                    <li>Widget built-in fields such as React props and state</li>
+                    <li>Support for nested attibutes in store queries</li>
+                    <li>Statistical queries such as count, sum, min, max</li>
+                    <li>Projection queries that only return selected attributes rather than full fledged instances</li>
+                </ul>
+                <p>If you find that a feature is missing, <a href="mailto:support@prompto.org?subject=Feature%20request">please contact Prompto support.</a><br/>
+                    Alternately, create a <a href="https://github.com/prompto/prompto-grammars/issues">feature request on GitHub</a>.</p>
+
             <br/>
 
         </React.Fragment>;

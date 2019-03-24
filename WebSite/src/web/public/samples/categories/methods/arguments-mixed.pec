@@ -4,7 +4,7 @@ define Product as category with attribute brand
 define Person as category with attribute name, and methods:
 
     define printMessage as method receiving brand and Integer score doing:
-        print this.name + " rates " + brand + " with " + score + " stars"
+        printLine this.name + " rates " + brand + " with " + score + " stars"
 
 define main as method doing:
     product = Product with "Prompto" as brand

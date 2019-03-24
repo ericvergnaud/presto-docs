@@ -4,14 +4,14 @@ define main as method doing:
     for each i in [10..40]:
         p = Person with ("person " + i) as name
         store p
-    print "rows 10 to 15:"
+    printLine "rows 10 to 15:"
     c = fetch rows 10 to 15 order by name
     for each p in c:
-        print "p -> " + p
-    print "count:" + c.count
-    print "rows 22 to 24:"
+        printLine "p -> " + p
+    printLine "count:" + c.count
+    printLine "rows 22 to 24:"
     c = fetch rows 22 to 24 order by name
     for each p in c:
-        print "p -> " + p
-    print "count:" + c.count
-    print "totalCount:" + c.totalCount
+        printLine "p -> " + p
+    printLine "count:" + c.count
+    printLine "totalCount:" + c.totalCount

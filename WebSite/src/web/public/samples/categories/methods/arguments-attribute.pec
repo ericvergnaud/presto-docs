@@ -3,7 +3,7 @@ define message as Text attribute
 define Person as category with attribute name, and methods:
 
     define printMessage as method receiving message doing:
-        print message + name
+        printLine message + name
 
 define main as method doing:
     person = Person with "Monroe" as name

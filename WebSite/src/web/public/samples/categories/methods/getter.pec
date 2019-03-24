@@ -8,4 +8,4 @@ define Person as category with attributes firstName, lastName and fullName, and 
 
 define main as method doing:
     p = Person with "Arthur" as firstName and "Rimbaud" as lastName
-    print "fullName -> " + p.fullName
+    printLine "fullName -> " + p.fullName

@@ -2,7 +2,7 @@ define brand as Text attribute
 define Person as category with attribute name, and methods:
 
     define printMessage as method receiving any x with attribute brand doing:
-        print this.name + " loves " + x.brand
+        printLine this.name + " loves " + x.brand
 
 define Product as category with attribute brand
 

@@ -2,7 +2,7 @@ define Person as storable category with attribute name
 
 define main as method receiving Text<:> options doing:
 	fetch all Person then with records:
-        print "this statement is executed in the browser"
+        printLine "this statement is executed in the browser"
 		for each record in records:
-		    print "Found person with name" + record.name
+		    printLine "Found person with name" + record.name
 

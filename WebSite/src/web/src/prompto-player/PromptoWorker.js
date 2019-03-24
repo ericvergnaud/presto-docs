@@ -53,14 +53,23 @@ function execute(message) {
             inResponseTo: message.id,
             keepHandlerAlive: true,
             data: {
-                toPrint: text
+                toStdOut: text
+            }
+        });
+    };
+    console.error = function(text) {
+        postMessage({
+            inResponseTo: message.id,
+            keepHandlerAlive: true,
+            data: {
+                toStdErr: text
             }
         });
     };
     // parse incoming code
     const data = message.data;
     const context = globals.librariesContext.clone();
-    console.log("Running sample...")
+    console.log("Running sample...\n")
     const decls = parse(data.content, data.dialect);
     decls.register(context);
     let testName = null;
@@ -76,7 +85,7 @@ function execute(message) {
         prompto.runtime.Interpreter.interpret(context, "main", "");
     // done
     return {
-        toPrint: "Success!"
+        toStdOut: "Success!\n"
     };
 };
 

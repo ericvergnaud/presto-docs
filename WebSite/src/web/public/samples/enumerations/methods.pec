@@ -6,7 +6,7 @@ define MobileDevice as category with attributes motor and seats, and methods:
         speed = 200 / seats
         if not motor:
             speed = speed / 2
-        print "speed -> " +  speed
+        printLine "speed -> " +  speed
 
 define Vehicle as enumerated MobileDevice with symbols:
     BICYCLE with false as motor and 1 as seats

@@ -1,7 +1,7 @@
 define main as method doing:
     a = true
     b = "John" if a else "Edgar"
-    print "b -> " + b
+    printLine "b -> " + b
     a = false
     b = "John" if a else "Edgar"
-    print "b -> " + b
+    printLine "b -> " + b

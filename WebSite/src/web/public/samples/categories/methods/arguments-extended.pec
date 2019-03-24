@@ -6,7 +6,7 @@ define Software as Product with attribute family
 define Person as category with attribute name, and methods:
 
     define printMessage as method receiving Product p with attribute family doing:
-        print this.name + " uses the " + p.brand + " " + p.family
+        printLine this.name + " uses the " + p.brand + " " + p.family
 
 define main as method doing:
     software = Software with "Prompto" as brand and "programming language" as family

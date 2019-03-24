@@ -1,7 +1,7 @@
 define Person as category with attribute name, and methods:
 
     define printMessage as method receiving Integer count = 2 doing:
-        print this.name + " has " + count + " parents"
+        printLine this.name + " has " + count + " parents"
 
 define main as method doing:
     person = Person with "Shubadha" as name

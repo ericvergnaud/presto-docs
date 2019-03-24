@@ -2,5 +2,5 @@ define main as method doing:
     doc = { "christmas song": "We wish you a merry xmas!", "Sylvia": " and happy new year!" }
     b = "Sylvia"
     // note the need to escape double-quotes within a Text
-    print "doc[\"christmas song\"] -> " + doc["christmas song"]
-    print "doc[b] -> " + doc[b]
+    printLine "doc[\"christmas song\"] -> " + doc["christmas song"]
+    printLine "doc[b] -> " + doc[b]

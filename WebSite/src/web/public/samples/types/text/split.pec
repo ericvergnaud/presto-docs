@@ -1,4 +1,4 @@
 define main as method doing:
     t = "a list of words separated by spaces"
     l = t.split with " " as separator
-    print "t.split -> " + l
+    printLine "t.split -> " + l

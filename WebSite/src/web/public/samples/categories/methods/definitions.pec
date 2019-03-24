@@ -1,4 +1,4 @@
 define Person as category with attribute name, and methods:
 
     define printName as method doing:
-        print "Person name is " + name
+        printLine "Person name is " + name

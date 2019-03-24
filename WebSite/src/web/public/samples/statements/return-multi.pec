@@ -6,4 +6,4 @@ define someMethod as method doing:
         return "other value"
 
 define main as method doing:
-    print someMethod
+    printLine someMethod

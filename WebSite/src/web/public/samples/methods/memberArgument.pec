@@ -1,5 +1,5 @@
 define printName as method receiving any x with attribute name doing:
-    print x.name
+    printLine x.name
 
 define Product as category with attribute name
 

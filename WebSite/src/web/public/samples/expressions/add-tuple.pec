@@ -3,6 +3,6 @@ define main as method doing:
     b = ("John", '2012-10-03')
     c = [7, 8, 9]
     d = <4, 5, 6>
-    print "a + b -> " + (a + b)
-    print "a + c -> " + (a + c)
-    print "a + d -> " + (a + d)
+    printLine "a + b -> " + (a + b)
+    printLine "a + c -> " + (a + c)
+    printLine "a + d -> " + (a + d)

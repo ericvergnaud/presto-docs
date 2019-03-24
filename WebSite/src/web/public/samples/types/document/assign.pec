@@ -2,4 +2,4 @@ define main as method doing:
     doc = Document
     doc.town = "Toulouse"
     doc.population = 600000
-    print "doc -> " + doc
+    printLine "doc -> " + doc

@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import PromptoPlayer from "../../../prompto-player/PromptoPlayer";
 import Creating from "./Creating";
 import Copying from "./Copying";

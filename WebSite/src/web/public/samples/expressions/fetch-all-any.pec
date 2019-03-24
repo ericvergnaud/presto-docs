@@ -8,4 +8,4 @@ define main as method doing:
     store p1, p2, p3
     c = fetch all where preferredColor = "blue"
     for each p in c:
-        print "p -> " + p
+        printLine "p -> " + p

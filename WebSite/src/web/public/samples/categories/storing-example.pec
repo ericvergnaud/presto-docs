@@ -6,4 +6,4 @@ define main as method doing:
     p1 = Person with "Arthur" as firstName and "Rimbaud" as lastName
     store p1
     p2 = fetch one Person where lastName = "Rimbaud"
-    print p2
+    printLine p2

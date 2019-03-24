@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import ReactWidget from "./ReactWidget";
 
 class ThisTopic extends Topic {

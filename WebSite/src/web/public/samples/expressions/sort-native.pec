@@ -1,5 +1,5 @@
 define main as method doing:
     list = [ "z", "ac", 'b', "ab" ]
-    print "sorted -> " + sorted list
+    printLine "sorted -> " + sorted list
     set = < 30, 23, 87, 31 >
-    print "sorted -> " + sorted set
+    printLine "sorted -> " + sorted set

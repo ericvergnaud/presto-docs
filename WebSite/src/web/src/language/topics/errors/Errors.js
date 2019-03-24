@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../Topic";
+import Topic from "../../../components/Topic";
 import Syntax from "./Syntax";
 import BuiltIn from "./BuiltIn";
 import Custom from "./Custom";

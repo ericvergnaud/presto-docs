@@ -6,4 +6,4 @@ define Employee as category with attributes name, city and role
 define main as method doing:
     john = Candidate with "John" as name and "Tokyo" as city
     new_joiner = Employee from john with "developer" as role and "Mumbai" as city
-    print new_joiner
+    printLine new_joiner
