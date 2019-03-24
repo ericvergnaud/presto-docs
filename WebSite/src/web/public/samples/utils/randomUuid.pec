@@ -1,0 +1,3 @@
+define main as method doing:
+    uuid = randomUuid
+    printLine uuid

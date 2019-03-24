@@ -1,0 +1,3 @@
+define main as method doing:
+    server = isServer
+    printLine "server: " + server

@@ -1,0 +1,5 @@
+define main as method doing:
+    csv = "id,name\n1,John\n2,Riou\\, Sylvie\n"
+    docs = iterateCsv with csv as text
+    for each doc in docs:
+        printLine doc

@@ -2,8 +2,15 @@ import React from 'react';
 import Overview from "./topics/Overview";
 import Topics from "../components/Topics";
 import Console from "./topics/console/Console";
+import Attributes from "./topics/Attributes";
+import Maths from "./topics/Maths";
+import Utilities from "./topics/Utilities";
+import Parsing from "./topics/Parsing";
+import Cloud from "./topics/cloud/Cloud";
+import Internet from "./topics/internet/Internet";
+import Data from "./topics/data/Data";
 
-const TOPICS = [ Overview, Console ];
+const TOPICS = [ Overview, Data, Internet, Cloud, Maths, Console, Utilities, Parsing, Attributes ];
 
 export default class Libraries extends React.Component {
 

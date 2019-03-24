@@ -1,0 +1,5 @@
+define main as method doing:
+    csv = "Code,Name\n1,John\n2,Riou\\, Sylvie\n"
+    columns = <"Code": "id", "Name": "name">
+    docs = readCsv with csv as text and columns as columnNames
+    print docs

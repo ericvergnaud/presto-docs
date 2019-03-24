@@ -1,0 +1,4 @@
+define main as method doing:
+    encoded = "&lt;ab&gt;"
+    plain = htmlDecode encoded
+    printLine plain
