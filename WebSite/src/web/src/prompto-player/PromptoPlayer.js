@@ -178,7 +178,7 @@ export default class PromptoPlayer extends React.Component {
         else
             entry.text += lines[0];
         // add full lines
-        for(let i=1;i<lines.length-2;i++)
+        for(let i=1;i<lines.length-1;i++)
             output.push({dest: dest, text: lines[i] + "\n"});
         // add last line
         const lastEntry = {dest: dest, text: lines[lines.length - 1]};
