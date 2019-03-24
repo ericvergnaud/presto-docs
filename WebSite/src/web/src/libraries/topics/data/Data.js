@@ -15,9 +15,10 @@ class ThisTopic extends Topic {
                     <p>Business data can be provided by users through input screens, or receveid from other systems.</p>
                     <p>Prompto supports reading data in the following formats:</p>
                     <ul>
-                        <li>JSON</li>
                         <li>CSV</li>
+                        <li>JSON</li>
                         <li>XML (not available yet)</li>
+                        <li>YAML (not available yet)</li>
                     </ul>
             </React.Fragment>;
     }

@@ -1,0 +1,8 @@
+define main as method doing:
+    text = "[{\"field\":122, \"list\": [{\"field\":123, \"doc\": " +
+            "{\"name\": \"John\"}}], \"doc\": { \"list\": [ 122, 233, 344] }}]"
+    json = readJson text
+    docs = json as Document[]
+    doc = docs[1]
+    printLine doc.field
+    printLine doc.doc.list[2]
