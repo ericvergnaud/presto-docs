@@ -32,10 +32,10 @@ export default class About extends React.Component {
 
             <h2>Build in the cloud</h2>
             <p>Prompto information systems are entirely built in the cloud. All infrastructure management applications
-                are in the cloud.
+                are in the cloud.<br/>
                 All application management applications are in the cloud. All application development applications are
-                in the cloud,
-                including the IDE for creating web pages and writing application code.</p>
+                in the cloud.<br/>
+                This includes the IDE for creating web pages and writing application code.</p>
 
 
             <h2>Prompto components</h2>
@@ -55,9 +55,13 @@ export default class About extends React.Component {
             </ul>
 
             <h2>Availability</h2>
-            <p>Prompto is currently under construction. This web site provides a sneak preview of the Prompto
-                programming language,
-                which is at the core of the Prompto platform.</p>
+            <p>Prompto is currently running its evaluation program.<br/>
+                This web site provides the reference of the Prompto
+                programming language, and a sneak preview of the Prompto libraries.<br/>
+                On-line development and deployment tools are available on request.
+            </p>
+            <p>We are looking for evaluators!<br/>
+                If you would like to participate, <a href="mailto:support@prompto.cloud?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
 
         </div>;
     }

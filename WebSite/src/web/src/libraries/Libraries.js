@@ -28,7 +28,7 @@ export default class Libraries extends React.Component {
                     <Topics topics={TOPICS} topicSelected={topic => this.setState({topic: topic})}/>
                 </div>
                 <div className="content">
-                    { this.state.topic.renderContent(this.topicSelected) }
+                    { this.state.topic.renderContent(topic => this.setState({topic: topic})) }
                 </div>
             </div>;
 
