@@ -18,17 +18,22 @@ export default class Libraries extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { topic: Overview };
+        this.state = { activeTopic: Overview };
+        this.topicSelected = this.topicSelected.bind(this);
+    }
+
+    topicSelected(topic) {
+        this.setState({activeTopic: topic});
     }
 
     render() {
         const style = { display: this.props.visible ? "block" : "none" };
         return <div className="topics" style={style}>
                 <div className="sidebar">
-                    <Topics topics={TOPICS} topicSelected={topic => this.setState({topic: topic})}/>
+                    <Topics topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected}/>
                 </div>
                 <div className="content">
-                    { this.state.topic.renderContent(topic => this.setState({topic: topic})) }
+                    { this.state.activeTopic.renderContent(this.topicSelected) }
                 </div>
             </div>;
 

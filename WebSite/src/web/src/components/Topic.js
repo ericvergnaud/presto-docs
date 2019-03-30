@@ -1,34 +1,33 @@
 import React from 'react';
-import { Nav, NavItem } from 'react-bootstrap';
+import { NavItem } from 'react-bootstrap';
+import Topics from "./Topics";
 
 class TopicWidget extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { collapsed: true };
-        this.clicked = this.clicked.bind(this);
     }
 
-    clicked() {
-        this.setState({ collapsed: !this.state.collapsed });
-        this.props.topicSelected(this.props.topic);
+    onSelect(key) {
+        const children = this.props.topic.children;
+        if(children)
+            this.setState({ collapsed: !this.state.collapsed });
+        this.props.onSelect(key); // onSelect prop injected by Nav
     }
 
     render() {
+        const className = this.props.topic===this.props.activeTopic ? "active" : "";
         return <>
-            <NavItem onClick={this.clicked}>{this.props.topic.title}</NavItem>
+            <NavItem className={className} eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}>{this.props.topic.title}</NavItem>
             { this.renderChildren()}
         </>;
     }
 
     renderChildren() {
         const children = this.props.topic.children;
-        if(children) {
-            const level = this.props.level + 1;
-            return <Nav className={"topic level-" + level} >
-                { !this.state.collapsed && children.map(t=>t.renderItem(this.props.topicSelected, level), this) }
-            </Nav>;
-        }
+        if(children && !this.state.collapsed)
+            return <Topics topics={children} activeTopic={this.props.activeTopic} level={this.props.level + 1} topicSelected={this.props.topicSelected}/>
     }
 
 }
@@ -40,8 +39,8 @@ export default class Topic {
         this.children = children || null;
     }
 
-    renderItem(topicSelected, level) {
-        return <TopicWidget key={this.title} topic={this} level={level} topicSelected={topicSelected}/>;
+    renderItem(topicSelected, activeTopic, level) {
+        return <TopicWidget key={this.title} topic={this} activeTopic={activeTopic} level={level} topicSelected={topicSelected}/>;
    }
 
 

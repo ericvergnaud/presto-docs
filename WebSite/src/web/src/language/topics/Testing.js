@@ -15,7 +15,7 @@ class ThisTopic extends Topic {
 
             <p>Prompto promotes Test Driven Development (TDD) and automated testing.
                 TDD is <a target="_blank" rel="noopener noreferrer"
-                          href="https://en.wikipedia.org/wiki/Test-driven_development">a development
+                          href="https://en.wikipedia.org/wiki/Test-driven_development"> a development
                     approach</a>
                 where you write tests before writing code. There are numerous benefits to it:</p>
             <ul>
@@ -59,10 +59,9 @@ class ThisTopic extends Topic {
             <h3>Testing stored data</h3>
             <p>It is generally a bad idea to test against a permanent data store, because it means that the test success
                 relies on the state
-                of a data store which cannot be controlled by the test itself. To facilitate testing involving stored
-                data, Prompto creates
-                a fresh memory store before the test runs (the store is disposed immediately after execution of the
-                test).</p>
+                of a data store which cannot be controlled by the test itself.<br/>
+                To facilitate testing with stored data, Prompto creates a fresh memory store
+                before the test runs (the store is disposed immediately after execution of the test).</p>
             <p>A reliable test involving stored data might look like the following:</p>
             <PromptoPlayer lines={8} sampleUrl="samples/testing/store.pec" runnable={true}/>
             </React.Fragment>;
