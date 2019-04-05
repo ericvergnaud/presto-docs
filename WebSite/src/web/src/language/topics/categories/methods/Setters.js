@@ -13,7 +13,7 @@ class ThisTopic extends Topic {
 
             <h2>Setters</h2>
 
-            <p>Attribute values are normally set siply by copying the value provided when creating objects or assigning
+            <p>Attribute values are normally set simply by copying the value provided when creating objects or assigning
                 a value to an attribute.</p>
 
                 <p>This covers most use cases, but there are situations where you want to:</p>

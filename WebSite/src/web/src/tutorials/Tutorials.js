@@ -4,7 +4,8 @@ import React from 'react';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
-const ALL_TUTORIALS = [ { id: "VaGc8aqxAB4", title: "My first Prompto web site" } ];
+const ALL_TUTORIALS = [ { id: "z2LTkZaoJy8", title: "My first Prompto web site" },
+                        { id: "QDtQz2nUGlg", title: "My first web page" }   ];
 
 export default class Tutorials extends React.Component {
 
@@ -21,7 +22,7 @@ export default class Tutorials extends React.Component {
     render() {
         const style = { display: this.props.visible ? "block" : "none" };
         const selectStyle = { maxWidth: "450px"};
-        const videoOpts = { width: "960px", height: "540px"};
+        const videoOpts = { width: "960px", height: "540px", playerVars: { 'autoplay': 0, 'controls': 1,'autohide':0, 'wmode':'opaque', 'origin': window.location } };
         return <div className="about" style={style}>
                     <h2>Tutorials</h2>
                     <form>

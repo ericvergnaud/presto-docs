@@ -11,8 +11,11 @@ import Internet from "./topics/internet/Internet";
 import Data from "./topics/data/Data";
 import Server from "./topics/server/Server";
 import Frameworks from "./topics/frameworks/Frameworks";
+import SearchEngine from "../components/SearchEngine";
 
 const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud ];
+
+TOPICS.forEach(t=>SearchEngine.addTopic(t, "LIBRARIES"));
 
 export default class Libraries extends React.Component {
 

@@ -21,9 +21,12 @@ import Events from "./topics/events/Events";
 import Workers from "./topics/Workers";
 import Bindings from "./topics/bindings/Bindings";
 import Topics from "../components/Topics";
+import SearchEngine from "../components/SearchEngine";
 
 const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
     Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Widgets, Events, Workers, Bindings ];
+
+TOPICS.forEach(t=>SearchEngine.addTopic(t, "LANGUAGE"));
 
 export default class Language extends React.Component {
 
