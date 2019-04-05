@@ -26,7 +26,7 @@ export default class Libraries extends React.Component {
     }
 
     topicSelected(topic) {
-        this.setState({activeTopic: topic});
+        this.setState({activeTopic: topic}, ()=>topic.makeVisible(false));
     }
 
     render() {

@@ -37,7 +37,7 @@ export default class Language extends React.Component {
     }
 
     topicSelected(topic) {
-        this.setState({activeTopic: topic});
+        this.setState({activeTopic: topic}, ()=>topic.makeVisible(false));
     }
 
     render() {
