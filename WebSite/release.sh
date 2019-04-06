@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Did you bump the version in the install script?"
+echo "Are you using the latest platform version?"
 read -p "version to publish: " version
 read -p "release name: " name
 mvn versions:set -DnewVersion=$version -DgenerateBackupPoms=false
