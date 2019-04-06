@@ -5,7 +5,8 @@ import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
 const ALL_TUTORIALS = [ { id: "z2LTkZaoJy8", title: "My first Prompto web site" },
-                        { id: "QDtQz2nUGlg", title: "My first web page" }   ];
+                        { id: "QDtQz2nUGlg", title: "My first web page" },
+                        { id: "nxuiBVblOMo", title: "Loading Employee data" } ];
 
 export default class Tutorials extends React.Component {
 
