@@ -1,11 +1,12 @@
 import React from 'react';
 import Topic from "../../../components/Topic";
 import ReactWidget from "./ReactWidget";
+import ReactModal from "./ReactModal";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Widgets", [ReactWidget]);
+        super("Widgets", [ReactWidget, ReactModal]);
     }
 
     renderContent(topicSelected) {

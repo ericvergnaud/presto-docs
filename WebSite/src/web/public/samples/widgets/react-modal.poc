@@ -1,0 +1,40 @@
+// this example uses React Bootstrap 3 widgets
+widget Minimal extends ReactWidget {
+
+    method showModal() {
+        showReactModal(<Dialog />);
+    }
+
+	Html method render () {
+	    return <Button onClick={showModal} >Click me!</Button>;
+	}
+
+}
+
+
+widget Dialog extends ReactWidget {
+
+    method getInitialState() {
+        return { show: true };
+    }
+
+    method cancel() {
+        setState({ show: false });
+        hideReactModal();
+    }
+
+    method render() {
+        state = getState();
+        return <Modal show={state.show}>
+                    <ModalHeader>
+                        <ModalTitle>Some title</ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
+                        Hello
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button onClick={cancel}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>;
+    }
+}
