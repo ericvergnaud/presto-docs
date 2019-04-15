@@ -1,3 +1,2 @@
 define main as method doing:
-    a = now
     printLine "Current date time is: " + now

@@ -24,6 +24,12 @@ class ThisTopic extends Topic {
                     <PromptoPlayer sampleUrl="samples/utils/now.pec" runnable={true}/>
                     <p/>
                 </li>
+                <li><p><b>today</b><br/>
+                    This method returns the current Date.</p>
+                    <pre>define today as method returning Date</pre>
+                    <PromptoPlayer sampleUrl="samples/utils/today.pec" runnable={true}/>
+                    <p/>
+                </li>
                 <li><p><b>sleep</b><br/>
                     This method waits for <i>millis</i> milliseconds</p>
                     <pre>define sleep as native method receiving Integer millis</pre>

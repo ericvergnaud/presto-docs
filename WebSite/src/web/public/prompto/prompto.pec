@@ -231,6 +231,10 @@ define "now is a DateTime" as test method doing:
 and verifying: 
 	a is a DateTime 
 
+
+define today as method returning Date doing:
+	return now.date
+
 // returns a random UUID as defined by http://www.ietf.org/rfc/rfc4122.txt
 define randomUuid as native method returning Uuid doing:
 	Java: return java.util.UUID.randomUUID();
@@ -626,6 +630,14 @@ define setReactWidgetState as native method receiving ReactWidget w and Document
 
 define forceReactWidgetRender as native method receiving ReactWidget w doing:
 	JavaScript: w.forceUpdate();
+
+
+define showReactModal as native method receiving Html w doing:
+	JavaScript: ReactUtils.showModal(w);
+
+
+define hideReactModal as native method doing:
+	JavaScript: ReactUtils.hideModal();
 
 
 define ReactWidget as widget with methods:
