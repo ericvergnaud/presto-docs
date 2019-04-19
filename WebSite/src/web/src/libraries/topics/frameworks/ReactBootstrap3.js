@@ -14,10 +14,20 @@ class ThisTopic extends Topic {
                     <p>Bootstrap is one of the most popular UI frameworks, created by Twitter.<br/>
                         React Bootstrap 3 is a set of React components which make it easy to use.<br/>
                         The full list of components <a rel="noopener noreferrer" href="https://5c507d49471426000887a6a7--react-bootstrap.netlify.com" target="_blank">is available here</a>.
-                    </p>
-                    <p>We do not provide here a copy of the above documentation. <br/>
-                        However, Prompto does not support inner categories (which are required in JavaScript due to the uncontrolled proliferation of global names).<br/>
-                        Therefore, the Prompto adapter uses identifiers, which are mapped to the corresponding React Bootstrap 3 components, as follows:</p>
+                        On top of the above standard components, React Bootstrap 3 comes with additional components:</p>
+                    <ul>
+                        <li><code>DatePicker</code>
+                            <p>The DatePicker component, is derived from the <a rel="noopener noreferrer" href="https://www.npmjs.com/package/react-bootstrap-date-picker" target="_blank">standard react-bootstrap-date-picker</a>.
+                                The only difference is that the Prompto one accepts a Prompto Date as default value and as parameter to the onChange event handler.</p>
+                        </li>
+                        <li><code>Typeahead</code>
+                            <p>The Typeahead component, is derived from the <a rel="noopener noreferrer" href="https://www.npmjs.com/package/react-bootstrap-typeahead" target="_blank">standard react-bootstrap-typeahead</a>,
+                                and made compatible with Prompto data.</p>
+                        </li>
+                    </ul>
+                <p>Please refer to above documentations for details. </p>
+            <p><i>Prompto does not support inner categories (which are required in JavaScript due to the uncontrolled proliferation of global names).<br/>
+                        Therefore, the Prompto adapter uses identifiers, which are mapped to the corresponding React Bootstrap 3 components, as follows:</i></p>
                     <Table style={{maxWidth: "500px"}}>
                         <thead>
                             <tr>
@@ -165,6 +175,14 @@ class ThisTopic extends Topic {
                             <tr>
                                 <td>Glyphicon</td>
                                 <td>Glyphicon</td>
+                            </tr>
+                            <tr>
+                                <td>DatePicker</td>
+                                <td>DatePicker</td>
+                            </tr>
+                            <tr>
+                                <td>Typeahead</td>
+                                <td>Typeahead</td>
                             </tr>
                         </tbody>
                     </Table>
