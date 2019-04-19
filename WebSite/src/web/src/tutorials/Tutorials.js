@@ -5,9 +5,11 @@ import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
 const ALL_TUTORIALS = [ { id: "z2LTkZaoJy8", title: "My first Prompto web site" },
-                        { id: "QDtQz2nUGlg", title: "My first web page" },
-                        { id: "nxuiBVblOMo", title: "Loading Employee data" },
-                        { id: "b_oefHujWRM", title: "Displaying Employee data" } ];
+                        { id: "nO0K5G8yDfk", title: "My first web page" },
+                        { id: "pRmhWD5wP1Q", title: "Loading Employee data" },
+                        { id: "gPLZug79iw0", title: "Displaying Employee data" },
+                        { id: "BIOmBOtQADk", title: "Inputting Trip data" } ];
+
 
 export default class Tutorials extends React.Component {
 
@@ -27,9 +29,11 @@ export default class Tutorials extends React.Component {
         const videoOpts = { width: "1280px", height: "720px", playerVars: { 'autoplay': 0, 'controls': 1,'autohide':0, 'wmode':'opaque', 'origin': window.location } };
         return <div className="about" style={style}>
                     <h2>Tutorials</h2>
+                    <h3>The TripGuru web site</h3>
+                    <p>This series of videos demonstrate how to create a web site, web pages, import data, input data, store it and display it.</p>
                     <form>
                         <FormGroup>
-                            <ControlLabel>Available tutorials</ControlLabel>
+                            <ControlLabel>Available videos</ControlLabel>
                             <FormControl id="which" componentClass="select" value={this.state.active.id} style={selectStyle} onChange={this.tutorialSelected.bind(this)} >
                                 { ALL_TUTORIALS.map(t => <option key={t.id} value={t.id}>{t.title}</option>) }
                             </FormControl>
