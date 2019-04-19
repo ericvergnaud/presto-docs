@@ -24,8 +24,9 @@ class ThisTopic extends Topic {
             <p>In the below example, when clicking on a button, a <code>Modal</code> is displayed.<br/>
                 The <code>Modal</code> itself has a button to close the modal.</p>
             <PromptoPlayer lines={40} sampleUrl="samples/widgets/react-modal.poc" />
+            <p/>
             <p>It is worth noting that these methods affect the html rendering of the widget, but the widget itself might require additional properties to be visible.<br/>
-                As an example React Bootstrap 3 modals require a <code>show</code> property to be set.
+                For example React Bootstrap 3 modals require a <code>show</code> property to be set (see above example).
             </p>
             <p>Also worth noting, the <code>showReactModal</code> is not blocking. It prepares rendering for the next React cycle and returns <i>before</i> the modal is actually displayed.<br/>
                 This also applies to <code>hideReactModal</code>.
