@@ -40,6 +40,8 @@ export default class Tutorials extends React.Component {
                         </FormGroup>
                     </form>
                     <YouTube videoId={ this.state.active.id } opts={videoOpts}/>
+                    <p/>
+                <p><a href="/downloads/projects/TripGuru.zip" download={true}>Download sample project for this tutorial</a></p>
                 <p/>
                 <h2>Availability</h2>
                 <p>Prompto is currently running its evaluation program.<br/>
