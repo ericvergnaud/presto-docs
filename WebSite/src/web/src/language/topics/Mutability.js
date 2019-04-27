@@ -19,7 +19,7 @@ class ThisTopic extends Topic {
 person.profession = "Manager";`}</code></pre>
             <p>The above has the benefit of simplicity.</p>
             <p>However, as programs grow and become more complex,
-            notably when multiple executions threads run in parallel, it can become very difficult to control
+            notably when multiple execution threads run in parallel, it can become very difficult to control
             what happens when data used by the program changes.</p>
             <p>This has led the industry to provide a different breed of programming languages, known as <i>functional</i> languages.<br/>
                 Examples of such languages are Haskell, Erlang, F#, Clojure, and to a certain extent Scala.<br/>
@@ -36,7 +36,7 @@ function modifiedPersonWithAttribute(person, atttribute, newValue) {
 }
 // call that function
 person = modifiedPersonWithAttribute(person, "profession", "Manager");`}</code></pre>
-            <p>Notice that the original object is not modified, instead a new object is created,
+            <p>Note that the original object is not modified, instead a new object is created,
                 and assigned to the <i>person</i> variable. By doing so, if any other variable refers to the original object,
                 its behavior will remain predictable.<br/>
                 See <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank" rel="noopener noreferrer">Functional_programming</a> for more background on functional programming.
@@ -72,6 +72,16 @@ list = list + [4, 5]`}</code></pre>
 list[2] = 5`}</code></pre>
             <p>Please note that the above code would be illegal if the <i>mutable</i> keyword was omitted.</p>
             <p>Also note that only collection and category values can be marked <i>mutable</i>.</p>
+            <p>You cannot make an immutable value mutable.<br/>
+                You can however create a mutable value from an immutable one.<br/>
+                For collection values this is simply achieved by adding the immutable collection value to the mutable one:</p>
+            <pre><code>{String.raw`immutableList = [1, 2, 3]
+mutableList = mutable [] + immutableList`}</code></pre>
+            <p>For category values, this is achieved using the <code>mutable</code> keyword, as follow:</p>
+            <pre><code>{String.raw`immutablePerson = Person(name="John")
+mutablePerson = mutable immutablePerson
+mutablePerson.name = "James"`}</code></pre>
+            <p>Please note that changing the <code>name</code> attribute of the mutablePerson does <i>not</i> affect the <code>name</code> attribute of the immutablePerson.</p>
 
             <h2>Mutability guardians</h2>
 
