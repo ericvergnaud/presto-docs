@@ -19,13 +19,17 @@ class ThisTopic extends Topic {
                 Filtering a collection
             </h3>
             <p>Filtering a collection produces an <code>Iterator</code> value, which can then be used as an input for other constructs.<br/>
-                Such an expression has the form <code><i>collection</i> filtered with <i>item</i> where <i>predicate</i> ( and/or <i>predicate</i> )</code>,
-                where <code><i>item</i></code> is a valid variable identifier, <code><i>collection</i></code> is a collection expression
-                and <code><i>predicate</i></code> is a boolean expression in which <code><i>item</i></code> can be used to represent the current
-                collection item being evaluated.
+                Such an expression has the form <code><i>collection</i> filtered where <i>item</i> => <i>predicate</i></code> <br/>
+                where <code><i>collection</i></code> is a collection expression, <code><i>item</i></code> is a variable identifier,
+                and <code><i>predicate</i></code> is a boolean expression which can use <code><i>item</i></code> as a local variable holding the current collection item being evaluated.</p>
+
+                <PromptoPlayer sampleUrl="samples/expressions/filter-arrow.pec" runnable={true}/>
+            <p/>
+            <p>
+                Alternately, a more explicit form can be used as follows:
             </p>
 
-            <PromptoPlayer sampleUrl="samples/expressions/filter.pec" runnable={true}/>
+            <PromptoPlayer sampleUrl="samples/expressions/filter-item.pec" runnable={true}/>
             </React.Fragment>;
     }
 

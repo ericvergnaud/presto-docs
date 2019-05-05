@@ -1,0 +1,30 @@
+define population as Integer attribute
+define City as category with attributes name and population
+define city as City attribute
+define Person as category with attributes name and city, and methods:
+
+    define complexCompareTo as method receiving Person person doing:
+        if city.name[0] = name[0]:
+            if city.population > person.city.population:
+                return 1
+            else if city.population < person.city.population:
+                return -1
+            else:
+                return 0
+        else :
+            if name < person.name:
+                return 1
+            else if name > person.name:
+                return -1
+            else:
+                return 0
+
+
+define main as method doing:
+    atlanta = City with "Atlanta" as name and 500000 as population
+    perpignan = City with "Perpignan" as name and 120000 as population
+    peter = Person with "Peter" as name and perpignan as city
+    john = Person with "John" as name and perpignan as city
+    alan = Person with "Alan" as name and atlanta as city
+    list = [ peter, john, alan ]
+    printLine "sorted -> " + sorted list with (p1, p2) => p1.complexCompareTo p2 as key
