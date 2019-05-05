@@ -88,7 +88,7 @@
 		<dependency>
 			<groupId>org.prompto</groupId>
 			<artifactId>Server</artifactId>
-			<version>0.0.56</version>
+			<version>0.0.58</version>
 		</dependency>
 	</dependencies>
 
