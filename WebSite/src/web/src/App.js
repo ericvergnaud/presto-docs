@@ -3,6 +3,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import About from "./about/About";
 import Language from "./language/Language";
 import Libraries from "./libraries/Libraries";
+import Sandbox from "./sandbox/Sandbox";
 import Tutorials from "./tutorials/Tutorials";
 import SearchBox from "./components/SearchBox";
 
@@ -34,6 +35,7 @@ class App extends React.Component {
                 <Nav pullRight activeKey={this.state.active} onSelect={key => this.setState({activeNav: key})}>
                     <NavItem eventKey={"ABOUT"}>About</NavItem>
                     <NavItem eventKey={"TUTORIALS"}>Tutorials</NavItem>
+                    <NavItem eventKey={"SANDBOX"}>Sandbox</NavItem>
                     <NavItem eventKey={"LIBRARIES"}>Libraries</NavItem>
                     <NavItem eventKey={"LANGUAGE"}>Language</NavItem>
                 </Nav>
@@ -44,6 +46,7 @@ class App extends React.Component {
             <div className="chapter">
                 <About visible={this.state.activeNav==="ABOUT"}/>
                 <Tutorials visible={this.state.activeNav==="TUTORIALS"}/>
+                <Sandbox visible={this.state.activeNav==="SANDBOX"}/>
                 <Libraries ref="LIBRARIES" visible={this.state.activeNav==="LIBRARIES"}/>
                 <Language ref="LANGUAGE" visible={this.state.activeNav==="LANGUAGE"}/>
             </div>
