@@ -2,6 +2,7 @@ import React from 'react'
 import Prompt from "./Prompt";
 import Response from "./Response";
 import Welcome from "./Welcome";
+import Error from "./Error";
 
 export default class Console extends React.Component {
 
@@ -72,6 +73,8 @@ export default class Console extends React.Component {
     switch(elem.type) {
       case 'prompt':
         return <Prompt isActive={false} prompt={elem.data} key={idx}/>;
+      case 'error':
+        return <Error error={elem.data} key={idx}/>;
       case 'response':
         return <Response response={elem.data} key={idx}/>;
       case 'welcome':

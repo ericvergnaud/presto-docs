@@ -5,7 +5,8 @@ import './Repl.css';
 export default class Sandbox extends React.Component {
 
     render() {
-        return <div className="sandbox">
+        const divStyle = { display: this.props.visible ? "block" : "none" };
+        return <div className="sandbox" style={divStyle}>
             <Repl />
             </div>;
     }

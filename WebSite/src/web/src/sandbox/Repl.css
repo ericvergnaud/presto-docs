@@ -82,6 +82,23 @@
   color: #FFA00A;
 }
 
+.error {
+  height: 20px;
+}
+
+.errorIcon {
+  display: inline-block ;
+  height: 100% ;
+  color: red;
+  margin-right: 15px;
+}
+
+.errorData {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: red;
+}
+
+
 .welcome {
   height: 20px;
 }

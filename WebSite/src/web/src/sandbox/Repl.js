@@ -1,5 +1,6 @@
 import React from 'react'
 import Console from './Console.js'
+import PROMPTO_WORKER from '../prompto-player/PromptoWorkerListener';
 
 export default class Repl extends React.Component {
 
@@ -17,9 +18,9 @@ export default class Repl extends React.Component {
     };
     // Bind Methods
     this.handleToggleHistory = this.handleToggleHistory.bind(this);
-    this.handleInput = this.handleInput.bind(this) ;
-    this.handleSubmit = this.handleSubmit.bind(this) ;
-    this.clearHistory = this.clearHistory.bind(this) ;
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearHistory = this.clearHistory.bind(this);
     this.moveCursor = this.moveCursor.bind(this);
     this.setUpStyles = this.setUpStyles.bind(this);
   }
@@ -31,39 +32,34 @@ export default class Repl extends React.Component {
   setUpStyles() {
     let newStyle = {};
     if(this.props.height) {
-      newStyle.height = this.props.height
+      newStyle.height = this.props.height;
     }
     if(this.props.width) {
-      newStyle.width = this.props.width
+      newStyle.width = this.props.width;
     }
     if(this.props.textColor) {
-      newStyle.textColor = this.props.textColor
+      newStyle.textColor = this.props.textColor;
     }
     if(this.props.backgroundColor) {
-      newStyle.backgroundColor = this.props.backgroundColor
+      newStyle.backgroundColor = this.props.backgroundColor;
     }
     if(this.props.fontSize) {
-      newStyle.props.fontSize = this.props.fontSize
+      newStyle.props.fontSize = this.props.fontSize;
     }
     if(Object.keys(newStyle).length) {
-      this.setState({ style: newStyle })
+      this.setState({ style: newStyle });
     }
 
   }
 
 
-  evaluateInput(str) {
-    let evaluatedStr; 
-    try {
-      evaluatedStr = eval(str);
-      /* Need to take care of strings that are objects e.g "{a: 'asfasf'}" */
-      if(typeof evaluatedStr === 'object') return JSON.stringify(evaluatedStr);
-      evaluatedStr = evaluatedStr === undefined ? 'undefined' : evaluatedStr;
-    }
-    catch(err) {
-      evaluatedStr = err.toString();
-    }
-    return evaluatedStr
+  evaluateInput(prompt, callback) {
+    PROMPTO_WORKER.repl(prompt, (out, err) => {
+      if (out)
+        callback({ type: 'response', data: out });
+      else if(err)
+        callback({ type: 'error', data: err });
+    });
   }
 
 
@@ -73,34 +69,30 @@ export default class Repl extends React.Component {
     textArea.value = '';
     // Get final Prompt
     let prompt = this.state.currentPrompt.beforeCursor + this.state.currentPrompt.afterCursor;
-    if(!prompt.length) {
+    if (!prompt.length) {
       let newHistory = this.state.historyToDisplay.concat([{type: 'prompt', data: ""}]);
       this.setState({
         historyToDisplay: newHistory
       }, this.showPrompt);
     } else {
       // Evaluate the Prompt
-      const evaluateInput = this.props.evaluateInput || this.evaluateInput;
-      let response = evaluateInput(prompt);
-      let promptHistoryItem = {
-        type: 'prompt',
-        data: prompt
-      };
-      let responseHistoryItem = {
-        type: 'response',
-        data: response
-      };
-      let newHistory = this.state.historyToDisplay.concat([promptHistoryItem, responseHistoryItem]);
-      let newPromptHistory = this.state.promptHistory.concat(promptHistoryItem);
-      this.setState({
-        historyToDisplay: newHistory,
-        historyIndex: newPromptHistory.length,
-        promptHistory: newPromptHistory,
-        currentPrompt: {
-          beforeCursor: '',
-          afterCursor: ''
-        }
-      }, this.showPrompt);
+      this.evaluateInput(prompt, responseItem => {
+        const promptItem = {
+          type: 'prompt',
+          data: prompt
+        };
+        const newHistory = this.state.historyToDisplay.concat([promptItem, responseItem]);
+        const newPromptHistory = this.state.promptHistory.concat(promptItem);
+        this.setState({
+          historyToDisplay: newHistory,
+          historyIndex: newPromptHistory.length,
+          promptHistory: newPromptHistory,
+          currentPrompt: {
+            beforeCursor: '',
+            afterCursor: ''
+          }
+        }, this.showPrompt);
+      });
     }
   }
 
@@ -129,7 +121,7 @@ export default class Repl extends React.Component {
         num += 1;
     }
     // Set textarea hidden text to new prompt data
-    let textArea = document.getElementById('replTextArea') ;
+    let textArea = document.getElementById('replTextArea');
     textArea.value = this.state.promptHistory[num].data;
     textArea.selectionStart = textArea.value.length;
     // Set new state with new prompt from history

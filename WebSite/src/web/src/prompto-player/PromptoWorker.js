@@ -23,8 +23,8 @@ function loadText(url, success) {
 
 // parse prompto code
 function parse(content, dialect) {
-    var klass = prompto.parser[dialect + "CleverParser"];
-    var parser = new klass(content);
+    const klass = prompto.parser[dialect + "CleverParser"];
+    const parser = new klass(content);
     return parser.parse();
 }
 
@@ -89,9 +89,35 @@ function execute(message) {
     };
 };
 
+function repl(message) {
+    const klass = prompto.parser[globals.replDialect + "CleverParser"];
+    const parser = new klass(message.data.input);
+    try {
+        const thing = parser.parse_repl_input();
+        if (thing instanceof prompto.declaration.Declaration) {
+            thing.register(globals.replContext);
+            return {toStdOut: "Registered " + thing.name};
+        } else if (thing.interpret) {
+            const value = thing.interpret(globals.replContext);
+            if (value)
+                return {toStdOut: value.toString()};
+            else
+                return {toStdOut: "<void>"};qdqsd
+        } else {
+            return {toStdErr: "Unsupported:" + message.data.input};
+        }
+    } catch(error) {
+        return {
+            toStdErr: error.message
+        };
+    }
+}
+
+
 const dispatch = {
     translate : translate,
-    execute : execute
+    execute : execute,
+    repl: repl
 };
 
 // manage events
@@ -109,6 +135,8 @@ onmessage = function(event) {
 
 // create global context with pre-loaded libraries
 globals.librariesContext = prompto.runtime.Context.newGlobalContext();
+globals.replContext = globals.librariesContext.newLocalContext();
+globals.replDialect = "M";
 
 loadText("/prompto/prompto.pec", code => {
     let decls = parse(code, "E");
