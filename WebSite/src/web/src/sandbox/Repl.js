@@ -77,7 +77,7 @@ export default class Repl extends React.Component {
       let newHistory = this.state.historyToDisplay.concat([{type: 'prompt', data: ""}]);
       this.setState({
         historyToDisplay: newHistory
-      });
+      }, this.showPrompt);
     } else {
       // Evaluate the Prompt
       const evaluateInput = this.props.evaluateInput || this.evaluateInput;
@@ -100,8 +100,13 @@ export default class Repl extends React.Component {
           beforeCursor: '',
           afterCursor: ''
         }
-      });
+      }, this.showPrompt);
     }
+  }
+
+  showPrompt() {
+    const cursor = document.getElementById("cursor");
+    cursor.scrollIntoView();
   }
 
 
@@ -110,7 +115,7 @@ export default class Repl extends React.Component {
     // Do not take action if promptHistory is empty
     if(!len)
       return;
-    let num = this.state.historyIndex ;
+    let num = this.state.historyIndex;
     if(str === 'UP') {
       if(num < 1)
         num = 0;

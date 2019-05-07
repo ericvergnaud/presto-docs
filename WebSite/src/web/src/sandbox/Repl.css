@@ -4,8 +4,9 @@
 }
 
 .consoleInteractive {
-  height: 95%;
-  overflow-y: auto;
+  height: calc(100% - 15px);
+  overflow-x: scroll;
+  overflow-y: scroll;
   color: #F4FFFF;
   margin-left: 20px;
 }
