@@ -53,12 +53,13 @@ class PromptoWorkerListener {
         this.worker.postMessage(message);
     }
 
-    repl(input, callback) {
+    repl(input, dialect, callback) {
         var message =  {
             id : ++this.nextMessageId,
             verb : "repl",
             data : {
-                input : input
+                input : input,
+                dialect: dialect
             }
         };
         // register handler for this message's responses
@@ -66,7 +67,19 @@ class PromptoWorkerListener {
             callback(data.toStdOut, data.toStdErr);
         };
         this.worker.postMessage(message);
+    }
 
+    resetRepl(callback) {
+        var message =  {
+            id : ++this.nextMessageId,
+            verb : "resetRepl",
+            data : {}
+        };
+        // register handler for this message's responses
+        this.messageHandlers[message.id] = data => {
+            callback(data.toStdOut, data.toStdErr);
+        };
+        this.worker.postMessage(message);
     }
 }
 

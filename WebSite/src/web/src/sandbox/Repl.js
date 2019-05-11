@@ -12,9 +12,11 @@ export default class Repl extends React.Component {
       historyIndex: 0,
       currentPrompt: {
         beforeCursor: '',
-        afterCursor: ''
+        afterCursor: '',
+        indentLevel: 0
       },
-      style:{}
+      style:{},
+      dialect: "M"
     };
     // Bind Methods
     this.handleToggleHistory = this.handleToggleHistory.bind(this);
@@ -54,7 +56,29 @@ export default class Repl extends React.Component {
 
 
   evaluateInput(prompt, callback) {
-    PROMPTO_WORKER.repl(prompt, (out, err) => {
+    switch (prompt.trim().toLowerCase()) {
+      case "help":
+      case "?":
+        this.printHelp(callback);
+        break;
+      case "clear":
+        this.clear(callback);
+        break;
+      case "reset":
+        this.reset(callback);
+        break;
+      case "dialect e":
+      case "dialect m":
+      case "dialect o":
+        this.dialect(prompt, callback);
+        break;
+      default:
+        this.interpretInput(prompt, callback);
+    }
+  }
+
+  interpretInput(prompt, callback) {
+    PROMPTO_WORKER.repl(prompt, this.state.dialect, (out, err) => {
       if (out)
         callback({ type: 'response', data: out });
       else if(err)
@@ -62,6 +86,32 @@ export default class Repl extends React.Component {
     });
   }
 
+
+  printHelp(callback) {
+    const data = [ "help: print this",
+                  "clear: clear screen",
+                  "reset: clear data",
+                  "dialect: switch to dialect E, M or O",
+                  "( currently using dialect: " + this.state.dialect + " )"
+                ].map(s => { return { type: 'welcome', data: s }; });
+    callback(data);
+  }
+
+  clear(callback) {
+    const prompt = { beforeCursor: '', afterCursor: '', indentLevel: 0 };
+    this.setState({historyToDisplay: [], currentPrompt: prompt})
+  }
+
+  reset(callback) {
+    PROMPTO_WORKER.resetRepl(()=>callback({ type: 'welcome', data: "All data has been deleted" }));
+  }
+
+  dialect(prompt, callback) {
+    const dialect = prompt.substring(prompt.length-1).toUpperCase();
+    this.setState({ dialect: dialect}, () => {
+      callback({ type: 'welcome', data: "Using dialect: " +  dialect});
+    });
+  }
 
   handleSubmit() {
     // Reset Text Area
@@ -81,7 +131,11 @@ export default class Repl extends React.Component {
           type: 'prompt',
           data: prompt
         };
-        const newHistory = this.state.historyToDisplay.concat([promptItem, responseItem]);
+        const newHistory = responseItem ?
+            (Array.isArray(responseItem) ?
+            this.state.historyToDisplay.concat([promptItem]).concat(responseItem) :
+            this.state.historyToDisplay.concat([promptItem, responseItem])) :
+            this.state.historyToDisplay.concat([promptItem]);
         const newPromptHistory = this.state.promptHistory.concat(promptItem);
         this.setState({
           historyToDisplay: newHistory,

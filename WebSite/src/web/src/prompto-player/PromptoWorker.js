@@ -90,8 +90,10 @@ function execute(message) {
 };
 
 function repl(message) {
-    const klass = prompto.parser[globals.replDialect + "CleverParser"];
+    const klass = prompto.parser[message.data.dialect + "CleverParser"];
     const parser = new klass(message.data.input);
+    parser.removeErrorListeners();
+    parser.addErrorListener(new prompto.problem.ProblemListener());
     try {
         const thing = parser.parse_repl_input();
         if (thing instanceof prompto.declaration.Declaration) {
@@ -113,10 +115,16 @@ function repl(message) {
     }
 }
 
+function resetRepl(message) {
+    globals.replContext = globals.librariesContext.newLocalContext();
+    return { toStdOut: "<ok>" };
+}
+
 
 const dispatch = {
     translate : translate,
     execute : execute,
+    resetRepl: resetRepl,
     repl: repl
 };
 
@@ -135,8 +143,7 @@ onmessage = function(event) {
 
 // create global context with pre-loaded libraries
 globals.librariesContext = prompto.runtime.Context.newGlobalContext();
-globals.replContext = globals.librariesContext.newLocalContext();
-globals.replDialect = "M";
+resetRepl();
 
 loadText("/prompto/prompto.pec", code => {
     let decls = parse(code, "E");

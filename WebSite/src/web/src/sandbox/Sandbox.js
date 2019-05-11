@@ -5,9 +5,13 @@ import './Repl.css';
 export default class Sandbox extends React.Component {
 
     render() {
+        const historyToDisplay = [
+            "Welcome to Prompto",
+            "Using dialect: M"
+        ].map(s => { return { type: "welcome", data: s }; });
         const divStyle = { display: this.props.visible ? "block" : "none" };
         return <div className="sandbox" style={divStyle}>
-            <Repl />
+            <Repl historyToDisplay={historyToDisplay}/>
             </div>;
     }
 }
