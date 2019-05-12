@@ -3,6 +3,7 @@ import Prompt from "./Prompt";
 import Response from "./Response";
 import Welcome from "./Welcome";
 import Error from "./Error";
+import Input from "./Input";
 
 export default class Console extends React.Component {
 
@@ -31,6 +32,8 @@ export default class Console extends React.Component {
       else if(e.keyCode === 37) this.props.moveCursor('LEFT');
       // Right Key
       else if(e.keyCode === 39) this.props.moveCursor('RIGHT');
+      // Back Key
+      else if(e.keyCode === 8) this.props.tryDedent();
       // Enter Key
       else if(e.keyCode === 13){ 
         e.preventDefault();
@@ -64,21 +67,21 @@ export default class Console extends React.Component {
     return  <div className="console">
               <div className="consoleInteractive">
               { this.props.historyToDisplay.map((elem, idx) => this.renderHistory(elem, idx)) }
-              <Prompt isActive={true} currentPrompt={this.props.currentPrompt} handleInput={this.props.handleInput}/>
+              <Prompt currentPrompt={this.props.currentPrompt} handleInput={this.props.handleInput}/>
             </div>
         </div>;
   }
 
   renderHistory(elem, idx) {
     switch(elem.type) {
-      case 'prompt':
-        return <Prompt isActive={false} prompt={elem.data} key={idx}/>;
-      case 'error':
-        return <Error error={elem.data} key={idx}/>;
-      case 'response':
-        return <Response response={elem.data} key={idx}/>;
       case 'welcome':
-        return <Welcome welcome={elem.data} key={idx}/>;
+        return <Welcome welcome={elem} key={idx}/>;
+      case 'input':
+        return <Input input={elem} key={idx}/>;
+      case 'response':
+        return <Response response={elem} key={idx}/>;
+      case 'error':
+        return <Error error={elem} key={idx}/>;
       default:
         return null;
     }

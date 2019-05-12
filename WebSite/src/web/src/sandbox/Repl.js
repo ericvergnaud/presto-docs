@@ -11,9 +11,10 @@ export default class Repl extends React.Component {
       promptHistory: [],
       historyIndex: 0,
       currentPrompt: {
+        indentLevel: 0,
+        linesBefore: [],
         beforeCursor: '',
-        afterCursor: '',
-        indentLevel: 0
+        afterCursor: ''
       },
       style:{},
       dialect: "M"
@@ -24,6 +25,7 @@ export default class Repl extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearHistory = this.clearHistory.bind(this);
     this.moveCursor = this.moveCursor.bind(this);
+    this.tryDedent = this.tryDedent.bind(this);
     this.setUpStyles = this.setUpStyles.bind(this);
   }
 
@@ -55,99 +57,135 @@ export default class Repl extends React.Component {
   }
 
 
-  evaluateInput(prompt, callback) {
+  evaluateInput(prompt) {
+    if(this.collectMultiLine(prompt))
+      return;
+    if(prompt.length > 0) {
+      if(this.evaluateInstruction(prompt))
+        return;
+      else
+        this.interpretInput(prompt, true);
+    } else
+      this.pushHistory(null, [{type: 'input', data: ""}]);
+  }
+
+
+  evaluateInstruction(prompt) {
+    const promptItem = { type: 'input', data: prompt };
     switch (prompt.trim().toLowerCase()) {
       case "help":
       case "?":
-        this.printHelp(callback);
+        this.printHelp(promptItem);
         break;
       case "clear":
-        this.clear(callback);
+        this.clear();
         break;
       case "reset":
-        this.reset(callback);
-        break;
-      case "dialect e":
-      case "dialect m":
-      case "dialect o":
-        this.dialect(prompt, callback);
+        this.reset(promptItem);
         break;
       default:
-        this.interpretInput(prompt, callback);
+        if(prompt.startsWith("dialect"))
+          this.dialect(prompt, promptItem);
+        else
+          return false;
     }
+    return true;
   }
 
-  interpretInput(prompt, callback) {
-    PROMPTO_WORKER.repl(prompt, this.state.dialect, (out, err) => {
+
+  collectMultiLine(prompt) {
+    const methodName = "collectMultiLine" + this.state.dialect;
+    return this[methodName](prompt);
+  }
+
+
+  collectMultiLineM(promptValue) {
+    const prompt = this.state.currentPrompt;
+    if(promptValue.trim().endsWith(":")) {
+      const value = "\t".repeat(prompt.indentLevel) + promptValue;
+      prompt.linesBefore.push(value);
+      prompt.indentLevel += 1;
+      this.setState({currentPrompt: prompt }, () => this.pushHistory(null, { type: "input", data: promptValue, indentLevel: prompt.indentLevel - 1}));
+      return true;
+    } else if(prompt.indentLevel > 0) {
+      const value = "\t".repeat(prompt.indentLevel) + promptValue;
+      prompt.linesBefore.push(value);
+      this.pushHistory(null, { type: "input", data: promptValue, indentLevel: prompt.indentLevel});
+      return true;
+    } else if(promptValue.length === 0 && prompt.linesBefore.length > 0) {
+      const input = prompt.linesBefore.join("\n");
+      prompt.linesBefore = [];
+      this.setState({currentPrompt: prompt }, () => this.interpretInput(input, false));
+    } else
+      return false;
+  }
+
+
+  collectMultiLineE(prompt, callback) {
+  }
+
+
+  collectMultiLineO(prompt, callback) {
+  }
+
+
+  interpretInput(promptValue, isInput) {
+    const promptItem = isInput ? { type: 'input', data: promptValue } : null;
+    PROMPTO_WORKER.repl(promptValue, this.state.dialect, (out, err) => {
       if (out)
-        callback({ type: 'response', data: out });
+        this.pushHistory(promptItem, [{ type: 'response', data: out }]);
       else if(err)
-        callback({ type: 'error', data: err });
+        this.pushHistory(promptItem, [{ type: 'error', data: err }]);
     });
   }
 
 
-  printHelp(callback) {
+  printHelp(promptItem) {
     const data = [ "help: print this",
                   "clear: clear screen",
                   "reset: clear data",
                   "dialect: switch to dialect E, M or O",
                   "( currently using dialect: " + this.state.dialect + " )"
                 ].map(s => { return { type: 'welcome', data: s }; });
-    callback(data);
+    this.pushHistory(promptItem, data);
   }
 
-  clear(callback) {
-    const prompt = { beforeCursor: '', afterCursor: '', indentLevel: 0 };
+  clear() {
+    const prompt = { beforeCursor: '', afterCursor: '', indentLevel: 0, linesBefore: [] };
     this.setState({historyToDisplay: [], currentPrompt: prompt})
   }
 
-  reset(callback) {
-    PROMPTO_WORKER.resetRepl(()=>callback({ type: 'welcome', data: "All data has been deleted" }));
+  reset(promptItem) {
+    PROMPTO_WORKER.resetRepl(()=>this.pushHistory(promptItem, [{ type: 'welcome', data: "All data has been deleted" }]));
   }
 
-  dialect(prompt, callback) {
+  dialect(prompt, promptItem) {
     const dialect = prompt.substring(prompt.length-1).toUpperCase();
-    this.setState({ dialect: dialect}, () => {
-      callback({ type: 'welcome', data: "Using dialect: " +  dialect});
-    });
+    if(new Set(["E", "O", "M"]).has(dialect))
+      this.setState({ dialect: dialect}, () => this.pushHistory(promptItem, [{ type: 'welcome', data: "Using dialect: " +  dialect}]));
+    else
+      this.pushHistory(promptItem, [{ type: 'error', data: "No such dialect: " +  dialect}])
   }
 
   handleSubmit() {
-    // Reset Text Area
     let textArea = document.getElementById('replTextArea');
     textArea.value = '';
-    // Get final Prompt
-    let prompt = this.state.currentPrompt.beforeCursor + this.state.currentPrompt.afterCursor;
-    if (!prompt.length) {
-      let newHistory = this.state.historyToDisplay.concat([{type: 'prompt', data: ""}]);
-      this.setState({
-        historyToDisplay: newHistory
-      }, this.showPrompt);
-    } else {
-      // Evaluate the Prompt
-      this.evaluateInput(prompt, responseItem => {
-        const promptItem = {
-          type: 'prompt',
-          data: prompt
-        };
-        const newHistory = responseItem ?
-            (Array.isArray(responseItem) ?
-            this.state.historyToDisplay.concat([promptItem]).concat(responseItem) :
-            this.state.historyToDisplay.concat([promptItem, responseItem])) :
-            this.state.historyToDisplay.concat([promptItem]);
-        const newPromptHistory = this.state.promptHistory.concat(promptItem);
-        this.setState({
-          historyToDisplay: newHistory,
-          historyIndex: newPromptHistory.length,
-          promptHistory: newPromptHistory,
-          currentPrompt: {
-            beforeCursor: '',
-            afterCursor: ''
-          }
-        }, this.showPrompt);
-      });
-    }
+    const prompt = this.state.currentPrompt;
+    const promptValue = prompt.beforeCursor + prompt.afterCursor;
+    prompt.beforeCursor = "";
+    prompt.afterCursor = "";
+    this.setState({ currentPrompt: prompt }, () => this.evaluateInput(promptValue));
+  }
+
+  pushHistory(promptItem, responseItems) {
+    responseItems = (promptItem ? [promptItem] : []).concat(responseItems || []);
+    const newHistory = this.state.historyToDisplay.concat(responseItems);
+    const newPromptHistory = this.state.promptHistory.concat(promptItem || []);
+    this.setState({
+      historyToDisplay: newHistory,
+      historyIndex: newPromptHistory.length,
+      promptHistory: newPromptHistory
+    }, this.showPrompt);
   }
 
   showPrompt() {
@@ -179,13 +217,8 @@ export default class Repl extends React.Component {
     textArea.value = this.state.promptHistory[num].data;
     textArea.selectionStart = textArea.value.length;
     // Set new state with new prompt from history
-    this.setState({
-      historyIndex: num, 
-        currentPrompt: {
-        beforeCursor: this.state.promptHistory[num].data, 
-        afterCursor: ''
-      }
-    });
+    const prompt = { ...this.state.currentPrompt, beforeCursor: this.state.promptHistory[num].data, afterCursor: ''};
+    this.setState({ historyIndex: num, currentPrompt: prompt });
   }
 
   /* Needed because window listener is run before prompt calls handleInput resulting in cursor
@@ -203,19 +236,29 @@ export default class Repl extends React.Component {
 
   handleInput(idx) {
     // Get current hidden string in text area
-    let textArea = document.getElementById('replTextArea'), content = textArea.value;
+    const textArea = document.getElementById('replTextArea'), content = textArea.value;
     // onChange passes the this context as 1st arg. Need to ensure idx is a num and not obj
-    let cursorIdx = Number.isInteger(idx) ? idx : textArea.selectionStart ;
+    const cursorIdx = Number.isInteger(idx) ? idx : textArea.selectionStart;
     // Represent strings for before and after the cursor
-    let leftStr = content.substring(0, cursorIdx), rightStr = content.substring(cursorIdx, content.length);
-    let newState = Object.assign({}, this.state.currentPrompt, {beforeCursor: leftStr, afterCursor: rightStr});
+    const leftStr = content.substring(0, cursorIdx), rightStr = content.substring(cursorIdx, content.length);
+    const newPrompt = { ...this.state.currentPrompt, beforeCursor: leftStr, afterCursor: rightStr };
     // Set new state to represent change in textarea
-    this.setState({currentPrompt: newState})
+    this.setState({currentPrompt: newPrompt});
   }
 
+  tryDedent() {
+    const prompt = this.state.currentPrompt;
+    if(prompt.indentLevel > 0) {
+      // Get current hidden string in text area
+      const textArea = document.getElementById('replTextArea');
+      if(textArea.selectionStart === 0 && textArea.selectionEnd === 0) {
+        prompt.indentLevel -= 1;
+        this.setState({currentPrompt: prompt});
+      }
+    }
+  }
 
   clearHistory() {
-    console.log('psst incognito');
     this.setState({historyToDisplay: []});
   }
 
@@ -228,6 +271,7 @@ export default class Repl extends React.Component {
               historyToDisplay={this.state.historyToDisplay}
               handleToggleHistory={this.handleToggleHistory} 
               moveCursor={this.moveCursor}
+              tryDedent={this.tryDedent}
            />;
   }
 }

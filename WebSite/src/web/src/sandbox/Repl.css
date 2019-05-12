@@ -35,6 +35,12 @@
   margin-right: 20px;
 }
 
+.promptIndent {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+
 .userInput {
   color: #97ED8A;
   font-family: "Lucida Console", Monaco, monospace;
@@ -51,7 +57,7 @@
   /* color: #B64926 */
 }
 
-.input {
+.inputArea {
     height: 2px;
     width: 2px;
     border: none;
@@ -66,6 +72,7 @@
   background-color: transparent;
 }
 
+
 .response {
   height: 20px;
 }
@@ -74,12 +81,28 @@
   display: inline-block ;
   height: 100% ;
   color: #FFA00A;
-  margin-right: 15px;
+  margin-right: 12px;
 }
 
 .responseData {
   font-family: "Lucida Console", Monaco, monospace;
   color: #FFA00A;
+}
+
+.input {
+  height: 20px;
+}
+
+.inputIcon {
+  display: inline-block ;
+  height: 100% ;
+  color: #97ED8A;
+  margin-right: 20px;
+}
+
+.inputData {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #97ED8A;
 }
 
 .error {
@@ -90,7 +113,7 @@
   display: inline-block ;
   height: 100% ;
   color: red;
-  margin-right: 15px;
+  margin-right: 12px;
 }
 
 .errorData {

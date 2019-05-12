@@ -1,18 +1,13 @@
 import React from 'react'
 
-export default class Prompt extends React.Component {
+class Cursor extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { cursor: true };
     }
 
-
     componentDidMount() {
-        document.body.addEventListener('click', () => {
-            let textArea = document.getElementById('replTextArea');
-            textArea.focus();
-        });
         this.startBlinking();
     }
 
@@ -32,31 +27,34 @@ export default class Prompt extends React.Component {
     }
 
     render() {
-        return (
-            <div className="prompt">
-                {this.props.isActive ? this.renderActive() : this.renderHistory()}
-            </div>
-        )
-    }
-
-    renderActive() {
         const color = this.state.cursor ? "white" : "black";
-        return <div className="promptLine">
-            <span className="promptIcon"> > </span>
-            <span className="userInput">{this.props.currentPrompt.beforeCursor}</span>
-            <span className="cursor" id="cursor" style={{backgroundColor: color}}/>
-            <span className="userInput">{this.props.currentPrompt.afterCursor}</span>
-            <textarea className="input" id="replTextArea" onChange={this.props.handleInput} autoComplete="off"
-                      autoCorrect="off" autoCapitalize="off" spellCheck="false"/>
-        </div>;
+        return <span className="cursor" id="cursor" style={{backgroundColor: color}}/>;
     }
 
-    renderHistory() {
-        return <div className="promptLine">
-            <span className="promptIcon history"> > </span>
-            <span className="userInput history">{this.props.prompt}</span>
-        </div>;
+}
 
+
+export default class Prompt extends React.Component {
+
+    render() {
+        const prompt = this.props.currentPrompt;
+        return  <div className="prompt">
+                    <div className="promptLine">
+                        <span className="promptIcon"> > </span>
+                        { this.renderIndents(prompt) }
+                        <span className="userInput">{prompt.beforeCursor}</span>
+                        <Cursor />
+                        <span className="userInput">{prompt.afterCursor}</span>
+                        <textarea className="inputArea" id="replTextArea" onChange={this.props.handleInput} autoComplete="off"
+                                  autoCorrect="off" autoCapitalize="off" spellCheck="false" autoFocus/>
+                    </div>
+                </div>;
     }
 
+    renderIndents(prompt) {
+        if(prompt.indentLevel) {
+            const keys = Array(prompt.indentLevel).fill(0).map((val, idx) => idx);
+            return keys.map(val => <span key={val} className="promptIndent">&nbsp;</span>);
+        }
+    }
 }
