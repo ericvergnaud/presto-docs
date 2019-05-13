@@ -120,11 +120,36 @@ function resetRepl(message) {
     return { toStdOut: "<ok>" };
 }
 
+function showRepl(message) {
+    const items = [];
+    var dialect = prompto.parser.Dialect[message.data.dialect];
+    for(var name in globals.replContext.declarations) {
+        const decl = globals.replContext.declarations[name];
+        const decls = decl instanceof prompto.runtime.MethodDeclarationMap ?
+            decl.getAll() :
+            [ decl ];
+        decls.forEach(d => {
+            const writer = new prompto.utils.CodeWriter(dialect, globals.replContext);
+            d.toDialect(writer);
+            items.push(writer.toString());
+        });
+    }
+    for(var name in globals.replContext.values) {
+        const value = globals.replContext.values[name];
+        items.push(name + ": " + value.toString());
+    }
+    if(items.length > 0)
+        return { items: items };
+    else
+        return { toStdOut: "<context is empty>", items: [] };
+}
+
 
 const dispatch = {
     translate : translate,
     execute : execute,
     resetRepl: resetRepl,
+    showRepl: showRepl,
     repl: repl
 };
 

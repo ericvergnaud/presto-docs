@@ -22,7 +22,6 @@ export default class Repl extends React.Component {
   componentDidMount() {
     this.setUpStyles();
     window.addEventListener('keydown', e => this.dispatchKeyDown(e)); // can't bind the handler inline without breaking the event flow
-    const textArea = document.getElementById('replTextArea');
   }
 
   setUpStyles() {
@@ -134,6 +133,23 @@ export default class Repl extends React.Component {
         promptData.dedent();
         this.setState({promptData: promptData});
       }
+    }
+  }
+
+  dedent() {
+    const promptData = this.state.promptData;
+    if (promptData.indentLevel > 0) {
+      promptData.dedent();
+      this.setState({promptData: promptData});
+    }
+  }
+
+  indent() {
+    const promptData = this.state.promptData;
+    const textArea = document.getElementById('replTextArea');
+    if(textArea.selectionStart === 0 && textArea.selectionEnd === 0) {
+      promptData.indent();
+      this.setState({promptData: promptData});
     }
   }
 

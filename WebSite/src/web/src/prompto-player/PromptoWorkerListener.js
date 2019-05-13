@@ -81,6 +81,22 @@ class PromptoWorkerListener {
         };
         this.worker.postMessage(message);
     }
+
+    showRepl(dialect, callback) {
+        var message =  {
+            id : ++this.nextMessageId,
+            verb : "showRepl",
+            data : {
+                dialect: dialect
+            }
+        };
+        // register handler for this message's responses
+        this.messageHandlers[message.id] = data => {
+            callback(data.toStdOut, data.toStdErr, data.items);
+        };
+        this.worker.postMessage(message);
+    }
+
 }
 
 const PROMPTO_WORKER = new PromptoWorkerListener();

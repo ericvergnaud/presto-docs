@@ -8,6 +8,18 @@ export default class LineHandler {
         return new klass();
     }
 
+    constructor() {
+        this.instructions = [
+            { pattern: /help/g, handler: this.printHelp, doc: "help: print this" },
+            { pattern: /\?/g, handler: this.printHelp, doc: "?: print this" },
+            { pattern: /clear/g, handler: this.clear, doc: "clear: clear screen" },
+            { pattern: /show/g, handler: this.showAll, doc: "show: show all declarations and variables" },
+            { pattern: /delete (.*)/g, handler: this.deleteOne, doc: "delete x: clear variable x" },
+            { pattern: /reset/g, handler: this.reset, doc: "reset: clear data" },
+            { pattern: /dialect [e|E|o|O|m|M]/g, handler: this.switchDialect, doc: "dialect E, M or O: switch to said dialect" }
+        ];
+    }
+
     evaluate(promptValue, promptData, promptHistory, displayHistory, callback) {
         let handler = this.collectMultiLine(promptValue, promptData, promptHistory, displayHistory, callback);
         if (handler)
@@ -35,36 +47,22 @@ export default class LineHandler {
     }
 
     executeInstruction(promptValue, promptData, promptHistory, displayHistory, callback) {
-        switch (promptValue.trim().toLowerCase()) {
-            case "help":
-            case "?":
-                this.printHelp(promptValue, promptData, promptHistory, displayHistory, callback);
-                return this;
-            case "clear":
-                this.clear(promptValue, promptData, promptHistory, displayHistory, callback);
-                return this;
-            case "reset":
-                this.reset(promptValue, promptData, promptHistory, displayHistory, callback);
-                return this;
-            default:
-                if (promptValue.startsWith("dialect"))
-                    return this.switchDialect(promptValue, promptData, promptHistory, displayHistory, callback);
-        }
-        return null;
+        const s = promptValue.trim().toLowerCase();
+        const instruction = this.instructions.find( i => s.match(i.pattern) );
+        if(instruction) {
+            const result = instruction.handler.bind(this)(promptValue, promptData, promptHistory, displayHistory, callback);
+            return result || this;
+        } else
+            return null;
     }
 
     printHelp(promptValue, promptData, promptHistory, displayHistory, callback) {
         const promptItem = {type: 'input', data: promptValue};
         promptHistory.push(promptItem);
         displayHistory.push(promptItem);
-        const data = ["help: print this",
-            "clear: clear screen",
-            "reset: clear data",
-            "dialect E, M or O: switch to said dialect",
-            "( currently using dialect: " + this.dialect + " )"
-        ].map(s => {
-            return {type: 'welcome', data: s};
-        });
+        let data = this.instructions.map(i => i.doc);
+        data.push("( currently using dialect: " + this.dialect + " )");
+        data = data.map(s => { return {type: 'welcome', data: s}; });
         displayHistory.push(data);
         callback();
     }
@@ -74,6 +72,21 @@ export default class LineHandler {
         promptHistory.clear();
         displayHistory.clear();
         callback();
+    }
+
+    showAll(promptValue, promptData, promptHistory, displayHistory, callback) {
+        PROMPTO_WORKER.showRepl(this.dialect, (out, err, items) => {
+            const promptItem = {type: 'input', data: promptValue};
+            promptHistory.push(promptItem);
+            displayHistory.push(promptItem);
+            if(out)
+                displayHistory.push({type: 'response', data: out});
+            items.forEach(item => displayHistory.push({type: 'response', data: item}));
+            callback();
+        });
+    }
+
+    deleteOne(promptValue, promptData, promptHistory, displayHistory, callback) {
     }
 
     reset(promptValue, promptData, promptHistory, displayHistory, callback) {
