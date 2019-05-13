@@ -47,7 +47,7 @@ export default class Prompt extends React.Component {
                 <span className="userInput">{prompt.afterCursor}</span>
                 <textarea className="inputArea" id="replTextArea" onChange={this.props.handleInput}
                           autoComplete="off" autoCorrect="off"
-                          autoCapitalize="off" spellCheck="false" autoFocus/>
+                          autoCapitalize="off" spellCheck="false"/>
             </div>
         </div>;
     }

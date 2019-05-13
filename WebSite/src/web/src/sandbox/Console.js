@@ -39,7 +39,7 @@ export default class Console extends React.Component {
 
 
     render() {
-        return <div className="console">
+        return <div className="console" onClick={this.props.onClick}>
             <div className="consoleInteractive">
                 {this.props.historyToDisplay.items.map((elem, idx) => this.renderHistory(elem, idx))}
                 <Prompt currentPrompt={this.props.currentPrompt} handleInput={this.props.handleInput}/>

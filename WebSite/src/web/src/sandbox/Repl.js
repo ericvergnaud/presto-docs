@@ -16,12 +16,29 @@ export default class Repl extends React.Component {
             style: {}
         };
         this.lineHandler = LineHandler.forDialect("M");
+        this.visibilityChanged = this.visibilityChanged.bind(this);
         this.dispatchKeyDown = this.dispatchKeyDown.bind(this); // can't bind the handler inline without breaking the event flow
     }
 
     componentDidMount() {
         this.setUpStyles();
-        window.addEventListener('keydown', e => this.dispatchKeyDown(e)); // can't bind the handler inline without breaking the event flow
+    }
+
+    visibilityChanged(visible) {
+        if(visible) {
+            this.listener = e => this.dispatchKeyDown(e); // can't bind the handler inline without breaking the event flow
+            window.addEventListener('keydown', this.listener);
+            this.requestFocus();
+        } else if(this.listener) {
+            window.removeEventListener('keydown', this.listener);
+            delete this.listener;
+        }
+    }
+
+    requestFocus() {
+        const textArea = document.getElementById('replTextArea');
+        if(textArea)
+            textArea.focus();
     }
 
     setUpStyles() {
@@ -163,6 +180,7 @@ export default class Repl extends React.Component {
             handleSubmit={this.handleSubmit.bind(this)}
             style={this.state.style}
             historyToDisplay={this.state.displayHistory}
+            onClick={this.requestFocus}
         />;
     }
 }
