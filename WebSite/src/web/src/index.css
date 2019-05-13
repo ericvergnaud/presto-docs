@@ -4,6 +4,13 @@
     margin-right: 15px;
 }
 
+.sandbox {
+    position: fixed;
+    top: 51px;
+    bottom: 0px;
+    width: 100%;
+}
+
 .topics {
     padding-top: 50px;
 }
@@ -180,3 +187,4 @@ pre {
 .suggestion-sentence {
     font-size: smaller;
 }
+

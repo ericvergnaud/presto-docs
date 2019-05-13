@@ -1,0 +1,132 @@
+.console {
+    height: 100%;
+    background-color: rgb(14, 22, 40);
+}
+
+.consoleInteractive {
+    height: calc(100% - 15px);
+    overflow-x: scroll;
+    overflow-y: scroll;
+    color: #F4FFFF;
+    margin-left: 20px;
+}
+
+.panel {
+    height: 5%;
+    color: #F4FFFF;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+.prompt {
+    height: 20px;
+}
+
+.promptLine {
+    height: 100%;
+}
+
+.promptIcon {
+    display: inline-block;
+    height: 100%;
+    color: #97ED8A;
+    margin-right: 20px;
+}
+
+.promptIndent {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+
+.userInput {
+    color: #97ED8A;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 15px;
+    background-color: white;
+}
+
+.history {
+    /* color: #B64926 */
+}
+
+.inputArea {
+    height: 2px;
+    width: 2px;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    color: transparent;
+}
+
+.off {
+    background-color: transparent;
+}
+
+
+.response {
+    height: 20px;
+}
+
+.responseIcon {
+    display: inline-block;
+    height: 100%;
+    color: #FFA00A;
+    margin-right: 12px;
+}
+
+.responseData {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #FFA00A;
+}
+
+.input {
+    height: 20px;
+}
+
+.inputIcon {
+    display: inline-block;
+    height: 100%;
+    color: #97ED8A;
+    margin-right: 20px;
+}
+
+.inputData {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #97ED8A;
+}
+
+.error {
+    height: 20px;
+}
+
+.errorIcon {
+    display: inline-block;
+    height: 100%;
+    color: red;
+    margin-right: 12px;
+}
+
+.errorData {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: red;
+}
+
+
+.welcome {
+    height: 20px;
+}
+
+.welcomeData {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #FFFFFF;
+}

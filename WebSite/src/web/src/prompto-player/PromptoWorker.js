@@ -23,8 +23,8 @@ function loadText(url, success) {
 
 // parse prompto code
 function parse(content, dialect) {
-    var klass = prompto.parser[dialect + "CleverParser"];
-    var parser = new klass(content);
+    const klass = prompto.parser[dialect + "CleverParser"];
+    const parser = new klass(content);
     return parser.parse();
 }
 
@@ -89,9 +89,89 @@ function execute(message) {
     };
 };
 
+function repl(message) {
+    const klass = prompto.parser[message.data.dialect + "CleverParser"];
+    const parser = new klass(message.data.input);
+    parser.removeErrorListeners();
+    parser.addErrorListener(new prompto.problem.ProblemListener());
+    try {
+        const thing = parser.parse_repl_input();
+        if (thing instanceof prompto.declaration.Declaration) {
+            thing.register(globals.replContext);
+            return {toStdOut: "Registered " + thing.name};
+        } else if (thing.interpret) {
+            const value = thing.interpret(globals.replContext);
+            if (value)
+                return {toStdOut: value.toString()};
+            else
+                return {toStdOut: "<void>"};qdqsd
+        } else {
+            return {toStdErr: "Unsupported:" + message.data.input};
+        }
+    } catch(error) {
+        return {
+            toStdErr: error.message
+        };
+    }
+}
+
+function deleteRepl(message) {
+    const name = message.data.name;
+    const decl = globals.replContext.getRegistered(name);
+    if(!decl)
+        return { toStdErr: "Not found: " + name };
+    else {
+        if(decl.unregister) {
+            if(decl instanceof prompto.runtime.MethodDeclarationMap)
+                delete globals.replContext.declarations[name];
+            else
+                decl.unregister(globals.replContext);
+            return { toStdOut: "Deleted declaration " + name };
+        } else {
+            delete globals.replContext.instances[name];
+            delete globals.replContext.values[name];
+            return { toStdOut: "Deleted variable " + name };
+        }
+    }
+}
+
+function resetRepl(message) {
+    globals.replContext = globals.librariesContext.newLocalContext();
+    return { toStdOut: "<ok>" };
+}
+
+function showRepl(message) {
+    const items = [];
+    var dialect = prompto.parser.Dialect[message.data.dialect];
+    for(var name in globals.replContext.declarations) {
+        const decl = globals.replContext.declarations[name];
+        const decls = decl instanceof prompto.runtime.MethodDeclarationMap ?
+            decl.getAll() :
+            [ decl ];
+        decls.forEach(d => {
+            const writer = new prompto.utils.CodeWriter(dialect, globals.replContext);
+            d.toDialect(writer);
+            items.push(writer.toString());
+        });
+    }
+    for(var name in globals.replContext.values) {
+        const value = globals.replContext.values[name];
+        items.push(name + ": " + value.toString());
+    }
+    if(items.length > 0)
+        return { items: items };
+    else
+        return { toStdOut: "<context is empty>", items: [] };
+}
+
+
 const dispatch = {
     translate : translate,
-    execute : execute
+    execute : execute,
+    deleteRepl: deleteRepl,
+    resetRepl: resetRepl,
+    showRepl: showRepl,
+    repl: repl
 };
 
 // manage events
@@ -109,6 +189,7 @@ onmessage = function(event) {
 
 // create global context with pre-loaded libraries
 globals.librariesContext = prompto.runtime.Context.newGlobalContext();
+resetRepl();
 
 loadText("/prompto/prompto.pec", code => {
     let decls = parse(code, "E");
