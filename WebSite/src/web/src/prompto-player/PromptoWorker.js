@@ -104,7 +104,7 @@ function repl(message) {
             if (value)
                 return {toStdOut: value.toString()};
             else
-                return {toStdOut: "<void>"};qdqsd
+                return {toStdOut: "<void>"};
         } else {
             return {toStdErr: "Unsupported:" + message.data.input};
         }
@@ -154,7 +154,7 @@ function showRepl(message) {
             items.push(writer.toString());
         });
     }
-    for(var name in globals.replContext.values) {
+    for(name in globals.replContext.values) {
         const value = globals.replContext.values[name];
         items.push(name + ": " + value.toString());
     }
