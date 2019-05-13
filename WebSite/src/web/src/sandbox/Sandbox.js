@@ -7,11 +7,12 @@ export default class Sandbox extends React.Component {
     render() {
         const historyToDisplay = [
             "Welcome to Prompto",
-            "Using dialect: M"
+            "Using dialect: M",
+            "Type ? for help"
         ].map(s => { return { type: "welcome", data: s }; });
         const divStyle = { display: this.props.visible ? "block" : "none" };
         return <div className="sandbox" style={divStyle}>
-            <Repl historyToDisplay={historyToDisplay}/>
+                <Repl historyToDisplay={historyToDisplay}/>
             </div>;
     }
 }
