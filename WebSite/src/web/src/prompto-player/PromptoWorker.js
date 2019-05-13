@@ -115,6 +115,26 @@ function repl(message) {
     }
 }
 
+function deleteRepl(message) {
+    const name = message.data.name;
+    const decl = globals.replContext.getRegistered(name);
+    if(!decl)
+        return { toStdErr: "Not found: " + name };
+    else {
+        if(decl.unregister) {
+            if(decl instanceof prompto.runtime.MethodDeclarationMap)
+                delete globals.replContext.declarations[name];
+            else
+                decl.unregister(globals.replContext);
+            return { toStdOut: "Deleted declaration " + name };
+        } else {
+            delete globals.replContext.instances[name];
+            delete globals.replContext.values[name];
+            return { toStdOut: "Deleted variable " + name };
+        }
+    }
+}
+
 function resetRepl(message) {
     globals.replContext = globals.librariesContext.newLocalContext();
     return { toStdOut: "<ok>" };
@@ -148,6 +168,7 @@ function showRepl(message) {
 const dispatch = {
     translate : translate,
     execute : execute,
+    deleteRepl: deleteRepl,
     resetRepl: resetRepl,
     showRepl: showRepl,
     repl: repl

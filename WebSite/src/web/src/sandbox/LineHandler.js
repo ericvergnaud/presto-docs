@@ -93,6 +93,16 @@ export default class LineHandler {
     }
 
     deleteOne(promptValue, promptData, promptHistory, displayHistory, callback) {
+        const name = promptValue.trim().substring("delete ".length);
+        PROMPTO_WORKER.deleteRepl(name, (out, err) => {
+            const promptItem = {type: 'input', data: promptValue};
+            promptHistory.push(promptItem);
+            if (out)
+                displayHistory.push([promptItem, {type: 'response', data: out}]);
+            else if (err)
+                displayHistory.push([promptItem, {type: 'error', data: err}]);
+            callback();
+        });
     }
 
     reset(promptValue, promptData, promptHistory, displayHistory, callback) {

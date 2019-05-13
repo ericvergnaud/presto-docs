@@ -82,6 +82,22 @@ class PromptoWorkerListener {
         this.worker.postMessage(message);
     }
 
+
+    deleteRepl(name, callback) {
+        var message =  {
+            id : ++this.nextMessageId,
+            verb : "deleteRepl",
+            data : {
+                name: name
+            }
+        };
+        // register handler for this message's responses
+        this.messageHandlers[message.id] = data => {
+            callback(data.toStdOut, data.toStdErr);
+        };
+        this.worker.postMessage(message);
+    }
+
     showRepl(dialect, callback) {
         var message =  {
             id : ++this.nextMessageId,
