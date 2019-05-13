@@ -27,7 +27,7 @@ export default class PromptHistory {
 
     toggleUp() {
         let num = this.index;
-        if(num < 1)
+        if (num < 1)
             num = 0;
         else
             num -= 1;
@@ -37,10 +37,10 @@ export default class PromptHistory {
 
     toggleDown() {
         let num = this.index;
-        if(num >= this.items.length - 1)
-          num = this.items.length - 1;
+        if (num >= this.items.length - 1)
+            num = this.items.length - 1;
         else
-          num += 1;
+            num += 1;
         this.index = num;
         return this.items[num];
     }

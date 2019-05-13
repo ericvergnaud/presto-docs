@@ -5,9 +5,9 @@ export default class DisplayHistory {
     }
 
     push(stuff) {
-        if(Array.isArray(stuff))
+        if (Array.isArray(stuff))
             this.items = this.items.concat(stuff);
-        else if(stuff)
+        else if (stuff)
             this.items.push(stuff);
     }
 

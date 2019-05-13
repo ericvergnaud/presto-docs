@@ -10,13 +10,17 @@ export default class LineHandler {
 
     constructor() {
         this.instructions = [
-            { pattern: /help/g, handler: this.printHelp, doc: "help: print this" },
-            { pattern: /\?/g, handler: this.printHelp, doc: "?: print this" },
-            { pattern: /clear/g, handler: this.clear, doc: "clear: clear screen" },
-            { pattern: /show/g, handler: this.showAll, doc: "show: show all declarations and variables" },
-            { pattern: /delete (.*)/g, handler: this.deleteOne, doc: "delete x: clear variable x" },
-            { pattern: /reset/g, handler: this.reset, doc: "reset: clear data" },
-            { pattern: /dialect [e|E|o|O|m|M]/g, handler: this.switchDialect, doc: "dialect E, M or O: switch to said dialect" }
+            {pattern: /help/g, handler: this.printHelp, doc: "help: print this"},
+            {pattern: /\?/g, handler: this.printHelp, doc: "?: print this"},
+            {pattern: /clear/g, handler: this.clear, doc: "clear: clear screen"},
+            {pattern: /show/g, handler: this.showAll, doc: "show: show all declarations and variables"},
+            {pattern: /delete (.*)/g, handler: this.deleteOne, doc: "delete x: clear variable x"},
+            {pattern: /reset/g, handler: this.reset, doc: "reset: clear data"},
+            {
+                pattern: /dialect [e|E|o|O|m|M]/g,
+                handler: this.switchDialect,
+                doc: "dialect E, M or O: switch to said dialect"
+            }
         ];
     }
 
@@ -48,8 +52,8 @@ export default class LineHandler {
 
     executeInstruction(promptValue, promptData, promptHistory, displayHistory, callback) {
         const s = promptValue.trim().toLowerCase();
-        const instruction = this.instructions.find( i => s.match(i.pattern) );
-        if(instruction) {
+        const instruction = this.instructions.find(i => s.match(i.pattern));
+        if (instruction) {
             const result = instruction.handler.bind(this)(promptValue, promptData, promptHistory, displayHistory, callback);
             return result || this;
         } else
@@ -62,7 +66,9 @@ export default class LineHandler {
         displayHistory.push(promptItem);
         let data = this.instructions.map(i => i.doc);
         data.push("( currently using dialect: " + this.dialect + " )");
-        data = data.map(s => { return {type: 'welcome', data: s}; });
+        data = data.map(s => {
+            return {type: 'welcome', data: s};
+        });
         displayHistory.push(data);
         callback();
     }
@@ -79,7 +85,7 @@ export default class LineHandler {
             const promptItem = {type: 'input', data: promptValue};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
-            if(out)
+            if (out)
                 displayHistory.push({type: 'response', data: out});
             items.forEach(item => displayHistory.push({type: 'response', data: item}));
             callback();
@@ -117,12 +123,12 @@ export default class LineHandler {
 
     interpretPrompto(promptValue, promptData, promptHistory, displayHistory, callback) {
         PROMPTO_WORKER.repl(promptValue, this.dialect, (out, err) => {
-            const promptItem = { type: 'input', data: promptValue };
+            const promptItem = {type: 'input', data: promptValue};
             promptHistory.push(promptItem);
             if (out)
-                displayHistory.push([promptItem, { type: 'response', data: out }]);
-            else if(err)
-                displayHistory.push([promptItem, { type: 'error', data: err }]);
+                displayHistory.push([promptItem, {type: 'response', data: out}]);
+            else if (err)
+                displayHistory.push([promptItem, {type: 'error', data: err}]);
             callback();
         });
     }
@@ -130,9 +136,9 @@ export default class LineHandler {
     interpretPromptoML(input, promptData, promptHistory, displayHistory, callback) {
         PROMPTO_WORKER.repl(input, this.dialect, (out, err) => {
             if (out)
-                displayHistory.push({ type: 'response', data: out });
-            else if(err)
-                displayHistory.push({ type: 'error', data: err });
+                displayHistory.push({type: 'response', data: out});
+            else if (err)
+                displayHistory.push({type: 'error', data: err});
             callback();
         });
     }
@@ -148,28 +154,28 @@ class MLineHandler extends LineHandler {
     }
 
     collectMultiLine(promptValue, promptData, promptHistory, displayHistory, callback) {
-        if(promptValue.trim().endsWith(":")) {
-            const promptItem = { type: 'input', data: promptValue, indentLevel: promptData.indentLevel };
+        if (promptValue.trim().endsWith(":")) {
+            const promptItem = {type: 'input', data: promptValue, indentLevel: promptData.indentLevel};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
             promptData.addLine(promptValue);
             promptData.indent();
             callback();
             return this;
-        } else if(promptData.indentLevel > 0) {
-            const promptItem = { type: 'input', data: promptValue, indentLevel: promptData.indentLevel };
+        } else if (promptData.indentLevel > 0) {
+            const promptItem = {type: 'input', data: promptValue, indentLevel: promptData.indentLevel};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
             promptData.addLine(promptValue);
             callback();
             return this;
-        } else if(promptValue.length === 0 && promptData.linesBefore.length > 0) {
+        } else if (promptValue.length === 0 && promptData.linesBefore.length > 0) {
             const input = promptData.allLines();
             promptData.clearLines();
             this.interpretPromptoML(input, promptData, promptHistory, displayHistory, callback);
             return this;
         } else
-           return null;
+            return null;
     }
 
 }
@@ -196,23 +202,23 @@ class OLineHandler extends LineHandler {
     }
 
     collectMultiLine(promptValue, promptData, promptHistory, displayHistory, callback) {
-        if(promptValue.trim().endsWith("{")) {
-            const promptItem = { type: 'input', data: promptValue, indentLevel: promptData.indentLevel };
+        if (promptValue.trim().endsWith("{")) {
+            const promptItem = {type: 'input', data: promptValue, indentLevel: promptData.indentLevel};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
             promptData.addLine(promptValue);
             promptData.indent();
             callback();
             return this;
-        } else if(promptData.indentLevel > 0) {
-            const promptItem = { type: 'input', data: promptValue, indentLevel: promptData.indentLevel };
+        } else if (promptData.indentLevel > 0) {
+            const promptItem = {type: 'input', data: promptValue, indentLevel: promptData.indentLevel};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
             promptData.addLine(promptValue);
             callback();
             return this;
-        } else if(promptValue === "}" && promptData.linesBefore.length > 0) {
-            const promptItem = { type: 'input', data: promptValue, indentLevel: promptData.indentLevel };
+        } else if (promptValue === "}" && promptData.linesBefore.length > 0) {
+            const promptItem = {type: 'input', data: promptValue, indentLevel: promptData.indentLevel};
             promptHistory.push(promptItem);
             displayHistory.push(promptItem);
             promptData.addLine(promptValue);
