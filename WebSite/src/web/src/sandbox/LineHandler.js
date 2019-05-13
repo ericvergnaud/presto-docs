@@ -3,8 +3,7 @@ import PROMPTO_WORKER from '../prompto-player/PromptoWorkerListener';
 export default class LineHandler {
 
     static forDialect(dialect) {
-        // eslint-disable-next-line
-        const klass = eval(dialect + LineHandler.name);
+        const klass = LineHandler.dialectHandlers[dialect];
         return new klass();
     }
 
@@ -242,3 +241,9 @@ class OLineHandler extends LineHandler {
 
 }
 
+
+LineHandler.dialectHandlers = {
+    "M": MLineHandler,
+    "E": ELineHandler,
+    "O": OLineHandler
+};
