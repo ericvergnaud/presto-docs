@@ -3,8 +3,8 @@ echo "Are you using the latest platform version?"
 read -p "version to publish: " version
 read -p "release name: " name
 mvn versions:set -DnewVersion=$version -DgenerateBackupPoms=false
-deploy=$?
 mvn clean deploy -P deploy -DskipTests=true
+deploy=$?
 mvn versions:set -DnewVersion=0.0.1-SNAPSHOT -DgenerateBackupPoms=false
 if [ $deploy -eq 0 ] 
 then
