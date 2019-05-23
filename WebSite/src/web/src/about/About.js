@@ -118,6 +118,7 @@ export default class About extends React.Component {
                 <p>Prompto is currently running its evaluation program.<br/>
                     This web site provides the reference of the Prompto
                     programming language, and a sneak preview of the Prompto libraries.<br/>
+                    It also provides an online sandbox which you can use to explore the language.<br/>
                     On-line development and deployment tools are available on request.
                 </p>
                 <p>We are looking for evaluators! And contributors!<br/>
