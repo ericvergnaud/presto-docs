@@ -6,17 +6,21 @@ import Libraries from "./libraries/Libraries";
 import Sandbox from "./sandbox/Sandbox";
 import Tutorials from "./tutorials/Tutorials";
 import SearchBox from "./components/SearchBox";
+import { getParameterByName } from './utils/Utils';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-        const requested = this.getRequestedSection();
-        this.state = { activeNav: requested || "ABOUT" };
+        this.state = { activeNav: this.getRequestedNav() };
     }
 
-    getRequestedSection() {
-        return document.location.pathname.substring(1).toUpperCase();
+    getRequestedNav() {
+        const requested = getParameterByName("section");
+        if(requested)
+            return requested.toUpperCase();
+        else
+            return "ABOUT";
     }
 
     showSelectedSuggestion(suggestion) {
