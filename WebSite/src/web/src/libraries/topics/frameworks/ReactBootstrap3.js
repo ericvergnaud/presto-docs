@@ -149,8 +149,12 @@ class ThisTopic extends Topic {
                                 <td>Nav</td>
                             </tr>
                             <tr>
+                                <td>NavDropdown</td>
+                                <td>NavDropdown</td>
+                            </tr>
+                            <tr>
                                 <td>NavItem</td>
-                                <td>Nav.Item</td>
+                                <td>NavItem</td>
                             </tr>
                             <tr>
                                 <td>Tabs</td>
@@ -177,6 +181,14 @@ class ThisTopic extends Topic {
                                 <td>Glyphicon</td>
                             </tr>
                             <tr>
+                                <td>Thumbnail</td>
+                                <td>Thumbnail</td>
+                            </tr>
+                            <tr>
+                                <td>PageHeader</td>
+                                <td>PageHeader</td>
+                            </tr>
+                            <tr>
                                 <td>DatePicker</td>
                                 <td>DatePicker</td>
                             </tr>
@@ -186,7 +198,7 @@ class ThisTopic extends Topic {
                             </tr>
                         </tbody>
                     </Table>
-            <p><i>(the above does not cover all React Bootstrap 3 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
+            <p><i>(the above covers most but not all React Bootstrap 3 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
             </React.Fragment>;
     }
 
