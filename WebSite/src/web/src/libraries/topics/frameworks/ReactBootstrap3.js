@@ -24,6 +24,17 @@ class ThisTopic extends Topic {
                             <p>The Typeahead component, is derived from the <a rel="noopener noreferrer" href="https://www.npmjs.com/package/react-bootstrap-typeahead" target="_blank">standard react-bootstrap-typeahead</a>,
                                 and made compatible with Prompto data.</p>
                         </li>
+                        <li><code>ContextMenu</code>
+                            <p>The ContextMenu component, is a custom component combining <code>Clearfix and &lt;ul class="dropdown-menu"&gt;<code> to simplify display of context menus.<p>
+                                Example usage:<br/>
+                                <code>
+                                    menu = <ContextMenu>
+                                                <MenuItem key={1} onClick={someAction1}>Some item</MenuItem>
+                                                <MenuItem key={2} onClick={someAction2}>Other item</MenuItem>
+                                            </ContextMenu>;
+                                    showReactContextMenu(event, menu);
+                                </code>
+                        </li>
                     </ul>
                 <p>Please refer to above documentations for details. </p>
             <p><i>Prompto does not support inner categories (which are required in JavaScript due to the uncontrolled proliferation of global names).<br/>
@@ -195,6 +206,10 @@ class ThisTopic extends Topic {
                             <tr>
                                 <td>Typeahead</td>
                                 <td>Typeahead</td>
+                            </tr>
+                            <tr>
+                                <td>ContextMenu</td>
+                                <td>ContextMenu</td>
                             </tr>
                         </tbody>
                     </Table>

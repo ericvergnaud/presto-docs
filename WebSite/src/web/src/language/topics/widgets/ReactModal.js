@@ -12,13 +12,20 @@ class ThisTopic extends Topic {
         return <React.Fragment>
             <h2>React modals</h2>
             <p>Because it is <i>reactive</i> to <code>state</code> and <code>props</code> rather than <i>premptive</i>, React makes it somewhat difficult to display transient widgets that are not embedded in the layout, such as modal dialogs.<br/>
-            To help display such widgets, Prompto comes with 2 useful methods:</p>
+            To help display such widgets, Prompto comes with 4 useful methods:</p>
             <ul>
-                <li><b>showReactModal</b><br/>
+                <li><b>showReactModal(Html modal)</b><br/>
                     The showReactModal is a method that can be called from widget code. It accepts Html.
                 </li>
-                <li><b>hideReactModal</b><br/>
+                <li><b>hideReactModal()</b><br/>
                     The hideReactModal is a method that can be called from widget code. It takes no parameter.
+                </li>
+                <li><b>showReactContextMenu(ClickEvent event, Html menu)</b><br/>
+                    The showReactContextMenu is a method that can be called from widget code. It accepts a ClickEvent and Html.
+                </li>
+                <li><b>hideReactContextMenu()</b><br/>
+                    The hideReactContextMenu is a method that can be called from widget code. It takes no parameter.<br/>
+                    You usually do not need to call this method because the context menu is closed automatically on the next click.
                 </li>
             </ul>
             <p>In the below example, when clicking on a button, a <code>Modal</code> is displayed.<br/>
