@@ -1,3 +1,5 @@
+define Callback as abstract method
+
 define Any as native category with attributes id and text, and bindings:
 
 	define category bindings as:
@@ -231,9 +233,13 @@ define "now is a DateTime" as test method doing:
 and verifying: 
 	a is a DateTime 
 
-
 define today as method returning Date doing:
 	return now.date
+
+define "today is a Date" as test method doing: 
+	a = today
+and verifying: 
+	a is a Date 
 
 // returns a random UUID as defined by http://www.ietf.org/rfc/rfc4122.txt
 define randomUuid as native method returning Uuid doing:
@@ -632,14 +638,25 @@ define forceReactWidgetRender as native method receiving ReactWidget w doing:
 	JavaScript: w.forceUpdate();
 
 
-define showReactModal as native method receiving Html w doing:
-	JavaScript: ReactUtils.showModal(w);
+define showReactModal as native method receiving Html dialog doing:
+	JavaScript: ReactUtils.showModal(dialog);
 
 
 define hideReactModal as native method doing:
 	JavaScript: ReactUtils.hideModal();
 
 
+define showReactContextMenu as native method receiving ClickEvent event and Html menu doing:
+	JavaScript: ReactUtils.showContextMenu(event, menu);
+
+
+define hideReactContextMenu as native method doing:
+	JavaScript: ReactUtils.hideContextMenu();
+
+
+
+@WidgetField(name="name", type=Document)
+@WidgetField(name="props", type=Document)
 define ReactWidget as widget with methods:
 	
 	@Static

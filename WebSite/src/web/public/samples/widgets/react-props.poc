@@ -1,8 +1,9 @@
 widget Minimal extends ReactWidget {
 
 	Html method render () {
-	    props = getProperties()
-		return <div>{ props.title }</div>;
+	    title = getProperties().title
+	    name = props.name;
+		return <div>{ "" + title + " " + name }</div>;
 	}
 
 }
@@ -10,8 +11,9 @@ widget Minimal extends ReactWidget {
 widget Page extends ReactWidget {
 
    	Html method render () {
-   	    title = "Some title"
-   		return <Minimal title={title}/>;
+   	    title = "Hello";
+   	    name = "John";
+   		return <Minimal title={title} name={name}/>;
    	}
 
 }

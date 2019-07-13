@@ -21,6 +21,7 @@ class ThisTopic extends Topic {
 
                 <li><b>getState</b><br/>
                     This method returns the current state of the controlled component, in the form of a Document.<br/>
+                    Alternately, you can use the built-in <code><i>state</i></code> widget field.<br/>
                     <br/>
                 </li>
 

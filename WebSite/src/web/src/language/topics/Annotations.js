@@ -15,7 +15,7 @@ class ThisTopic extends Topic {
             <p>Prompto supports Annotations.<br/>
                 An annotation is an identifier prefixed by <code>@</code> optionally followed by parameters enclosed in parenthesis.<br/>
                 Annotations are always attached to the next non-comment declaration.<br/>
-                In the below example, the ifrst annotation is attached to the widget declaration, the second one to a method.
+                In the below example, the first annotation is attached to the widget declaration, the second one to a method.
             </p>
             <PromptoPlayer lines={8} sampleUrl="samples/definitions/annotation.pec"/>
 
@@ -42,6 +42,13 @@ class ThisTopic extends Topic {
                  <li>
                      <code>@PageWidgetOf("<i>SomePage</i>")</code>
                      This annotation only applies to widgets. It lets prompto tell the browser to load <code><i>SomePage</i>.page</code> when running the widget from the developer factory.
+                 </li>
+                 <li>
+                     <code>@WidgetField(name="<i>SomeName</i>", type=<i>SomeType</i>)</code>
+                     This annotation only applies to widgets. Library widgets often come with specific fields unrelated to the information domain, which cannot be treated as attributes.<br/>
+                     The <code>@WidgetField</code> annotation tells prompto that the widget has a built-in field named <code><i>SomeName</i></code> of type <code><i>SomeType</i></code>.<br/>
+                     From there, it is possible to use the widget field in widget code.<br/>
+                     The built-in <code>ReactWidget</code> comes with 2 widget fields: name and props. See ReactWidget for examples.
                  </li>
              </ul>
             </React.Fragment>;

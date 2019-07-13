@@ -15,17 +15,17 @@ class ThisTopic extends Topic {
             To help display such widgets, Prompto comes with 4 useful methods:</p>
             <ul>
                 <li><b>showReactModal(Html modal)</b><br/>
-                    The showReactModal is a method that can be called from widget code. It accepts Html.
+                    The showReactModal is a method that can be called from widget code. It accepts Html.<br/>
                 </li>
                 <li><b>hideReactModal()</b><br/>
-                    The hideReactModal is a method that can be called from widget code. It takes no parameter.
+                    The hideReactModal is a method that can be called from widget code. It takes no parameter.<br/>
                 </li>
                 <li><b>showReactContextMenu(ClickEvent event, Html menu)</b><br/>
-                    The showReactContextMenu is a method that can be called from widget code. It accepts a ClickEvent and Html.
+                    The showReactContextMenu is a method that can be called from widget code. It accepts a ClickEvent and Html.<br/>
                 </li>
                 <li><b>hideReactContextMenu()</b><br/>
                     The hideReactContextMenu is a method that can be called from widget code. It takes no parameter.<br/>
-                    You usually do not need to call this method because the context menu is closed automatically on the next click.
+                    You usually do not need to call this method because the context menu is closed automatically on the next click.<br/>
                 </li>
             </ul>
             <p>In the below example, when clicking on a button, a <code>Modal</code> is displayed.<br/>
@@ -36,7 +36,7 @@ class ThisTopic extends Topic {
                 For example React Bootstrap 3 modals require a <code>show</code> property to be set (see above example).
             </p>
             <p>Also worth noting, the <code>showReactModal</code> is not blocking. It prepares rendering for the next React cycle and returns <i>before</i> the modal is actually displayed.<br/>
-                This also applies to <code>hideReactModal</code>.
+                This also applies to <code>hideReactModal</code>, <code>showReactContextMenu</code> and <code>hideReactContextMenu</code>.
             </p>
 
             </React.Fragment>;

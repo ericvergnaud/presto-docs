@@ -1,12 +1,13 @@
 widget Minimal extends ReactWidget {
 
     Document getInitialState() {
-        return { title: "Hello" };
+        return { title: "Hello", name: "John" };
     }
 
 	Html method render () {
-	    title = getState().title
-		return <div>{ title }</div>;
+	    title = getState().title;
+	    value = state.name;
+		return <div>{ title + " " + name }</div>;
 	}
 
 	method someMethod() {

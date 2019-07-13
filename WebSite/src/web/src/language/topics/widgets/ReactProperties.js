@@ -17,7 +17,8 @@ class ThisTopic extends Topic {
             <p>To access properties, React widgets come with 1 method:</p>
             <ul>
                 <li><b>getProperties</b><br/>
-                    The getProperties is a method that can be called from widget code. It returns a Document.
+                    The getProperties is a method that can be called from widget code. It returns a Document.<br/>
+                    Alternately, you can use the built-in <code><i>props</i></code> widget field.
                 </li>
             </ul>
             <p>In the below example, we create a <i>Minimal</i> widget, which renders a <i>title</i> dynamically.<br/>

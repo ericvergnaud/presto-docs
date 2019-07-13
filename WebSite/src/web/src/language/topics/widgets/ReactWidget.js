@@ -25,9 +25,13 @@ class ThisTopic extends Topic {
             <PromptoPlayer lines={12} sampleUrl="samples/widgets/react-derived.poc"/>
             <i>(note that the Derived widget is not required to implement a render method, since it is already provided by the Minimal widget)</i>
             <br/>
+            <h3>React widget fields: <code><i>state</i></code> and <code><i>props</i></code></h3>
+            <p>React widget methods can directly access the built-in <code><i>props</i></code> field.<br/>
+                If the widget is a <i>controlled component</i> (if getInitialState returns a Document), then React widget methods can directly access the built-in <code><i>state</i></code> field.
+            </p>
             <h3>Documentation</h3>
-            <p>Prompto React widgets are simply a mean to make React components available in Prompto.<br/>
-            The intent is to be 100% compatible with React javascript to ensure ease of adoption (and migration).<br/>
+            <p>Prompto React widgets make React programming directly available in Prompto.<br/>
+            The code is 100% compatible with javascript React programming, which ensures ease of adoption (and migration).<br/>
                 We do not provide a thorough documentation of React programming, only the minimal required to get started.</p>
                 Prompto uses React v16.x
             <h3>Disclaimer</h3>

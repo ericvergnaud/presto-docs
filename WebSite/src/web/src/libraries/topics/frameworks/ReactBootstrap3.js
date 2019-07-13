@@ -9,6 +9,7 @@ class ThisTopic extends Topic {
     }
 
     renderContent(topicSelected) {
+        const nbsp = "\u00A0";
         return <React.Fragment>
                     <h2>React Bootstrap 3</h2>
                     <p>Bootstrap is one of the most popular UI frameworks, created by Twitter.<br/>
@@ -25,15 +26,14 @@ class ThisTopic extends Topic {
                                 and made compatible with Prompto data.</p>
                         </li>
                         <li><code>ContextMenu</code>
-                            <p>The ContextMenu component, is a custom component combining <code>Clearfix and &lt;ul class="dropdown-menu"&gt;<code> to simplify display of context menus.<p>
-                                Example usage:<br/>
-                                <code>
-                                    menu = <ContextMenu>
-                                                <MenuItem key={1} onClick={someAction1}>Some item</MenuItem>
-                                                <MenuItem key={2} onClick={someAction2}>Other item</MenuItem>
-                                            </ContextMenu>;
-                                    showReactContextMenu(event, menu);
-                                </code>
+                            <p>The ContextMenu component, is a custom component combining <code>Clearfix and &lt;ul class="dropdown-menu"&gt;</code> to simplify display of context menus.</p>
+                            Example usage:<br/>
+                            <code>{String.raw `menu = <ContextMenu>`}<br/>
+                                { nbsp.repeat(11) + String.raw `<MenuItem key={1} onClick={someAction1}>Some item</MenuItem>`}<br/>
+                                { nbsp.repeat(11) + String.raw `<MenuItem key={2} onClick={someAction2}>Other item</MenuItem>`}<br/>
+                                { nbsp.repeat(7) + String.raw `</ContextMenu>;`}<br/>
+                                {String.raw `showReactContextMenu(event, menu);`};
+                            </code>
                         </li>
                     </ul>
                 <p>Please refer to above documentations for details. </p>
