@@ -200,6 +200,38 @@ class ThisTopic extends Topic {
                                 <td>PageHeader</td>
                             </tr>
                             <tr>
+                                <td>PanelGroup</td>
+                                <td>PanelGroup</td>
+                            </tr>
+                            <tr>
+                                <td>Panel</td>
+                                <td>Panel</td>
+                            </tr>
+                            <tr>
+                                <td>PanelCollapse</td>
+                                <td>Panel.Collapse</td>
+                            </tr>
+                            <tr>
+                                <td>PanelToggle</td>
+                                <td>Panel.Toggle</td>
+                            </tr>
+                            <tr>
+                                <td>PanelTitle</td>
+                                <td>Panel.Title</td>
+                            </tr>
+                            <tr>
+                                <td>PanelHeading</td>
+                                <td>Panel.Heading</td>
+                            </tr>
+                            <tr>
+                                <td>PanelBody</td>
+                                <td>Panel.Body</td>
+                            </tr>
+                            <tr>
+                                <td>PanelFooter</td>
+                                <td>Panel.Footer</td>
+                            </tr>
+                           <tr>
                                 <td>DatePicker</td>
                                 <td>DatePicker</td>
                             </tr>
