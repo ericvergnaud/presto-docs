@@ -148,6 +148,14 @@ class ThisTopic extends Topic {
                                 <td>Navbar.Header</td>
                             </tr>
                             <tr>
+                                <td>NavbarToggle</td>
+                                <td>Navbar.Toggle</td>
+                            </tr>
+                            <tr>
+                                <td>NavbarCollapse</td>
+                                <td>Navbar.Collapse</td>
+                            </tr>
+                            <tr>
                                 <td>NavbarText</td>
                                 <td>Navbar.Text</td>
                             </tr>
