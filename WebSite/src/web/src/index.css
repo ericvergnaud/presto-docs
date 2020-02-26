@@ -188,3 +188,10 @@ pre {
     font-size: smaller;
 }
 
+.jprofiler {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    bottom: 0px;
+    text-align: center;
+    font-size: smaller;
+}

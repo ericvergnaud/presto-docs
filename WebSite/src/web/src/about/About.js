@@ -124,6 +124,9 @@ export default class About extends React.Component {
                 <p>We are looking for evaluators! And contributors!<br/>
                     If you would like to participate, <a href="mailto:support@prompto.cloud?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
             </div>
+            <div className="jprofiler">
+                The Prompto platform for Java is optimized using the <a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png" alt="JProfiler"/></a> Java profiler.
+            </div>
         </div>;
     }
 }
