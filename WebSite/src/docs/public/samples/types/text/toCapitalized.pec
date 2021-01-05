@@ -1,3 +1,0 @@
-define main as method doing:
-    t = "some text capitalized"
-    print "t.toCapitalized -> " + t.toCapitalized
