@@ -42,7 +42,7 @@ function translate(message) {
     return {
         translated: writer.toString()
     };
-};
+}
 
 
 // execute code in dialect
@@ -78,7 +78,7 @@ function execute(message) {
             testName = decl.name;
     });
     // run "main" method, using fresh store
-    prompto.store.DataStore.instance = new prompto.memstore.MemStore();
+    prompto.store.$DataStore.instance = new prompto.memstore.MemStore();
     if(testName)
         prompto.runtime.Interpreter.interpretTest(context, testName);
     else
@@ -87,7 +87,7 @@ function execute(message) {
     return {
         toStdOut: "Success!\n"
     };
-};
+}
 
 function repl(message) {
     const klass = prompto.parser[message.data.dialect + "CleverParser"];
@@ -188,7 +188,7 @@ onmessage = function(event) {
 
 
 // create global context with pre-loaded libraries
-globals.librariesContext = prompto.runtime.Context.newGlobalContext();
+globals.librariesContext = prompto.runtime.Context.newGlobalsContext();
 resetRepl();
 
 loadText("/prompto/prompto.pec", code => {

@@ -50,6 +50,13 @@ class ThisTopic extends Topic {
                      From there, it is possible to use the widget field in widget code.<br/>
                      The built-in <code>ReactWidget</code> comes with 2 widget fields: name and props. See ReactWidget for examples.
                  </li>
+                 <li>
+                     <code>@WidgetProperties(<i>a document</i>)</code>
+                     This annotation only applies to widgets. Widgets are initialized using properties, and it is convenient to be able to verify them.<br/>
+                     The <code>@WidgetProperties</code> annotation tells prompto which properties the widget supports and their type.<br/>
+                     From there, it is possible to verify the widget property in widget code.<br/>
+                     See ReactWidget for examples.
+                 </li>
              </ul>
             </React.Fragment>;
     }

@@ -25,10 +25,11 @@ class ThisTopic extends Topic {
                                 <li>a Prompto expression enclosed in curly braces (which must provide a valid CSS value for the property)</li>
                             </ul>
                         </li>
+                        <li>the <code>;</code> terminator</li>
                     </ul>
                <p> A Css literal must be enclosed in curly brackets.</p>
-            <pre>{String.raw`{ width: 80px; display: none } -> a simple CSS literal
-{ display: { `}<i>some_value</i> }} -> a CSS literal, where the <i>value</i> for the <i>display</i> property is determined at runtime</pre>
+            <pre>{String.raw`{ width: 80px; display: none; } -> a simple CSS literal
+{ display: { `}<i>some_value</i> }; } -> a CSS literal, where the <i>value</i> for the <i>display</i> property is determined at runtime</pre>
 
             </React.Fragment>;
     }
