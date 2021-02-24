@@ -20,10 +20,6 @@ class ThisTopic extends Topic {
                     <li>
                         <b>Attribute argument</b>, with the form <code><i>name</i></code>, where <code><i>name</i></code> is an existing Attribute name.
                         <PromptoPlayer lines={10} sampleUrl="samples/methods/attributeArgument.pec" runnable={true}/>
-                        <br/>
-
-                        <p>When the attribute is the first argument, it can be automatically <i>extracted</i> from the object:</p>
-                        <PromptoPlayer lines={10} sampleUrl="samples/methods/implicitArgument.pec" runnable={true}/>
                     </li>
                     <br/>
 
