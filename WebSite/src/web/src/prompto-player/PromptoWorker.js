@@ -93,7 +93,7 @@ function repl(message) {
     const klass = prompto.parser[message.data.dialect + "CleverParser"];
     const parser = new klass(message.data.input);
     parser.removeErrorListeners();
-    parser.addErrorListener(new prompto.problem.ProblemListener());
+    parser.addErrorListener(new prompto.problem.ProblemRaiser());
     try {
         const thing = parser.parse_repl_input();
         if (thing instanceof prompto.declaration.Declaration) {
