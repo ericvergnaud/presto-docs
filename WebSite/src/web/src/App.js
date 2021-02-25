@@ -37,18 +37,17 @@ class App extends React.Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav pullRight activeKey={this.state.active} onSelect={key => this.setState({activeNav: key})}>
-                    <NavItem eventKey={"ABOUT"}>About</NavItem>
                     <NavItem eventKey={"TUTORIALS"}>Tutorials</NavItem>
                     <NavItem eventKey={"SANDBOX"}>Sandbox</NavItem>
                     <NavItem eventKey={"LIBRARIES"}>Libraries</NavItem>
-                    <NavItem eventKey={"LANGUAGE"}>Language</NavItem>
+                    <NavItem eventKey={"LANGUAGE"}>Reference</NavItem>
                 </Nav>
                 <Navbar.Form pullRight>
                     <SearchBox onSelectedSuggestion={this.showSelectedSuggestion.bind(this)}/>
                 </Navbar.Form>
             </Navbar>
             <div className="chapter">
-                <About visible={this.state.activeNav==="ABOUT"}/>
+                <About visible={this.state.activeNav==="ABOUT"} />
                 <Tutorials visible={this.state.activeNav==="TUTORIALS"}/>
                 <Sandbox visible={this.state.activeNav==="SANDBOX"}/>
                 <Libraries ref="LIBRARIES" visible={this.state.activeNav==="LIBRARIES"}/>
