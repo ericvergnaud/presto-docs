@@ -23,7 +23,7 @@ export default class About extends React.Component {
 
             <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
                 <Tabs defaultActiveKey="language" id="topics">
-                    <Tab eventKey="language" title="The full stack language">
+                    <Tab eventKey="language" title="The full stack programming language">
                         <LanguageRoadShow />
                     </Tab>
                     <Tab eventKey="cloud" title="...fully hosted in the cloud">
