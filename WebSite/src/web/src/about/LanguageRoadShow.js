@@ -146,7 +146,7 @@ export default class LanguageRoadShow extends React.Component {
             <Carousel.Caption>
                 <h4>Enjoy the power of a full stack language</h4>
                 automatically share data models, business logic and queries across components<br/>
-                exchange data between components without writing code<br/>>
+                exchange data between components without writing code<br/>
                 move execution from one component to another seamlessly<br/>
             </Carousel.Caption>
         </>;
