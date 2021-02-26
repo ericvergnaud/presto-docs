@@ -17,6 +17,7 @@ export default class LanguageRoadShow extends React.Component {
             <Carousel.Item>{ this.renderStorable1() }</Carousel.Item>
             <Carousel.Item>{ this.renderStorable2() }</Carousel.Item>
             <Carousel.Item>{ this.renderStorable3() }</Carousel.Item>
+            <Carousel.Item>{ this.renderTesting() }</Carousel.Item>
             <Carousel.Item>{ this.renderFullStack() }</Carousel.Item>
             <Carousel.Item>{ this.renderDialect1() }</Carousel.Item>
             <Carousel.Item>{ this.renderDialect2() }</Carousel.Item>
@@ -133,6 +134,26 @@ export default class LanguageRoadShow extends React.Component {
                 no more insecure string based queries: queries are checked as you code them<br/>
                 no need to create CRUD web services either, they're built-in<br/>
             </Carousel.Caption>
+        </>;
+    }
+
+    renderTesting() {
+        const popStyle = { top: "160px", left: "480px", maxWidth: "500px"};
+        return <>
+            <div style={imageBoxStyle}>
+                <img src="/img/language-roadshow/test-method.png" style={imageStyle} alt=""/>
+            </div>
+            <div style={textBoxStyle}>
+            </div>
+            <Carousel.Caption>
+                <h4>Feel the ease of a built-in testing framework</h4>
+                write tests that can run in the browser or on a server<br/>
+                each test run benefits from isolated in-memory storage<br/>
+                test verification survives assertion failures<br/>
+            </Carousel.Caption>
+            <Popover id="test" style={popStyle} placement="right" title="Test methods survive assertion failures">
+                <img src="/img/language-roadshow/test-result.png" alt=""/>
+            </Popover>
         </>;
     }
 
