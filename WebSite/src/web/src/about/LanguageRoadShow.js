@@ -9,7 +9,10 @@ const popoverStyle = { top: "360px", left: "100px"};
 export default class LanguageRoadShow extends React.Component {
 
     render() {
-        return <Carousel interval={8000}>
+        const interval = this.props.active ? 1000 : null;
+        if(interval && this.refs.carousel)
+            this.refs.carousel.play();
+        return <Carousel ref="carousel" interval={interval} onSelect={this.willSlide.bind(this)}>
             <Carousel.Item>{ this.renderInlineCss() }</Carousel.Item>
             <Carousel.Item>{ this.renderPowerfulLiterals() }</Carousel.Item>
             <Carousel.Item>{ this.renderEverywhere() }</Carousel.Item>
@@ -23,6 +26,14 @@ export default class LanguageRoadShow extends React.Component {
             <Carousel.Item>{ this.renderDialect2() }</Carousel.Item>
             <Carousel.Item>{ this.renderDialect3() }</Carousel.Item>
         </Carousel>;
+    }
+
+    willSlide(target, event) {
+        const direction = event.direction;
+        if(direction === "next" && target === 0)
+            this.props.moveNext();
+        else if(direction === "prev" && target === 11)
+            this.props.movePrevious();
     }
 
     renderInlineCss() {

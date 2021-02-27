@@ -6,9 +6,10 @@ const videoOpts = { width: "800px", height: "600px", playerVars: { 'autoplay': 0
 export default class ModelRoadShow extends React.Component {
 
     render() {
-        return <div style={{width: "800px", margin: "0 auto", marginTop: "15px"}}>
-            <YouTube videoId={"yMkQXnasx38"} opts={videoOpts}/>
-        </div>
+        const style = { display: this.props.active ? "block" : "none", width: "800px", margin: "0 auto", marginTop: "15px" };
+        return <div style={style}>
+                <YouTube videoId={"yMkQXnasx38"} opts={videoOpts}/>
+            </div>
 
     }
 }

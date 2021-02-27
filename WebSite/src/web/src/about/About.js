@@ -5,8 +5,14 @@ import CloudRoadShow from "./CloudRoadShow";
 import ModelRoadShow from "./ModelRoadShow";
 import DifferenceRoadShow from "./DifferenceRoadShow";
 
+const TAB_KEYS = [ "language", "cloud", "model", "difference"];
 
 export default class About extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { activeTab: TAB_KEYS[0] };
+    }
 
     render() {
         return <>
@@ -62,22 +68,37 @@ export default class About extends React.Component {
     }
 
     renderSlideShow() {
+        const activeTab = this.state.activeTab;
         return <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
-            <Tabs defaultActiveKey="cloud" id="topics">
-                <Tab eventKey="language" title="A full stack language">
-                    <LanguageRoadShow />
+            <Tabs activeKey={activeTab} onSelect={key => this.setState({activeTab: key})} id="topics">
+                <Tab eventKey={TAB_KEYS[0]} title="A full stack language">
+                    <LanguageRoadShow ref={TAB_KEYS[0]} active={activeTab===TAB_KEYS[0]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
-                <Tab eventKey="cloud" title="...hosted in the cloud">
-                    <CloudRoadShow />
+                <Tab eventKey={TAB_KEYS[1]} title="...hosted in the cloud">
+                    <CloudRoadShow ref={TAB_KEYS[1]} active={activeTab===TAB_KEYS[1]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
-                <Tab eventKey="model" title="...for building IT solutions" >
-                    <ModelRoadShow />
+                <Tab eventKey={TAB_KEYS[2]} title="...for building IT solutions" >
+                    <ModelRoadShow ref={TAB_KEYS[2]} active={activeTab===TAB_KEYS[2]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
-                <Tab eventKey="difference" title="...more efficiently." >
-                    <DifferenceRoadShow />
+                <Tab eventKey={TAB_KEYS[3]} title="...more efficiently." >
+                    <DifferenceRoadShow ref={TAB_KEYS[3]} active={activeTab===TAB_KEYS[3]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
             </Tabs>
         </div>;
-
     }
+
+    moveNext() {
+        let idx = TAB_KEYS.indexOf(this.state.activeTab);
+        if(++idx >= TAB_KEYS.length)
+            idx = 0;
+        this.setState({activeTab: TAB_KEYS[idx]});
+    }
+
+    movePrevious() {
+        let idx = TAB_KEYS.indexOf(this.state.activeTab);
+        if(--idx < 0)
+            idx = TAB_KEYS.length - 1;
+        this.setState({activeTab: TAB_KEYS[idx]});
+    }
+
 }

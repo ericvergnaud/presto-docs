@@ -8,7 +8,10 @@ const imageStyle = { margin: "auto", maxWidth: "90%", maxHeight: "90%"};
 export default class CloudRoadShow extends React.Component {
 
     render() {
-        return <Carousel interval={8000}>
+       const interval = this.props.active ? 1000 : null;
+        if(interval && this.refs.carousel)
+            this.refs.carousel.play();
+        return <Carousel ref="carousel" interval={interval} onSelect={this.willSlide.bind(this)}>
             <Carousel.Item>{ this.renderProjectsExplorer() }</Carousel.Item>
             <Carousel.Item>{ this.renderCodeEditor() }</Carousel.Item>
             <Carousel.Item>{ this.renderTryOut() }</Carousel.Item>
@@ -18,6 +21,14 @@ export default class CloudRoadShow extends React.Component {
             <Carousel.Item>{ this.renderDeployer() }</Carousel.Item>
             <Carousel.Item>{ this.renderTablet() }</Carousel.Item>
         </Carousel>;
+    }
+
+    willSlide(target, event) {
+        const direction = event.direction;
+        if(direction === "next" && target === 0)
+            this.props.moveNext();
+        else if(direction === "prev" && target === 11)
+            this.props.movePrevious();
     }
 
     renderProjectsExplorer() {
