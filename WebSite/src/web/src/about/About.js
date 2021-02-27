@@ -4,7 +4,7 @@ import LanguageRoadShow from "./LanguageRoadShow";
 import CloudRoadShow from "./CloudRoadShow";
 import ModelRoadShow from "./ModelRoadShow";
 import DifferenceRoadShow from "./DifferenceRoadShow";
-import ImageBanner from "./ImageBanner";
+// import ImageBanner from "./ImageBanner";
 
 
 export default class About extends React.Component {
@@ -12,24 +12,25 @@ export default class About extends React.Component {
     render() {
         const divStyle = { display: this.props.visible ? "block" : "none" };
 
-        return <div className="about" style={divStyle}>
+        return <>
+            <div className="about" style={divStyle}>
 
-            <ImageBanner/>
+            { /* <ImageBanner/> */ }
 
             <div style={{textAlign: "center"}}>
                 <h1>Prompto</h1>
-                <h4>the full stack programming language<br/>for building information systems in the cloud</h4>
+                <h4>the full stack programming language</h4>
             </div>
 
             <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
-                <Tabs defaultActiveKey="language" id="topics">
+                <Tabs defaultActiveKey="cloud" id="topics">
                     <Tab eventKey="language" title="The full stack programming language">
                         <LanguageRoadShow />
                     </Tab>
-                    <Tab eventKey="cloud" title="...fully hosted in the cloud">
+                    <Tab eventKey="cloud" title="...hosted in the cloud">
                         <CloudRoadShow />
                     </Tab>
-                    <Tab eventKey="model" title="...for building information systems" >
+                    <Tab eventKey="model" title="...for building business apps" >
                         <ModelRoadShow />
                     </Tab>
                     <Tab eventKey="difference" title="...much more efficiently." >
@@ -51,9 +52,10 @@ export default class About extends React.Component {
                 <p>We are looking for evaluators! And contributors!<br/>
                     If you would like to participate, <a href="mailto:support@prompto.org?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
             </div>
-            <div className="jprofiler" style={{bottomMargin: "0px"}}>
-                The Prompto platform for Java is optimized using the <a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png" alt="JProfiler"/></a> Java profiler.
-            </div>
-        </div>;
+        </div>
+        <div className="jprofiler" style={{ position: "absolute", bottom: "5px", margin: "0 auto", width: "100%" }}>
+            The Prompto Java components are optimized using <a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png" alt="JProfiler"/></a>
+        </div>
+        </>;
     }
 }
