@@ -4,58 +4,80 @@ import LanguageRoadShow from "./LanguageRoadShow";
 import CloudRoadShow from "./CloudRoadShow";
 import ModelRoadShow from "./ModelRoadShow";
 import DifferenceRoadShow from "./DifferenceRoadShow";
-// import ImageBanner from "./ImageBanner";
 
 
 export default class About extends React.Component {
 
     render() {
-        const divStyle = { display: this.props.visible ? "block" : "none" };
-
         return <>
-            <div className="about" style={divStyle}>
+            { this.renderHeader() }
+            { this.renderContent() }
+            { this.renderFooter() }
+       </>;
+    }
 
-            { /* <ImageBanner/> */ }
+    renderHeader() {
+        const divStyle = { display: this.props.visible ? "block" : "none", width: "100%" };
+        const imageStyle = {width: "100%", maxHeight: "200px"};
+        const textStyle = { position: "absolute", top: "55px", left: "80px", color: "papayawhip", fontSize: "70pt", fontWeight: "500" };
+        return <div style={divStyle}>
+                <img style={imageStyle} src={"/img/banner/banner.jpg"} alt="" />
+                <div style={textStyle}>The full stack technology</div>
+            </div>;
+    }
 
-            <div style={{textAlign: "center"}}>
-                <h1>Prompto</h1>
-                <h4>the full stack programming language</h4>
-            </div>
+    renderContent() {
+        const divStyle = { display: this.props.visible ? "block" : "none"};
+        return <div className="about" style={divStyle}>
+            { this.renderSlideShow() }
+            { this.renderInvitation() }
+        </div>;
+    }
 
-            <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
-                <Tabs defaultActiveKey="cloud" id="topics">
-                    <Tab eventKey="language" title="The full stack programming language">
-                        <LanguageRoadShow />
-                    </Tab>
-                    <Tab eventKey="cloud" title="...hosted in the cloud">
-                        <CloudRoadShow />
-                    </Tab>
-                    <Tab eventKey="model" title="...for building business apps" >
-                        <ModelRoadShow />
-                    </Tab>
-                    <Tab eventKey="difference" title="...much more efficiently." >
-                        <DifferenceRoadShow />
-                    </Tab>
-                </Tabs>
-            </div>
+    renderFooter() {
+        const divStyle = { display: this.props.visible ? "block" : "none",
+                            position: "fixed", height: "32px", bottom: "0px", width: "100%",
+                            backgroundColor: "white", textAlign: "center", fontSize: "smaller",
+                            marginLeft: "auto", marginRight: "auto", paddingTop: "5px" };
+        return <div style={divStyle}>
+                The Prompto Java components are optimized using <a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png" alt="JProfiler"/></a>
+            </div>;
+    }
 
-            <div style={{width: "800px", margin: "0 auto"}}>
+    renderInvitation() {
+        return <div style={{width: "800px", margin: "0 auto"}}>
 
-                <h2>Sounds great! Can I play with it?</h2>
-                <p>
-                    You can start playing immediately using the <a href="/?section=SANDBOX">online sandbox</a>.
-                </p>
-                <h2>This is really promising! Can I use it for a project?</h2>
-                <p>Prompto is currently running its evaluation program.<br/>
-                    On-line development and deployment tools are available on request.
-                </p>
-                <p>We are looking for evaluators! And contributors!<br/>
-                    If you would like to participate, <a href="mailto:support@prompto.org?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
-            </div>
-        </div>
-        <div className="jprofiler" style={{ position: "absolute", bottom: "5px", margin: "0 auto", width: "100%" }}>
-            The Prompto Java components are optimized using <a href="https://www.ej-technologies.com/products/jprofiler/overview.html"><img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png" alt="JProfiler"/></a>
-        </div>
-        </>;
+            <h2>Sounds great! Can I play with it?</h2>
+            <p>
+                You can start playing immediately using the <a href="/?section=SANDBOX">online sandbox</a>.
+            </p>
+            <h2>This is really promising! Can I use it for a project?</h2>
+            <p>Prompto is currently running its evaluation program.<br/>
+                On-line development and deployment tools are available on request.
+            </p>
+            <p>We are looking for evaluators! And contributors!<br/>
+                If you would like to participate, <a href="mailto:support@prompto.org?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
+        </div>;
+
+    }
+
+    renderSlideShow() {
+        return <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
+            <Tabs defaultActiveKey="cloud" id="topics">
+                <Tab eventKey="language" title="A full stack language">
+                    <LanguageRoadShow />
+                </Tab>
+                <Tab eventKey="cloud" title="...hosted in the cloud">
+                    <CloudRoadShow />
+                </Tab>
+                <Tab eventKey="model" title="...for building IT solutions" >
+                    <ModelRoadShow />
+                </Tab>
+                <Tab eventKey="difference" title="...more efficiently." >
+                    <DifferenceRoadShow />
+                </Tab>
+            </Tabs>
+        </div>;
+
     }
 }
