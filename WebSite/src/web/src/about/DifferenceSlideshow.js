@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class DifferenceRoadShow extends React.Component {
+export default class DifferenceSlideshow extends React.Component {
 
     render() {
         return <>Difference Roadshow</>;
