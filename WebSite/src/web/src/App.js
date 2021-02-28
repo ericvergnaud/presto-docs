@@ -20,7 +20,7 @@ class App extends React.Component {
         if (requested)
             return requested.toUpperCase();
         else
-            return "LANGUAGE"; // "ABOUT";
+            return "ABOUT";
     }
 
     showSelectedSuggestion(suggestion) {
@@ -51,12 +51,10 @@ class App extends React.Component {
                 </Nav>
             </Navbar>
             <div className="chapter">
-                {/*
                 <About visible={this.state.activeNav==="ABOUT"} />
                 <Tutorials visible={this.state.activeNav==="TUTORIALS"}/>
                 <Sandbox visible={this.state.activeNav==="SANDBOX"}/>
                 <Libraries ref="LIBRARIES" visible={this.state.activeNav==="LIBRARIES"}/>
-            */}
                 <Language ref="LANGUAGE" visible={this.state.activeNav==="LANGUAGE"}/>
             </div>
         </>;
