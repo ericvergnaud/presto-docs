@@ -78,6 +78,8 @@ function execute(message) {
         if(decl instanceof prompto.declaration.TestMethodDeclaration)
             testName = decl.name;
     });
+    // wire cursor, required by iterator
+    prompto.memstore.MemStore.Cursor = prompto.intrinsic.Cursor;
     // run "main" method, using fresh store
     prompto.store.$DataStore.instance = new prompto.memstore.MemStore();
     if(testName)
