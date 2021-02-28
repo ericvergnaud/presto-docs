@@ -5,6 +5,7 @@ globals.Honey = {'requirePath': ['..']}; // walk up to js folder
 globals.importScripts("/js/lib/require.js", "/js/lib/prompto.core.bundle.js");
 
 const prompto = globals.prompto;
+globals.intrinsic = prompto.intrinsic; // required by native libraries
 
 function loadText(url, success) {
     var xhr = new XMLHttpRequest();
