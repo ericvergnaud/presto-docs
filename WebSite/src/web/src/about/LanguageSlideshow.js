@@ -4,15 +4,11 @@ import {Carousel, Popover, PopoverContent, PopoverTitle} from "react-bootstrap";
 const imageBoxStyle = { width: "100%", height: "440px", backgroundColor: "black", display: "flex" };
 const textBoxStyle = { width: "100%", height: "160px", backgroundColor: "dimgray" };
 const imageStyle = { margin: "auto", maxWidth: "90%", maxHeight: "90%"};
-const popoverStyle = { top: "360px", left: "100px"};
 
-export default class LanguageRoadShow extends React.Component {
+export default class LanguageSlideshow extends React.Component {
 
     render() {
-        const interval = this.props.active ? 1000 : null;
-        if(interval && this.refs.carousel)
-            this.refs.carousel.play();
-        return <Carousel ref="carousel" interval={interval} onSlide={this.willSlide.bind(this)}>
+        return <Carousel ref="carousel" interval={8000} onSlide={this.willSlide.bind(this)} >
             <Carousel.Item>{ this.renderInlineCss() }</Carousel.Item>
             <Carousel.Item>{ this.renderPowerfulLiterals() }</Carousel.Item>
             <Carousel.Item>{ this.renderEverywhere() }</Carousel.Item>
@@ -29,16 +25,16 @@ export default class LanguageRoadShow extends React.Component {
     }
 
     willSlide(target, direction) {
-        if(direction === "next" && target === 0)
+        if(direction === "left" && target === 0)
             this.props.moveNext();
-        else if(direction === "prev" && target === 11)
+        else if(direction === "right" && target === 11)
             this.props.movePrevious();
     }
 
     renderInlineCss() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/inline-css.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/inline-css.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -54,7 +50,7 @@ export default class LanguageRoadShow extends React.Component {
     renderPowerfulLiterals() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/literals.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/literals.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -70,7 +66,7 @@ export default class LanguageRoadShow extends React.Component {
     renderEverywhere() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/everywhere.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/everywhere.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -86,7 +82,7 @@ export default class LanguageRoadShow extends React.Component {
     renderLocalRemote() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/local-remote.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/local-remote.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -102,7 +98,7 @@ export default class LanguageRoadShow extends React.Component {
     renderStorable1() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/storable-1.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/storable-1.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -118,7 +114,7 @@ export default class LanguageRoadShow extends React.Component {
     renderStorable2() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/storable-2.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/storable-2.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -134,7 +130,7 @@ export default class LanguageRoadShow extends React.Component {
     renderStorable3() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/storable-3.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/storable-3.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -151,7 +147,7 @@ export default class LanguageRoadShow extends React.Component {
         const popStyle = { top: "160px", left: "480px", maxWidth: "500px"};
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/test-method.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/test-method.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -164,7 +160,7 @@ export default class LanguageRoadShow extends React.Component {
             <Popover id="test" style={popStyle}>
                 <PopoverTitle placement="right">Test methods survive assertion failures"</PopoverTitle>
                 <PopoverContent>
-                    <img src="/img/language-roadshow/test-result.png" alt=""/>
+                    <img src="/img/language-slides/test-result.png" alt=""/>
                 </PopoverContent>
             </Popover>
         </>;
@@ -173,7 +169,7 @@ export default class LanguageRoadShow extends React.Component {
     renderFullStack() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/full-stack.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/full-stack.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -187,9 +183,10 @@ export default class LanguageRoadShow extends React.Component {
     }
 
     renderDialect1() {
+        const popoverStyle = { top: "100px", left: "650px"};
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/dialect-M.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/dialect-M.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -199,8 +196,8 @@ export default class LanguageRoadShow extends React.Component {
                 so if you favor indents over curly braces you are welcome (and conversely)<br/>
                 meet Monty, 1 of the 3 Prompto dialects<br/>
             </Carousel.Caption>
-            <Popover id="M" style={popoverStyle}>
-                <PopoverTitle placement="bottom">Some code in Monty dialect</PopoverTitle>
+            <Popover id="M" style={popoverStyle} placement="right">
+                <PopoverTitle >Some code in Monty dialect</PopoverTitle>
                 <PopoverContent>
                     colons and indents<br/>
                     python operators: '==', '!=', 'and', 'or'<br/>
@@ -210,9 +207,10 @@ export default class LanguageRoadShow extends React.Component {
     }
 
     renderDialect2() {
+        const popoverStyle = { top: "60px", left: "700px"};
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/dialect-O.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/dialect-O.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -222,8 +220,8 @@ export default class LanguageRoadShow extends React.Component {
                 do your team mates prefer writing code using other dialects? That's ok!<br/>
                 you can switch dialect any time, the code is translated automatically<br/>
             </Carousel.Caption>
-            <Popover id="O" style={popoverStyle}>
-                <PopoverTitle placement="bottom">The same code in Objy dialect</PopoverTitle>
+            <Popover id="O" style={popoverStyle} placement="top">
+                <PopoverTitle >The same code in Objy dialect</PopoverTitle>
                 <PopoverContent>
                     curly braces, semi-colons<br/>
                     c-style operators: '==', '!=', '&&', '||'<br/>
@@ -233,9 +231,10 @@ export default class LanguageRoadShow extends React.Component {
     }
 
     renderDialect3() {
+        const popoverStyle = { top: "300px", left: "450px"};
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/language-roadshow/dialect-E.png" style={imageStyle} alt=""/>
+                <img src="/img/language-slides/dialect-E.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -245,8 +244,8 @@ export default class LanguageRoadShow extends React.Component {
                 it requires more typing, but it's explicit about what the code means<br/>
                 that proves very convenient when you need to share business logic with non-coders<br/>
             </Carousel.Caption>
-            <Popover id="E" style={popoverStyle}>
-                <PopoverTitle placement="bottom">The same code in Engly dialect</PopoverTitle>
+            <Popover id="E" style={popoverStyle} placement="bottom">
+                <PopoverTitle >The same code in Engly dialect</PopoverTitle>
                 <PopoverContent>
                     colons and indents, no parenthesis<br/>
                     natural operators: '=', '&lt;>', 'and', 'or'<br/>

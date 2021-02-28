@@ -5,13 +5,10 @@ const imageBoxStyle = { width: "100%", height: "440px", backgroundColor: "dimgra
 const textBoxStyle = { width: "100%", height: "160px", backgroundColor: "dimgray" };
 const imageStyle = { margin: "auto", maxWidth: "90%", maxHeight: "90%"};
 
-export default class CloudRoadShow extends React.Component {
+export default class CloudSlideshow extends React.Component {
 
     render() {
-       const interval = this.props.active ? 1000 : null;
-        if(interval && this.refs.carousel)
-            this.refs.carousel.play();
-        return <Carousel ref="carousel" interval={interval} onSlide={this.willSlide.bind(this)}>
+        return <Carousel ref="carousel" interval={8000} onSlide={this.willSlide.bind(this)}>
             <CarouselItem>{ this.renderProjectsExplorer() }</CarouselItem>
             <CarouselItem>{ this.renderCodeEditor() }</CarouselItem>
             <CarouselItem>{ this.renderTryOut() }</CarouselItem>
@@ -24,22 +21,22 @@ export default class CloudRoadShow extends React.Component {
     }
 
     willSlide(target, direction) {
-        if(direction === "next" && target === 0)
+        if(direction === "left" && target === 0)
             this.props.moveNext();
-        else if(direction === "prev" && target === 11)
+        else if(direction === "right" && target === 7)
             this.props.movePrevious();
     }
 
     renderProjectsExplorer() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/projects-explorer.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/projects-explorer.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
             <Carousel.Caption>
                 <h4>Create your project in seconds from your browser</h4>
-                Once your factory is provided ( in just a few minutes )<br/>
+                once your factory is provided ( in just a few minutes )<br/>
                 you can immediately create value, no setup required<br/>
                 all major types of projects are supported ( and there's more to come )<br/>
             </Carousel.Caption>
@@ -49,7 +46,7 @@ export default class CloudRoadShow extends React.Component {
     renderCodeEditor() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/code-editor.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/code-editor.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -65,7 +62,7 @@ export default class CloudRoadShow extends React.Component {
     renderTryOut() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/try-out.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/try-out.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -81,7 +78,7 @@ export default class CloudRoadShow extends React.Component {
     renderDataExplorer() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/data-explorer.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/data-explorer.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -97,7 +94,7 @@ export default class CloudRoadShow extends React.Component {
     renderStoresExplorer() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/stores-explorer.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/stores-explorer.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -113,7 +110,7 @@ export default class CloudRoadShow extends React.Component {
     renderDebugger() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/debug-server.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/debug-server.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -129,7 +126,7 @@ export default class CloudRoadShow extends React.Component {
     renderDeployer() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/deploy-wizard.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/deploy-wizard.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
@@ -145,7 +142,7 @@ export default class CloudRoadShow extends React.Component {
     renderTablet() {
         return <>
             <div style={imageBoxStyle}>
-                <img src="/img/cloud-roadshow/tablet-coding.png" style={imageStyle} alt=""/>
+                <img src="/img/cloud-slides/tablet-coding.png" style={imageStyle} alt=""/>
             </div>
             <div style={textBoxStyle}>
             </div>
