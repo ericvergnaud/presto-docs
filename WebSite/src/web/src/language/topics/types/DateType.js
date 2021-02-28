@@ -32,7 +32,7 @@ class ThisTopic extends Topic {
                 <li><code>month</code>: returns an Integer equal to the date's month (January is 1, December is 12).</li>
                 <li><code>dayOfMonth</code>: returns an Integer equal to the date's month day (1 to 31)</li>
                 <li><code>dayOfYear</code>: returns an Integer equal to the date's year</li>
-                <PromptoPlayer lines={10} sampleUrl="samples/types/date/attributes.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/types/date/attributes.pec" runnable={true}/>
             </ul>
             <br/>
 

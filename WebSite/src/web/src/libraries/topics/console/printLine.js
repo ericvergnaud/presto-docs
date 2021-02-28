@@ -16,7 +16,7 @@ class ThisTopic extends Topic {
                     <p>The <i>printLine</i> method accepts any type of value, and will convert it to Text by calling its built-in <code>text</code> attribute.<br/>
                         It sends the output to the ConsoleWriter, followed by a carriage return.
                     </p>
-                    <PromptoPlayer sampleUrl="samples/console/printLineAny.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/console/printLineAny.pec" runnable={true}/>
 
                     <h2>printLine <i>Any value</i> to a <i>Writer writer</i></h2>
                     <p>This method has the following prototype:</p>
@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                     <p>The <i>print</i> method accepts any type of value, and will convert it to Text by calling its built-in <code>text</code> attribute.<br/>
                         It sends the output to the writer, followed by a carriage return. This can be convenient to send the output to the error output.
                     </p>
-                    <PromptoPlayer sampleUrl="samples/console/printLineAnyWriter.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/console/printLineAnyWriter.pec" runnable={true}/>
 
                 </React.Fragment>;
     }

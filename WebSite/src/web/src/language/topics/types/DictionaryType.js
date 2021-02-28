@@ -33,7 +33,7 @@ d["Paris"] -> get item with key "Paris" in Dictionary referenced by variable 'd'
                 <li><code>keys</code>: returns a Set of Text values containing all the keys in the dictionary</li>
                 <li><code>values</code>: returns a List of values containing all the values in the dictionary.
                     The exact type of the List is determined by the exact type of the dictionary</li>
-                <PromptoPlayer lines={8} sampleUrl="samples/types/dictionary/attributes.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/types/dictionary/attributes.pec" runnable={true}/>
             </ul>
             <br/>
 

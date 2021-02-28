@@ -28,7 +28,7 @@ class ThisTopic extends Topic {
 
             <p>Prompto is guaranteed to check <code>a</code> first, and only check <code>b</code> if <code>a</code> is
                 true.</p>
-            <PromptoPlayer sampleUrl="samples/expressions/and.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/and.pec" runnable={true}/>
             <br/>
 
             <h3>Logical OR</h3>
@@ -46,7 +46,7 @@ class ThisTopic extends Topic {
 
             <p>Prompto is guaranteed to check <code>a</code> first, and only
                     check <code>b</code> if <code>a</code> is false.</p>
-            <PromptoPlayer sampleUrl="samples/expressions/or.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/or.pec" runnable={true}/>
             <br/>
 
             <h3>Logical NOT</h3>
@@ -61,7 +61,7 @@ class ThisTopic extends Topic {
                 <li><code>not</code> in the E and M dialects</li>
                 <li><code>!</code> in the O dialect</li>
             </ul>
-            <PromptoPlayer sampleUrl="samples/expressions/not.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/not.pec" runnable={true}/>
             <br/>
             </React.Fragment>;
     }

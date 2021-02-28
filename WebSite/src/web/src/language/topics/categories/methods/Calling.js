@@ -14,17 +14,17 @@ class ThisTopic extends Topic {
             <p>Calling category methods is done simply by appending to the category instance variable a '.' followed by
                 the method name,
                 optionally followed by its arguments name and value pairs.</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/calling-simple.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/calling-simple.pec" runnable={true}/>
             <br/>
 
             <p>Thanks to naming, arguments can be provided in any sequence, which makes it clear how the arguments are
                 used.</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/calling-named.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/calling-named.pec" runnable={true}/>
             <br/>
 
             <p>Naming the arguments is mandatory in Prompto.</p>
             <p>However, when a method accepts only 1 argument, the argument name can be omitted:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/calling-anonymous.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/calling-anonymous.pec" runnable={true}/>
 
         </React.Fragment>;
     }

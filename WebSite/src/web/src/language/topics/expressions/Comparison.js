@@ -26,30 +26,30 @@ class ThisTopic extends Topic {
             <h3>Comparing Text values</h3>
 
             <p>Prompto compares Text values lexicographically i.e. using their underlying Unicode representation.</p>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-text.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-text.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing Character values</h3>
 
             <p>Prompto compares Character values lexicographically i.e. using their underlying Unicode
                 representation.</p>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-char.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-char.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing Integer and Decimal values</h3>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-number.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-number.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing Date values</h3>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-date.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-date.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing Time values</h3>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-time.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-time.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing DateTime values</h3>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/compare-date-time.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/compare-date-time.pec" runnable={true}/>
             <br/>
 
             <h3>Comparing user defined values</h3>

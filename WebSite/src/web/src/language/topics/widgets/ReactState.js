@@ -37,7 +37,7 @@ class ThisTopic extends Topic {
                 </li>
             </ul>
             <p>Here is an example where the 3 common methods are used.</p>
-            <PromptoPlayer lines={18} sampleUrl="samples/widgets/react-state.poc"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={18} sampleUrl="samples/widgets/react-state.poc"/>
             <br/>
         </React.Fragment>;
     }

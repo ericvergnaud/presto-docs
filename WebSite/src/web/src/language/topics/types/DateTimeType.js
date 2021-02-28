@@ -39,7 +39,7 @@ class ThisTopic extends Topic {
                 <li><code>tzOffset</code>: returns an Integer equal to the date time's time zone offset in minutes</li>
                 <li><code>tzName</code>: returns an Integer equal to the date time's time zone offset in minutes</li>
                 <p><i>Please note that due to limitations of Python and JavaScript, <code>tzOffset</code> and <code>tzName</code> are not currently supported on these platforms.</i></p>
-                <PromptoPlayer lines={14} sampleUrl="samples/types/datetime/attributes.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={14} sampleUrl="samples/types/datetime/attributes.pec" runnable={true}/>
             </ul>
             <br/>
         </React.Fragment>;

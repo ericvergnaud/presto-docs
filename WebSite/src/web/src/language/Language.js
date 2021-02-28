@@ -20,7 +20,7 @@ import Widgets from "./topics/widgets/Widgets";
 import Events from "./topics/events/Events";
 import Workers from "./topics/Workers";
 import Bindings from "./topics/bindings/Bindings";
-import Topics from "../components/Topics";
+import TopicList from "../components/TopicList";
 import SearchEngine from "../components/SearchEngine";
 
 const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
@@ -33,7 +33,6 @@ export default class Language extends React.Component {
     constructor(props) {
         super(props);
         this.state = { activeTopic: Overview };
-        this.topicSelected = this.topicSelected.bind(this);
     }
 
     topicSelected(topic) {
@@ -44,7 +43,7 @@ export default class Language extends React.Component {
         const style = { display: this.props.visible ? "block" : "none" };
         return <div className="topics" style={style}>
                 <div className="sidebar">
-                    <Topics topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected}/>
+                    <TopicList topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected.bind(this)}/>
                 </div>
                 <div className="content">
                     { this.state.activeTopic.renderContent(this.topicSelected) }

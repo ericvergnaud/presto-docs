@@ -20,7 +20,7 @@ class ThisTopic extends Topic {
                 The below is an example:
             </p>
             <ul>
-                <PromptoPlayer sampleUrl="samples/types/enums/direction.pec"/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/enums/direction.pec"/>
             </ul>
             <br/>
             <p>Enumerated symbols are global definitions. You cannot redefine the above
@@ -31,7 +31,7 @@ class ThisTopic extends Topic {
             </p>
             <p>Once an enumerated symbol is defined, it can be used anywhere in place of the value itself.</p>
             <ul>
-                <PromptoPlayer sampleUrl="samples/types/enums/usage.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/enums/usage.pec" runnable={true}/>
             </ul>
 
             <h3>
@@ -48,7 +48,7 @@ class ThisTopic extends Topic {
             <p>The enumeration itself has the following attributes:</p>
             <ul>
                 <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
-                <PromptoPlayer lines={12} sampleUrl="samples/types/enums/attributes.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/types/enums/attributes.pec" runnable={true}/>
             </ul>
             <br/>
 

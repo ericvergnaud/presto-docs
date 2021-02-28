@@ -15,7 +15,7 @@ class ThisTopic extends Topic {
             <p>Prompto supports <a target="_blank" rel="noopener noreferrer"
                                    href="https://reactjs.org/docs/introducing-jsx.html">JSX-like syntax</a>, where html tags, Prompto code and widget tags can be combined to render html dynamically.</p>
             <p>Here is a simple example:</p>
-            <PromptoPlayer lines={4} sampleUrl="samples/types/html/simple.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={4} sampleUrl="samples/types/html/simple.pec"/>
             <br/>
             <p>Prompto does not let you <i>generate</i> Html <i>per se</i>.<br/>
                 You cannot programmatically produce a <code>{String.raw`<div/>`}</code> tag.<br/>
@@ -34,24 +34,24 @@ class ThisTopic extends Topic {
             <h3>Rendering plain HTML</h3>
             <p>Although the HTML standard supports both lowercase and uppercase tags, Prompto requires that plain HTML tags be lowercase.<br/>
                 For these, Prompto performs no processing of the tag itself. The Html value will be transpiled <i>as is</i>.</p>
-            <PromptoPlayer lines={4} sampleUrl="samples/types/html/plain-html.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={4} sampleUrl="samples/types/html/plain-html.pec"/>
             <br/>
 
             <h3>Rendering content dynamically</h3>
             <p>Prompto supports setting content at runtime using a Prompto expression enclosed in curly braces.</p>
-            <PromptoPlayer lines={4} sampleUrl="samples/types/html/dynamic-content.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={4} sampleUrl="samples/types/html/dynamic-content.pec"/>
             <br/>
 
 
             <h3>Rendering attributes dynamically</h3>
             <p>Prompto supports setting attribute values at runtime using a Prompto expression enclosed in curly braces (which must provide a valid value for the attribute).</p>
-            <PromptoPlayer lines={4} sampleUrl="samples/types/html/dynamic-attribute.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={4} sampleUrl="samples/types/html/dynamic-attribute.pec"/>
             <br/>
 
             <h3>Rendering tags dynamically</h3>
             <p>Prompto supports rendering tags at runtime using a Prompto expression enclosed in curly braces (which must provide valid Html content).</p>
             <p>In the below example, we build a list of <code>&lt;div&gt;</code> tags dynamically from a list:</p>
-            <PromptoPlayer sampleUrl="samples/types/html/dynamic-tag.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/html/dynamic-tag.pec"/>
             <p><i>(note that the list itself is enclosed in a tag, following the requirement of one and one only root tag)</i></p>
             <br/>
 
@@ -59,7 +59,7 @@ class ThisTopic extends Topic {
             <p>Prompto supports rendering custom tags a.k.a. widgets. Prompto requires that widget tags start with an uppercase letter.</p>
             <p>Widgets are defined in Prompto code, see widgets section.</p>
             <p>In the below example, we render a widget named MyWidget.</p>
-            <PromptoPlayer lines={4} sampleUrl="samples/types/html/widget.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={4} sampleUrl="samples/types/html/widget.pec"/>
             <br/>
 
 

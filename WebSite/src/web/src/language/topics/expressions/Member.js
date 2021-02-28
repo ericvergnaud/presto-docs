@@ -23,7 +23,7 @@ class ThisTopic extends Topic {
                 is the name of a an attribute supported by this value.
             </p>
             <p>Prompto uses the same syntax for built-in attributes and user defined ones.</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/member.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/member.pec" runnable={true}/>
         </React.Fragment>;
     }
 

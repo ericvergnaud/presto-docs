@@ -34,7 +34,7 @@ class ThisTopic extends Topic {
                             <p>As a consequence, developers need to check the type of the value returned before making any decision.</p>
 
                              <p> Here is an example:</p>
-                            <PromptoPlayer lines={12} sampleUrl="samples/data/jsonExample.pec" runnable={true}/>
+                            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/data/jsonExample.pec" runnable={true}/>
                             <p/>
                          </li>
                     </ul>

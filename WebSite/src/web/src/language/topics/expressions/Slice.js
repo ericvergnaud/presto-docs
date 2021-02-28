@@ -32,13 +32,13 @@ class ThisTopic extends Topic {
             <h3>List slice</h3>
 
             <p>The type of the resulting value is the same as the List value.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/slice-list.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/slice-list.pec" runnable={true}/>
             <br/>
 
             <h3>Range slice</h3>
 
             <p>The type of the resulting value is the same as the Range value.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/slice-range.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/slice-range.pec" runnable={true}/>
             <br/>
 
             <h3>Text slice</h3>
@@ -47,7 +47,7 @@ class ThisTopic extends Topic {
                 them as a List of Character.<br/>
                 The type of the resulting value is a Text.
             </p>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/slice-text.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/slice-text.pec" runnable={true}/>
             <br/>
 
 

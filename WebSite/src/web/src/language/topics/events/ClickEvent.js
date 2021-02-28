@@ -15,7 +15,7 @@ class ThisTopic extends Topic {
                 The event is generated when the user <i>releases</i> the mouse, not when he/she presses it.</p>
             <p>As of writing, a ClickEvent has no specific method</p>
             <p>In the below example, we install a click handler on a &lt;div&gt; element:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/events/example.poc" />
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/events/example.poc" />
             </React.Fragment>;
     }
 

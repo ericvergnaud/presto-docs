@@ -22,7 +22,7 @@ class ThisTopic extends Topic {
                 <li><code>None</code> in the M dialect</li>
                 <li><code>null</code> in the O dialect</li>
             </ul>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/nothing.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/nothing.pec" runnable={true}/>
             <p>Please note that whatever the dialect, the <i>null</i> value always prints out as <i>'null'</i>.</p>
 
             </React.Fragment>;

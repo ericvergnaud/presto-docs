@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                 <li>define an 'Cat' category, derived from 'Animal', which overrides the 'speak' method</li>
                 <li>call the 'speak' method for an instance of each of them</li>
             </ul>
-            <PromptoPlayer lines={22} sampleUrl="samples/categories/methods/override.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={22} sampleUrl="samples/categories/methods/override.pec" runnable={true}/>
 
 
             </React.Fragment>;

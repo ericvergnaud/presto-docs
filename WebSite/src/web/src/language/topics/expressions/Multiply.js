@@ -27,7 +27,7 @@ class ThisTopic extends Topic {
             <p>Multiplying Integer and Decimal values returns an Integer value if both values are Integer, and a Decimal
                 otherwise.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/multiply-number.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/multiply-number.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -36,7 +36,7 @@ class ThisTopic extends Topic {
             <p>Multiplying Text or Character and Integer values returns a Text value, where the left-hand side is
                 concatenated <i>n</i> times.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/multiply-text.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/multiply-text.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -44,7 +44,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Multiplying Period and Integer values returns a Period value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/multiply-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/multiply-period.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -53,7 +53,7 @@ class ThisTopic extends Topic {
             <p>Multiplying List and Integer values returns a List value, where the left-hand side is added to
                 itself <i>n</i> times. This is convenient to initialize large lists.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/multiply-list.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/multiply-list.pec" runnable={true}/>
             <br/>
 
             <h3>Multiplying user defined values</h3>

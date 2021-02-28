@@ -17,13 +17,13 @@ class ThisTopic extends Topic {
                 where <code><i>condition</i></code> is a boolean expression, and <code><i>statements</i></code>
                 is a list of statements which will be executed whenever <code><i>condition</i></code> is true.
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/if.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/if.pec" runnable={true}/>
             <br/>
 
             <p>Optionally, an if else statement can comprise an <code>else</code> list of statements,
                 which which will be executed whenever <code><i>condition</i></code> is true.
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/if-else.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/if-else.pec" runnable={true}/>
             <br/>
 
 
@@ -31,7 +31,7 @@ class ThisTopic extends Topic {
                 statements,
                 which which will be executed whenever <code><i>condition</i></code> is true.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/statements/if-else-if.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/if-else-if.pec" runnable={true}/>
             </React.Fragment>;
     }
 

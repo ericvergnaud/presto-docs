@@ -23,7 +23,7 @@ class ThisTopic extends Topic {
             </ul>
             <p>In the below example, we create a <i>Minimal</i> widget, which renders a <i>title</i> dynamically.<br/>
                 In the <i>Page</i> widget, we set the <i>title</i> value, and pass it as a property to the <i>Minimal</i> widget.</p>
-            <PromptoPlayer lines={18} sampleUrl="samples/widgets/react-props.poc" />
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={18} sampleUrl="samples/widgets/react-props.poc" />
             <p><i>(there are plans to support the props field directly, but as of now, you need to call <code>getProperties</code>.</i></p>
 
             </React.Fragment>;

@@ -19,7 +19,7 @@ class ThisTopic extends Topic {
                 Prompto supports enumerations of both built-in and category types.<br/>
                 This section describes enumerations of category types.<br/>
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/enumerations/definition.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/enumerations/definition.pec"/>
             <br/>
 
             <p>Enumerated symbols are global definitions. You cannot redefine the above
@@ -30,7 +30,7 @@ class ThisTopic extends Topic {
             </p>
             <p>Once an enumerated symbol is defined, it can be used anywhere in place of the value itself.<br/>
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/enumerations/usage.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/enumerations/usage.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -44,7 +44,7 @@ class ThisTopic extends Topic {
             <ul>
                 <li><code>symbols</code>: returns a List of the symbols in the enumeration</li>
             </ul>
-            <PromptoPlayer lines={12} sampleUrl="samples/enumerations/attributes.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/enumerations/attributes.pec" runnable={true}/>
             <br/>
 
            <h3>
@@ -58,7 +58,7 @@ class ThisTopic extends Topic {
                 <li>define a 'Vehicle' enumeration which derives from 'MobileDevice'</li>
                 <li>call the 'printSpeed' method on an enumerated instance</li>
             </ul>
-                <PromptoPlayer lines={20} sampleUrl="samples/enumerations/methods.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={20} sampleUrl="samples/enumerations/methods.pec" runnable={true}/>
                 <br/>
 
             <h3>Enumerations of built-in types</h3>

@@ -1,7 +1,23 @@
 import React from 'react';
 import Topic from "../../../components/Topic";
 import PromptoPlayer from "../../../prompto-player/PromptoPlayer";
-import {NavItem} from "react-bootstrap";
+import {NavItem, NavLink} from "react-bootstrap";
+import TopicItem from "../../../components/TopicItem";
+
+class CallThenTopicItem extends TopicItem {
+
+    render() {
+        const active = this.props.topic===this.props.activeTopic;
+        return <>
+            <NavItem>
+                <NavLink active={active} eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}><i>Call</i> then</NavLink>
+            </NavItem>
+            { this.renderChildren()}
+        </>;
+    }
+
+}
+
 
 class ThisTopic extends Topic {
 
@@ -9,8 +25,8 @@ class ThisTopic extends Topic {
         super("Call then");
     }
 
-    renderItem(topicSelected, level) {
-        return <NavItem key={this.title} onClick={()=>topicSelected(this)}><i>Call</i> then</NavItem>;
+    renderItem(topicSelected, activeTopic, level) {
+        return <CallThenTopicItem ref={ref=>this.widget=ref || this.widget} key={this.title} topic={this} activeTopic={activeTopic} level={level} topicSelected={topicSelected}/>;
     }
 
     renderContent(topicSelected) {
@@ -18,13 +34,16 @@ class ThisTopic extends Topic {
             <h2><i>Call</i> then statement</h2>
 
             <p>A <i>Call</i> then statement is a way to execute a method on the server, return immediately, and run continuing statements locally later, once the method has finished executing on the server.<br/>
-                In its simplest form, a <i>Call</i> then statement has the form <code><i>method</i> then <i>continuation</i></code>, where <i>method</i> is a method call as described in the Methods section,
+                In its simplest form, a <i>Call</i> then statement has the form<br/>
+                <code><i>method</i> then <i>continuation</i></code><br/>
+                where <i>method</i> is a method call as described in the Methods section,
                 and <i>continuation</i> is a list of statements which are to be executed only after the method has finished executing on the server.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/statements/call-then-void.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/call-then-void.pec"/>
                 <br/>
-            <p>For methods that return a value, and if the value is needed by the continuation, a <i>Call</i> then statement has the form
-                <code><i>method</i> then with <i>value continuation</i></code>, where <i>value</i> is the name you want to give to the local variable holding the result.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/statements/call-then-value.pec"/>
+            <p>For methods that return a value, and if the value is needed by the continuation, a <i>Call</i> then statement has the form<br/>
+                <code><i>method</i> then with <i>value continuation</i></code><br/>
+                where <i>value</i> is the name you want to give to the local variable holding the result.</p>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/call-then-value.pec"/>
             <br/>
 
 

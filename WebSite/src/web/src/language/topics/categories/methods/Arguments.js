@@ -23,23 +23,15 @@ class ThisTopic extends Topic {
                     where <code><i>name</i></code> is
                     an existing Attribute name.
                 </p>
-                    <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/arguments-attribute.pec"
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/arguments-attribute.pec"
                                    runnable={true}/>
                     <br/>
-                    <p>When the attribute is the first argument, it can be automatically <i>extracted</i> from the
-                        object:
-                    </p>
-                    <PromptoPlayer lines={14} sampleUrl="samples/categories/methods/arguments-implicit.pec"
-                                   runnable={true}/>
-                    <p>In the above example, the <i>printVisit</i> method expects a <i>country</i> as argument.
-                        Since <i>City</i> has a <i>country</i> attribute,
-                        Prompto is able to automatically extract it.</p>
                 </li>
                 <li><p><b>Typed argument</b>, with the form <code><i>Type x</i></code>,
                     where <code><i>type</i></code> is an
                     existing Type name
                     and <code><i>x</i></code> can be any valid variable identifier.</p>
-                    <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/arguments-typed.pec"
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/arguments-typed.pec"
                                    runnable={true}/>
                     <br/>
                 </li>
@@ -49,7 +41,7 @@ class ThisTopic extends Topic {
                     identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than
                     one
                     attribute.</p>
-                    <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/arguments-anonymous.pec"
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/arguments-anonymous.pec"
                                    runnable={true}/>
                     <br/>
                 </li>
@@ -60,23 +52,18 @@ class ThisTopic extends Topic {
                     identifier and <code><i>name</i></code> is an existing Attribute name. This form accepts more than
                     one
                     attribute.</p>
-                    <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/arguments-extended.pec"
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/arguments-extended.pec"
                                    runnable={true}/>
                     <br/>
                 </li>
             </ul>
-
-            <h4>Mixing argument types</h4>
-            <p>When a category method expects mutiple arguments, argument types can be mixed as required. </p>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/arguments-mixed.pec" runnable={true}/>
-            <br/>
 
             <h4>Default argument values</h4>
             <p>Prompto supports <i>default</i> argument values, which remove the need to always pass all
                 arguments to a method.</p>
             <p>Default argument values must be <i>constant</i> values, i.e. they cannot vary during program execution. Good candidates
                         are literals, null, and enumerated values.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/methods/arguments-default.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/methods/arguments-default.pec" runnable={true}/>
             <br/>
 
        </React.Fragment>;

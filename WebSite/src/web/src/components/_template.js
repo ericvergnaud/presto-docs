@@ -12,7 +12,7 @@ class ThisTopic extends Topic {
         return <React.Fragment>
                     <h2>Keywords</h2>
                     <p>Stuff</p>
-                    <PromptoPlayer sampleUrl="samples/types/date/attributes.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/date/attributes.pec" runnable={true}/>
             </React.Fragment>;
     }
 

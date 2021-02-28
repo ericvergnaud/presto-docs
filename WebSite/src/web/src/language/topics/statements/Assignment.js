@@ -22,7 +22,7 @@ class ThisTopic extends Topic {
             <h3>
                 Assigning values to variables
             </h3>
-            <PromptoPlayer sampleUrl="samples/statements/assign-variable.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/assign-variable.pec" runnable={true}/>
 
             <br/>
             <p>Prompto infers the type of a variable from its first assignment, which is generaly desirable.<br/>
@@ -35,7 +35,7 @@ class ThisTopic extends Topic {
                 because an <code>Integer</code> variable cannot hold a <code>Decimal</code> value.
             </p>
             <br/>
-            <PromptoPlayer sampleUrl="samples/statements/assign-explicit.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/assign-explicit.pec" runnable={true}/>
 
             <h3>
                 Assigning values to list items
@@ -50,7 +50,7 @@ class ThisTopic extends Topic {
                 The <code><i>item</i></code> must be in the range <i>1 .. n</i> where <i>n</i> is the number of items in
                 the list.
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/assign-mutable.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/assign-mutable.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -58,7 +58,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Assigning values to tuple items is done the same way as for lists.
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/assign-tuple.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/assign-tuple.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -78,7 +78,7 @@ class ThisTopic extends Topic {
                 <code><i>dict</i></code> is a dictionary expression and <code><i>key</i></code> is
                 a <code>Text</code> expression.
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/assign-dictionary.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/assign-dictionary.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -92,7 +92,7 @@ class ThisTopic extends Topic {
                 <code><i>object</i></code> is a category object expression and <code><i>member</i></code> is
                 an <code>attribute</code>.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/statements/assign-member.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/statements/assign-member.pec" runnable={true}/>
 
            </React.Fragment>;
     }

@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                 Inequality of types is checked using the <code>is not a</code> or <code>is not an</code> operator.
                 Prompto supports.
             </p>
-            <PromptoPlayer lines={12} sampleUrl="samples/expressions/type-is-native.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/expressions/type-is-native.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -32,7 +32,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>When checking type of user defined values, Prompto checks for compatibility rather than equality.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/type-is-user.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/type-is-user.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -41,7 +41,7 @@ class ThisTopic extends Topic {
             <p>When checking type of user defined values in an <code>if</code> statement, Prompto automatically
                 downcasts the value type for the corresponding statements.
             </p>
-            <PromptoPlayer lines={20} sampleUrl="samples/expressions/auto-cast.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={20} sampleUrl="samples/expressions/auto-cast.pec" runnable={true}/>
             <br/>
 
 

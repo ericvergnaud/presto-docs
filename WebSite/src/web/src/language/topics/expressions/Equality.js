@@ -27,7 +27,7 @@ class ThisTopic extends Topic {
                 On the other hand, <code>a</code> and <code>c</code> refer to different objects (although those objects
                 have equal value).
             </p>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/equal-object.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/equal-object.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -39,7 +39,7 @@ class ThisTopic extends Topic {
                 In the below example, <code>a</code> and <code>b</code> have the same value.<br/>
                 On the other hand, <code>a</code> and <code>c</code> have different values.
             </p>
-            <PromptoPlayer lines={9} sampleUrl="samples/expressions/equal-value.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={9} sampleUrl="samples/expressions/equal-value.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -52,7 +52,7 @@ class ThisTopic extends Topic {
                 Rough equality of values is checked using the <code>~</code> operator in E, or
                 the <code>~=</code> operator in O or M.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/equal-rough.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/equal-rough.pec" runnable={true}/>
             <br/>
 
             <h3>Checking equality of user defined values</h3>

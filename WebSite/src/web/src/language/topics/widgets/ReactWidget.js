@@ -17,12 +17,12 @@ class ThisTopic extends Topic {
             <h2>React widgets</h2>
             <p>A React widget is a widget to be used with the React rendering engine.<br/>
                 It must extend the ReactWidget class. Here is a minimal example:</p>
-            <PromptoPlayer sampleUrl="samples/widgets/react-minimal.poc"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/widgets/react-minimal.poc"/>
             <br/>
             <p>At minimal, a React widget must provide a <code><i>render</i></code> method. This method does not take parameters, and must return valid Html.</p>
             <h3>Derived widget</h3>
             <p>Additionally, a React widget can extend an existing React widget. Here is an example:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/widgets/react-derived.poc"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/widgets/react-derived.poc"/>
             <i>(note that the Derived widget is not required to implement a render method, since it is already provided by the Minimal widget)</i>
             <br/>
             <h3>React widget fields: <code><i>state</i></code> and <code><i>props</i></code></h3>

@@ -23,17 +23,17 @@ class ThisTopic extends Topic {
                 <li>create a Candidate: john</li>
                 <li>create an Employee: new_joiner, copied from john</li>
             </ul>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/copy-employee.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/copy-employee.pec" runnable={true}/>
             <br/>
 
             <h3>Populating additional attribute values when copying objects</h3>
             <p>On top of copying values, you may need to populate additional attribute values:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/copy-enrich.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/copy-enrich.pec" runnable={true}/>
             <br/>
 
             <h3>Overwriting attribute values when copying objects</h3>
             <p>Eventually, you might need to overwrite existing values:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/copy-overwrite.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/copy-overwrite.pec" runnable={true}/>
             <br/>
         </React.Fragment>;
     }

@@ -21,12 +21,12 @@ class ThisTopic extends Topic {
             <pre><code>{String.raw`{} -> an empty Document
 {"Paris": "France", "John": 20000} -> a Document of 2 keys and  values`}</code></pre>
             <p>Document <i>keys</i> starting with a lowercase letter and not comprising special characters do not need to be enclosed in double-quotes.</p>
-            <PromptoPlayer sampleUrl="samples/types/document/member.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/document/member.pec" runnable={true}/>
             <br/>
             <p>Alternately, a Document can be created using the <code>Document</code> keyword and assigning it to a variable. Once the document is created, it can be populated simply by assigning values to members. Both member definition and
                 member population occur at the same time i.e. a document has no predefined members.
             </p>
-            <PromptoPlayer sampleUrl="samples/types/document/assign.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/document/assign.pec" runnable={true}/>
 
             <h3>Accessing Document members</h3>
             <p>Items in a Document can be accessed individually using their key.</p>
@@ -37,11 +37,11 @@ d["Paris"] -> get item with key "Paris" in Document referenced by variable 'd' i
             <p>A <i>deep</i> member is a member that is not directly accessible from the root of a Document.<br/>
                 Prompto gracefully creates missing members on the fly, making it very easy to populate them:
             </p>
-            <PromptoPlayer sampleUrl="samples/types/document/assign-deep.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/document/assign-deep.pec" runnable={true}/>
 
             <h3>Populating list members</h3>
             <p>Document members can also be lists: </p>
-            <PromptoPlayer sampleUrl="samples/types/document/assign-list.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/document/assign-list.pec" runnable={true}/>
 
         </React.Fragment>;
     }

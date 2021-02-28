@@ -1,19 +1,19 @@
 widget WidgetWithInput extends ReactWidget {
 
     method getInitalState() {
-        return { value: "" }
+        return { value: "" };
     }
 
     method inputChanged(InputChangedEvent event) {
-        proposed = event.getProposedText()
+        proposed = event.getProposedText();
         if(proposed.count <= 20)
-            setState({value: proposed})
+            setState({value: proposed});
         else
-            setState({value: event.getCurrentText()})
+            setState({value: event.getCurrentText()});
     }
 
 	Html method render () {
-	    state = getState()
+	    state = getState();
 		return <Input onChange={inputChanged} value={state.value} />;
 	}
 

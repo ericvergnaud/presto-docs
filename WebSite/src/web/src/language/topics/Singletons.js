@@ -41,7 +41,7 @@ class ThisTopic extends Topic {
                 <li>populate its attributes inside a <code>with</code> block</li>
                 <li>read an attribute directly from the singleton</li>
             </ul>
-            <PromptoPlayer lines={12} sampleUrl="samples/singletons/read.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/singletons/read.pec" runnable={true}/>
             <p>In the above example, it is safe to read <i>login</i> outside a <code>with</code> block, because it only
                 involves reading one value.</p>
             <br/>
@@ -53,7 +53,7 @@ class ThisTopic extends Topic {
                 <li>change the singleton's attribute values</li>
             </ul>
             <p>For those reasons, singleton methods can only be called within a <code>with</code> block: </p>
-            <PromptoPlayer lines={16} sampleUrl="samples/singletons/call.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/singletons/call.pec" runnable={true}/>
             <br/>
 
             <h3>How the <code>with</code> block works</h3>

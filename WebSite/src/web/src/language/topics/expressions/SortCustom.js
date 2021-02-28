@@ -21,19 +21,19 @@ class ThisTopic extends Topic {
 
             <p>When a custom object comprises a <i>key</i>, this attribute can be used to sort a collection implicitly.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/sort-implicit.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/sort-implicit.pec" runnable={true}/>
             <br/>
 
             <h3>Sorting by specified attribute</h3>
 
             <p>Any attribute which has a natural sording order can be used to sort a collection explicitly.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/sort-attribute.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/sort-attribute.pec" runnable={true}/>
             <br/>
 
             <h3>Sorting by expression</h3>
 
             <p>Alternately, lists of custom objects can be sorted using expressions as key, as follows: </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/sort-expressions.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/sort-expressions.pec" runnable={true}/>
             <br/>
 
             </React.Fragment>;

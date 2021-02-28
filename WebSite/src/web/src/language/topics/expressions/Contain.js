@@ -55,7 +55,7 @@ class ThisTopic extends Topic {
                 using a Text,
                 which is then treated as collection of characters.
             </p>
-            <PromptoPlayer lines={14} sampleUrl="samples/expressions/contain-text.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={14} sampleUrl="samples/expressions/contain-text.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -63,7 +63,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Range Contain expressions check whether a value belongs to a given Range value.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/contain-range.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/contain-range.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -71,7 +71,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>List Contain expressions check whether a value belongs to a given List value.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/contain-list.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/contain-list.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -79,7 +79,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Set Contain expressions check whether a value belongs to a given Set value.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/contain-set.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/contain-set.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -87,7 +87,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Tuple Contain expressions check whether a value belongs to a given Tuple value.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/contain-tuple.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/contain-tuple.pec" runnable={true}/>
             <br/>
 
             <h3>

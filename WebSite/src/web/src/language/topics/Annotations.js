@@ -17,7 +17,7 @@ class ThisTopic extends Topic {
                 Annotations are always attached to the next non-comment declaration.<br/>
                 In the below example, the first annotation is attached to the widget declaration, the second one to a method.
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/definitions/annotation.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/definitions/annotation.pec"/>
 
             <br/>
             <p>As of writing, Prompto only supports built-in annotations, which are used by the Prompto components.<br/>

@@ -14,7 +14,7 @@ class ThisTopic extends Topic {
             <h2>Binding global methods</h2>
             <p>Binding global methods is done as follows:</p>
 
-            <PromptoPlayer sampleUrl="samples/bindings/global-method.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/bindings/global-method.pec"/>
 
             <p>Notice the <code>native</code> keyword in the method definition. This denotes a native binding method.
             </p>

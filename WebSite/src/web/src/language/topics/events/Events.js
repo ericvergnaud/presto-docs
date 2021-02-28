@@ -20,7 +20,7 @@ class ThisTopic extends Topic {
                 Applications need to install <i>event handlers</i> in order to receive these events and act accordingly.
             </p>
             <p>In the below example, we install a click handler on a &lt;div&gt; element:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/events/example.poc" />
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/events/example.poc" />
             <br/>
             <p>Prompto supports the following events:</p>
             <ul>

@@ -21,14 +21,14 @@ class ThisTopic extends Topic {
                  <p>Once the value is matched, and the corresponding statements are exectued, the flow of execution
                     resumes at the end of the switch statement.
                 </p>
-                <PromptoPlayer lines={10} sampleUrl="samples/statements/switch.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/switch.pec" runnable={true}/>
                 <br/>
 
                 <p>Optionally, a switch statement can end with an <code>otherwise</code> clause and list of statements,
                     which will be executed when no previous <code><i>value</i></code> matches. The <code>otherwise</code> clause
                     must be after all the <code>when</code> clauses.
                 </p>
-                <PromptoPlayer lines={10} sampleUrl="samples/statements/switch-otherwise.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/switch-otherwise.pec" runnable={true}/>
                 <br/>
 
                <h3>
@@ -38,7 +38,7 @@ class ThisTopic extends Topic {
                 <p>Switch statements support matching list of values using <code>when in <i>values</i></code> where <code><i>values</i></code>
                     must be a collection.
                 </p>
-                <PromptoPlayer lines={10} sampleUrl="samples/statements/switch-list.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/switch-list.pec" runnable={true}/>
 
                 <br/>
                 Note: in Objy dialect, Prompto uses the <code>switch</code>, <code>case</code> and <code>default</code> keywords like in C++, Java and C#.

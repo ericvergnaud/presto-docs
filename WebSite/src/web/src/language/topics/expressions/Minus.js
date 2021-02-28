@@ -24,13 +24,13 @@ class ThisTopic extends Topic {
             <h3>
                 Reversing Integer and Decimal values
             </h3>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/minus-number.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/minus-number.pec" runnable={true}/>
             <br/>
 
             <h3>
                 Reversing Period values
             </h3>
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/minus-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/minus-period.pec" runnable={true}/>
             <br/>
 
             </React.Fragment>;

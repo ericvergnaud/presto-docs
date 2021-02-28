@@ -21,13 +21,13 @@ class ThisTopic extends Topic {
             <h3>
                 Exiting a method without returning a value
             </h3>
-            <PromptoPlayer sampleUrl="samples/statements/return.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/return.pec" runnable={true}/>
             <br/>
 
             <h3>
                 Returning a value
             </h3>
-            <PromptoPlayer sampleUrl="samples/statements/return-value.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/return-value.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -35,7 +35,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Prompto supports multiple return statements in a method body, provided that all return expressions have
                 compatible types</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/statements/return-multi.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/return-multi.pec" runnable={true}/>
 
             </React.Fragment>;
     }

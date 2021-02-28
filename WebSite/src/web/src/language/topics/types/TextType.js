@@ -47,7 +47,7 @@ class ThisTopic extends Topic {
             <p>Text values have the following attributes:</p>
             <ul>
                 <li><code>count</code>: returns an Integer equal to the number of characters
-                    <PromptoPlayer sampleUrl="samples/types/text/count.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/text/count.pec" runnable={true}/>
                 </li>
             </ul>
 
@@ -58,31 +58,31 @@ class ThisTopic extends Topic {
             <p>Text values have the following methods:</p>
                 <ul>
                     <li><code>toLowerCase</code>: returns a Text with all characters in lower case<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/toLowerCase.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/toLowerCase.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>toUpperCase</code>: returns a Text with all characters in upper case<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/toUpperCase.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/toUpperCase.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>toCapitalized</code>: returns a Text with the first letter of each word capitalized<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/toCapitalized.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/toCapitalized.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>split</code>: splits a Text into segments defined by a separator and return them as a Text list<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/split.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/split.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>trim</code>: returns a Text with leading and trailing white space trimmed<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/trim.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/trim.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>replace</code>: returns a Text with one occurence replaced<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/replace.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/replace.pec" runnable={true}/>
                         <br/>
                     </li>
                     <li><code>replaceAll</code>: returns a Text with all occurences replaced<p/>
-                        <PromptoPlayer sampleUrl="/samples/types/text/replaceAll.pec" runnable={true}/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/replaceAll.pec" runnable={true}/>
                         <br/>
                     </li>
                 </ul>

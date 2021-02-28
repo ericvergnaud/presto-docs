@@ -28,7 +28,7 @@ class ThisTopic extends Topic {
             <p>The first step in binding categories is to bind the Prompto category itself to an host language
                 equivalent.
                 Binding categories is done as follows:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/bindings/category.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/bindings/category.pec"/>
 
             <p>Notice the <code>native</code> keyword in the category definition. This denotes a binding category.</p>
             <p>The category body must comprise exactly 1 category binding statement, which must itself comprise exactly
@@ -76,7 +76,7 @@ class ThisTopic extends Topic {
                 actual names.
                 Alternately, attribute name bridging can be achieved using native getters and setters.</p>
             <p>The below is an example of using a getter to bind a virtual attribute:</p>
-            <PromptoPlayer lines={20} sampleUrl="samples/bindings/attribute.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={20} sampleUrl="samples/bindings/attribute.pec"/>
 
             <h3>Binding methods</h3>
 
@@ -87,7 +87,7 @@ class ThisTopic extends Topic {
                 which both represent the native instance in all host languages.</p>
 
             <p>Here is an example:</p>
-            <PromptoPlayer lines={20} sampleUrl="samples/bindings/category-method.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={20} sampleUrl="samples/bindings/category-method.pec"/>
 
              </React.Fragment>;
     }

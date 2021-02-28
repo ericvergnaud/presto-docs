@@ -1,7 +1,7 @@
 widget Minimal extends ReactWidget {
 
     method clicked(ClickEvent event) {
-        alert("clicked")
+        alert("clicked");
     }
 
 	Html method render () {

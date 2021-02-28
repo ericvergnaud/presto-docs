@@ -19,7 +19,7 @@ class ThisTopic extends Topic {
                     This method returns a Text, which is set to the id attribute of the newly selected radio button.</li>
             </ul>
             <p>In the below example, we capture each RadioChangedEvent, and apply business rules:</p>
-            <PromptoPlayer lines={22} sampleUrl="samples/events/radio-changed-event.poc"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={22} sampleUrl="samples/events/radio-changed-event.poc"/>
             <p><i>(the above Radio widget is a fictitious one. See ReactBootstrap for a real example)</i></p>
             </React.Fragment>;
     }

@@ -43,7 +43,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Prompto can store any object for which the category is marked as <code><i>storable</i></code>, as
                 follows:</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/statements/store-create.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/statements/store-create.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -54,7 +54,7 @@ class ThisTopic extends Topic {
                 Only objects fetched from the store can be updated, and those objects carry their <code>dbId</code>.
                 These objects must also be mutable, so the language is allowed to modify attribute values.<br/>
                 Updating these objects can be simply done by storing them, as follows:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/statements/store-update.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/store-update.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -64,7 +64,7 @@ class ThisTopic extends Topic {
                 data store.
                 Only objects fetched from the store can be deleted, and those objects carry their <code>dbId</code>.
                 Deleting these objects can be simply done as follows:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/statements/delete.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/delete.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -72,7 +72,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>To ensure consistency of data, Prompto supports deleting and storing multiple objects in a single
                 statement, as follows:</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/statements/delete-store.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/delete-store.pec" runnable={true}/>
             <br/>
             </React.Fragment>;
     }

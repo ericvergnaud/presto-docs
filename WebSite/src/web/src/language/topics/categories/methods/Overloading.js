@@ -20,12 +20,12 @@ class ThisTopic extends Topic {
                 with respect to the required arguments. This matching is performed using the sequence of the parameters
                 in the method call.</p>
             <p>In the below example, the 2 methods have the same name, but a different number of arguments:</p>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/overloading-count.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/overloading-count.pec" runnable={true}/>
             <br/>
 
             <p>Category method <i>overloading</i> also works with different argument types.</p>
             <p>Each <i>overridden</i> method provides a behavior specific to its argument types.</p>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/overloading-type.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/overloading-type.pec" runnable={true}/>
             <br/>
 
             <p>When a category method is <i>overloaded</i>, Prompto selects the most appropriate one at runtime i.e. the

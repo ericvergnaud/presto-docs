@@ -30,7 +30,7 @@ class ThisTopic extends Topic {
                 If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
                 The type of the resulting value is the List item type.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-list.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-list.pec" runnable={true}/>
             <br/>
 
             <h3>Tuple item</h3>
@@ -40,7 +40,7 @@ class ThisTopic extends Topic {
                 If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
                 Prompto cannot infer the type of Tuple items, so the type of the resulting value is <code>Any</code>.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-tuple.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-tuple.pec" runnable={true}/>
             <br/>
 
             <h3>Range item</h3>
@@ -50,7 +50,7 @@ class ThisTopic extends Topic {
                 If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
                 The type of the resulting value is the Range item type.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-range.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-range.pec" runnable={true}/>
             <br/>
 
             <h3>Dictionary item</h3>
@@ -59,7 +59,7 @@ class ThisTopic extends Topic {
                 If the Dictionary has no value for the key, it will return the <code>null</code> value.<br/>
                 The type of the resulting value is the Dictionary item type.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-dictionary.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-dictionary.pec" runnable={true}/>
             <br/>
 
             <h3>Document item</h3>
@@ -68,7 +68,7 @@ class ThisTopic extends Topic {
                 If the Document has no value for the key, it will return the <code>null</code> value.<br/>
                 Prompto cannot infer the type of Document items, so the type of the resulting value is <code>Any</code>.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-document.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-document.pec" runnable={true}/>
             <br/>
 
             <h3>Text item</h3>
@@ -80,7 +80,7 @@ class ThisTopic extends Topic {
                 If the <i>item</i> value is out of range, an <code>INDEX_OUT_OF_RANGE</code> error will be raised.<br/>
                 The type of the resulting value is a Character.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-text.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-text.pec" runnable={true}/>
             <br/>
 
             <h3>Set item</h3>
@@ -96,7 +96,7 @@ class ThisTopic extends Topic {
                 The type of the resulting value is the Set item type.
             </p>
             <p><b>You must NOT use Set items in production code. This feature is for development only.</b></p>
-            <PromptoPlayer sampleUrl="samples/expressions/item-set.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/item-set.pec" runnable={true}/>
             <br/>
 
             <p><i>(in JavaScript, Set items are retrieved in the order used to create them, which is why in the above

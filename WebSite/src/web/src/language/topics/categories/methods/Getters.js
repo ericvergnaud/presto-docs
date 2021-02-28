@@ -25,7 +25,7 @@ class ThisTopic extends Topic {
                 call the <i>getter</i> instead.<br/>
                 In the below example, we define a <i>getter</i> for a <i>fullName</i> attribute:
             </p>
-            <PromptoPlayer lines={12} sampleUrl="samples/categories/methods/getter.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/categories/methods/getter.pec" runnable={true}/>
             <br/>
 
             <h4>Cyclical dependencies</h4>

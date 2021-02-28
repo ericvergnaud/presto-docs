@@ -18,12 +18,12 @@ class ThisTopic extends Topic {
                 where <code><i>item</i></code> is a variable name and <code><i>collection</i></code> is a collection.
                 If <code><i>item</i></code> already exists, its type must be compatible with the item type of the
                 collection.</p>
-            <PromptoPlayer sampleUrl="samples/statements/for-each.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/for-each.pec" runnable={true}/>
                 <br/>
 
                 <p>Optionally, a for each statement can populate an index variable.
                 </p>
-            <PromptoPlayer lines={12} sampleUrl="samples/statements/for-each-index.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/for-each-index.pec" runnable={true}/>
             <br/>
 
                 <h3>
@@ -32,7 +32,7 @@ class ThisTopic extends Topic {
 
                 <p>It is sometimes useful to break the iteration before reaching the end of the collection. This is
                     achieved using the <code>break</code> statement.</p>
-            <PromptoPlayer sampleUrl="samples/statements/for-each-break.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/for-each-break.pec" runnable={true}/>
                 <br/>
 
             </React.Fragment>;

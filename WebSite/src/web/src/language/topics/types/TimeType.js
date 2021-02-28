@@ -31,7 +31,7 @@ class ThisTopic extends Topic {
                 <li><code>minute</code>: returns an Integer equal to the time's minute (0 to 59).</li>
                 <li><code>second</code>: returns an Integer equal to the time's second (0 to 59)</li>
                 <li><code>millisecond</code>: returns an Integer equal to the time's millisecond (0 to 999)</li>
-                <PromptoPlayer lines={10} sampleUrl="samples/types/time/attributes.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/types/time/attributes.pec" runnable={true}/>
             </ul>
             <br/>
             </React.Fragment>;

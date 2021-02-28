@@ -13,7 +13,7 @@ class ThisTopic extends Topic {
                     <h2>Buffer</h2>
                     <p>Buffer is a native <i>resource</i> which follows Prompto resource requirements.<br/>
                         You can <code>read</code> and <code>write</code> Text to a <i>Buffer</i>.</p>
-                    <PromptoPlayer lines={12} sampleUrl="samples/console/buffer.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/console/buffer.pec" runnable={true}/>
             </React.Fragment>;
     }
 

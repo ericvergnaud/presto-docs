@@ -33,7 +33,7 @@ a[1] -> get item at position 1 in List referenced by variable 'a' i.e. the Integ
             <p>List values have the following attributes:</p>
             <ul>
                 <li><code>count</code>: returns an Integer equal to the number of items in the list</li>
-                <PromptoPlayer sampleUrl="samples/types/list/count.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/list/count.pec" runnable={true}/>
             </ul>
            <br/>
             </React.Fragment>;

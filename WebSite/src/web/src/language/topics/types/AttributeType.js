@@ -20,7 +20,7 @@ class ThisTopic extends Topic {
                 In Prompto, semantic types are defined through attribute definitions.<br/>
                 An attribute is defined by simply combining a name with a technical or category type.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/types/attribute/simple.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/attribute/simple.pec"/>
 
             <h2>Constraints</h2>
 
@@ -28,7 +28,7 @@ class ThisTopic extends Topic {
                 These can be defined using lexical patterns, lists of values or computable expressions.<br/>
                 Computable expressions can refer to the underlying value using the keyword <code>value</code>.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/types/attribute/constraint.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/attribute/constraint.pec"/>
 
             <h2>Storage</h2>
 
@@ -38,7 +38,7 @@ class ThisTopic extends Topic {
                 For all technical types except Text, this is achieved by simply adding <code>with index</code> to the
                 attribute definition.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/types/attribute/storable.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/attribute/storable.pec"/>
 
             <h2>Indexing Text</h2>
 
@@ -56,7 +56,7 @@ class ThisTopic extends Topic {
                 Prompto lets you combine the 3 index types. It is rare however to simultaneously need more than 1 of
                 them.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/types/attribute/textindex.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/attribute/textindex.pec"/>
             </React.Fragment>;
     }
 

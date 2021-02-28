@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
             <p>
                 As an example, you can sort a Text collection by character count as follows:
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/sort-text-count.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/sort-text-count.pec" runnable={true}/>
             <br/>
 
             <h3>Double variable arrow sorting</h3>
@@ -41,7 +41,7 @@ class ThisTopic extends Topic {
                 In the below example, if a person's name first letter equals the person's city first letter, we sort by city population, otherwise we sort
                 by name descending:
             </p>
-            <PromptoPlayer lines={32} sampleUrl="samples/expressions/sort-advanced.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={32} sampleUrl="samples/expressions/sort-advanced.pec" runnable={true}/>
             <br/>
 
 

@@ -30,7 +30,7 @@ class ThisTopic extends Topic {
             </ul>
             <p>In the below example, when clicking on a button, a <code>Modal</code> is displayed.<br/>
                 The <code>Modal</code> itself has a button to close the modal.</p>
-            <PromptoPlayer lines={40} sampleUrl="samples/widgets/react-modal.poc" />
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={40} sampleUrl="samples/widgets/react-modal.poc" />
             <p/>
             <p>It is worth noting that these methods affect the html rendering of the widget, but the widget itself might require additional properties to be visible.<br/>
                 For example React Bootstrap 3 modals require a <code>show</code> property to be set (see above example).

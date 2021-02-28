@@ -33,7 +33,7 @@ a[1] -> get item at position 1 in Tuple referenced by variable 'a' i.e. the Text
             <p>Tuple values have the following attributes:</p>
             <ul>
                 <li><code>count</code>: returns an Integer equal to the number of items in the tuple</li>
-                <PromptoPlayer sampleUrl="samples/types/tuple/count.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/tuple/count.pec" runnable={true}/>
             </ul>
             <br/>
             </React.Fragment>;

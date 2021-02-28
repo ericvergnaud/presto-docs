@@ -22,7 +22,7 @@ class ThisTopic extends Topic {
                 </ul>
 
                 <p>A category method must be defined within a category definition, as follows:</p>
-                <PromptoPlayer lines={6} sampleUrl="samples/categories/methods/definitions.pec"/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={6} sampleUrl="samples/categories/methods/definitions.pec"/>
                 <br/>
 
 

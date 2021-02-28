@@ -23,13 +23,13 @@ class ThisTopic extends Topic {
                 where <code><i>collection</i></code> is a collection expression, <code><i>item</i></code> is a variable identifier,
                 and <code><i>predicate</i></code> is a boolean expression which can use <code><i>item</i></code> as a local variable holding the current collection item being evaluated.</p>
 
-                <PromptoPlayer sampleUrl="samples/expressions/filter-arrow.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/filter-arrow.pec" runnable={true}/>
             <p/>
             <p>
                 Alternately, a more explicit form can be used as follows:
             </p>
 
-            <PromptoPlayer sampleUrl="samples/expressions/filter-item.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/filter-item.pec" runnable={true}/>
             </React.Fragment>;
     }
 

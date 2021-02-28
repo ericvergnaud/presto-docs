@@ -35,7 +35,7 @@ s contains 12 -> return true if Set referenced by variable 's' contains the Inte
             <p>Set values have the following attributes:</p>
             <ul>
                 <li><code>count</code>: returns an Integer equal to the number of items in the set</li>
-                <PromptoPlayer sampleUrl="samples/types/set/count.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/set/count.pec" runnable={true}/>
             </ul>
             <br/>
 

@@ -39,13 +39,13 @@ class ThisTopic extends Topic {
 
             <p>When reading all the lines at once, you can simply specify the resource as a parameter to the <code>read
                 all</code> statement.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/resources/read-all-inline.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/resources/read-all-inline.pec" runnable={true}/>
             <br/>
 
             <h4>Read the text line by line from a <i>managed</i> resource</h4>
 
             <p>To read the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/resources/read-one-managed.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/resources/read-one-managed.pec" runnable={true}/>
             <br/>
 
             <h3>Writing text to a resource</h3>
@@ -59,13 +59,13 @@ class ThisTopic extends Topic {
 
             <p>When writing all the text at once, you can simply specify the resource as a parameter to
                 the <code>write</code> statement.</p>
-            <PromptoPlayer sampleUrl="samples/resources/write-all-inline.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/resources/write-all-inline.pec" runnable={true}/>
             <br/>
 
             <h4>Writing the text line by line to a <i>managed</i> resource</h4>
 
             <p>To write the text line by line, you must <i>manage</i> the resource using a <code>with</code> block:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/resources/write-one-managed.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/resources/write-one-managed.pec" runnable={true}/>
             <br/>
 
            <h3>Prompto native resource specification</h3>

@@ -36,7 +36,7 @@ class ThisTopic extends Topic {
             In the below example, we define a <i>setter</i> for a <i>fullName</i> attribute which returns a capitalized
             value, and sets the <i>initials</i> attribute:
         </p>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/setter.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/setter.pec" runnable={true}/>
             <br/>
 
 

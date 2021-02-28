@@ -19,7 +19,7 @@ class ThisTopic extends Topic {
                 Instead, a comment is always attached to the next non-comment line of code.<br/>
                 In the below example, the line comment is attached to the attribute declaration.
             </p>
-            <PromptoPlayer sampleUrl="samples/definitions/comment.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/definitions/comment.pec"/>
 
             <br/>
             <p>Prompto does not support inline comments <code>{String.raw`/* ... */`}</code>,

@@ -22,7 +22,7 @@ class ThisTopic extends Topic {
                 <li><code>self</code> in the M dialect</li>
                 <li><code>this</code> in the O dialect</li>
             </ul>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/this.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/this.pec" runnable={true}/>
             <p>Please note that in the above example, <i>this</i> is used to disambiguate the <i>name</i> parameter from the <i>name</i> attribute.<br/>
                 In Prompto category methods, <i>this</i> is implicit.<br/>
                 This is similar to Java and C#, but opposite to Python or JavaScript.<br/>

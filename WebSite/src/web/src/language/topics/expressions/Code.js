@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                 In the <code>main</code> method, we instantiate a Code expression, which is then used as a parameter
                 when calling <code>myMethod</code>.
             </p>
-            <PromptoPlayer lines={12} sampleUrl="samples/expressions/code.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/expressions/code.pec" runnable={true}/>
             <br/>
 
             <p>For security reasons, Code expressions can only be created from Prompto code, not from text.<br/>

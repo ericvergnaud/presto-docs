@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                 </li>
             </ul>
             <p>In the below example, we capture each InputChangedEvent, and apply business rules:</p>
-            <PromptoPlayer lines={22} sampleUrl="samples/events/input-changed-event.poc"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={22} sampleUrl="samples/events/input-changed-event.poc"/>
             <p><i>(the above Input widget is a fictitious one, not the html tag. See ReactBootstrap for a real example)</i></p>
             </React.Fragment>;
     }

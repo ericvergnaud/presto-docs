@@ -26,7 +26,7 @@ class ThisTopic extends Topic {
                 <i>( the Buffer only exists during the execution of the statement, and therefore it cannot be read back
                     to display its content )</i>
             </p>
-            <PromptoPlayer sampleUrl="samples/statements/write-inline.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/write-inline.pec" runnable={true}/>
 
             <h3>
                 Writing content line by line to a <i>managed</i> resource
@@ -38,7 +38,7 @@ class ThisTopic extends Topic {
                 exits
                 the statements controlled by the <code>with</code> clause.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/statements/write-managed.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/write-managed.pec" runnable={true}/>
             <br/>
             <p>It is illegal to call <code>write</code> or <code>read</code> on a resource which is
                 neither <i>managed</i> nor <i>inlined</i>.</p>

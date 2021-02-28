@@ -25,7 +25,7 @@ class ThisTopic extends Topic {
 
             <p>Prompto implements error handling using a try/fail mechanism. Here is an example:
             </p>
-            <PromptoPlayer sampleUrl="samples/errors/example.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/errors/example.pec" runnable={true}/>
             <p>In the above example, we try to perform an illegal operation (divide by zero).
                 Without precaution, this error would simply force the application to abruptly exit.
                 To avoid this, we <i>protect</i> the potential error by wrapping our code inside a try/fail block.</p>

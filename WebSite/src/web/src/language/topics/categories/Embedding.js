@@ -20,7 +20,7 @@ class ThisTopic extends Topic {
                 <li>define an <i>author</i> attribute with type <i>Person</i>.</li>
                 <li>use this <i>person</i> attribute to define the <i>Book</i> category:</li>
             </ul>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/embedded.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/embedded.pec" runnable={true}/>
             <p>In the above example, we have <i>embedded</i> a Person instance into a Book instance.</p>
 
 

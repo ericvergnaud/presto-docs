@@ -19,7 +19,7 @@ class ThisTopic extends Topic {
                 regular category method.</p>
             <p>Once the category operator method is defined, it can be used in expressions involving operators.</p>
             <p>In the below example, we define an 'Amount' category with a '+' operator method:</p>
-            <PromptoPlayer lines={16} sampleUrl="samples/categories/methods/operator.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/categories/methods/operator.pec" runnable={true}/>
 
             <h3>Supported operators</h3>
             <p>Prompto supports <i>binary</i> operators i.e. operators which take 2

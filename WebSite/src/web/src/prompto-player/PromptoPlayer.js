@@ -4,14 +4,15 @@ import AceEditor from 'react-ace';
 import 'brace/theme/eclipse';
 import 'brace/mode/text';
 import PromptoMode from "./PromptoMode";
-import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
+import {Navbar, Nav, NavItem, Button, Form, NavLink} from 'react-bootstrap';
 import PROMPTO_WORKER from './PromptoWorkerListener';
 
 class DialectSwitcher extends React.Component {
 
     render() {
-        return <NavItem className={this.props.active ? "active" : ""}
-                        onClick={() => this.props.dialectSelected(this.props.dialect)}>{this.props.dialect}</NavItem>;
+        return <NavItem>
+                <NavLink eventKey={this.props.dialect} active={this.props.active} onSelect={() => this.props.dialectSelected(this.props.dialect)}>{this.props.dialect}</NavLink>
+            </NavItem>;
     }
 }
 
@@ -21,37 +22,65 @@ const ALL_DIALECTS = ["Engly", "Objy", "Monty"];
 class PlayerNavbar extends React.Component {
 
     render() {
-        return <Navbar fixed="bottom" style={this.props.style}>
-            <Nav bsStyle="tabs">
-                { ALL_DIALECTS.map(d=><DialectSwitcher key={d} dialect={d}
-                                                       active={d[0]===this.props.dialect}
-                                                       dialectSelected={this.props.dialectSelected} />, this)
-                }
-            </Nav>
-            { this.props.runnable && <Navbar.Form pullRight>
-                                        <Button onClick={this.props.runRequested}>Try it!</Button>
-                                     </Navbar.Form>   }
-        </Navbar>
+        return <Navbar bg="light" variant="light" style={this.props.style}>
+                <Nav variant="tabs">
+                    { ALL_DIALECTS.map(d=><DialectSwitcher key={d} dialect={d}
+                                                           active={d[0]===this.props.dialect}
+                                                           dialectSelected={this.props.dialectSelected} />, this)
+                    }
+                </Nav>
+                { this.renderTryItButton() }
+            </Navbar>;
+    }
+
+    renderTryItButton() {
+        if(this.props.runnable)
+            return <Form inline>
+                        <Button variant="light" onClick={this.props.runRequested}>Try it!</Button>
+                    </Form>;
+        else
+            return null;
     }
 }
+
 
 class PlayerOutput extends React.Component {
 
     render() {
-        const lines = this.props.output || [];
         return <div className="player-output" style={this.props.style}>
-                {lines.map((line, i) => {
-                    if(line.dest==="stdout")
-                        return <React.Fragment key={i}>{line.text}<br/></React.Fragment>;
-                    else
-                        return <React.Fragment key={i}><font color="red">{line.text}<br/></font></React.Fragment>;
-                })}
-                { this.props.done && <Button onClick={this.props.doneRequested}>Done</Button> }
-                </div>;
+                { this.renderOutput() }
+                { this.renderDoneButton() }
+             </div>;
     }
+
+    renderOutput() {
+        const lines = this.props.output || [];
+        return lines.map(this.renderLine);
+    }
+
+    renderLine(line, i) {
+        if(line.dest==="stdout")
+            return <React.Fragment key={i}>{line.text}<br/></React.Fragment>;
+        else
+            return <React.Fragment key={i}><font color="red">{line.text}<br/></font></React.Fragment>;
+    }
+
+    renderDoneButton() {
+        if(this.props.done)
+            return <Button variant="light" onClick={this.props.doneRequested}>Done</Button>;
+        else
+            return null;
+    }
+
 }
 
+let PLAYER_KEY = 0;
+
 export default class PromptoPlayer extends React.Component {
+
+    static nextKey() {
+        return ++PLAYER_KEY;
+    }
 
     constructor(props) {
         super(props);

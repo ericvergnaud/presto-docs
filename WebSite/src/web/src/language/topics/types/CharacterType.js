@@ -26,7 +26,7 @@ class ThisTopic extends Topic {
             <p>Character values have the following attributes:</p>
             <ul>
                 <li><code>codePoint</code>: returns an Integer equal to the character 16-bit unicode code point</li>
-                <PromptoPlayer sampleUrl="samples/types/character/codePoint.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/types/character/codePoint.pec" runnable={true}/>
             </ul>
 
 

@@ -26,17 +26,17 @@ class ThisTopic extends Topic {
                                 The <i>separator</i> optional argument is used to detect <i>fields</i> within a CSV <i>record</i>.<br/>
                                 The <i>quote</i> optional argument is used to unwrap field values.<br/>
                                 Here is a simple example:</p>
-                            <PromptoPlayer sampleUrl="samples/data/csvSimple.pec" runnable={true}/>
+                            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/data/csvSimple.pec" runnable={true}/>
                             <p/>
                             <p>Here is an example of mapping column names:</p>
-                            <PromptoPlayer sampleUrl="samples/data/csvMapping.pec" runnable={true}/>
+                            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/data/csvMapping.pec" runnable={true}/>
                             <p><i>Notice how the "Code" column was renamed to "id"</i></p>
                             <p/>
                         </li>
                         <li><p><b>iterateCsv</b> <i>text, columnNames, separator, quote</i>:<br/>
                             This method is similar to <code>readCsv</code>, but returns an <code>Iterator&lt;Document&gt;</code>, which is convenient and consumes less memory.<br/>
                             Here is an example:</p>
-                            <PromptoPlayer sampleUrl="samples/data/csvIterate.pec" runnable={true}/>
+                            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/data/csvIterate.pec" runnable={true}/>
                         <p/>
                         </li>
                     </ul>

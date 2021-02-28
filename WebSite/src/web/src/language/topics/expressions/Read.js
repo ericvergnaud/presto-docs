@@ -24,7 +24,7 @@ class ThisTopic extends Topic {
                 An <i>inlined</i> resource is initialized directly within a <code>read</code> expression.<br/>
                 This is very useful for small files or small messages received from incoming network connections.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/read-inline.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/read-inline.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -37,7 +37,7 @@ class ThisTopic extends Topic {
                 exits
                 the statements controlled by <code>with</code> clause.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/read-managed.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/read-managed.pec" runnable={true}/>
             <br/>
 
             <p>It is illegal to call <code>write</code> or <code>read</code> on a resource which is

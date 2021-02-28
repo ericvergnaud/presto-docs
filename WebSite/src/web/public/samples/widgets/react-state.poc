@@ -1,6 +1,6 @@
 widget Minimal extends ReactWidget {
 
-    Document getInitialState() {
+    Document method getInitialState() {
         return { title: "Hello", name: "John" };
     }
 

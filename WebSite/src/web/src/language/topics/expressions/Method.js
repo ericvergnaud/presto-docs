@@ -37,7 +37,7 @@ class ThisTopic extends Topic {
             </p>
 
 
-            <PromptoPlayer lines={14} sampleUrl="samples/expressions/method.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={14} sampleUrl="samples/expressions/method.pec" runnable={true}/>
             </React.Fragment>;
     }
 

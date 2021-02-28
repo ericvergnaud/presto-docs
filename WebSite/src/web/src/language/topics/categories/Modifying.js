@@ -28,12 +28,12 @@ class ThisTopic extends Topic {
                 As a consequence, the below code is illegal and cannot be executed:</p>
 
 
-            <PromptoPlayer sampleUrl="samples/categories/modify-illegal.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/categories/modify-illegal.pec"/>
             <p>This is because the <i>Person</i> object assigned to variable <i>p</i> is not marked
                 as <code>mutable</code>.</p>
             <p>In order to set an attribute value after object creation, the category instance must me marked as
                 mutable when created. The below code will run:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/modify.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/modify.pec" runnable={true}/>
         </React.Fragment>;
     }
 

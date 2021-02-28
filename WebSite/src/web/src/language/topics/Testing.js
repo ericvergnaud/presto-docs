@@ -26,7 +26,7 @@ class ThisTopic extends Topic {
             <p>To encourage TDD, Prompto has a built-in testing framework, based on special methods called test
                 methods.</p>
             <p>Here is an example:</p>
-            <PromptoPlayer sampleUrl="samples/testing/example.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/testing/example.pec" runnable={true}/>
             <p>Test methods make it very easy to write tests before code, and even run them using the interpreter. The
                 test will obviously fail until
                 the correct code is implemented, which ensures that writing code actually does something: fix the
@@ -48,12 +48,12 @@ class ThisTopic extends Topic {
             </p>
             <p>Thanks to this structure, Prompto tests can check multiple predicates even if not all of them succeed, as
                 in the below example:</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/testing/multi.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/testing/multi.pec" runnable={true}/>
             <br/>
 
             <h3>Testing errors</h3>
             <p>Alternately, test methods can be used to check correct error handling. Here is an example:</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/testing/error.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/testing/error.pec" runnable={true}/>
             <br/>
 
             <h3>Testing stored data</h3>
@@ -63,7 +63,7 @@ class ThisTopic extends Topic {
                 To facilitate testing with stored data, Prompto creates a fresh memory store
                 before the test runs (the store is disposed immediately after execution of the test).</p>
             <p>A reliable test involving stored data might look like the following:</p>
-            <PromptoPlayer lines={8} sampleUrl="samples/testing/store.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/testing/store.pec" runnable={true}/>
             </React.Fragment>;
     }
 

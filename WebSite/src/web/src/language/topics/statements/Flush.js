@@ -41,7 +41,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Prompto instructs the store to flush its data as follows:</p>
 
-            <PromptoPlayer sampleUrl="samples/statements/flush.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/statements/flush.pec" runnable={true}/>
             </React.Fragment>;
     }
 

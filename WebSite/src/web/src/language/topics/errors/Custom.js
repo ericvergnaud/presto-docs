@@ -23,7 +23,7 @@ class ThisTopic extends Topic {
 </pre>
             <p>User defined errors simply accept a <i>text</i> attribute, which can be displayed or logged.</p>
             <p>Once user errors are defined, they can be <i>raised</i> using the <code>raise</code> keyword:</p>
-            <PromptoPlayer lines={16} sampleUrl="samples/errors/custom.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/errors/custom.pec" runnable={true}/>
             </React.Fragment>;
     }
 

@@ -29,7 +29,7 @@ class ThisTopic extends Topic {
                 types.
             </p>
 
-            <PromptoPlayer lines={8} sampleUrl="samples/expressions/ternary.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/expressions/ternary.pec" runnable={true}/>
 
             </React.Fragment>;
     }

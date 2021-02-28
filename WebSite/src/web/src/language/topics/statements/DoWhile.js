@@ -18,7 +18,7 @@ class ThisTopic extends Topic {
                 executed repeatedly,
                 followed by <code>while <i>condition</i></code> where <code><i>condition</i></code> is a boolean
                 expression.</p>
-                <PromptoPlayer lines={10} sampleUrl="samples/statements/do-while.pec" runnable={true}/>
+                <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/statements/do-while.pec" runnable={true}/>
                 <br/>
 
                 <h3>
@@ -27,7 +27,7 @@ class ThisTopic extends Topic {
 
                 <p>It is sometimes useful to break the iteration before testing the condition again. This is achieved
                     using the <code>break</code> statement.</p>
-            <PromptoPlayer lines={12} sampleUrl="samples/statements/do-while-break.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/do-while-break.pec" runnable={true}/>
                 <br/>
                 <p>The difference between a while and a do while statements is that the embedded statements in a while
                     statement may never get executed,

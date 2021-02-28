@@ -1,6 +1,6 @@
 import React from 'react';
 import Overview from "./topics/Overview";
-import Topics from "../components/Topics";
+import TopicList from "../components/TopicList";
 import Console from "./topics/console/Console";
 import Attributes from "./topics/Attributes";
 import Maths from "./topics/Maths";
@@ -33,7 +33,7 @@ export default class Libraries extends React.Component {
         const style = { display: this.props.visible ? "block" : "none" };
         return <div className="topics" style={style}>
                 <div className="sidebar">
-                    <Topics topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected}/>
+                    <TopicList topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected}/>
                 </div>
                 <div className="content">
                     { this.state.activeTopic.renderContent(this.topicSelected) }

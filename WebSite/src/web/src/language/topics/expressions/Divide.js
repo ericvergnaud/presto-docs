@@ -26,7 +26,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Dividing Integer and Decimal values returns a Decimal value.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/divide-number.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/divide-number.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -35,14 +35,14 @@ class ThisTopic extends Topic {
             <p>Integer division of Integer and Decimal values returns an Integer value. The right-hand side must be an
                 Integer.
             </p>
-            <PromptoPlayer lines={10}  sampleUrl="samples/expressions/int-divide.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10}  sampleUrl="samples/expressions/int-divide.pec" runnable={true}/>
             <br/>
 
             <h3>
                 Remainder of Integer values
             </h3>
             <p>Remainder of Integer values returns an Integer value.</p>
-            <PromptoPlayer sampleUrl="samples/expressions/modulo-integer.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/modulo-integer.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -50,7 +50,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Remainder of Decimal values returns a Decimal value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/modulo-decimal.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/modulo-decimal.pec" runnable={true}/>
             <br/>
 
             <h3>Dividing user defined values</h3>

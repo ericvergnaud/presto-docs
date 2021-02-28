@@ -22,7 +22,7 @@ class ThisTopic extends Topic {
                         Encoding refers to the text encoding such as utf-8 or cp-1252, NOT a cryptographic encoding.<br/>
                         Nowadays, most web sites use utf-8 encoding.<br/>
                         Here is an example:</p>
-                    <PromptoPlayer sampleUrl="samples/internet/url.pec" runnable={true}/>
+                    <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/internet/url.pec" runnable={true}/>
             </React.Fragment>;
     }
 

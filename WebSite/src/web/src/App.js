@@ -20,7 +20,7 @@ class App extends React.Component {
         if (requested)
             return requested.toUpperCase();
         else
-            return "ABOUT";
+            return "LANGUAGE"; // "ABOUT";
     }
 
     showSelectedSuggestion(suggestion) {

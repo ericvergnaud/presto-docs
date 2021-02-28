@@ -26,7 +26,7 @@ class ThisTopic extends Topic {
                 types.<br/>
                 A simple <i>category</i> type is defined by simply listing its attributes, as follows:
             </p>
-            <PromptoPlayer lines={8} sampleUrl="samples/categories/example.pec"/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={8} sampleUrl="samples/categories/example.pec"/>
             <br/>
             <p>On top of composing attributes, categories also support dedicated methods.</p>
             <p><i>Prompto categories play a role similar to <code>classes</code> in OOP languages.</i></p>

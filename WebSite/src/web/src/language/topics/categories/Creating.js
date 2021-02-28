@@ -18,10 +18,10 @@ class ThisTopic extends Topic {
             <p>Creating an object i.e. instantiating a category is done by using its name, optionally followed by
                 attribute assignments.</p>
             <p>The syntax varies depending on the dialect, as follows:</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/creation.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/creation.pec" runnable={true}/>
             <br/>
             <p>Attribute assignments are optional, it is legal to assign only some attributes, or none.</p>
-            <PromptoPlayer lines={10} sampleUrl="samples/categories/creation-optional.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/categories/creation-optional.pec" runnable={true}/>
         </React.Fragment>;
     }
 

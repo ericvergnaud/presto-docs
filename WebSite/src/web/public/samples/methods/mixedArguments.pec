@@ -6,5 +6,5 @@ define addStuff as method receiving shortName and Text suffix doing:
 
 define main as method doing:
     p = Product with "Prompto" as shortName
-    s = addStuff p with " is there!" as suffix
+    s = addStuff p.shortName with " is there!" as suffix
     printLine s

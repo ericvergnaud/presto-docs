@@ -1,0 +1,3 @@
+define main as method doing:
+    t = < 12, 27, 42 >
+    printLine "t.count -> " + t.count

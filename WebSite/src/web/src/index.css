@@ -45,7 +45,7 @@
     font-weight: bolder;
 }
 
-.topic > li > a {
+.topic > .nav-item > a {
     padding: 2px;
     font-size: 14px;
 }
@@ -96,12 +96,15 @@ pre {
     border-radius: unset;
 }
 
-
-.prompto-player > .navbar > .container {
-    width: 600px;
+.prompto-player > .navbar {
+    padding: unset;
 }
 
-.prompto-player > .navbar > .container > .nav > li > a {
+.prompto-player > .navbar > .navbar-nav {
+    float: left;
+}
+
+.prompto-player > .navbar > .navbar-nav > .nav-item > a {
     font-size: 0.9em !important;
     padding-top: 2px;
     padding-bottom: 0px;
@@ -109,11 +112,12 @@ pre {
     padding-right: 5px;
 }
 
-.prompto-player > .navbar > .container > .navbar-form {
+.prompto-player > .navbar > form {
     margin-top: 0px;
+    float: right;
 }
 
-.prompto-player > .navbar > .container > .navbar-form > .btn {
+.prompto-player > .navbar > form > .btn {
     height:22px !important;
     min-height:22px !important;
     font-size: 0.9em !important;
@@ -126,6 +130,7 @@ pre {
 
 .player-output {
     margin: 5px;
+    font-size: 0.8em !important;
 }
 
 .player-output > .btn {

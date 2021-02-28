@@ -21,16 +21,16 @@ class ThisTopic extends Topic {
             <p>Instead, the abstract method(s) must be defined in categories derived from it.</p>
             <p>This is done simply by providing inside the derived category definition a concrete version of the
                 abstract method defined in the parent category.</p>
-            <p>In the below example, we:
+            <p>In the below example, we:</p>
                 <ul>
                     <li>define an 'Animal' category with an abstract 'speak' method</li>
                     <li>define an 'Dog' category, derived from 'Animal', which implements the 'speak' method</li>
                     <li>define an 'Cat' category, derived from 'Animal', which implements the 'speak' method</li>
                     <li>call the 'speak' method for an instance of each of them</li>
                 </ul>
-            </p>
+            <p/>
 
-            <PromptoPlayer lines={22} sampleUrl="samples/categories/abstract.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={22} sampleUrl="samples/categories/abstract.pec" runnable={true}/>
 
         </React.Fragment>;
     }

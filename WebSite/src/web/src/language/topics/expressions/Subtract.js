@@ -25,7 +25,7 @@ class ThisTopic extends Topic {
             <p>Subtracting Integer and Decimal values returns an Integer value if both values are Integer, and a Decimal
                 otherwise.
             </p>
-            <PromptoPlayer lines={10} sampleUrl="samples/expressions/subtract-number.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={10} sampleUrl="samples/expressions/subtract-number.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -33,7 +33,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting Date and Period values returns a Date value, the Time section of the Period value is ignored.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-date-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-date-period.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -41,7 +41,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting Date and Date values returns a Period value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-date-date.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-date-date.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -50,7 +50,7 @@ class ThisTopic extends Topic {
             <p>Subtracting Time and Period values returns a Time value, the Date section of the Period value is
                 ignored.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-time-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-time-period.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -58,7 +58,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting Time and Time values returns a Period value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-time-time.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-time-time.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -66,7 +66,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting DateTime and Period values returns a DateTime value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-datetime-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-datetime-period.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -74,7 +74,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting DateTime and DateTime values returns a Period value.
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-datetime-datetime.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-datetime-datetime.pec" runnable={true}/>
             <br/>
 
             <h3>
@@ -82,7 +82,7 @@ class ThisTopic extends Topic {
             </h3>
             <p>Subtracting Period and Period values returns a Period value.<br/>
             </p>
-            <PromptoPlayer sampleUrl="samples/expressions/subtract-period-period.pec" runnable={true}/>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="samples/expressions/subtract-period-period.pec" runnable={true}/>
             <br/>
 
             <h3>Subtracting user defined values</h3>
