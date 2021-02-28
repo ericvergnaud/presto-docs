@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavItem } from 'react-bootstrap';
+import {NavItem, NavLink} from 'react-bootstrap';
 import Topics from "./Topics";
 import asap from 'asap';
 
-class TopicWidget extends React.Component {
+class TopicItem extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,13 +14,15 @@ class TopicWidget extends React.Component {
         const children = this.props.topic.children;
         if(children)
             this.setState({ collapsed: !this.state.collapsed });
-        this.props.onSelect(key); // onSelect prop injected by Nav
+        // this.props.onSelect(key);
     }
 
     render() {
         const className = this.props.topic===this.props.activeTopic ? "active" : "";
         return <>
-            <NavItem className={className} eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}>{this.props.topic.title}</NavItem>
+            <NavItem className={className}>
+                <NavLink eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}>{this.props.topic.title}</NavLink>
+            </NavItem>
             { this.renderChildren()}
         </>;
     }
@@ -45,7 +47,7 @@ export default class Topic {
     }
 
     renderItem(topicSelected, activeTopic, level) {
-        return <TopicWidget ref={ref=>this.widget=ref || this.widget} key={this.title} topic={this} activeTopic={activeTopic} level={level} topicSelected={topicSelected}/>;
+        return <TopicItem ref={ref=>this.widget=ref || this.widget} key={this.title} topic={this} activeTopic={activeTopic} level={level} topicSelected={topicSelected}/>;
     }
 
     makeVisible(forChild) {

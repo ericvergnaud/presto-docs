@@ -1,5 +1,5 @@
 import React from 'react';
-import {Carousel} from "react-bootstrap";
+import {Carousel, CarouselItem} from "react-bootstrap";
 
 const imageBoxStyle = { width: "100%", height: "440px", backgroundColor: "dimgray", display: "flex" };
 const textBoxStyle = { width: "100%", height: "160px", backgroundColor: "dimgray" };
@@ -11,20 +11,19 @@ export default class CloudRoadShow extends React.Component {
        const interval = this.props.active ? 1000 : null;
         if(interval && this.refs.carousel)
             this.refs.carousel.play();
-        return <Carousel ref="carousel" interval={interval} onSelect={this.willSlide.bind(this)}>
-            <Carousel.Item>{ this.renderProjectsExplorer() }</Carousel.Item>
-            <Carousel.Item>{ this.renderCodeEditor() }</Carousel.Item>
-            <Carousel.Item>{ this.renderTryOut() }</Carousel.Item>
-            <Carousel.Item>{ this.renderDataExplorer() }</Carousel.Item>
-            <Carousel.Item>{ this.renderStoresExplorer() }</Carousel.Item>
-            <Carousel.Item>{ this.renderDebugger() }</Carousel.Item>
-            <Carousel.Item>{ this.renderDeployer() }</Carousel.Item>
-            <Carousel.Item>{ this.renderTablet() }</Carousel.Item>
+        return <Carousel ref="carousel" interval={interval} onSlide={this.willSlide.bind(this)}>
+            <CarouselItem>{ this.renderProjectsExplorer() }</CarouselItem>
+            <CarouselItem>{ this.renderCodeEditor() }</CarouselItem>
+            <CarouselItem>{ this.renderTryOut() }</CarouselItem>
+            <CarouselItem>{ this.renderDataExplorer() }</CarouselItem>
+            <CarouselItem>{ this.renderStoresExplorer() }</CarouselItem>
+            <CarouselItem>{ this.renderDebugger() }</CarouselItem>
+            <CarouselItem>{ this.renderDeployer() }</CarouselItem>
+            <CarouselItem>{ this.renderTablet() }</CarouselItem>
         </Carousel>;
     }
 
-    willSlide(target, event) {
-        const direction = event.direction;
+    willSlide(target, direction) {
         if(direction === "next" && target === 0)
             this.props.moveNext();
         else if(direction === "prev" && target === 11)

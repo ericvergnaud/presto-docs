@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
 const ALL_TUTORIALS = [ { id: "z2LTkZaoJy8", title: "My first Prompto web site" },
@@ -29,14 +29,14 @@ export default class Tutorials extends React.Component {
                     <h2>Tutorials</h2>
                     <h3>The TripGuru web site</h3>
                     <p>This series of videos demonstrate how to create a web site, web pages, import data, input data, store it and display it.</p>
-                    <form>
-                        <FormGroup>
-                            <ControlLabel>Available videos</ControlLabel>
-                            <FormControl id="which" componentClass="select" value={this.state.active.id} style={selectStyle} onChange={this.tutorialSelected.bind(this)} >
+                    <Form>
+                        <Form.Group>
+                            <Form.Label>Available videos</Form.Label>
+                            <Form.Control id="which" as="select" value={this.state.active.id} style={selectStyle} onChange={this.tutorialSelected.bind(this)} >
                                 { ALL_TUTORIALS.map(t => <option key={t.id} value={t.id}>{t.title}</option>) }
-                            </FormControl>
-                        </FormGroup>
-                    </form>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form>
                     <YouTube videoId={ this.state.active.id } opts={videoOpts}/>
                     <p/>
                 <p><a href="/downloads/projects/TripGuru.zip" download={true}>Download sample project for this tutorial</a></p>
@@ -48,7 +48,7 @@ export default class Tutorials extends React.Component {
                     On-line development and deployment tools are available on request.
                 </p>
                 <p>We are looking for evaluators! And contributors!<br/>
-                    If you would like to participate, <a href="mailto:support@prompto.cloud?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
+                    If you would like to participate, <a href="mailto:support@prompto.org?subject=Prompto%20evaluation%20program">please contact us</a>.</p>
         </div>;
     }
 }

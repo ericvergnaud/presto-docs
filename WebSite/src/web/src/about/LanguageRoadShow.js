@@ -1,5 +1,5 @@
 import React from "react";
-import {Carousel, Popover} from "react-bootstrap";
+import {Carousel, Popover, PopoverContent, PopoverTitle} from "react-bootstrap";
 
 const imageBoxStyle = { width: "100%", height: "440px", backgroundColor: "black", display: "flex" };
 const textBoxStyle = { width: "100%", height: "160px", backgroundColor: "dimgray" };
@@ -12,7 +12,7 @@ export default class LanguageRoadShow extends React.Component {
         const interval = this.props.active ? 1000 : null;
         if(interval && this.refs.carousel)
             this.refs.carousel.play();
-        return <Carousel ref="carousel" interval={interval} onSelect={this.willSlide.bind(this)}>
+        return <Carousel ref="carousel" interval={interval} onSlide={this.willSlide.bind(this)}>
             <Carousel.Item>{ this.renderInlineCss() }</Carousel.Item>
             <Carousel.Item>{ this.renderPowerfulLiterals() }</Carousel.Item>
             <Carousel.Item>{ this.renderEverywhere() }</Carousel.Item>
@@ -28,8 +28,7 @@ export default class LanguageRoadShow extends React.Component {
         </Carousel>;
     }
 
-    willSlide(target, event) {
-        const direction = event.direction;
+    willSlide(target, direction) {
         if(direction === "next" && target === 0)
             this.props.moveNext();
         else if(direction === "prev" && target === 11)
@@ -162,8 +161,11 @@ export default class LanguageRoadShow extends React.Component {
                 each test run benefits from isolated in-memory storage<br/>
                 test verification survives assertion failures<br/>
             </Carousel.Caption>
-            <Popover id="test" style={popStyle} placement="right" title="Test methods survive assertion failures">
-                <img src="/img/language-roadshow/test-result.png" alt=""/>
+            <Popover id="test" style={popStyle}>
+                <PopoverTitle placement="right">Test methods survive assertion failures"</PopoverTitle>
+                <PopoverContent>
+                    <img src="/img/language-roadshow/test-result.png" alt=""/>
+                </PopoverContent>
             </Popover>
         </>;
     }
@@ -197,7 +199,13 @@ export default class LanguageRoadShow extends React.Component {
                 so if you favor indents over curly braces you are welcome (and conversely)<br/>
                 meet Monty, 1 of the 3 Prompto dialects<br/>
             </Carousel.Caption>
-            <Popover id="M" style={popoverStyle} placement="bottom" title="Some code in Monty dialect">colons and indents<br/>python operators: '==', '!=', 'and', 'or'<br/></Popover>
+            <Popover id="M" style={popoverStyle}>
+                <PopoverTitle placement="bottom">Some code in Monty dialect</PopoverTitle>
+                <PopoverContent>
+                    colons and indents<br/>
+                    python operators: '==', '!=', 'and', 'or'<br/>
+                </PopoverContent>
+                </Popover>
         </>;
     }
 
@@ -214,7 +222,13 @@ export default class LanguageRoadShow extends React.Component {
                 do your team mates prefer writing code using other dialects? That's ok!<br/>
                 you can switch dialect any time, the code is translated automatically<br/>
             </Carousel.Caption>
-            <Popover id="O" style={popoverStyle} placement="bottom" title="The same code in Objy dialect">curly braces, semi-colons<br/>c-style operators: '==', '!=', '&&', '||'<br/></Popover>
+            <Popover id="O" style={popoverStyle}>
+                <PopoverTitle placement="bottom">The same code in Objy dialect</PopoverTitle>
+                <PopoverContent>
+                    curly braces, semi-colons<br/>
+                    c-style operators: '==', '!=', '&&', '||'<br/>
+                </PopoverContent>
+            </Popover>
         </>;
     }
 
@@ -231,7 +245,13 @@ export default class LanguageRoadShow extends React.Component {
                 it requires more typing, but it's explicit about what the code means<br/>
                 that proves very convenient when you need to share business logic with non-coders<br/>
             </Carousel.Caption>
-            <Popover id="E" style={popoverStyle} placement="bottom" title="The same code in Engly dialect">colons and indents, no parenthesis<br/>natural operators: '=', '&lt;>', 'and', 'or'<br/></Popover>
+            <Popover id="E" style={popoverStyle}>
+                <PopoverTitle placement="bottom">The same code in Engly dialect</PopoverTitle>
+                <PopoverContent>
+                    colons and indents, no parenthesis<br/>
+                    natural operators: '=', '&lt;>', 'and', 'or'<br/>
+                </PopoverContent>
+            </Popover>
         </>;
     }
 
