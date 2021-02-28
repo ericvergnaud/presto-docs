@@ -1,9 +1,9 @@
 import React from 'react';
 import {Tabs, Tab} from 'react-bootstrap';
-import LanguageRoadShow from "./LanguageRoadShow";
-import CloudRoadShow from "./CloudRoadShow";
-import ModelRoadShow from "./ModelRoadShow";
-import DifferenceRoadShow from "./DifferenceRoadShow";
+import LanguageSlideshow from "./LanguageSlideshow";
+import CloudSlideshow from "./CloudSlideshow";
+import ModelSlideshow from "./ModelSlideshow";
+import DifferenceSlideshow from "./DifferenceSlideshow";
 
 const TAB_KEYS = [ "language", "cloud", "model", "difference"];
 
@@ -11,7 +11,7 @@ export default class About extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { activeTab: TAB_KEYS[0] };
+        this.state = { activeTab: TAB_KEYS[2] };
     }
 
     render() {
@@ -72,16 +72,16 @@ export default class About extends React.Component {
         return <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
             <Tabs activeKey={activeTab} onSelect={key => this.setState({activeTab: key})} id="topics">
                 <Tab eventKey={TAB_KEYS[0]} title="A full stack language">
-                    <LanguageRoadShow ref={TAB_KEYS[0]} active={activeTab===TAB_KEYS[0]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
+                    <LanguageSlideshow ref={TAB_KEYS[0]} active={activeTab===TAB_KEYS[0]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
                 <Tab eventKey={TAB_KEYS[1]} title="...hosted in the cloud">
-                    <CloudRoadShow ref={TAB_KEYS[1]} active={activeTab===TAB_KEYS[1]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
+                    <CloudSlideshow ref={TAB_KEYS[1]} active={activeTab===TAB_KEYS[1]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
                 <Tab eventKey={TAB_KEYS[2]} title="...for building IT solutions" >
-                    <ModelRoadShow ref={TAB_KEYS[2]} active={activeTab===TAB_KEYS[2]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
+                    <ModelSlideshow ref={TAB_KEYS[2]} active={activeTab===TAB_KEYS[2]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
                 <Tab eventKey={TAB_KEYS[3]} title="...more efficiently." >
-                    <DifferenceRoadShow ref={TAB_KEYS[3]} active={activeTab===TAB_KEYS[3]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
+                    <DifferenceSlideshow ref={TAB_KEYS[3]} active={activeTab===TAB_KEYS[3]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
             </Tabs>
         </div>;
