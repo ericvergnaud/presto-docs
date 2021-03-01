@@ -64,12 +64,11 @@ class ThisTopic extends Topic {
             </p>
             <ul>
                 <li>Compiled code runs much faster, it is the recommended server execution mode in production</li>
-                <li>Transpiled code is mandatory for running in a browser.
+                <li>Transpiled code is mandatory for running in a browser.</li>
                 <li>In scripting mode, and in the REPL, code is executed line by line, it cannot be compiled.</li>
                 <li>Interpreted code can be modified without restarting the application, which makes development
                     very productive. The interpreter is able to run incorrect code, notably tests, which can be useful during
                     development, while incorrect code will fail to compile.
-                </li>
                 </li>
             </ul>
             <div style={{marginLeft: "30px", width: "860px"}} >
