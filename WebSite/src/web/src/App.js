@@ -31,7 +31,7 @@ class App extends React.Component {
     render() {
         return <>
             <Navbar bg="dark" variant="dark" fixed="top" >
-                <Navbar.Brand href="/">The Prompto Platform</Navbar.Brand>
+                <Navbar.Brand href="/">Prompto</Navbar.Brand>
                 <Nav activeKey={this.state.active} className="ml-auto" onSelect={key => this.setState({activeNav: key})}>
                     <Form inline>
                         <SearchBox onSelectedSuggestion={this.showSelectedSuggestion.bind(this)}/>
