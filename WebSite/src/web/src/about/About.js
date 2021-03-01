@@ -11,7 +11,7 @@ export default class About extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { activeTab: TAB_KEYS[2] };
+        this.state = { activeTab: TAB_KEYS[0] };
     }
 
     render() {

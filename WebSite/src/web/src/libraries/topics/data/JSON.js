@@ -31,6 +31,7 @@ class ThisTopic extends Topic {
                                 <li>array</li>
                                 <li>object</li>
                             </ul>
+                            <p/>
                             <p>As a consequence, developers need to check the type of the value returned before making any decision.</p>
 
                              <p> Here is an example:</p>
