@@ -28,7 +28,7 @@ export default class About extends React.Component {
         const textStyle = { position: "absolute", top: "55px", left: "80px", color: "papayawhip", fontSize: "70pt", fontWeight: "500" };
         return <div style={divStyle}>
                 <img style={imageStyle} src={"/img/banner/banner.jpg"} alt="" />
-                <div style={textStyle}>The full stack technology</div>
+                <div style={textStyle}>The full stack language</div>
             </div>;
     }
 
@@ -53,11 +53,11 @@ export default class About extends React.Component {
     renderInvitation() {
         return <div style={{width: "800px", margin: "0 auto"}}>
 
-            <h2>Sounds great! Can I play with it?</h2>
+            <h3>Sounds great! Can I play with it?</h3>
             <p>
                 You can start playing immediately using the <a href="/?section=SANDBOX">online sandbox</a>.
             </p>
-            <h2>This is really promising! Can I use it for a project?</h2>
+            <h3>This is really promising! Can I use it for a project?</h3>
             <p>Prompto is currently running its evaluation program.<br/>
                 On-line development and deployment tools are available on request.
             </p>
@@ -70,7 +70,7 @@ export default class About extends React.Component {
     renderSlideShow() {
         const activeTab = this.state.activeTab;
         return <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
-            <Tabs activeKey={activeTab} onSelect={key => this.setState({activeTab: key})} id="topics">
+            <Tabs variant="pills" activeKey={activeTab} onSelect={key => this.setState({activeTab: key})} id="topics">
                 <Tab eventKey={TAB_KEYS[0]} title="A full stack language">
                     <LanguageSlideshow ref={TAB_KEYS[0]} active={activeTab===TAB_KEYS[0]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>

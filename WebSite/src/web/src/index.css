@@ -230,3 +230,14 @@ pre {
     padding: 3px 6px 3px 6px;
     border-radius: 6px;
 }
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: dimgray;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.nav-pills a {
+    color: dimgray;
+}
