@@ -2,10 +2,8 @@ import React from 'react';
 import {Tabs, Tab} from 'react-bootstrap';
 import LanguageSlideshow from "./LanguageSlideshow";
 import CloudSlideshow from "./CloudSlideshow";
-import ModelSlideshow from "./ModelSlideshow";
-import DifferenceSlideshow from "./DifferenceSlideshow";
 
-const TAB_KEYS = [ "language", "cloud", "model", "difference"];
+const TAB_KEYS = [ "language", "cloud"];
 
 export default class About extends React.Component {
 
@@ -76,12 +74,6 @@ export default class About extends React.Component {
                 </Tab>
                 <Tab eventKey={TAB_KEYS[1]} title="...hosted in the cloud">
                     <CloudSlideshow ref={TAB_KEYS[1]} active={activeTab===TAB_KEYS[1]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
-                </Tab>
-                <Tab eventKey={TAB_KEYS[2]} title="...for building IT solutions" >
-                    <ModelSlideshow ref={TAB_KEYS[2]} active={activeTab===TAB_KEYS[2]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
-                </Tab>
-                <Tab eventKey={TAB_KEYS[3]} title="...more efficiently." >
-                    <DifferenceSlideshow ref={TAB_KEYS[3]} active={activeTab===TAB_KEYS[3]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
             </Tabs>
         </div>;
