@@ -23,7 +23,7 @@ export default class About extends React.Component {
     renderHeader() {
         const divStyle = { display: this.props.visible ? "block" : "none", width: "100%" };
         const imageStyle = {width: "100%", maxHeight: "200px"};
-        const textStyle = { position: "absolute", top: "55px", left: "80px", color: "papayawhip", fontSize: "70pt", fontWeight: "500" };
+        const textStyle = { position: "absolute", top: "55px", left: "80px", color: "papayawhip", fontSize: "64pt", fontWeight: "500" };
         return <div style={divStyle}>
                 <img style={imageStyle} src={"/img/banner/banner.jpg"} alt="" />
                 <div style={textStyle}>The full stack language</div>
@@ -69,10 +69,10 @@ export default class About extends React.Component {
         const activeTab = this.state.activeTab;
         return <div style={{width: "1000px", height: "660px", margin: "0 auto", marginTop: "20px"}}>
             <Tabs variant="pills" activeKey={activeTab} onSelect={key => this.setState({activeTab: key})} id="topics">
-                <Tab eventKey={TAB_KEYS[0]} title="A full stack language">
+                <Tab eventKey={TAB_KEYS[0]} title="a full stack language">
                     <LanguageSlideshow ref={TAB_KEYS[0]} active={activeTab===TAB_KEYS[0]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
-                <Tab eventKey={TAB_KEYS[1]} title="...hosted in the cloud">
+                <Tab eventKey={TAB_KEYS[1]} title="hosted in the cloud">
                     <CloudSlideshow ref={TAB_KEYS[1]} active={activeTab===TAB_KEYS[1]} moveNext={this.moveNext.bind(this)} movePrevious={this.movePrevious.bind(this)}/>
                 </Tab>
             </Tabs>
