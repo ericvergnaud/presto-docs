@@ -51,7 +51,7 @@ export default class CloudSlideshow extends React.Component {
             <div style={textBoxStyle}>
             </div>
             <Carousel.Caption>
-                <h4>Start coding!</h4>
+                <h4>Start coding</h4>
                 no need to setup a VCS, a CI or a CD: devops is built-in<br/>
                 Prompto lets you focus on what really makes a difference:<br/>
                 creative web pages, meaningful data models and relevant algorithms<br/>
@@ -67,8 +67,8 @@ export default class CloudSlideshow extends React.Component {
             <div style={textBoxStyle}>
             </div>
             <Carousel.Caption>
-                <h4>Try out your app in less than a minute!</h4>
-                run your app on your dev server in one click!<br/>
+                <h4>Try out your app in less than a minute</h4>
+                run your app on your dev server in one click<br/>
                 except from domain certificates, it runs in real cloud conditions<br/>
                 your app can even store and fetch data, a data store is already wired<br/>
             </Carousel.Caption>

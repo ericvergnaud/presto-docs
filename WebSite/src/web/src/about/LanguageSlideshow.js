@@ -106,7 +106,7 @@ export default class LanguageSlideshow extends React.Component {
                 <h4>Define the schema of your stored data in application code</h4>
                 mark attributes (a.k.a. fields, columns or members) as <code>storable</code><br/>
                 mark categories (a.k.a. classes) as <code>storable</code><br/>
-                your schema is defined! (and in sync with your code)<br/>
+                your schema is defined (and in sync with your code)<br/>
             </Carousel.Caption>
         </>;
     }
@@ -217,7 +217,7 @@ export default class LanguageSlideshow extends React.Component {
             <Carousel.Caption>
                 <h4>Switch dialect any time</h4>
                 you've already met Objy, a dialect that follows C-style syntax<br/>
-                do your team mates prefer writing code using other dialects? That's ok!<br/>
+                do your team mates prefer writing code using other dialects? That's ok<br/>
                 you can switch dialect any time, the code is translated automatically<br/>
             </Carousel.Caption>
             <Popover id="O" style={popoverStyle} placement="top">
@@ -240,7 +240,7 @@ export default class LanguageSlideshow extends React.Component {
             </div>
             <Carousel.Caption>
                 <h4>Share your code with clients</h4>
-                meet Engly, the dialect that makes Prompto code read like english!<br/>
+                meet Engly, the Prompto dialect that lets code read like english<br/>
                 it requires more typing, but it's explicit about what the code means<br/>
                 that proves very convenient when you need to share business logic with non-coders<br/>
             </Carousel.Caption>
