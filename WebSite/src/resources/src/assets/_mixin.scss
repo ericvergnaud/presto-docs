@@ -1,0 +1,16 @@
+@import '_global';
+
+@mixin animation {
+	transition: all 0.3s ease-in-out 0s;
+}
+
+@mixin brandButton {
+	button {
+		border-radius: 30px;
+		padding: 5px 30px;
+		font-size: 0.95rem;
+		margin-right: 20px;
+		word-spacing: 4px;
+		letter-spacing: 1px;
+	}
+}
