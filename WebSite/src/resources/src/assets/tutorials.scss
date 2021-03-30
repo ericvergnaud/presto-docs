@@ -1,0 +1,11 @@
+@import '_mixin';
+
+article {
+	font-family: 'Roboto', sans-serif;
+
+	&.p-tutorials {
+		h3 {
+			color: $primary;
+		}
+	}
+}
