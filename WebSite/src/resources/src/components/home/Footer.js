@@ -20,8 +20,8 @@ function Footer() {
 				<div className="uk-padding-large uk-padding-remove-horizontal">
 					<div className="uk-flex uk-flex-middle uk-flex-between">
 						<div>	
-							<h2>Prompto is getting better every day - <br /> Stay Tuned!</h2>
-							<p className="uk-text-muted">Join the Prompto newsletter and stay updated on new releases and features, tutorials, and documentation.</p>
+							<h2><span class="prompto">prompto</span>&nbsp;is getting better every day - <br /> Stay Tuned!</h2>
+							<p className="uk-text-muted">Join the&nbsp;<span class="prompto">prompto</span>&nbsp;newsletter and stay updated on new releases and features, tutorials, and documentation.</p>
 						</div>
 
 						<div>
@@ -41,7 +41,7 @@ function Footer() {
 
 					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
 
-					<p className="uk-text-small">Prompto is currently running its evaluation program. On-line development and deployment tools are available on request. We are looking for evaluators! And contributors! If you would like to participate, please contact us - <a href="support@prompto.org">support@prompto.org</a>.</p>
+					<p className="uk-text-small"><span class="prompto">prompto</span>&nbsp;is currently running its evaluation program. On-line development and deployment tools are available on request. We are looking for contributors! If you would like to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
 				</div>
 			</div>
 		</article>

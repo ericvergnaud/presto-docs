@@ -1,12 +1,23 @@
+const ALL_SLIDES = [
+	{ name: "Projects explorer", image: "projects-explorer.png", caption: "Create your project in seconds"},
+	{ name: "Code editor", image: "code-editor.png", caption: "Start coding immediately"},
+	{ name: "Try out", image: "try-out.png", caption: "Try out your app in less than a minute"},
+	{ name: "Data explorer", image: "data-explorer.png", caption: "Explore application data"},
+	{ name: "Stores explorer", image: "stores-explorer.png", caption: "Manage data stores"},
+	{ name: "Debug server", image: "debug-server.png", caption: "Analyze and fix issues online"},
+	{ name: "Deploy wizard", image: "deploy-wizard.png", caption: "Deploy to the cloud instantly"},
+	{ name: "Tablet coding", image: "tablet-coding.jpg", caption: "Zero setup ! Enjoy mobility"}
+];
+
 function Header() {
 	return (
 		<article className="p-header uk-padding-large uk-padding-remove-horizontal" style={{ 'backgroundImage': `url(${process.env.PUBLIC_URL}/misc/header.jpg)` }}>
 			<div className="uk-container uk-container-large">
 				<div className="uk-grid-medium uk-child-width-1-2@s" data-uk-grid>
 					<div>
-						<h1 className="uk-heading-small uk-margin-small-bottom uk-margin-medium-top">The <span>Full Stack</span> Language</h1>
-						<h1 className="uk-heading-small uk-margin-remove-top">Hosted in the <span>Cloud</span></h1>
-						<h4 className="uk-margin-large-top">Prompto lets you focus on what really makes a difference - <br /> creative web pages, meaningful data models and relevant algorithms.</h4>
+						<h1 className="uk-heading-small uk-margin-small-bottom uk-margin-medium-top">the <span>full stack</span> Language</h1>
+						<h1 className="uk-heading-small uk-margin-remove-top">hosted in the <span>cloud</span></h1>
+						<h4 className="uk-margin-large-top"><span class="prompto">prompto</span>&nbsp;frees you from technical tasks<br />and lets you focus on creating visible differences : <br /> creative web pages, meaningful data models and relevant business logic</h4>
 
 						<div className="uk-flex uk-margin-large-top">
 							<button className="uk-button uk-button-secondary p-primary uk-box-shadow-medium uk-margin-medium-right">
@@ -23,54 +34,16 @@ function Header() {
 					<div>
 						<div className="uk-position-relative uk-visible-toggle" tabIndex="-1" data-uk-slideshow="min-height: 570; max-height: 570; autoplay: true;">
 						    <ul className="uk-slideshow-items">
-						        <li>
-									<figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/projects-explorer.png` } alt="projects explorer" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Create your project in seconds from your browser</h3>
-						        </li>
-						        <li>
-						        	<figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/code-editor.png` } alt="code editor" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Start coding</h3>
-						        </li>
-						        <li>
-						            <figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/try-out.png` } alt="try out" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Try out your app in less than a minute</h3>
-						        </li>
-						        <li>
-						            <figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/data-explorer.png` } alt="data explorer" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Explore application data</h3>
-						        </li>
-						        <li>
-						            <figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/stores-explorer.png` } alt="stores explorer" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Manage data stores</h3>
-						        </li>
-						        <li>
-						        	<figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/debug-server.png` } alt="debug server" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Analyze issues online</h3>
-						        </li>
-						        <li>
-						        	<figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/deploy-wizard.png` } alt="deploy wizard" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">You are ready to go live</h3>
-						        </li>
-						        <li>
-						            <figure>
-										<img src={ `${process.env.PUBLIC_URL}/code/tablet-coding.jpg` } alt="tablet coding" />
-									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Zero setup lets you enjoy mobility</h3>
-						        </li>
+								{
+									ALL_SLIDES.map(s =>
+										<li key={s.name}>
+											<figure>
+												<img src={`${process.env.PUBLIC_URL}/code/` + s.image}
+													 alt={s.name}/>
+											</figure>
+											<h3 className="uk-margin-small-bottom uk-text-center">{s.caption}</h3>
+										</li>)
+								}
 						    </ul>
 							{ /* eslint-disable-next-line */ }
 						    <a className="uk-position-center-left-out uk-position-small" data-uk-slidenav-previous data-uk-slideshow-item="previous" />

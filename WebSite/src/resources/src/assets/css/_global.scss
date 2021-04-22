@@ -43,3 +43,18 @@ a {
 		color: $primary;
 	}
 }
+
+.logo {
+	max-height: 70px;
+}
+
+@font-face {
+	font-family: "Moderna";
+	src: local("Moderna"), url(../fonts/MODERNA.TTF);
+}
+
+.prompto {
+	font-family: 'Moderna', sans-serif;
+	font-size: larger;
+	color: $primary-dark
+}

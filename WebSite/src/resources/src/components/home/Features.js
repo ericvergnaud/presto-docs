@@ -19,7 +19,7 @@ function Features() {
 									<img src={ `${process.env.PUBLIC_URL}/features/html.svg` } className="p-icons" alt="html & css literals" />
 								</figure>
 								<h3 className="uk-margin-remove-bottom">Write HTML and CSS literals in code</h3>
-								<p>Prompto natively supports HTML literals discover the power of plain CSS literals for styles used only once you can combine local CSS styles to build conditional styles.</p>
+								<p><span className="prompto">prompto</span>&nbsp;natively supports HTML literals. Discover the power of plain CSS literals for styles used only once. You can combine local CSS styles to build conditional styles.</p>
 							</div>
 						</div>
 					</div>
@@ -31,7 +31,7 @@ function Features() {
 									<img src={ `${process.env.PUBLIC_URL}/features/cloud-computing.svg` } className="p-icons" alt="data literals" />
 								</figure>
 								<h3 className="uk-margin-remove-bottom">Enjoy powerful data literals</h3>
-								<p>List, set, dict, document - choose your collection literal. Date, time, dateTime and period literals that confirm to ISO 8601. You also have version or uuid literals.</p>
+								<p>List, set, dict, document - choose your collection literal. Date, time, dateTime and period literals that follow ISO 8601. You also have version and uuid literals.</p>
 							</div>
 						</div>
 
@@ -58,7 +58,7 @@ function Features() {
 									<img src={ `${process.env.PUBLIC_URL}/features/web-development.svg` } className="p-icons" alt="run same code everywhere" />
 								</figure>
 								<h3 className="uk-margin-remove-bottom">Run the same code everywhere</h3>
-								<p>Thanks to its polyglot native bindings, Prompto can run anywhere your models and your code are the same in the browser, on the server or in a forked process (C# code above abbreviated for presentation).</p>
+								<p>Thanks to its polyglot native bindings,&nbsp;<span className="prompto">prompto</span>&nbsp; can run anywhere. Forget data transfer protocols, your models and your code are the same in the browser, on the server or in a forked process (C# code above abbreviated for presentation).</p>
 							</div>
 						</div>
 					</div>
@@ -86,7 +86,7 @@ function Features() {
 
 				<h5 className="uk-margin-large-top uk-text-center">
 					<a href="/features" className="uk-flex-inline uk-flex-middle">
-						<span className="uk-margin-small-right">Learn more about Prompto features</span>
+						<span className="uk-margin-small-right">Learn more about&nbsp;<span className="prompto">prompto</span>&nbsp;features</span>
 						<span data-uk-icon="icon: arrow-right; ratio: 1.25;"></span>
 					</a>
 				</h5>

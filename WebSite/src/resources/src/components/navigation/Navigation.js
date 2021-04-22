@@ -1,4 +1,4 @@
-import '../../assets/navigation.scss';
+import '../../assets/css/navigation.scss';
 import {Link} from "react-router-dom";
 
 function Navigation() {
@@ -9,7 +9,7 @@ function Navigation() {
 			        <ul className="uk-navbar-nav">
 			            <li>
 			            	<Link to="/">
-			            		<span>prompto</span>
+								<img className="logo" src={ `${process.env.PUBLIC_URL}/brand/logo-vector.svg` } alt=""/>
 			            	</Link>
 			            </li>
 			        </ul>

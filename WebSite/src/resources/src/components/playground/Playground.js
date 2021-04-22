@@ -1,4 +1,4 @@
-import '../../assets/playground.scss';
+import '../../assets/css/playground.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

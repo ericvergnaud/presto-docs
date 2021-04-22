@@ -1,4 +1,4 @@
-import '../../assets/tutorials.scss';
+import '../../assets/css/tutorials.scss';
 
 const ALL_TUTORIALS = [ 
 	{ id: "z2LTkZaoJy8", title: "My first Prompto web site" },
