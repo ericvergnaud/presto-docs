@@ -21,7 +21,7 @@ function Footer() {
 					<div className="uk-flex uk-flex-middle uk-flex-between">
 						<div>	
 							<h2><span class="prompto">prompto</span>&nbsp;is getting better every day - <br /> Stay Tuned!</h2>
-							<p className="uk-text-muted">Join the&nbsp;<span class="prompto">prompto</span>&nbsp;newsletter and stay updated on new releases and features, tutorials, and documentation.</p>
+							<p className="uk-text-muted">Join the&nbsp;<span class="prompto">prompto</span>&nbsp;newsletter and stay updated on new releases, features, tutorials, and documentation.</p>
 						</div>
 
 						<div>
