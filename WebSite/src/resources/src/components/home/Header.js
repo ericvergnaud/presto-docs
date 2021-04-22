@@ -57,24 +57,25 @@ function Header() {
 						        	<figure>
 										<img src={ `${process.env.PUBLIC_URL}/code/debug-server.png` } alt="debug server" />
 									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Analyze issues Online</h3>
+									<h3 className="uk-margin-small-bottom uk-text-center">Analyze issues online</h3>
 						        </li>
 						        <li>
 						        	<figure>
 										<img src={ `${process.env.PUBLIC_URL}/code/deploy-wizard.png` } alt="deploy wizard" />
 									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Are you ready to Go-live?</h3>
+									<h3 className="uk-margin-small-bottom uk-text-center">You are ready to go live</h3>
 						        </li>
 						        <li>
 						            <figure>
 										<img src={ `${process.env.PUBLIC_URL}/code/tablet-coding.jpg` } alt="tablet coding" />
 									</figure>
-									<h3 className="uk-margin-small-bottom uk-text-center">Do you enjoy Mobility?</h3>
+									<h3 className="uk-margin-small-bottom uk-text-center">Zero setup lets you enjoy mobility</h3>
 						        </li>
 						    </ul>
-
-						    <a className="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-						    <a className="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>					    
+							{ /* eslint-disable-next-line */ }
+						    <a className="uk-position-center-left-out uk-position-small" data-uk-slidenav-previous data-uk-slideshow-item="previous" />
+							{ /* eslint-disable-next-line */ }
+							<a className="uk-position-center-right-out uk-position-small" data-uk-slidenav-next data-uk-slideshow-item="next" />
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,7 @@ function Footer() {
 				<div className="uk-container uk-container-small uk-text-center">
 					<div className="uk-flex uk-flex-middle uk-flex-around">
 						<figure>	
-							<img src={ `${process.env.PUBLIC_URL}/misc/docker.png` } className="uk-width-small uk-margin-small-right" alt="docker image" />
+							<img src={ `${process.env.PUBLIC_URL}/misc/docker.png` } className="uk-width-small uk-margin-small-right" alt="docker" />
 							<span data-uk-icon="icon: download; ratio: 5;"></span>
 						</figure>
 						<div className="uk-text-left">	

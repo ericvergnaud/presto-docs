@@ -1,4 +1,4 @@
-import PROMPTO_WORKER from '../prompto-player/PromptoWorkerListener';
+import PROMPTO_WORKER from '../player/PromptoWorkerListener';
 
 export default class LineHandler {
 

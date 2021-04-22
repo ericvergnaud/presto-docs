@@ -1,4 +1,5 @@
 import '../../assets/navigation.scss';
+import {Link} from "react-router-dom";
 
 function Navigation() {
     return (
@@ -7,26 +8,26 @@ function Navigation() {
 			    <div className="uk-navbar-left">
 			        <ul className="uk-navbar-nav">
 			            <li>
-			            	<a href="/">
+			            	<Link to="/">
 			            		<span>prompto</span>
-			            	</a>
+			            	</Link>
 			            </li>
 			        </ul>
 			    </div>
 
 			    <div className="uk-navbar-right">
 			        <ul className="uk-navbar-nav">
+						<li>
+							<Link to="/tutorials">Tutorials</Link>
+						</li>
 			        	<li>
-			            	<a href="/playground">Playground</a>
+			            	<Link to="/playground">Playground</Link>
 			            </li>
 			            <li>
-			            	<a href="/documentation">Documentation</a>
+			            	<Link to="/libraries">Libraries</Link>
 			            </li>
 			            <li>
-			                <a href="/tutorials">Tutorials</a>
-			            </li>
-			            <li>
-			            	<a href="/references">References</a>
+			            	<Link to="/reference">Reference</Link>
 			            </li>
 			        </ul>
 
