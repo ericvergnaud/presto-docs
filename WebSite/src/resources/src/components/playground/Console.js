@@ -12,7 +12,7 @@ export default class Console extends React.Component {
         this.addStyling = this.addStyling.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.style !== this.props.style)
             this.addStyling(nextProps);
     }

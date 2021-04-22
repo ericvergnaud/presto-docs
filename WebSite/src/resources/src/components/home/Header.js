@@ -17,7 +17,7 @@ function Header() {
 					<div>
 						<h1 className="uk-heading-small uk-margin-small-bottom uk-margin-medium-top">the <span>full stack</span> language</h1>
 						<h1 className="uk-heading-small uk-margin-remove-top">hosted in the <span>cloud</span></h1>
-						<h4 className="uk-margin-large-top"><span class="prompto">prompto</span>&nbsp;frees you from technical tasks<br />and lets you focus on creating visible differences : <br /> creative web pages, meaningful data models and relevant business logic</h4>
+						<h4 className="uk-margin-large-top"><span className="prompto">prompto</span>&nbsp;frees you from time consuming tasks<br />and lets you focus on making visible differences : <br /> creative web pages, meaningful data models and relevant business logic</h4>
 
 						<div className="uk-flex uk-margin-large-top">
 							<button className="uk-button uk-button-secondary p-primary uk-box-shadow-medium uk-margin-medium-right">
