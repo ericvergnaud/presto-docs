@@ -1,0 +1,27 @@
+.prompto-player {
+  margin-top: 5px;
+  width: 600px;
+  border: groove;
+}
+
+.player-navbar {
+  border-top: 1px solid #DDD;
+  button {
+    margin-right: 5px;
+  }
+}
+
+.uk-navbar-container.player-navbar:not(.uk-navbar-transparent) {
+  .uk-navbar-left .uk-navbar-nav > li > a {
+      font-size: small;
+      min-height: 31px;
+    }
+}
+
+.player-output {
+  margin: 5px;
+  font-size: 0.8em !important;
+  button {
+    margin-top: 5px;
+  }
+}

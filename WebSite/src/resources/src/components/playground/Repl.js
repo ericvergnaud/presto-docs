@@ -1,3 +1,5 @@
+import '../../assets/css/repl.scss';
+
 import React from 'react'
 import Console from './Console'
 import LineHandler from './LineHandler';

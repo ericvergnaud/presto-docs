@@ -3,7 +3,6 @@ import '../../assets/css/playground.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Repl from "./Repl";
-import './Repl.css';
 
 export default class Playground extends React.Component {
 

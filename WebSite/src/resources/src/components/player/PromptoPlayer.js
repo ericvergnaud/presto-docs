@@ -4,15 +4,17 @@ import AceEditor from 'react-ace';
 import 'brace/theme/eclipse';
 import 'brace/mode/text';
 import PromptoMode from "./PromptoMode";
-import {Navbar, Nav, NavItem, Button, Form, NavLink} from 'react-bootstrap';
 import PROMPTO_WORKER from './PromptoWorkerListener';
+import '../../assets/css/player.scss';
 
 class DialectSwitcher extends React.Component {
 
     render() {
-        return <NavItem>
-                <NavLink eventKey={this.props.dialect} active={this.props.active} onSelect={() => this.props.dialectSelected(this.props.dialect)}>{this.props.dialect}</NavLink>
-            </NavItem>;
+
+        return <li key={this.props.dialect} className={this.props.active ? "uk-active" : ""}>
+                    { /* eslint-disable-next-line */ }
+                    <a onClick={() => this.props.dialectSelected(this.props.dialect)}>{this.props.dialect}</a>
+                </li>;
     }
 }
 
@@ -22,22 +24,29 @@ const ALL_DIALECTS = ["Engly", "Objy", "Monty"];
 class PlayerNavbar extends React.Component {
 
     render() {
-        return <Navbar bg="light" variant="light" style={this.props.style}>
-                <Nav variant="tabs">
-                    { ALL_DIALECTS.map(d=><DialectSwitcher key={d} dialect={d}
-                                                           active={d[0]===this.props.dialect}
-                                                           dialectSelected={this.props.dialectSelected} />, this)
-                    }
-                </Nav>
-                { this.renderTryItButton() }
-            </Navbar>;
+        return <div style={this.props.style} className="uk-navbar-container player-navbar">
+                    <nav className="uk-navbar">
+                        <div className="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                {
+                                    ALL_DIALECTS.map(d => <DialectSwitcher key={d} dialect={d}
+                                                                        active={d[0] === this.props.dialect}
+                                                                        dialectSelected={this.props.dialectSelected}/>, this)
+                                }
+                            </ul>
+                        </div>
+                        <div className="uk-navbar-right">
+                            { this.renderTryItButton() }
+                        </div>
+                </nav>
+            </div>;
     }
 
     renderTryItButton() {
         if(this.props.runnable)
-            return <Form inline>
-                        <Button variant="light" onClick={this.props.runRequested}>Try it!</Button>
-                    </Form>;
+            return <form>
+                        <button type="button" onClick={this.props.runRequested}>Try it!</button>
+                    </form>;
         else
             return null;
     }
@@ -67,7 +76,7 @@ class PlayerOutput extends React.Component {
 
     renderDoneButton() {
         if(this.props.done)
-            return <Button variant="light" onClick={this.props.doneRequested}>Done</Button>;
+            return <button onClick={this.props.doneRequested}>Done</button>;
         else
             return null;
     }
