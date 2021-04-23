@@ -24,7 +24,7 @@ function Header() {
 								<span data-uk-icon="icon: cloud-upload; ratio: 1.15;" className="uk-margin-small-right"></span>
 								<span>Get Started</span>
 							</a>
-							<a href="https://github.com/prompto" target="_blank" className="uk-button uk-button-default uk-box-shadow-small uk-flex uk-flex-middle">
+							<a href="https://github.com/prompto" rel="noreferrer" target="_blank" className="uk-button uk-button-default uk-box-shadow-small uk-flex uk-flex-middle">
 								<span data-uk-icon="icon: github" className="uk-margin-small-right"></span>
 								<span>Source Code</span>
 							</a>

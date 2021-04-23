@@ -7,11 +7,11 @@ import '../../assets/css/home.scss';
 export default function Home(props) {
     const divStyle = {display: props.visible ? "block" : "none"};
     return (
-        <article style={divStyle}>
-            <Header />
-            <Features />
-            <Footer />
-        </article>
+            <article className="home" style={divStyle}>
+                <Header />
+                <Features />
+                <Footer />
+            </article>
     );
 }
 

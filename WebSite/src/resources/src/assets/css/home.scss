@@ -1,12 +1,12 @@
 @import '_mixin';
 
-#getting-started {
-	color: white;
+.home {
+	overflow-y: scroll;
+	scroll-behavior: smooth;
 }
 
 article {
 	font-family: 'Roboto', sans-serif;
-
 	h2 {
 		font-family: 'Noto Sans JP', sans-serif;
 		color: $darkest-grey;
