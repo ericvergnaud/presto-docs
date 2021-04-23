@@ -4,6 +4,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Repl from "./Repl";
 
+const INITIAL_HISTORY = [
+    "Welcome to Prompto",
+    "Using dialect: M",
+    "Type ? for help"
+].map(s => {
+    return {type: "welcome", data: s};
+});
+
 export default class Playground extends React.Component {
 
     componentDidMount() {
@@ -22,16 +30,9 @@ export default class Playground extends React.Component {
     }
 
     render() {
-        const historyToDisplay = [
-            "Welcome to Prompto",
-            "Using dialect: M",
-            "Type ? for help"
-        ].map(s => {
-            return {type: "welcome", data: s};
-        });
         const divStyle = {display: this.props.visible ? "block" : "none"};
         return <div className="playground" style={divStyle}>
-            <Repl ref="repl" historyToDisplay={historyToDisplay}/>
+            <Repl ref="repl" historyToDisplay={INITIAL_HISTORY}/>
         </div>;
     }
 }
