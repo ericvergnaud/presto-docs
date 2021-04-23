@@ -27,7 +27,7 @@ import '../../assets/css/topics.scss';
 const TOPICS = [ Overview, Dialects, Keywords, Comments, Annotations, Identifiers, Types, Mutability, Testing,
     Methods, Statements, Expressions, Errors, Categories, Singletons, Enumerations, Resources, Widgets, Events, Workers, Bindings ];
 
-TOPICS.forEach(t=>SearchEngine.addTopic(t, "LANGUAGE"));
+TOPICS.forEach(t=>SearchEngine.addTopic(t, "reference"));
 
 export default class Language extends React.Component {
 

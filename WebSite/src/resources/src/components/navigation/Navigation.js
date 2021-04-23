@@ -37,7 +37,7 @@ export default class Navigation extends React.Component {
 						</ul>
 
 						<div className="uk-navbar-item">
-							<SearchBox onSelectedSuggestion={this.selectSuggestion.bind(this)}/>
+							<SearchBox onSelectedSuggestion={this.props.topicSelected}/>
 						</div>
 
 					</div>
@@ -46,8 +46,5 @@ export default class Navigation extends React.Component {
 		);
 	}
 
-	selectSuggestion() {
-		console.log(arguments);
-	}
 }
 

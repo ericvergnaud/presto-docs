@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
@@ -12,23 +13,36 @@ import Reference from "./components/reference/Reference";
 import Libraries from "./components/libraries/Libraries";
 import Navigation from "./components/navigation/Navigation";
 
-
 UIkit.use(Icons);
 
+export default class App extends React.Component {
 
-function App() {
-    return (
-        <main>
-            <Router basename="">
-                <Navigation />
-                <Route exact path="/" children={ ({match}) => <Home visible={match}/> } />
-                <Route exact path="/tutorials" children={ ({match}) => <Tutorials visible={match}/> } />
-                <Route exact path="/playground" children={ ({match}) => <Playground visible={match}/> } />
-                <Route exact path="/libraries" children={ ({match}) => <Libraries visible={match}/> } />
-                <Route exact path="/reference" children={ ({match}) => <Reference visible={match}/> } />
-            </Router>
-        </main>
-    );
+    constructor(props) {
+        super(props);
+        this.libraries = null;
+        this.reference = null;
+        this.Navigator = withRouter(({history}) => <Navigation topicSelected={suggestion => this.topicSelected(history, suggestion)}/>);
+    }
+
+    render() {
+        return (
+            <main>
+                <Router basename="">
+                    <this.Navigator />
+                    <Route exact path="/" children={ ({match}) => <Home visible={match}/> } />
+                    <Route exact path="/tutorials" children={ ({match}) => <Tutorials visible={match}/> } />
+                    <Route exact path="/playground" children={ ({match}) => <Playground visible={match}/> } />
+                    <Route exact path="/libraries" children={ ({match}) => <Libraries ref={ref => this.libraries = ref || this.libraries} visible={match}/> } />
+                    <Route exact path="/reference" children={ ({match}) => <Reference ref={ref => this.reference = ref || this.reference} visible={match}/> } />
+                </Router>
+            </main>
+        );
+    }
+
+    topicSelected(history, suggestion) {
+        const chapter = suggestion.path.split("/")[0];
+        history.push("/" + chapter);
+        this[chapter].topicSelected(suggestion.topic);
+    }
+
 }
-
-export default App;

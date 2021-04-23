@@ -16,7 +16,7 @@ import '../../assets/css/topics.scss';
 
 const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud ];
 
-TOPICS.forEach(t=>SearchEngine.addTopic(t, "LIBRARIES"));
+TOPICS.forEach(t=>SearchEngine.addTopic(t, "libraries"));
 
 export default class Libraries extends React.Component {
 
