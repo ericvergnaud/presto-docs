@@ -1,6 +1,6 @@
 function Footer() {
 	return (
-		<article className="p-footer">
+		<article id="getting-started" className="p-footer">
 			<div className="uk-background-muted uk-padding-large uk-padding-remove-horizontal">
 				<div className="uk-container uk-container-small uk-text-center">
 					<div className="uk-flex uk-flex-middle uk-flex-around">

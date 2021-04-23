@@ -5,7 +5,7 @@
 }
 
 @mixin brandButton {
-	button {
+	button, a {
 		border-radius: 30px;
 		padding: 5px 30px;
 		font-size: 0.95rem;

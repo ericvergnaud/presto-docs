@@ -20,14 +20,14 @@ function Header() {
 						<h4 className="uk-margin-large-top"><span className="prompto">prompto</span>&nbsp;frees you from time consuming tasks<br />and lets you focus on making visible differences : <br /> creative web pages, meaningful data models and relevant business logic</h4>
 
 						<div className="uk-flex uk-margin-large-top">
-							<button className="uk-button uk-button-secondary p-primary uk-box-shadow-medium uk-margin-medium-right">
+							<a href="#getting-started" className="uk-button uk-button-secondary p-primary uk-box-shadow-medium uk-margin-medium-right">
 								<span data-uk-icon="icon: cloud-upload; ratio: 1.15;" className="uk-margin-small-right"></span>
 								<span>Get Started</span>
-							</button>
-							<button className="uk-button uk-button-default uk-box-shadow-small uk-flex uk-flex-middle">
+							</a>
+							<a href="https://github.com/prompto" target="_blank" className="uk-button uk-button-default uk-box-shadow-small uk-flex uk-flex-middle">
 								<span data-uk-icon="icon: github" className="uk-margin-small-right"></span>
 								<span>Source Code</span>
-							</button>
+							</a>
 						</div>
 					</div>
 

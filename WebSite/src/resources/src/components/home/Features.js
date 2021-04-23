@@ -69,8 +69,8 @@ function Features() {
 								<figure className="uk-margin-large-top">
 									<img src={ `${process.env.PUBLIC_URL}/features/database.svg` } className="p-icons" alt="store data in one statement" />
 								</figure>
-								<h3 className="uk-margin-remove-bottom">Store data in one statement</h3>
-								<p>Simply populate your instances, then call <code>store</code>. You can delete and store multiple instances in one statement which provides ACID consistency (if supported by the back-end data store).</p>
+								<h3 className="uk-margin-remove-bottom">Store and fetch data in one statement</h3>
+								<p>Simply populate your instances, then call <code>store</code>. You can delete and store multiple instances in one ACID statement (if supported by the back-end data store). Fetching data has never been simpler, just call <code>fetch</code>.</p>
 							</div>
 						</div>
 
