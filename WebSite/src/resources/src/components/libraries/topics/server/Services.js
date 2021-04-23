@@ -1,5 +1,5 @@
 import React from 'react';
-import Topic from "../../../components/Topic";
+import Topic from "../../../content/Topic";
 
 class ThisTopic extends Topic {
 

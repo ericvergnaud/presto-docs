@@ -197,7 +197,7 @@ class ThisTopic extends Topic {
                     <li>Projection queries that only return selected attributes rather than full fledged instances</li>
                 </ul>
                 <p>If you find that a feature is missing, <a href="mailto:support@prompto.org?subject=Feature%20request">please contact Prompto support.</a><br/>
-                    Alternately, create a <a href="https://github.com/prompto/prompto-factory/issues">feature request on GitHub</a>.</p>
+                    Alternately, create a <a href="https://github.com/prompto/prompto-factory/issues" target="_blank" rel="noreferrer">feature request on GitHub</a>.</p>
 
             <br/>
 

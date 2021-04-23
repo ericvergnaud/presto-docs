@@ -1,6 +1,6 @@
 import React from 'react';
-import Topic from "../../components/Topic";
-import PromptoPlayer from "../../prompto-player/PromptoPlayer";
+import PromptoPlayer from "../../player/PromptoPlayer";
+import Topic from "../../content/Topic";
 
 class ThisTopic extends Topic {
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap'
-import Topic from "../../../components/Topic";
+import Topic from "../../../content/Topic";
 
 class ThisTopic extends Topic {
 
@@ -10,7 +9,7 @@ class ThisTopic extends Topic {
 
     renderContent(topicSelected) {
         const nbsp = "\u00A0";
-        return <React.Fragment>
+        return <>
                     <h2>React Bootstrap 3</h2>
                     <p>Bootstrap is one of the most popular UI frameworks, created by Twitter.<br/>
                         React Bootstrap 3 is a set of React components which make it easy to use.<br/>
@@ -39,7 +38,7 @@ class ThisTopic extends Topic {
                 <p>Please refer to above documentations for details. </p>
             <p><i>Prompto does not support inner categories (which are required in JavaScript due to the uncontrolled proliferation of global names).<br/>
                         Therefore, the Prompto adapter uses identifiers, which are mapped to the corresponding React Bootstrap 3 components, as follows:</i></p>
-                    <Table style={{maxWidth: "500px"}}>
+                    <table className="uk-table uk-table-divider uk-table-small" style={{maxWidth: "500px"}}>
                         <thead>
                             <tr>
                                 <th>Prompto widget</th>
@@ -252,9 +251,9 @@ class ThisTopic extends Topic {
                                 <td>ContextMenu</td>
                             </tr>
                         </tbody>
-                    </Table>
+                    </table>
             <p><i>(the above covers most but not all React Bootstrap 3 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
-            </React.Fragment>;
+            </>;
     }
 
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import Topic from "../../../components/Topic";
 import AWS from "./AWS";
+import Topic from "../../../content/Topic";
 
 class ThisTopic extends Topic {
 

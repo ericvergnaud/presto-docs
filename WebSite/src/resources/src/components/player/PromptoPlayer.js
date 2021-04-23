@@ -27,7 +27,7 @@ class PlayerNavbar extends React.Component {
         return <div style={this.props.style} className="uk-navbar-container player-navbar">
                     <nav className="uk-navbar">
                         <div className="uk-navbar-left">
-                            <ul class="uk-navbar-nav">
+                            <ul className="uk-navbar-nav">
                                 {
                                     ALL_DIALECTS.map(d => <DialectSwitcher key={d} dialect={d}
                                                                         active={d[0] === this.props.dialect}
