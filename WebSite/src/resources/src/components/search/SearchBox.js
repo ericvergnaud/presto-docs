@@ -1,6 +1,7 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
-import SearchEngine from "../components/SearchEngine";
+import SearchEngine from "./SearchEngine";
+import '../../assets/css/search.scss';
 
 class Suggestion extends React.Component {
 

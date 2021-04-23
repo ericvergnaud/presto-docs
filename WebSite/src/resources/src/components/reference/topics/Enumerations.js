@@ -62,7 +62,7 @@ class ThisTopic extends Topic {
                 <br/>
 
             <h3>Enumerations of built-in types</h3>
-            <p>Prompto supports Enumerations of built-in types. See Types -> Enumeration for details.</p>
+            <p>Prompto supports Enumerations of built-in types. See Types -&gt; Enumeration for details.</p>
             </>;
     }
 

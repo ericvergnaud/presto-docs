@@ -44,18 +44,6 @@
 
 		.uk-navbar-item {
 			min-height: 70px;
-
-			> form {
-				&.uk-search-default {
-					width: 250px;
-
-					input[type=search] {
-						border-radius: 30px;
-						background: $lightest-grey;
-						font-size: 0.95rem;
-					}
-				}
-			}
 		}
 	}
 }
