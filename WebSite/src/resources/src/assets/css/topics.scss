@@ -1,3 +1,5 @@
+@import '_mixin';
+
 .topics {
 
 }
@@ -32,9 +34,15 @@
   font-weight: bolder;
 }
 
-.topic > .nav-item > a {
+.topic > li > button {
   padding: 2px;
   font-size: 14px;
+  text-transform: none;
+  color: $primary;
+}
+
+.topic > li > button:focus {
+  color: $primary;
 }
 
 .topic.level-2 {
@@ -43,7 +51,7 @@
 
 .topic.level-2 > li {
   display: list-item;
-  list-style: disc;
+  list-style: none;
 }
 
 .topic.level-3 {
@@ -52,7 +60,7 @@
 
 .topic.level-3 > li {
   display: list-item;
-  list-style: square;
+  list-style: none;
 }
 
 .keywords {

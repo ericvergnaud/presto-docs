@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavItem, NavLink } from "react-bootstrap";
 import PromptoPlayer from "../../../player/PromptoPlayer";
 import Topic from "../../../content/Topic";
 import TopicItem from "../../../content/TopicItem";
@@ -9,9 +8,9 @@ class CallThenTopicItem extends TopicItem {
     render() {
         const active = this.props.topic===this.props.activeTopic;
         return <>
-            <NavItem>
-                <NavLink active={active} eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}><i>Call</i> then</NavLink>
-            </NavItem>
+            <li className={active ? "uk-active" : ""}>
+                <button class="uk-button uk-button-link" onSelect={this.onSelect.bind(this)}><i>Call</i> then</button>
+            </li>
             { this.renderChildren()}
         </>;
     }

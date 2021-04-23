@@ -1,5 +1,4 @@
 import React from "react";
-import {NavItem, NavLink} from "react-bootstrap";
 import TopicList from "./TopicList";
 
 export default class TopicItem extends React.Component {
@@ -9,18 +8,19 @@ export default class TopicItem extends React.Component {
         this.state = { collapsed: true };
     }
 
-    onSelect(key) {
+    onSelect() {
         const children = this.props.topic.children;
         if(children)
             this.setState({ collapsed: !this.state.collapsed });
+        this.props.topicSelected(this.props.topic);
     }
 
     render() {
         const active = this.props.topic===this.props.activeTopic;
         return <>
-            <NavItem>
-                <NavLink active={active} eventKey={this.props.topic.title} onSelect={this.onSelect.bind(this)}>{this.props.topic.title}</NavLink>
-            </NavItem>
+            <li className={active ? "uk-active" : ""}>
+                <button className="uk-button uk-button-link" onClick={this.onSelect.bind(this)}>{this.props.topic.title}</button>
+            </li>
             { this.renderChildren()}
         </>;
     }
