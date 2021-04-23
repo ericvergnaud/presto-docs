@@ -41,7 +41,8 @@ function Footer() {
 
 					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
 
-					<p className="uk-text-small"><span className="prompto">prompto</span>&nbsp;is currently running its evaluation program. On-line development and deployment tools are available on request. We are looking for contributors! If you would like to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
+					<p className="uk-text-small"><span className="prompto">prompto</span>&nbsp;is currently running its evaluation program. On-line development and deployment tools are available on request.</p>
+					<p className="uk-text-small"><span className="prompto">prompto</span>&nbsp;is looking for contributors! If you would like to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
 				</div>
 			</div>
 		</article>
