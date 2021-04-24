@@ -1,6 +1,21 @@
+function download(event) {
+	event.preventDefault();
+	const form = event.currentTarget;
+	if(form)
+		alert("download");
+}
+
+function subscribe(event) {
+	event.preventDefault();
+	const form = event.currentTarget;
+	if(form)
+		alert("subscribe");
+}
+
 function Footer() {
 	return (
 		<article id="getting-started" className="p-footer">
+
 			<div className="uk-background-muted uk-padding-large uk-padding-remove-horizontal">
 				<div className="uk-container uk-container-small uk-text-center">
 					<div className="uk-flex uk-flex-middle uk-flex-around">
@@ -8,9 +23,24 @@ function Footer() {
 							<img src={ `${process.env.PUBLIC_URL}/misc/docker.png` } className="uk-width-small uk-margin-small-right" alt="docker" />
 							<span data-uk-icon="icon: download; ratio: 5;"></span>
 						</figure>
-						<div className="uk-text-left">	
-							<h2>Download the <span>DOCKER</span> Image</h2>
-							<h3 className="uk-margin-remove-top">Try it out on your local machine!</h3>
+						<div>
+							<div className="uk-text-left">
+								<h2>Download the <span>DOCKER</span> image</h2>
+								<h3 className="uk-margin-remove-top">Try it out on your local machine!</h3>
+							</div>
+							<div className="uk-text-center">
+								<form onSubmit={download}>
+									<div className="uk-margin-small-bottom">
+										<div className="uk-inline">
+											<span className="uk-form-icon" data-uk-icon="icon: mail"></span>
+											<input className="uk-input" type="email" placeholder="name@domain.com" />
+										</div>
+									</div>
+									<div>
+										<button className="uk-button uk-button-secondary p-secondary">Download</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -25,7 +55,7 @@ function Footer() {
 						</div>
 
 						<div>
-							<form className="uk-text-right">
+							<form className="uk-text-right" onSubmit={subscribe}>
 								<div className="uk-margin-small-bottom">
 									<div className="uk-inline">
 							            <span className="uk-form-icon" data-uk-icon="icon: mail"></span>

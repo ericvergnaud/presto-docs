@@ -1,4 +1,4 @@
-function Features() {
+function Features(props) {
 	return (
 		<article className="p-features">
 			<div className="uk-padding-large uk-padding-remove-horizontal">
@@ -85,10 +85,10 @@ function Features() {
 				</div>
 
 				<h5 className="uk-margin-large-top uk-text-center">
-					<a href="/features" className="uk-flex-inline uk-flex-middle">
+					<button className="uk-flex-inline uk-flex-middle uk-button uk-button-link" onClick={()=>props.history.push("/reference")}>
 						<span className="uk-margin-small-right">Learn more about&nbsp;<span className="prompto">prompto</span>&nbsp;features</span>
 						<span data-uk-icon="icon: arrow-right; ratio: 1.25;"></span>
-					</a>
+					</button>
 				</h5>
 			</div>
 		</article>

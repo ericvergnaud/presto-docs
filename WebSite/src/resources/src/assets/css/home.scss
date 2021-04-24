@@ -104,11 +104,6 @@ article {
 	}
 
 	&.p-footer {
-		> div {
-			&:nth-child(1) {
-				@include brandButton;
-			}
-		}
 
 		form {
 			> div {

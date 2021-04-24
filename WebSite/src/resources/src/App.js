@@ -11,6 +11,7 @@ import Playground from "./components/playground/Playground";
 import Tutorials from "./components/tutorials/Tutorials";
 import Reference from "./components/reference/Reference";
 import Libraries from "./components/libraries/Libraries";
+import Download from "./components/download/Download";
 import Navigation from "./components/navigation/Navigation";
 
 UIkit.use(Icons);
@@ -22,6 +23,7 @@ export default class App extends React.Component {
         this.libraries = null;
         this.reference = null;
         this.Navigator = withRouter(({history}) => <Navigation topicSelected={suggestion => this.topicSelected(history, suggestion)}/>);
+        this.Home = withRouter(({visible, history}) => <Home visible={visible} history={history}/>);
     }
 
     render() {
@@ -29,11 +31,12 @@ export default class App extends React.Component {
             <main>
                 <Router basename="">
                     <this.Navigator />
-                    <Route exact path="/" children={ ({match}) => <Home visible={match}/> } />
+                    <Route exact path="/" children={ ({match}) => <this.Home visible={match}/> } />
                     <Route exact path="/tutorials" children={ ({match}) => <Tutorials visible={match}/> } />
                     <Route exact path="/playground" children={ ({match}) => <Playground visible={match}/> } />
                     <Route exact path="/libraries" children={ ({match}) => <Libraries ref={ref => this.libraries = ref || this.libraries} visible={match}/> } />
                     <Route exact path="/reference" children={ ({match}) => <Reference ref={ref => this.reference = ref || this.reference} visible={match}/> } />
+                    <Route exact path="/download" children={ ({match}) => <Download visible={match}/> } />
                 </Router>
             </main>
         );

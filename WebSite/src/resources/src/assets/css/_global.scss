@@ -58,3 +58,10 @@ a {
 	font-size: larger;
 	color: $primary-dark
 }
+
+.uk-button-link {
+	color: $primary;
+	&:hover, &:focus {
+		color: $primary;
+	}
+}

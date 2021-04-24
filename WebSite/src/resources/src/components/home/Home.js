@@ -9,7 +9,7 @@ export default function Home(props) {
     return (
             <article className="home" style={divStyle}>
                 <Header />
-                <Features />
+                <Features history={props.history}/>
                 <Footer />
             </article>
     );
