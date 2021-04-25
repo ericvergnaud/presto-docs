@@ -1,3 +1,0 @@
-define productReference as storable Text attribute with key index
-define name as storable Text attribute with value index
-define description as storable Text attribute with value and words index

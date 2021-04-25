@@ -1,9 +1,0 @@
-define key as Integer attribute
-define Person as category with attributes key and name
-
-define main as method doing:
-    e1 = Person with 3 as key and "Peter" as name
-    e2 = Person with 2 as key and "Alan" as name
-    e3 = Person with 1 as key and "John" as name
-    list = [ e1, e2, e3 ]
-    printLine "sorted -> " + sorted list

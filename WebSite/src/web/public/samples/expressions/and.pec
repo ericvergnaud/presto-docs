@@ -1,6 +1,0 @@
-define main as method doing:
-    a = (1=1)
-    b = (1=2)
-    c = (2=2)
-    printLine "a and b -> " + (a and b)
-    printLine "a and c -> " + (a and c)

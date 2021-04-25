@@ -1,6 +1,0 @@
-@PageWidgetOf("SomePage")
-define SomeWidget as widget with methods:
-
-	@Callback
-	define getSomeInfo as method doing:
-		return {}

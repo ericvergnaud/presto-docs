@@ -1,7 +1,0 @@
-define main as method doing:
-    r = [2..11]
-    a = 5
-    b = (3, 11, 14)
-    printLine "a in r -> " + (a in r)
-    printLine "r has any b -> " + (r has any b)
-    printLine "r has all b -> " + (r has all b)

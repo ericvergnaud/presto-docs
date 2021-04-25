@@ -1,3 +1,0 @@
-define render as method returning Html doing:
-    return <div id="some-text">Some text in <b>Bold</b>.<br/>
-            Some text in <i>Italic</b></div>

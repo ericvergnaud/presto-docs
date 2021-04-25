@@ -1,9 +1,0 @@
-define main as method doing:
-    a = 2
-    b = 3
-    c = 4.0
-    d = 2.7
-    printLine "a * b -> " + (a * b)
-    printLine "a * c -> " + (a * c)
-    printLine "c * d -> " + (c * d)
-    printLine "c * b -> " + (c * a)

@@ -1,4 +1,0 @@
-define main as method doing:
-    a = mutable (1, "John", 3.9)
-    a[2] = '2014-12-10'
-    printLine "a -> " + a

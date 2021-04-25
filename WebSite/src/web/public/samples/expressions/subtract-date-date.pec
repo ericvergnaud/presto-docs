@@ -1,4 +1,0 @@
-define main as method doing:
-    a = '2012-10-10'
-    b = '2010-08-06'
-    printLine "a - b -> " + (a - b)

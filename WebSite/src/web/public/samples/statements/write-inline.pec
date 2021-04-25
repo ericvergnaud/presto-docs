@@ -1,3 +1,0 @@
-define main as method doing:
-    write "some content" to Buffer
-    printLine "\"some content\" has been written to Buffer"

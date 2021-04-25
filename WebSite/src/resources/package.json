@@ -2,26 +2,23 @@
   "name": "prompto",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anshumanui.github.io/prompto/",
+  "homepage": "https://www.prompto.org/",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "brace": "^0.11.1",
+    "js-search": "^2.0.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
-    "react-ace": "6.3.2",
-    "react-bootstrap": "^1.5.2",
+    "react-ace": "^9.4.0",
+    "react-autosuggest": "^10.1.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "scroll-behavior-polyfill": "^2.0.13",
     "uikit": "^3.6.17",
     "web-vitals": "^1.0.1",
     "worker-loader": "^3.0.8"
   },
   "scripts": {
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +43,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react-scripts": "4.0.3"
   }
 }

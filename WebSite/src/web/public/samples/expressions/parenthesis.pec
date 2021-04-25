@@ -1,5 +1,0 @@
-define main as method doing:
-    // unclear intent
-    printLine "1 + 3 / 4 - 9 -> " + (1 + 3 / 4 - 9)
-    // clear intent using parenthesis
-    printLine "(1 + (3 / 4)) - 9 -> " + ((1 + (3 / 4)) - 9)

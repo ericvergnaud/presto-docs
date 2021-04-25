@@ -1,7 +1,0 @@
-define Configuration as singleton with attributes login and password
-
-define main as method doing:
-    with Configuration, do:
-        login = "prompto-login"
-        password = "xYz3!?th22"
-    printLine "login -> " + Configuration.login

@@ -1,7 +1,0 @@
-widget Minimal extends ReactWidget {
-
-	Html method render () {
-		return <div>minimal</div>;
-	}
-
-}

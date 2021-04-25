@@ -1,8 +1,0 @@
-define Person as storable category with attribute name
-
-define "person can be fetched by name" as test method doing:
-    p = Person with "John" as name
-    store p
-    found = fetch one Person where name = "John"
-and verifying:
-    found.name = "John"

@@ -1,4 +1,0 @@
-define main as method doing:
-	// need a cross-domain enabled page for browser testing
-	content = read all from Url with "https://www.prompto.org/samples/categories/abstract.pec" as path
-    print content[1:100]

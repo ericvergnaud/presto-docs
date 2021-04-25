@@ -1,8 +1,0 @@
-define main as method doing:
-    a = 'x'
-    b = 'y'
-    c = 'x'
-    printLine "a < b -> " + (a < b)
-    printLine "a > b -> " + (a > b)
-    printLine "a >= c -> " + (a >= c)
-    printLine "a <= c -> " + (a <= c)

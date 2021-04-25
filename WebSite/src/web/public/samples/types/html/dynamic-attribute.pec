@@ -1,3 +1,0 @@
-define render as method returning Html doing:
-    someId = 1234
-    return <div id={someId}>Some text</div>

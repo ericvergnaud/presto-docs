@@ -1,4 +1,0 @@
-define main as method doing:
-    csv = "id,name\n1,John\n2,Riou\\, Sylvie\n"
-    docs = readCsv with csv as text
-    print docs

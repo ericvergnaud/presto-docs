@@ -1,9 +1,0 @@
-define myMethod as method receiving Code code doing:
-    a = 3
-    b = 7
-    return execute: code
-
-define main as method doing:
-    c = Code: a + b
-    r = myMethod with c as code
-    printLine "a + b -> " + r

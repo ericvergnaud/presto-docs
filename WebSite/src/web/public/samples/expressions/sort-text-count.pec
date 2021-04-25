@@ -1,3 +1,0 @@
-define main as method doing:
-    list = [ "zack", "guy", 'b', "ab" ]
-    printLine "sorted -> " + sorted list with t => t.count as key

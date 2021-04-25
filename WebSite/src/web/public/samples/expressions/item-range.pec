@@ -1,5 +1,0 @@
-define main as method doing:
-    a = [13..22]
-    b = 7
-    printLine "a[3] -> " + a[3]
-    printLine "a[b] -> " + a[b]

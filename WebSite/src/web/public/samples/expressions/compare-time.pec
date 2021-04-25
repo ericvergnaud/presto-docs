@@ -1,8 +1,0 @@
-define main as method doing:
-    a = '13:03:17.007'
-    b = '08:19:14'
-    c = '13:03:17.007'
-    printLine "a < b -> " + (a < b)
-    printLine "a > b -> " + (a > b)
-    printLine "a >= c -> " + (a >= c)
-    printLine "a <= c -> " + (a <= c)

@@ -1,3 +1,0 @@
-define main as method doing:
-    doc = { town : "Toulouse", population : 600000 }
-    printLine "doc -> " + doc

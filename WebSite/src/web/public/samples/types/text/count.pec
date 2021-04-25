@@ -1,3 +1,0 @@
-define main as method doing:
-    t = "My character count is 24"
-    printLine "t.count -> " + t.count

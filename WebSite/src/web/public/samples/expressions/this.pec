@@ -1,7 +1,0 @@
-define SomeObject as category with attribute name, and methods:
-    define SomeMethod as method receiving name doing:
-        return this.name + " " + name
-
-define main as method doing:
-    s = SomeObject with "Hello" as name
-    printLine "name -> " + s.SomeMethod "John"

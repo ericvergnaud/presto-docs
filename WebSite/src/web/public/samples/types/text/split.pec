@@ -1,4 +1,0 @@
-define main as method doing:
-    t = "a list of words separated by spaces"
-    l = t.split with " " as separator
-    printLine "t.split -> " + l

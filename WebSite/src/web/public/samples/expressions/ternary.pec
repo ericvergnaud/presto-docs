@@ -1,7 +1,0 @@
-define main as method doing:
-    a = true
-    b = "John" if a else "Edgar"
-    printLine "b -> " + b
-    a = false
-    b = "John" if a else "Edgar"
-    printLine "b -> " + b

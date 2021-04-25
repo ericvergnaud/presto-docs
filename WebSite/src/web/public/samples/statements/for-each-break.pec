@@ -1,5 +1,0 @@
-define main as method doing:
-    for each person in ["Jane", "John", "Albert"]:
-        printLine "person = " + person
-        if person = "John":
-            break

@@ -1,5 +1,0 @@
-define fullName as Text attribute
-define Person as category with attribute fullName
-
-define company as Text attribute
-define Employee as Person with attribute company

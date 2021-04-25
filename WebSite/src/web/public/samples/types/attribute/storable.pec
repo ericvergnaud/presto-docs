@@ -1,2 +1,0 @@
-define birthday as storable Date attribute
-define price as storable Decimal attribute with index

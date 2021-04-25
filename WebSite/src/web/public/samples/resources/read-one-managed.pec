@@ -1,9 +1,0 @@
-define main as method doing:
-    location = "https://raw.githubusercontent.com/prompto/prompto-samples/master/sample-text-file.txt"
-    with url = Url with location as path, do:
-        line = read one from url
-        printLine "line -> " + line
-        line = read one from url
-        printLine "line -> " + line
-        line = read one from url
-        printLine "line -> " + line

@@ -1,4 +1,0 @@
-define main as method receiving Text<:> options doing:
-	john = Person with "John" as name
-	store john then:
-		printLine "this statement is executed in the browser"

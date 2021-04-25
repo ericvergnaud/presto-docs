@@ -1,6 +1,0 @@
-define main as method doing:
-    a = 2
-    printLine "a is an Integer -> " + (a is an Integer)
-    printLine "a is a Text -> " + (a is a Text)
-    printLine "a is not an Integer -> " + (a is not an Integer)
-    printLine "a is not a Text -> " + (a is not a Text)

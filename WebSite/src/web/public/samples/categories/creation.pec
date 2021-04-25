@@ -1,9 +1,0 @@
-define firstName as Text attribute
-define lastName as Text attribute
-define dateOfBirth as Date attribute
-
-define Person as category with attributes firstName, lastName and dateOfBirth
-
-define main as method doing:
-    p = Person with "Arthur" as firstName, "Rimbaud" as lastName and '1854-10-20' as dateOfBirth
-    printLine p

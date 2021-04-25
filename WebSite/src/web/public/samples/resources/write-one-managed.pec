@@ -1,8 +1,0 @@
-define main as method doing:
-    content = "<empty>"
-    with buffer = Buffer, do:
-        write "some content" to buffer
-        write "other content" to buffer
-        // read back the 2 above lines
-        content = read all from buffer
-    print content

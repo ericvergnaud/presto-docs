@@ -1,5 +1,0 @@
-define main as method doing:
-    i = 0
-    while i < 4:
-        printLine "i = " + i
-        i = i + 1

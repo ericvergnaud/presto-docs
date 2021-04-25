@@ -1,5 +1,0 @@
-define main as method doing:
-    doc = Document
-    doc.types = mutable ["Town","Person", "Company"]
-    doc.types[2] = "Employee"
-    printLine "doc -> " + doc

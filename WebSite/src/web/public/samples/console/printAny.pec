@@ -1,3 +1,0 @@
-define main as method doing:
-    print 123
-    print "Hello"

@@ -1,5 +1,0 @@
-define SomeConstant as enumerated Decimal with symbols:
-    AVOGADRO with 6.022140857 as value
-
-define main as method doing:
-    printLine "AVOGADRO is equal to " + AVOGADRO

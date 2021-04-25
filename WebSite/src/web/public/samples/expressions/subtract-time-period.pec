@@ -1,4 +1,0 @@
-define main as method doing:
-    a = '14:17:11'
-    b = 'P3DT11M3S'
-    printLine "a - b -> " + (a - b)

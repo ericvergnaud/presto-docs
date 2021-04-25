@@ -1,3 +1,0 @@
-define "divide by 0 raises error" as test method doing:
-    a = 3 / 0
-and verifying DIVIDE_BY_ZERO

@@ -1,9 +1,0 @@
-define main as method doing:
-    a = 4
-    switch on a:
-        when 1:
-            printLine "a = 1"
-        when 3:
-            printLine "a = 3"
-        otherwise:
-            printLine "a = other"

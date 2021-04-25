@@ -1,5 +1,0 @@
-define main as method doing:
-    a = true
-    b = false
-    printLine "not a -> " + (not a)
-    printLine "not b -> " + (not b)

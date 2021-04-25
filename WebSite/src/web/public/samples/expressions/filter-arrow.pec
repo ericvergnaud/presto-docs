@@ -1,4 +1,0 @@
-define main as method doing:
-    list = [ 1, 2, 3, 4, 5, 6 ]
-    even_items = list filtered where item => item % 2 = 0
-    printLine "even_items -> " + even_items

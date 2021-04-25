@@ -1,5 +1,0 @@
-define main as method doing:
-    start = now
-    sleep 2000
-    end = now
-    printLine end - now

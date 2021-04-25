@@ -1,5 +1,0 @@
-define main as method doing:
-    nativeWriter = invoke: stderr
-    writer = ConsoleWriter nativeWriter
-    print 123 with writer
-    print "Hello" with writer

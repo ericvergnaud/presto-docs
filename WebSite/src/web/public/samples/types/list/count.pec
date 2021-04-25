@@ -1,3 +1,0 @@
-define main as method doing:
-    l = [ 12, 35, -7]
-    printLine "l.count -> " + l.count

@@ -1,5 +1,0 @@
-define main as method doing:
-    printLine "always"
-    return
-    // the below statement will never be executed
-    printLine "never"

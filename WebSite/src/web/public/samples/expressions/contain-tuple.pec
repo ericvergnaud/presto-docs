@@ -1,7 +1,0 @@
-define main as method doing:
-    t = (2, "John", 6.5)
-    a = "John"
-    b = (3, "John", 14)
-    printLine "a in t -> " + (a in t)
-    printLine "t has any b -> " + (t has any b)
-    printLine "t has all b -> " + (t has all b)

@@ -1,4 +1,0 @@
-define main as method doing:
-    for each i, s in ["John", "Janet", "Oswald"]:
-        printLine "i = " + i
-        printLine "s = " + s
