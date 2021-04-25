@@ -1,0 +1,10 @@
+define shortName as Text attribute
+define Product as category with attribute shortName
+
+define addStuff as method receiving shortName and Text suffix doing:
+    return shortName + suffix
+
+define main as method doing:
+    p = Product with "Prompto" as shortName
+    s = addStuff p.shortName with " is there!" as suffix
+    printLine s

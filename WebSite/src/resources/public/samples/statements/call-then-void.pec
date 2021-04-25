@@ -1,0 +1,7 @@
+define serverMethod as method doing:
+	printLine "this method is being executed on the server"
+
+
+define main as method doing:
+    serverMethod then:
+        printLine "this statement is executed in the browser"

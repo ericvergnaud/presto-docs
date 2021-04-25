@@ -1,0 +1,6 @@
+define main as method doing:
+    a = "Some text"
+    printLine "a[2:4] -> " + a[2:4]
+    printLine "a[2:-2] -> " + a[2:-2]
+    printLine "a[:4] -> " + a[:4]
+    printLine "a[3:] -> " + a[3:]

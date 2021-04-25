@@ -1,0 +1,11 @@
+define Configuration as singleton with attributes login and password, and methods:
+
+    define readFromResource as method doing:
+        // can't read file from a browser, but you get it
+        login = "prompto-login"
+        password = "xYz3!?th22"
+
+define main as method doing:
+    with Configuration, do:
+        readFromResource
+    printLine "login -> " + Configuration.login

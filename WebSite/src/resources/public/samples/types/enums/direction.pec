@@ -1,0 +1,5 @@
+define Direction as enumerated Text with symbols:
+    NORTH with "North" as value
+    SOUTH with "South" as value
+    EAST with "East" as value
+    WEST with "West" as value

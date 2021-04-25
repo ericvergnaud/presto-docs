@@ -1,0 +1,6 @@
+define main as method doing:
+    a = <1, 2, 7>
+    b = <"John", "Sylvia", "Apricot", "January">
+    c = 3
+    printLine "a[1] -> " + a[1]
+    printLine "b[c] -> " + b[c]

@@ -1,0 +1,9 @@
+define main as method doing:
+    a = 3
+    switch on a:
+        when in [1, 3]:
+            printLine "a = " + a
+        when 17:
+            printLine "a = 17"
+        otherwise:
+            printLine "a = other"

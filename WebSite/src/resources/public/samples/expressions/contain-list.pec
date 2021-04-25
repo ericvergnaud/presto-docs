@@ -1,0 +1,7 @@
+define main as method doing:
+    l = [2, 3, 6]
+    a = 5
+    b = (3, 6, 14)
+    printLine "a in l -> " + (a in l)
+    printLine "l has any b -> " + (l has any b)
+    printLine "l has all b -> " + (l has all b)

@@ -1,3 +1,47 @@
+const codeSnippet = [
+	`widget SimpleWidget extends ReactWidget {
+
+		method getInitialState() {
+			return { dark: false };
+		}
+
+		method render() {
+			css = { margin-left: 10px; padding: 5%; };
+			if (state.dark is true)
+				css = css + { color: white; background-color: black; };
+			return <div style={css}>Hi there!</div>
+		}
+
+	}`,
+	`method populateVariables() {
+		list = ["John", "Mary", "Eric"];
+		set = < "John", "Mary", "Eric" >;
+		dict = < "a": "stuff", "b": "other" >;
+		doc = { a: 22, b: 33.5 };
+		date = '2022-12-10';
+		time = '15:00:53';
+		dateTime = '2022-12-10T15:00:53+03:00';
+		period = 'PT15M';
+		version = 'v1.2.3';
+		uuid = '123e4567-e89b-12d3-a456-426614174000';
+	}`,
+	`Decimal native method parseDecimal (Text text) {
+		Java: return Double.parseDouble(text);
+		C#: return System.Double.Parse(text, System..InvariantCulture);
+		Python2: return float(text);
+		Python3: return float(text);
+		Javascript: return parseFloat(text);
+	}`,
+	`method createTeam() {
+		alison = Member(name="Alison");
+		john = Member(name="John");
+		members = [alison, john];
+		name = "Dream Team";
+		team = Team(name, members);
+		store(team);
+	}`
+];
+
 function Features() {
 	return (
 		<article className="p-features">
@@ -8,8 +52,13 @@ function Features() {
 					<div className="uk-grid-medium uk-child-width-1-2@s uk-margin-medium-top" data-uk-grid>
 						<div>	
 							<div className="uk-padding">		
-								<figure className="uk-box-shadow-large">
+								<figure className="uk-box-shadow-large uk-position-relative">
 									<img src={ `${process.env.PUBLIC_URL}/features/inline-css.png` } alt="html & css literals" />
+									<div className="uk-position-top-right uk-position-small" 
+										onClick={ () => { navigator.clipboard.writeText(codeSnippet[0]) } }>
+										<span>Copy</span>
+										<span data-uk-icon="icon: copy"></span>
+									</div>
 								</figure>
 							</div>				
 						</div>
@@ -37,8 +86,13 @@ function Features() {
 
 						<div>			
 							<div className="uk-padding">		
-								<figure className="uk-box-shadow-large">
+								<figure className="uk-box-shadow-large uk-position-relative">
 									<img src={ `${process.env.PUBLIC_URL}/features/literals.png` } alt="data literals" />
+									<div className="uk-position-top-right uk-position-small"
+										onClick={ () => { navigator.clipboard.writeText(codeSnippet[1]) } }>
+										<span>Copy</span>
+										<span data-uk-icon="icon: copy"></span>
+									</div>
 								</figure>
 							</div>					
 						</div>
@@ -47,8 +101,13 @@ function Features() {
 					<div className="uk-grid-large uk-child-width-1-2@s uk-margin-medium-top" data-uk-grid>
 						<div>			
 							<div className="uk-padding">		
-								<figure className="uk-box-shadow-large">
+								<figure className="uk-box-shadow-large uk-position-relative">
 									<img src={ `${process.env.PUBLIC_URL}/features/everywhere.png` } alt="run same code everywhere" />
+									<div className="uk-position-top-right uk-position-small"
+										onClick={ () => { navigator.clipboard.writeText(codeSnippet[2]) } }>
+										<span>Copy</span>
+										<span data-uk-icon="icon: copy"></span>
+									</div>
 								</figure>
 							</div>					
 						</div>
@@ -76,8 +135,13 @@ function Features() {
 
 						<div>			
 							<div className="uk-padding">		
-								<figure className="uk-box-shadow-large">
+								<figure className="uk-box-shadow-large uk-position-relative">
 									<img src={ `${process.env.PUBLIC_URL}/features/storable-2.png` } alt="store data in one statement" />
+									<div className="uk-position-top-right uk-position-small"
+										onClick={ () => { navigator.clipboard.writeText(codeSnippet[3]) } }>
+										<span>Copy</span>
+										<span data-uk-icon="icon: copy"></span>
+									</div>
 								</figure>
 							</div>				
 						</div>

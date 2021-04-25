@@ -11,7 +11,7 @@ import Home from './components/home/';
 import Playground from './components/playground/';
 import Tutorials from './components/tutorials/';
 import Documentation from './components/documentation/';
-import References from './components/references/';
+import Reference from './components/reference/';
 
 UIkit.use(Icons);
 
@@ -26,7 +26,7 @@ function App() {
                     <Route exact path="/playground" component={ Playground } />
                     <Route exact path="/tutorials" component={ Tutorials } />
                     <Route exact path="/documentation" component={ Documentation } />
-                    <Route exact path="/references" component={ References } />
+                    <Route exact path="/reference" component={ Reference } />
                 </Switch>
             </Router>
         </main>

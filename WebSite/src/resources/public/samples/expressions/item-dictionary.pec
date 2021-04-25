@@ -1,0 +1,6 @@
+define main as method doing:
+    a = <"John": "Paris", "Sylvia": "Moscow", "Abdel": "Barcelona">
+    b = "Sylvia"
+    // note the need to escape double-quotes within a Text
+    printLine "a[\"Abdel\"] -> " + a["Abdel"]
+    printLine "a[b] -> " + a[b]

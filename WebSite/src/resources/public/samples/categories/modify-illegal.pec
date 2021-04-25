@@ -1,0 +1,6 @@
+define fullName as Text attribute
+define Person as category with attribute fullName
+
+define main as method doing:
+    p = Person
+    p.fullName = "Arthur Rimbaud"

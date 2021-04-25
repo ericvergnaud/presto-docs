@@ -1,0 +1,8 @@
+define Person as storable category with attribute name
+
+define main as method doing:
+    p1 = Person with "John" as name
+    p2 = Person with "Sophie" as name
+    store p1, p2
+    p3 = fetch one where name = "John"
+    printLine "p3 -> " + p3

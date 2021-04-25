@@ -1,0 +1,6 @@
+define main as method doing:
+    a = 'x'
+    b = "hello "
+    c = 4
+    printLine "a * c -> " + (a * c)
+    printLine "b * c -> " + (b * c)

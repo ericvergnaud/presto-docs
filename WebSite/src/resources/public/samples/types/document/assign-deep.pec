@@ -1,0 +1,6 @@
+define main as method doing:
+    doc = Document
+    doc.type = "Town"
+    doc.town.name = "Toulouse"
+    doc.town.population = 600000
+    printLine "doc -> " + doc

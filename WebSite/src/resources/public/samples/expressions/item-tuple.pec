@@ -1,0 +1,5 @@
+define main as method doing:
+    a = (1, "John", '2012-11-17')
+    b = 3
+    printLine "a[1] -> " + a[1]
+    printLine "a[b] -> " + a[b]

@@ -1,0 +1,5 @@
+define main as method doing:
+    d = < "Paris" : "France", "London" : "England", "Moscow" : "Russia" >
+    printLine "d.count -> " + d.count
+    printLine "d.keys -> " + d.keys
+    printLine "d.values -> " + d.values

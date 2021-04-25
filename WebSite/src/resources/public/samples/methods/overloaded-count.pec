@@ -1,0 +1,8 @@
+define OverloadedMethod as method receiving Integer x doing:
+    printLine "1 argument:" + x
+
+define OverloadedMethod as method receiving Integer x and Integer y doing:
+    printLine "2 arguments:" + x + " and " + y
+
+define main as method doing:
+    OverloadedMethod with 3 as x and 7 as y

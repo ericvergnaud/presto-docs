@@ -1,0 +1,3 @@
+define main as method doing:
+    a = 'P3Y7D'
+    printLine "-a -> " + (-a)

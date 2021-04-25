@@ -26,7 +26,7 @@ function Navigation() {
 			                <a href="/tutorials">Tutorials</a>
 			            </li>
 			            <li>
-			            	<a href="/references">References</a>
+			            	<a href="/reference">Reference</a>
 			            </li>
 			        </ul>
 

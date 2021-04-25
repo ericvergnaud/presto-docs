@@ -1,0 +1,8 @@
+define SomeWriter as native category with bindings:
+
+    define category bindings as:
+        Java: java.io.PrintStream
+        C#: System.IO.TextWriter
+        Python2: StringIO from module: StringIO
+        Python3: StringIO from module: io
+        JavaScript: writer from module: prompto/io/io.js

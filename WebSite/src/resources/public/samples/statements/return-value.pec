@@ -1,0 +1,5 @@
+define someMethod as method doing:
+    return "some value"
+
+define main as method doing:
+    printLine someMethod

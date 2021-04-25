@@ -1,0 +1,8 @@
+define OverloadedMethod as method receiving Integer x doing:
+    printLine "Received Integer argument:" + x
+
+define OverloadedMethod as method receiving Text x doing:
+    printLine "Received Text argument:" + x
+
+define main as method doing:
+    OverloadedMethod with "Hello" as x

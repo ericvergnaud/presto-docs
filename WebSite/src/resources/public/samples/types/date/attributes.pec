@@ -1,0 +1,6 @@
+define main as method doing:
+    d = '2013-04-12'
+    printLine "d.year -> " + d.year
+    printLine "d.month -> " + d.month
+    printLine "d.dayOfMonth -> " + d.dayOfMonth
+    printLine "d.dayOfYear -> " + d.dayOfYear

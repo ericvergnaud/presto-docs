@@ -1,0 +1,3 @@
+define main as method doing:
+    t = "  some text trimmed\\t\\n "
+    printLine "t.trim -> " + t.trim

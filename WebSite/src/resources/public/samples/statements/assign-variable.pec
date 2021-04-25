@@ -1,0 +1,3 @@
+define main as method doing:
+    a = 3
+    printLine "a -> " + a

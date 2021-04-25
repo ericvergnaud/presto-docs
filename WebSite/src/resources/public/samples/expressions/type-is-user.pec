@@ -1,0 +1,6 @@
+define Person as category with attribute name
+
+define main as method doing:
+    p = Person with "John" as name
+    printLine "p is an Integer -> " + (p is an Integer)
+    printLine "p is a Person -> " + (p is a Person)

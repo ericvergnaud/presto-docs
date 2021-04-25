@@ -1,0 +1,8 @@
+define printName as method receiving any x with attribute name doing:
+    printLine x.name
+
+define Product as category with attribute name
+
+define main as method doing:
+    p = Product with "Prompto" as name
+    printName p

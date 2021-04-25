@@ -1,0 +1,5 @@
+define printInteger as method receiving Integer x doing:
+    printLine "x -> " + x
+
+define main as method doing:
+    printInteger 22

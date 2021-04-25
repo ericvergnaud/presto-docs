@@ -1,0 +1,12 @@
+define Person as storable category with attribute name
+
+define main as method doing:
+    p1 = Person with "John" as name
+    store p1
+    p2 = Person with "Edgar" as name
+    delete p1 and store p2
+    p3 = fetch one Person where name = "John"
+    if p3 is nothing:
+        printLine "deleted!"
+    p4 = fetch one Person where name = "Edgar"
+    printLine "Person.name -> " + p4.name

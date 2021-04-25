@@ -1,0 +1,19 @@
+define job as Text attribute
+
+define Person as category with attribute name
+define Employee as Person with attribute job
+
+define createPersonOrEmployee as method receiving name and job returning Person doing:
+    if job is nothing:
+        return Person with name as name
+    else:
+        return Employee with name as name and job as job
+
+define main as method doing:
+    // the below sets the type of p to Person
+    p = createPersonOrEmployee with "John" as name and "manager" as job
+    // it would be illegal to refer to p.job here
+    // because job is not an attribute of Person
+    if p is an Employee:
+        // now p is treated as an Employee
+        printLine "job of Employee p -> " + p.job

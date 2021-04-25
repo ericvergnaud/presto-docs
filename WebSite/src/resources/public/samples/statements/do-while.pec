@@ -1,0 +1,6 @@
+define main as method doing:
+    i = 0
+    do:
+        printLine "i = " + i
+        i = i + 1
+    while i < 4

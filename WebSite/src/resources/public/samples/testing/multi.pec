@@ -1,0 +1,8 @@
+define "2 numbers can be added" as test method doing:
+    a = 3
+    b = 8
+and verifying:
+    a + b = 11
+    a = 11
+    b is a Text
+    b = 8

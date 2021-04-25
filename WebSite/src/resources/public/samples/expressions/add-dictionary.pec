@@ -1,0 +1,4 @@
+define main as method doing:
+    a = <"k1" : 2, "k2" : 25>
+    b = <"k1" : 4, "k3" : 35>
+    printLine "a + b -> " + (a + b)

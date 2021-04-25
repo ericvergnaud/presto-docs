@@ -1,0 +1,10 @@
+define displayMethod as abstract method receiving Text value
+
+define someMethod as method receiving Text value and displayMethod doing:
+    displayMethod value
+
+define displayScreen as method receiving Text value doing:
+    printLine value
+
+define main as method doing:
+    someMethod with "Hello" as value and Method: displayScreen as displayMethod

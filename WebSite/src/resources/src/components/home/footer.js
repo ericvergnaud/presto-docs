@@ -42,6 +42,14 @@ function Footer() {
 					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
 
 					<p className="uk-text-small">Prompto is currently running its evaluation program. On-line development and deployment tools are available on request. We are looking for evaluators! And contributors! If you would like to participate, please contact us - <a href="support@prompto.org">support@prompto.org</a>.</p>
+
+					<div className="uk-flex uk-flex-between uk-flex-middle uk-margin-small-top">
+						<h6 className="uk-margin-medium-top">&copy; 2021 Prompto</h6>
+						<h6>
+							<a href="/" className="uk-margin-medium-right">Terms of Use</a>
+							<a href="/">Privacy Policy</a>
+						</h6>
+					</div>
 				</div>
 			</div>
 		</article>

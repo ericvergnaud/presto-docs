@@ -1,0 +1,3 @@
+define main as method doing:
+    for each i in [3, 6, 9]:
+        printLine "i = " + i

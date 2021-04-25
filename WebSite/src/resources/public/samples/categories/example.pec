@@ -1,0 +1,5 @@
+define firstName as Text attribute
+define lastName as Text attribute
+define dateOfBirth as Date attribute
+
+define Person as category with attributes firstName, lastName and dateOfBirth

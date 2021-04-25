@@ -1,0 +1,6 @@
+define main as method doing:
+    a = (1=1)
+    b = (1=2)
+    c = (2=3)
+    printLine "a or b -> " + (a or b)
+    printLine "b or c -> " + (b or c)

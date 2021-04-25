@@ -1,0 +1,11 @@
+define preferredColor as storable Text attribute
+define Person as storable category with attributes name and preferredColor
+
+define main as method doing:
+    p1 = Person with "John" as name and "red" as preferredColor
+    p2 = Person with "Sophie" as name and "blue" as preferredColor
+    p3 = Person with "Alex" as name and "blue" as preferredColor
+    store p1, p2, p3
+    c = fetch all where preferredColor = "blue"
+    for each p in c:
+        printLine "p -> " + p

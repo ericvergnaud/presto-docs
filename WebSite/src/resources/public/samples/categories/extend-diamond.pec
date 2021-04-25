@@ -1,0 +1,14 @@
+define brand as Text attribute
+define Product as category with attribute brand
+
+define operatingSystem as Text attribute
+define Computer as Product with attribute operatingSystem
+
+define supportedNetwork as Text attribute
+define Phone as Product with attribute supportedNetwork
+
+define SmartPhone as Phone and Computer
+
+define main as method doing:
+    s = SmartPhone with "Apple" as brand, "Android" as operatingSystem and "4G" as supportedNetwork
+    printLine s
