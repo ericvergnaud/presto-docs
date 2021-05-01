@@ -130,26 +130,7 @@ article {
 	}
 
 	&.p-footer {
-
-		form {
-			> div {
-				width: 250px;
-
-				input[type=email] {
-					width: 250px;
-					padding: 22px;
-					border-radius: 5px;
-					border: 1px solid $dark-grey;
-				}
-			}
-		}
-
-		button {
-			width: 250px;
-			padding: 3px;
-			border-radius: 5px;
-			letter-spacing: 2px;
-		}
+		@include downloadForm;
 
 		h3 {
 			font-family: 'Noto Sans JP', sans-serif;
@@ -157,14 +138,22 @@ article {
 		}
 
 		figure {
-			> span {
-				cursor: pointer;
-				@include animation;
+			> a {
+				color: $darker-grey;
 
-				&:hover {
-					background: $white;
+				> span {
+					cursor: pointer;
+					@include animation;
+
+					&:hover {
+						background: $white;
+					}
 				}
 			}
 		}
+	}
+
+	&.p-download {
+		@include downloadForm;
 	}
 }

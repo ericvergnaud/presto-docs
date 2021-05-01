@@ -15,3 +15,26 @@
 		color: white;
 	}
 }
+
+@mixin downloadForm {
+	form {
+		> div {
+			width: 250px;
+			display: inline-block;
+
+			input[type=email] {
+				width: 250px;
+				padding: 22px;
+				border-radius: 5px;
+				border: 1px solid $dark-grey;
+			}
+		}
+	}
+
+	button {
+		width: 250px;
+		padding: 3px;
+		border-radius: 5px;
+		letter-spacing: 2px;
+	}
+}
