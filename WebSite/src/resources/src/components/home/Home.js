@@ -1,6 +1,6 @@
 import Header from './Header';
 import Features from './Features';
-import Footer from './Footer';
+import Footer from './footer';
 
 import '../../assets/css/home.scss';
 
