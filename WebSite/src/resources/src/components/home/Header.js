@@ -15,7 +15,7 @@ function Header() {
 			<div className="uk-container uk-container-large">
 				<div className="uk-grid-medium uk-child-width-1-2@s" data-uk-grid>
 					<div>
-						<h1 className="uk-heading-small uk-margin-small-bottom uk-margin-medium-top">the <span>full stack</span> language</h1>
+						<h1 className="uk-heading-small uk-margin-small-bottom uk-margin-medium-top">The <span>full stack</span> language</h1>
 						<h1 className="uk-heading-small uk-margin-remove-top">hosted in the <span>cloud</span></h1>
 						<h4 className="uk-margin-large-top"><span className="prompto">prompto</span>&nbsp;frees you from time consuming tasks<br />and lets you focus on making visible differences : <br /> creative web pages, meaningful data models and relevant business logic</h4>
 

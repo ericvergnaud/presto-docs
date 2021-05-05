@@ -32,7 +32,7 @@ export default class Libraries extends React.Component {
 
     render() {
         const style = { display: this.props.visible ? "block" : "none" };
-        return <div className="topics uk-margin-medium-top" style={style}>
+        return <div className="topics" style={style}>
                 <div className="sidebar">
                     <TopicList topics={TOPICS} activeTopic={this.state.activeTopic} level={1} topicSelected={this.topicSelected}/>
                 </div>
