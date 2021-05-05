@@ -27,18 +27,42 @@ function Footer() {
 									<h3 className="uk-margin-remove-top">Try it out on your local machine!</h3>
 								</div>
 							</div>
-
-							<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
-
-						</div>
-
-						<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
-
-						<div className="uk-grid-medium uk-text-center" data-uk-grid>
-							<p className="uk-text-small">Prompto is currently running its evaluation program.<br/>On-line development and deployment tools are available on request from <a href="https://www.quartance.com" target="_blank" rel="noreferrer">Quartance.</a></p>
-							<p className="uk-text-small">Prompto is looking for contributors!<br/>If you wish to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
 						</div>
 					</div>
+
+					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
+
+					<div className="uk-container uk-container-medium">
+						<div className="uk-padding-large uk-padding-remove-horizontal">
+							<div className="uk-flex uk-flex-middle uk-flex-between">
+								<div>
+									<h2>Stay Tuned!</h2>
+									<p className="uk-text-muted">Prompto is getting better every day,<br /> Join the newsletter and stay updated.</p>
+								</div>
+
+								<div>
+									<form className="uk-text-right" onSubmit={subscribe}>
+										<div className="uk-margin-small-bottom">
+											<div className="uk-inline">
+												<span className="uk-form-icon" data-uk-icon="icon: mail"></span>
+												<input className="uk-input" type="email" placeholder="name@domain.com" />
+											</div>
+										</div>
+										<div>
+											<button className="uk-button uk-button-secondary p-secondary">Subscribe</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
+
+					<div className="uk-text-center">
+						<p className="uk-text-small">Prompto is currently running its evaluation program.<br/>On-line development and deployment tools are available on request from <a href="https://www.quartance.com" target="_blank" rel="noreferrer">Quartance.</a></p>
+						<p className="uk-text-small">Prompto is looking for contributors!<br/>If you wish to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
+					</div>
+
 				</div>
 			</article>
 			<footer>
