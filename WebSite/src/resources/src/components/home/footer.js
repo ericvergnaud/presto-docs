@@ -58,6 +58,13 @@ function Footer() {
 							</form>
 						</div>
 					</div>
+					<hr className="uk-margin-medium-top uk-margin-medium-bottom" />
+
+					<div className="uk-text-center">
+						<p className="uk-text-small">Prompto is currently running its evaluation program.<br/>On-line development and deployment tools are available on request from <a href="https://www.quartance.com" target="_blank" rel="noreferrer">Quartance.</a></p>
+						<p className="uk-text-small">Prompto is looking for contributors!<br/>If you wish to participate, please contact us - <a href="mailto:support@prompto.org?subject=Contribute%20to%20prompto&body=Hi,%20I%20would%20like%20to%20contribute%20to%20prompto">support@prompto.org</a>.</p>
+					</div>
+
 				</div>
 
 				<hr className="uk-margin-medium-top uk-margin-medium-bottom" />

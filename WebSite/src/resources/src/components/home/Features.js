@@ -44,7 +44,7 @@ function Features(props) {
 		<article className="p-features">
 			<div className="uk-padding-large uk-padding-remove-horizontal">
 				<div className="uk-container uk-container-large">
-					<h2 className="uk-text-center"><span>Prompto</span> Features</h2>
+					<h2 className="uk-text-center"><span className="prompto">prompto</span>&nbsp;features</h2>
 
 					<div className="uk-grid-medium uk-child-width-1-2@s uk-margin-medium-top" data-uk-grid>
 						<div>	

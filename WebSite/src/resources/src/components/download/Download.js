@@ -23,8 +23,8 @@ export default function Download(props) {
                             <h4>Pre-requisites</h4>
                             <ul className="uk-list uk-list-disc">
                                 <li>You need a valid Docker and Docker-compose installation.</li>
-                                <li>If you don't already have Docker unstalled, you can <a href="https://www.docker.com/products/docker-desktop" target="_blank">download it for free from here.</a></li>
-                                <li>Once you have Docker installed, <a href="https://raw.githubusercontent.com/prompto/prompto-docker/master/install_prompto_macosx.sh" target="_blank">download the Prompto installer.</a></li>
+                                <li>If you don't already have Docker unstalled, you can <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noreferrer">download it for free from here.</a></li>
+                                <li>Once you have Docker installed, <a href="https://raw.githubusercontent.com/prompto/prompto-docker/master/install_prompto_macosx.sh" target="_blank" rel="noreferrer">download the Prompto installer.</a></li>
                                 <li>Open Terminal, and type the following:
                                     <pre className="uk-margin-small-top">
                                             {`mkdir ~/prompto & cd ~/prompto
