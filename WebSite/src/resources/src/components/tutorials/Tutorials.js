@@ -25,6 +25,7 @@ function Tutorials(props) {
 						</div>
 					)}
             	</div>
+				<p><a href="/downloads/TripGuru.zip" download={true}>Download sample project for this tutorial</a></p>
             </div>
         </article>
     );
