@@ -1,9 +1,28 @@
-**/.DS_STORE
+# release
 password.txt
 release.json
-WebSite/src/web/public/js/lib/require.js
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# building
 WebSite/src/web/build
 tools
-WebSite/src/resources/build
-WebSite/src/resources/public/js/lib/require.js
+
+# misc
+**/.DS_STORE
+
+# node
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
