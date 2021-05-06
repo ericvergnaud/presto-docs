@@ -13,6 +13,7 @@ import Tutorials from "./components/tutorials/Tutorials";
 import Reference from "./components/reference/Reference";
 import Libraries from "./components/libraries/Libraries";
 import Download from "./components/download/Download";
+import Install from "./components/download/Install";
 import Navigation from "./components/navigation/Navigation";
 
 UIkit.use(Icons);
@@ -37,6 +38,7 @@ export default class App extends React.Component {
                     <Route exact path="/libraries" children={ ({match}) => <Libraries ref={ref => this.libraries = ref || this.libraries} visible={match}/> } />
                     <Route exact path="/reference" children={ ({match}) => <Reference ref={ref => this.reference = ref || this.reference} visible={match}/> } />
                     <Route exact path="/download" children={ ({match}) => <Download visible={match}/> } />
+                    <Route exact path="/install" children={ ({match}) => <Install visible={match}/> } />
                 </Router>
             </main>
         );

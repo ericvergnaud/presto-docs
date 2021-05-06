@@ -23,6 +23,9 @@ export default class Navigation extends React.Component {
 					<div className="uk-navbar-right">
 						<ul className="uk-navbar-nav">
 							<li>
+								<NavLink to="/download" activeClassName="selected">Download</NavLink>
+							</li>
+							<li>
 								<NavLink to="/tutorials" activeClassName="selected">Tutorials</NavLink>
 							</li>
 							<li>
