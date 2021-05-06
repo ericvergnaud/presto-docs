@@ -9,7 +9,7 @@ class ThisTopic extends Topic {
 
     renderContent(topicSelected) {
         return <>
-            <img src="/img/ReactLifecycle.jpeg" alt=""/>
+            <img src="/misc/ReactLifecycle.jpeg" alt=""/>
             </>;
     }
 
