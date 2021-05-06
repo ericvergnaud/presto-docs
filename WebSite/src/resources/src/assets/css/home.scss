@@ -68,26 +68,24 @@ article {
 		}
 
 		h5 {
-			> a {
-				&:link, &:visited {
-					> span {
-						color: $primary;
+			> button {
+				> span {
+					color: $primary;
+					@include animation;
+					
+					&:nth-child(2) {
+						border-radius: 50%;
+						border: 0.12rem solid $primary;
+						width: 35px;
+						height: 35px;
+						align-items: center;
+						justify-content: center;
+						display: inline-flex;
 						@include animation;
-						
-						&:nth-child(2) {
-							border-radius: 50%;
-							border: 0.12rem solid $primary;
-							width: 35px;
-							height: 35px;
-							align-items: center;
-							justify-content: center;
-							display: inline-flex;
-							@include animation;
-						}
 					}
 				}
 
-				&:hover, &:active, &:focus {
+				&:hover {
 					text-decoration: none;
 
 					> span {
