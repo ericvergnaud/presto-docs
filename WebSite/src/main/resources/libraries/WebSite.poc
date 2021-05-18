@@ -1,0 +1,58 @@
+method start_WebSite (Text<:> options) {
+	printLine("Starting Documentation ...");
+	installServiceHandler("/public/v1/newsletter", serviceHandler = handleNewsLetterRequest);
+	installServiceHandler("/public/v1/download", serviceHandler = handleDownloadRequest);
+	printLine("Documentation web site started.");
+}
+
+method handleNewsLetterRequest(Document value) {
+     printLine("handleNewsLetterRequest: " + value);
+     try (error) {
+        email = (Text)value.email;
+        timeStamp = parseDateTime((Text)value.timeStamp);
+        request = NewsLetterRequest(email, timeStamp);
+        store(request);
+        return "OK";
+    } catch (any) {
+        return "NOK";
+    }
+
+}
+
+storable category NewsLetterRequest(email, timeStamp);
+
+method handleDownloadRequest(Document value) {
+     printLine("handleDownloadRequest: " + value);
+     try (error) {
+        email = (Text)value.email;
+        timeStamp = parseDateTime((Text)value.timeStamp);
+        request = DownloadRequest(email, timeStamp);
+        store(request);
+        sendDownloadEmail(email);
+        return "OK";
+    } catch (any) {
+        return "NOK";
+    }
+
+}
+
+storable category DownloadRequest(email, timeStamp);
+
+method sendDownloadEmail(email) {
+	mail = Email();
+	mail.setSubject("Prompto download");
+	mail.setFrom("admin@prompto.org");
+	mail.addTo(email);
+	emailBody = "Thank you for your interest in Prompto." + "\n" +
+				"We have registered your email to keep you posted on updates." + "\n" +
+				"Follow the below link to download and install Prompto on your local computer:" + "\n" +
+				"https://www.prompto.org/install";
+	mail.addBody(emailBody, mimeType = "text/plain");
+	mail.send(hostName = "smtp-relay.sendinblue.com", port = 587, useTLS = true, login = "eric.vergnaud@quartance.com", password = getEmailPassword(), useSSL = true);
+}
+
+method getEmailPassword() {
+  textToDecrypt = "AQICAHiWGTkxd74dNcn82U2E7Y/aoKsK58VZ26N/OSsr01yfrAGtHifmyKkuTPZX1HVPdn6TAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMtfs+WJQecm6PneD6AgEQgCs5EqsDUjJQ+wIInxngeB6sD8EKM9GqeYhg/YU1KvHlZy2BnDv0AejNkgqP";
+  kms = newAwsKMS(awsRegion = "us-east-1");
+  return kms.decrypt(textToDecrypt);
+}
