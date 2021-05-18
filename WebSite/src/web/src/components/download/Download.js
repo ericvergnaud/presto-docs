@@ -33,6 +33,10 @@ function download(event) {
                 alert("An error occured, please contact support: support@prompto.org");
         }
     }
+    xhr.onerror = function() {
+        alert("An error occured, please contact support: support@prompto.org");
+    }
+    xhr.send();
 }
 
 export default function Download(props) {
