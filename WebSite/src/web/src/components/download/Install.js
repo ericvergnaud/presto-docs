@@ -21,7 +21,7 @@ export default function Install(props) {
 
                         <h4>Installation - MacOSX</h4>
                         <ul className="uk-list uk-list-disc">
-                            <li>Once you have Docker installed, <a href="https://raw.githubusercontent.com/prompto/prompto-docker/master/install_prompto_macosx.sh" target="_blank" rel="noreferrer">download the Prompto installer.</a></li>
+                            <li>Once you have Docker installed, <a href="https://raw.githubusercontent.com/prompto/prompto-docker/master/install_prompto_macosx.sh" download="install_prompto_macosx.sh" type="application/binary">download the Prompto installer.</a></li>
                                 <li>Open Terminal, and type the following:
                                     <pre className="uk-margin-small-top">
                                             {`mkdir ~/prompto & cd ~/prompto
@@ -31,7 +31,22 @@ chmod 777 install_prompto_macosx.sh
                                     </pre>
                                 </li>
                             </ul>
-                        </div>
+
+                        <h4>Installation - Windows</h4>
+                        <ul className="uk-list uk-list-disc">
+                            <li>Once you have Docker installed, <a href="https://raw.githubusercontent.com/prompto/prompto-docker/master/install_prompto_windows.ps1" download="install_prompto_windows.ps1" type="application/binary">download the Prompto installer.</a></li>
+                            <li>Open a Command prompt, and type the following:
+                                <pre className="uk-margin-small-top">
+                                            {`mkdir prompto
+move downloads\\install_prompto_windows.ps1 prompto
+cd prompto
+powershell .\\install_prompto_windows.ps1`}
+                                    </pre>
+                            </li>
+                            <li>(due to some incorrect communication between docker and powershell, you may encounter some errors, which you can probably safely ignore)</li>
+                        </ul>
+
+                    </div>
 
                 </div>
             </article>
