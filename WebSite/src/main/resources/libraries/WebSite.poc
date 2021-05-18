@@ -46,7 +46,7 @@ method sendDownloadEmail(email) {
 	emailBody = "Thank you for your interest in Prompto." + "\n" +
 				"We have registered your email to keep you posted on updates." + "\n" +
 				"Follow the below link to download and install Prompto on your local computer:" + "\n" +
-				"https://www.prompto.org/install";
+				"https://www.prompto.org/?section=install";
 	mail.addBody(emailBody, mimeType = "text/plain");
 	mail.send(hostName = "smtp-relay.sendinblue.com", port = 587, useTLS = true, login = "eric.vergnaud@quartance.com", password = getEmailPassword(), useSSL = true);
 }
