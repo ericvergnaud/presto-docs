@@ -36,7 +36,7 @@ function download(event) {
     xhr.onerror = function() {
         alert("An error occured, please contact support: support@prompto.org");
     }
-    xhr.send();
+    xhr.send(formData);
 }
 
 export default function Download(props) {

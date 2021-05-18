@@ -22,7 +22,7 @@ function subscribe(event) {
 	}
 	formData.append('timeStamp', getTimestampString());
 	var xhr = new XMLHttpRequest();
-	xhr.open( 'POST', "/public/v1/subscribe", true );
+	xhr.open( 'POST', "/public/v1/newsletter", true );
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState === XMLHttpRequest.DONE) {
 			const status = xhr.status;
@@ -35,7 +35,7 @@ function subscribe(event) {
 	xhr.onerror = function() {
 		alert("An error occured, please contact support: support@prompto.org");
 	}
-	xhr.send();
+	xhr.send(formData);
 }
 
 
