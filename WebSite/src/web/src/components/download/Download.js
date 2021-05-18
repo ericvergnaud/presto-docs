@@ -1,10 +1,38 @@
 import '../../assets/css/home.scss';
+import * as luxon from 'luxon';
+
+// eslint-disable-next-line
+const emailRegExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+function getTimestampString() {
+    return luxon.DateTime.now().toISO();
+}
 
 function download(event) {
     event.preventDefault();
     const form = event.currentTarget;
-    if(form)
-        window.location.href = "/install";
+    if(!form) {
+        console.error("download called outside a form!");
+        return;
+    }
+    const formData = new FormData(form);
+    const email = formData.get("email");
+    if(!emailRegExp.test(email)) {
+        alert("Please provide a valid email address");
+        return;
+    }
+    formData.append('timeStamp', getTimestampString());
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'POST', "/public/v1/download", true );
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === XMLHttpRequest.DONE) {
+            const status = xhr.status;
+            if (status === 0 || (status >= 200 && status < 400))
+                alert("You have been sent an email with a download link.")
+            else
+                alert("An error occured, please contact support: support@prompto.org");
+        }
+    }
 }
 
 export default function Download(props) {
@@ -38,7 +66,7 @@ export default function Download(props) {
                                     <div className="uk-margin-small-bottom">
                                         <div className="uk-inline">
                                             <span className="uk-form-icon" data-uk-icon="icon: mail"></span>
-                                            <input className="uk-input" type="email" placeholder="name@domain.com" />
+                                            <input name="email" className="uk-input" type="email" placeholder="name@domain.com" />
                                         </div>
                                     </div>
                                     <div>

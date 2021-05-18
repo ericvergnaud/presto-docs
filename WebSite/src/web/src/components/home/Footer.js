@@ -1,9 +1,39 @@
+import * as luxon from 'luxon';
+
+// eslint-disable-next-line
+const emailRegExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+function getTimestampString() {
+	return luxon.DateTime.now().toISO();
+}
+
 function subscribe(event) {
 	event.preventDefault();
 	const form = event.currentTarget;
-	if(form)
-		alert("subscribe");
+	if(!form) {
+		console.error("subscribe called outside a form!");
+		return;
+	}
+	const formData = new FormData(form);
+	const email = formData.get("email");
+	if(!emailRegExp.test(email)) {
+		alert("Please provide a valid email address");
+		return;
+	}
+	formData.append('timeStamp', getTimestampString());
+	var xhr = new XMLHttpRequest();
+	xhr.open( 'POST', "/public/v1/subscribe", true );
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === XMLHttpRequest.DONE) {
+			const status = xhr.status;
+			if (status === 0 || (status >= 200 && status < 400))
+				alert("Your email has been registered.")
+			else
+				alert("An error occured, please contact support: support@prompto.org");
+		}
+	}
 }
+
 
 function Footer() {
 	return (
@@ -25,7 +55,7 @@ function Footer() {
 								<div className="uk-margin-small-bottom">
 									<div className="uk-inline">
 										<span className="uk-form-icon" data-uk-icon="icon: mail"></span>
-										<input className="uk-input" type="email" placeholder="name@domain.com" />
+										<input name="email" className="uk-input" type="email" placeholder="name@domain.com" />
 									</div>
 								</div>
 								<div>
