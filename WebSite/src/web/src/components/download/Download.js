@@ -42,7 +42,7 @@ export default function Download(props) {
                                         </div>
                                     </div>
                                     <div>
-                                        <button className="uk-button uk-button-secondary p-secondary">Subscribe</button>
+                                        <button className="uk-button uk-button-secondary p-secondary">Download</button>
                                     </div>
                                 </form>
                             </div>
