@@ -1,5 +1,5 @@
 method start_WebSite (Text<:> options) {
-	printLine("Starting Documentation ...");
+	printLine("Starting Documentation web site...");
 	installServiceHandler("/public/v1/newsletter", serviceHandler = handleNewsLetterRequest);
 	installServiceHandler("/public/v1/download", serviceHandler = handleDownloadRequest);
 	printLine("Documentation web site started.");
