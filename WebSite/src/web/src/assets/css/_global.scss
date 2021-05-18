@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Prompt:wght@600&family=Roboto&display=swap');
+
+//	Color styles declared here
+$black: #000;
+$darkest-grey: #333;
+$darker-grey: #666;
+$dark-grey: #999;
+$grey: #CCC;
+$light-grey: #DDD;
+$lighter-grey: #EEE;
+$lightest-grey: #F7F7F7;
+$white: #FFF;
+
+$primary: #10ac84;
+$primary-dark: #154c48;
+$primary-editor: #62debe;
+$primary-editorBg: #2f3542;
+
+
+.p-primary {
+	background: $primary;
+
+	&:hover {
+		background: $primary-dark;
+	}
+}
+
+.p-primaryDark {
+	background: $primary-dark;
+}
+
+.p-secondary {
+	background: $darkest-grey;
+}
+
+.p-icons {
+	width: 3.5rem;
+}
+
+a {
+	&:link, &:visited {
+		color: $primary;
+	}
+}
+
+.logo {
+	max-height: 70px;
+}
+
+@font-face {
+	font-family: "Moderna";
+	src: local("Moderna"), url(../fonts/MODERNA.TTF);
+}
+
+.prompto {
+	font-family: 'Moderna', sans-serif;
+	font-size: larger;
+	color: $primary-dark;
+	text-transform: none;
+}
+
+.uk-button-link {
+	color: $primary;
+	&:hover, &:focus {
+		color: $primary;
+	}
+}

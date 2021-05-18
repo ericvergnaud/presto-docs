@@ -1,20 +1,19 @@
 package prompto.website;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.net.URL;
+import java.util.Collection;
 
+import prompto.config.IServerConfiguration;
+import prompto.libraries.Libraries;
 import prompto.server.AppServer;
 
 public class Application {
 
 	public static void main(String[] args) throws Throwable {
-		List<String> argsList = new ArrayList<>(Arrays.asList(args));
-		argsList.add("-application");
-		argsList.add("web-site");
-		argsList.add("-version");
-		argsList.add("1.0.0");
-		AppServer.main(argsList.toArray(new String[argsList.size()]));
+		Collection<URL> urls = Libraries.getPromptoLibraries(Application.class);
+		IServerConfiguration config = AppServer.loadConfiguration(args);
+		config = config.withResourceURLs(urls.toArray(new URL[0]));
+		AppServer.main(config, null, null, null, null);
 	}
 
 }

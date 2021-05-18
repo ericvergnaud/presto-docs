@@ -1,0 +1,20 @@
+{
+  "short_name": "Prompto",
+  "name": "Prompto - the full stack language",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo501.svg",
+      "type": "image/svg",
+      "sizes": "501x501"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

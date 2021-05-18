@@ -35,8 +35,8 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.6</version>
 				<configuration>
-					<nodeVersion>v11.7.0</nodeVersion>
-					<yarnVersion>v1.13.0</yarnVersion>
+					<nodeVersion>v14.16.0</nodeVersion>
+					<yarnVersion>v1.22.10</yarnVersion>
 					<workingDirectory>src/web</workingDirectory>
 					<installDirectory>../tools</installDirectory>
 				</configuration>
@@ -88,7 +88,7 @@
 		<dependency>
 			<groupId>org.prompto</groupId>
 			<artifactId>Server</artifactId>
-			<version>0.0.208</version>
+			<version>0.0.225</version>
 		</dependency>
 	</dependencies>
 
