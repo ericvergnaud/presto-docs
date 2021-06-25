@@ -81,15 +81,22 @@ function execute(message) {
     // wire cursor, required by iterator
     prompto.memstore.MemStore.Cursor = prompto.intrinsic.Cursor;
     // run "main" method, using fresh store
-    prompto.store.$DataStore.instance = new prompto.memstore.MemStore();
-    if(testName)
-        prompto.runtime.Interpreter.interpretTest(context, testName);
-    else
-        prompto.runtime.Interpreter.interpret(context, "main", "");
-    // done
-    return {
-        toStdOut: "Success!\n"
-    };
+    try {
+        prompto.store.$DataStore.instance = new prompto.memstore.MemStore();
+        if(testName)
+            prompto.runtime.Interpreter.interpretTest(context, testName);
+        else
+            prompto.runtime.Interpreter.interpret(context, "main", "");
+        // done
+        return {
+            toStdOut: "Success!\n"
+        };
+    } catch (e) {
+        return {
+            toStdErr: e.stack + "\n"
+        };
+
+    }
 }
 
 function repl(message) {
