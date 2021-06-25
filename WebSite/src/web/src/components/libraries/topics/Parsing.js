@@ -13,7 +13,8 @@ class ThisTopic extends Topic {
                     <p>When received from external systems, non Text values are sometimes provided as Text.<br/>
                     The purpose of <code>parseXXX</code> methods is to convert these values into their real type.</p>
             <ul>
-                <li><p><b>parseInteger</b><br/>
+                <li><p>
+                    <b>parseInteger</b><br/>
                     This method returns an Integer.</p>
                     <pre>define parseInteger as native method receiving Text text returning Integer</pre>
                     <p/>

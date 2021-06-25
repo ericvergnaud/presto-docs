@@ -2,11 +2,12 @@ import React from 'react';
 import Topic from "../../../content/Topic";
 import CSV from "./CSV";
 import JSON from "./JSON";
+import YAML from "./YAML";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Data", [ JSON, CSV ]);
+        super("Data", [ JSON, CSV, YAML ]);
     }
 
     renderContent(topicSelected) {
@@ -17,8 +18,8 @@ class ThisTopic extends Topic {
                     <ul>
                         <li>CSV</li>
                         <li>JSON</li>
+                        <li>YAML</li>
                         <li>XML (not available yet)</li>
-                        <li>YAML (not available yet)</li>
                     </ul>
             </React.Fragment>;
     }

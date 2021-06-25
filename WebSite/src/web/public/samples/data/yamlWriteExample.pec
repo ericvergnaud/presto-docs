@@ -1,0 +1,4 @@
+define main as method doing:
+    docs = [{ field: 122, list: [ { field: 123 }, { doc: { name: "John", doc: { list: [ 122, 233, 344 ] } } } ] }]
+    yaml = writeYaml docs
+    print yaml

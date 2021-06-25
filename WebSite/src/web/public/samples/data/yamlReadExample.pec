@@ -1,0 +1,4 @@
+define main as method doing:
+    text = "field: 122\ndata:\n  list:\n  - field: 123\n  - doc:\n      name: John\n      doc:\n        list:\n        - 122\n        - 233\n        - 344"
+    docs = readYaml text
+    print docs

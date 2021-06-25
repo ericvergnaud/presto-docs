@@ -6,6 +6,7 @@ import Maths from "./topics/Maths";
 import Utilities from "./topics/Utilities";
 import Parsing from "./topics/Parsing";
 import Cloud from "./topics/cloud/Cloud";
+import Files from "./topics/Files";
 import Internet from "./topics/internet/Internet";
 import Data from "./topics/data/Data";
 import Server from "./topics/server/Server";
@@ -14,7 +15,7 @@ import TopicList from "../content/TopicList";
 import SearchEngine from "../search/SearchEngine";
 import '../../assets/css/topics.scss';
 
-const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud ];
+const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud, Files ];
 
 TOPICS.forEach(t=>SearchEngine.addTopic(t, "libraries"));
 
