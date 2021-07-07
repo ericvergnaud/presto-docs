@@ -41,215 +41,28 @@ class ThisTopic extends Topic {
                     <table className="uk-table uk-table-divider uk-table-small uk-text-small uk-width-1-2@s">
                         <thead>
                             <tr>
-                                <th>Prompto widget</th>
                                 <th>React Bootstap 3 component</th>
+                                <th>Prompto widget</th>
                             </tr>
                         </thead>
                         <tbody>
+                        { [   "Breadcrumb", "Breadcrumb.Item", "Button","Checkbox", "ControlLabel", "ContextMenu",
+                            "InputGroup","InputGroup.Addon","InputGroup.Button", "Form", "FormControl",
+                            "FormGroup", "HelpBlock", "Modal", "Modal.Dialog", "Modal.Body", "Modal.Footer",
+                            "Modal.Header", "Modal.Title", "Navbar", "Navbar.Brand", "Navbar.Header", "Navbar.Toggle",
+                            "Navbar.Collapse", "Navbar.Text", "Navbar.Form", "Nav", "NavDropdown", "NavItem",
+                            "Panel", "Panel.Body", "Panel.Collapse", "Panel.Footer", "PanelGroup", "Panel.Heading",
+                            "Panel.Title", "Panel.Toggle", "ProgressBar", "Radio", "Tab", "Table", "Tabs", "Dropdown",
+                            "Dropdown.Toggle", "Dropdown.Menu", "DropdownButton", "SplitButton", "MenuItem", "Grid",
+                            "Row", "Col", "Clearfix", "Glyphicon", "Thumbnail", "PageHeader", "ButtonToolbar", "ButtonGroup",
+                            "ToggleButton", "ToggleButtonGroup", "Well", "Pagination", "Pagination.Item", "Pagination.First",
+                            "Pagination.Last", "Pagination.Next", "Pagination.Prev", "Pagination.Ellipsis", "Pager",
+                            "Pager.Item", "Carousel", "Carousel.Item", "Carousel.Caption", "Badge", "Label", "Overlay",
+                            "Collapse", "ListGroup", "ListGroupItem", "OverlayTrigger", "Tooltip", "DatePicker", "Typeahead" ].sort().map( item =>
                             <tr>
-                                <td>Button</td>
-                                <td>Button</td>
-                            </tr>
-                            <tr>
-                                <td>SplitButton</td>
-                                <td>SplitButton</td>
-                            </tr>
-                            <tr>
-                                <td>Checkbox</td>
-                                <td>Checkbox</td>
-                            </tr>
-                            <tr>
-                                <td>Radio</td>
-                                <td>Radio</td>
-                            </tr>
-                            <tr>
-                                <td>DropdownButton</td>
-                                <td>DropdownButton</td>
-                            </tr>
-                            <tr>
-                                <td>MenuItem</td>
-                                <td>MenuItem</td>
-                            </tr>
-                            <tr>
-                                <td>InputGroup</td>
-                                <td>InputGroup</td>
-                            </tr>
-                            <tr>
-                                <td>InputGroupAddon</td>
-                                <td>InputGroup.Addon</td>
-                            </tr>
-                            <tr>
-                                <td>InputGroupButton</td>
-                                <td>InputGroup.Button</td>
-                            </tr>
-                            <tr>
-                                <td>FormGroup</td>
-                                <td>FormGroup</td>
-                            </tr>
-                            <tr>
-                                <td>Form</td>
-                                <td>Form</td>
-                            </tr>
-                            <tr>
-                                <td>FormControl</td>
-                                <td>FormControl</td>
-                            </tr>
-                            <tr>
-                                <td>ControlLabel</td>
-                                <td>ControlLabel</td>
-                            </tr>
-                            <tr>
-                                <td>HelpBlock</td>
-                                <td>HelpBlock</td>
-                            </tr>
-                            <tr>
-                                <td>Table</td>
-                                <td>Table</td>
-                            </tr>
-                            <tr>
-                                <td>Modal</td>
-                                <td>Modal</td>
-                            </tr>
-                            <tr>
-                                <td>ModalDialog</td>
-                                <td>Modal.Dialog</td>
-                            </tr>
-                            <tr>
-                                <td>ModalHeader</td>
-                                <td>Modal.Header</td>
-                            </tr>
-                            <tr>
-                                <td>ModalFooter</td>
-                                <td>Modal.Footer</td>
-                            </tr>
-                            <tr>
-                                <td>ModalBody</td>
-                                <td>Modal.Body</td>
-                            </tr>
-                            <tr>
-                                <td>ModalFooter</td>
-                                <td>Modal.Footer</td>
-                            </tr>
-                            <tr>
-                                <td>ModalTitle</td>
-                                <td>Modal.Title</td>
-                            </tr>
-                            <tr>
-                                <td>Navbar</td>
-                                <td>Navbar</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarBrand</td>
-                                <td>Navbar.Brand</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarHeader</td>
-                                <td>Navbar.Header</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarToggle</td>
-                                <td>Navbar.Toggle</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarCollapse</td>
-                                <td>Navbar.Collapse</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarText</td>
-                                <td>Navbar.Text</td>
-                            </tr>
-                            <tr>
-                                <td>NavbarForm</td>
-                                <td>Navbar.Form</td>
-                            </tr>
-                            <tr>
-                                <td>Nav</td>
-                                <td>Nav</td>
-                            </tr>
-                            <tr>
-                                <td>NavDropdown</td>
-                                <td>NavDropdown</td>
-                            </tr>
-                            <tr>
-                                <td>NavItem</td>
-                                <td>NavItem</td>
-                            </tr>
-                            <tr>
-                                <td>Tabs</td>
-                                <td>Tabs</td>
-                            </tr>
-                             <tr>
-                                <td>Grid</td>
-                                <td>Grid</td>
-                            </tr>
-                            <tr>
-                                <td>Row</td>
-                                <td>Row</td>
-                            </tr>
-                            <tr>
-                                <td>Col</td>
-                                <td>Col</td>
-                            </tr>
-                            <tr>
-                                <td>Clearfix</td>
-                                <td>Clearfix</td>
-                            </tr>
-                            <tr>
-                                <td>Glyphicon</td>
-                                <td>Glyphicon</td>
-                            </tr>
-                            <tr>
-                                <td>Thumbnail</td>
-                                <td>Thumbnail</td>
-                            </tr>
-                            <tr>
-                                <td>PageHeader</td>
-                                <td>PageHeader</td>
-                            </tr>
-                            <tr>
-                                <td>PanelGroup</td>
-                                <td>PanelGroup</td>
-                            </tr>
-                            <tr>
-                                <td>Panel</td>
-                                <td>Panel</td>
-                            </tr>
-                            <tr>
-                                <td>PanelCollapse</td>
-                                <td>Panel.Collapse</td>
-                            </tr>
-                            <tr>
-                                <td>PanelToggle</td>
-                                <td>Panel.Toggle</td>
-                            </tr>
-                            <tr>
-                                <td>PanelTitle</td>
-                                <td>Panel.Title</td>
-                            </tr>
-                            <tr>
-                                <td>PanelHeading</td>
-                                <td>Panel.Heading</td>
-                            </tr>
-                            <tr>
-                                <td>PanelBody</td>
-                                <td>Panel.Body</td>
-                            </tr>
-                            <tr>
-                                <td>PanelFooter</td>
-                                <td>Panel.Footer</td>
-                            </tr>
-                           <tr>
-                                <td>DatePicker</td>
-                                <td>DatePicker</td>
-                            </tr>
-                            <tr>
-                                <td>Typeahead</td>
-                                <td>Typeahead</td>
-                            </tr>
-                            <tr>
-                                <td>ContextMenu</td>
-                                <td>ContextMenu</td>
-                            </tr>
+                                <td>{item}</td>
+                                <td>{item.replaceAll(".", "")}</td>
+                            </tr>) }
                         </tbody>
                     </table>
             <p><i>(the above covers most but not all React Bootstrap 3 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
