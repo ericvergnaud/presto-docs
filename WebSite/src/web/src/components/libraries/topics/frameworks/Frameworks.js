@@ -1,11 +1,12 @@
 import React from 'react';
 import Topic from "../../../content/Topic";
 import ReactBootstrap3 from "./ReactBootstrap3";
+import ReactBootstrap4 from "./ReactBootstrap4";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("UI Frameworks", [ ReactBootstrap3 ]);
+        super("UI Frameworks", [ ReactBootstrap3, ReactBootstrap4 ]);
     }
 
     renderContent(topicSelected) {
@@ -20,7 +21,7 @@ class ThisTopic extends Topic {
                     </p>
                     <ul>
                         <li>React Bootstrap 3</li>
-                        <li>React Bootstrap 4 (not available yet)</li>
+                        <li>React Bootstrap 4</li>
                         <li>React Semantic UI 2 (not available yet)</li>
                     </ul>
             </React.Fragment>;
