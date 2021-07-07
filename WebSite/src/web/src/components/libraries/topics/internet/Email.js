@@ -1,6 +1,5 @@
 import React from 'react';
 import Topic from "../../../content/Topic";
-import PromptoPlayer from "../../../player/PromptoPlayer";
 
 class ThisTopic extends Topic {
 
