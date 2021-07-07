@@ -37,6 +37,10 @@ define password as Text attribute`}</pre>
 define email as storable Text attribute with value index`}</pre>
             <pre>{String.raw`// many objects have an Url
 define url as storable Url attribute`}</pre>
+            <pre>{String.raw`// Urls have an optional HttpMethod
+define httpMethod as storable HttpMethod attribute`}</pre>
+            <pre>{String.raw`// Urls have an optional list of HttpHeader
+define httpHeaders as storable HttpHeader[] attribute`}</pre>
         </React.Fragment>
     }
 
