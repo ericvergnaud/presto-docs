@@ -4,17 +4,17 @@ import Topic from "../../../content/Topic";
 class ThisTopic extends Topic {
 
     constructor() {
-        super("React Bootstrap 3");
+        super("React Bootstrap 4");
     }
 
     renderContent(topicSelected) {
         const nbsp = "\u00A0";
         return <>
-                    <h2>React Bootstrap 3</h2>
+                    <h2>React Bootstrap 4</h2>
                     <p>Bootstrap is one of the most popular UI frameworks, created by Twitter.<br/>
-                        React Bootstrap 3 is a set of React components which make it easy to use.<br/>
-                        The full list of components <a rel="noopener noreferrer" href="https://5c507d49471426000887a6a7--react-bootstrap.netlify.com" target="_blank">is available here</a>.
-                        On top of the above standard components, React Bootstrap 3 comes with additional components:</p>
+                        React Bootstrap 4 is a set of React components which make it easy to use.<br/>
+                        The full list of components <a rel="noopener noreferrer" href="https://react-bootstrap.github.io/" target="_blank">is available here</a>.
+                        On top of the above standard components, React Bootstrap 4 comes with additional components:</p>
                     <ul>
                         <li><code>DatePicker</code>
                             <p>The DatePicker component, is derived from the <a rel="noopener noreferrer" href="https://www.npmjs.com/package/react-bootstrap-date-picker" target="_blank">standard react-bootstrap-date-picker</a>.
@@ -37,35 +37,136 @@ class ThisTopic extends Topic {
                     </ul>
                 <p>Please refer to above documentations for details. </p>
             <p><i>Prompto does not support inner categories (which are required in JavaScript due to the uncontrolled proliferation of global names).<br/>
-                        Therefore, the Prompto adapter uses identifiers, which are mapped to the corresponding React Bootstrap 3 components, as follows:</i></p>
+                        Therefore, the Prompto adapter uses identifiers, which are mapped to the corresponding React Bootstrap 4 components, as follows:</i></p>
                     <table className="uk-table uk-table-divider uk-table-small uk-text-small uk-width-1-2@s">
                         <thead>
                             <tr>
-                                <th>React Bootstap 3 component</th>
+                                <th>React Bootstap 4 component</th>
                                 <th>Prompto widget</th>
                             </tr>
                         </thead>
                         <tbody>
-                        { [   "Breadcrumb", "Breadcrumb.Item", "Button","Checkbox", "ControlLabel", "ContextMenu",
-                            "InputGroup","InputGroup.Addon","InputGroup.Button", "Form", "FormControl",
-                            "FormGroup", "HelpBlock", "Modal", "Modal.Dialog", "Modal.Body", "Modal.Footer",
-                            "Modal.Header", "Modal.Title", "Navbar", "Navbar.Brand", "Navbar.Header", "Navbar.Toggle",
-                            "Navbar.Collapse", "Navbar.Text", "Navbar.Form", "Nav", "NavDropdown", "NavItem",
-                            "Panel", "Panel.Body", "Panel.Collapse", "Panel.Footer", "PanelGroup", "Panel.Heading",
-                            "Panel.Title", "Panel.Toggle", "ProgressBar", "Radio", "Tab", "Table", "Tabs", "Dropdown",
-                            "Dropdown.Toggle", "Dropdown.Menu", "DropdownButton", "SplitButton", "MenuItem", "Grid",
-                            "Row", "Col", "Clearfix", "Glyphicon", "Thumbnail", "PageHeader", "ButtonToolbar", "ButtonGroup",
-                            "ToggleButton", "ToggleButtonGroup", "Well", "Pagination", "Pagination.Item", "Pagination.First",
-                            "Pagination.Last", "Pagination.Next", "Pagination.Prev", "Pagination.Ellipsis", "Pager",
-                            "Pager.Item", "Carousel", "Carousel.Item", "Carousel.Caption", "Badge", "Label", "Overlay",
-                            "Collapse", "ListGroup", "ListGroupItem", "OverlayTrigger", "Tooltip", "DatePicker", "Typeahead" ].sort().map( item =>
+                        { [     "Accordion",
+                            "Accordion.Collapse",
+                            "Accordion.Toggle",
+                            "Alert",
+                            "Alert.Heading",
+                            "Alert.Link",
+                            "Badge",
+                            "Breadcrumb",
+                            "Breadcrumb.Item",
+                            "Button",
+                            "ButtonGroup",
+                            "ButtonToolbar",
+                            "Card",
+                            "Card.Header",
+                            "Card.Body",
+                            "Card.Footer",
+                            "Card.Title",
+                            "Card.Subtitle",
+                            "Card.Text",
+                            "Card.Img",
+                            "Card.ImgOverlay",
+                            "CardColumns",
+                            "CardDeck",
+                            "CardGroup",
+                            "Carousel",
+                            "Carousel.Caption",
+                            "Carousel.Item",
+                            "Col",
+                            "Collapse",
+                            "Container",
+                            "Dropdown",
+                            "Dropdown.Header",
+                            "Dropdown.Divider",
+                            "DropdownButton",
+                            "Dropdown.Item",
+                            "Dropdown.Toggle",
+                            "Dropdown.Menu",
+                            "Fade",
+                            "Figure",
+                            "Figure.Image",
+                            "Figure.Caption",
+                            "Form",
+                            "Form.Check",
+                            "Form.Check.Input",
+                            "Form.Check.Label",
+                            "Form.Control",
+                            "Form.Control.Feedback",
+                            "Form.File",
+                            "Form.File.Input",
+                            "Form.File.Label",
+                            "Form.Group",
+                            "Form.Label",
+                            "Form.Row",
+                            "Form.Switch",
+                            "Form.Text",
+                            "Image",
+                            "InputGroup",
+                            "InputGroup.Append",
+                            "InputGroup.Prepend",
+                            "InputGroup.Text",
+                            "InputGroup.Checkbox",
+                            "InputGroup.Radio",
+                            "Jumbotron",
+                            "ListGroup",
+                            "ListGroup.Item",
+                            "Media",
+                            "Media.Body",
+                            "Modal",
+                            "Modal.Dialog",
+                            "Modal.Header",
+                            "Modal.Title",
+                            "Modal.Body",
+                            "Modal.Footer",
+                            "Nav",
+                            "Nav.Item",
+                            "Nav.Link",
+                            "Navbar",
+                            "Navbar.Brand",
+                            "Navbar.Collapse",
+                            "Navbar.Text",
+                            "Navbar.Toggle",
+                            "NavDropdown",
+                            "Overlay",
+                            "OverlayTrigger",
+                            "Popover",
+                            "Popover.Title",
+                            "Popover.Content",
+                            "Pagination",
+                            "Pagination.Item",
+                            "Pagination.First",
+                            "Pagination.Prev",
+                            "Pagination.Ellipsis",
+                            "Pagination.Next",
+                            "Pagination.Last",
+                            "ProgressBar",
+                            "ResponsiveEmbed",
+                            "Row",
+                            "Spinner",
+                            "SplitButton",
+                            "Table",
+                            "Tab",
+                            "Tab.Container",
+                            "Tab.Content",
+                            "Tab.Pane",
+                            "Tabs",
+                            "Toast",
+                            "Toast.Header",
+                            "Toast.Body",
+                            "ToggleButton",
+                            "ToggleButtonGroup",
+                            "Tooltip",
+                            "ContextMenu",
+                            "DatePicker",
+                            "Typeahead" ].sort().map( item =>
                             <tr>
                                 <td>{item}</td>
                                 <td>{item.replaceAll(".", "")}</td>
                             </tr>) }
                         </tbody>
                     </table>
-            <p><i>(the above covers most but not all React Bootstrap 3 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
+            <p><i>(the above covers most but not all React Bootstrap 4 components. <a href="mailto:support@prompto.org?subject=Feature%20request">We will add missing ones on demand</a>)</i></p>
             </>;
     }
 
