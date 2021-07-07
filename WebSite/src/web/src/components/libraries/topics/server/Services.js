@@ -11,7 +11,7 @@ class ThisTopic extends Topic {
         return <React.Fragment>
                         <h2>Web services</h2>
                     <p>Communication between a Prompto web page and the Prompto server is built-in. Any method available on the server is also available in the browser.<br/>
-                        You therefore you do not need to create web services to build a typical web site.</p>
+                        Therefore you do not need to create web services to build a typical web site.</p>
                     <p>However, there are situations where you need to expose a web service for use by other clients than the web pages.<br/>
                         The protocol for these services is often defined by the clients rather than your server.<br/>
                         As an example, listening to Github web hooks requires complying with the Github protocol.</p>
