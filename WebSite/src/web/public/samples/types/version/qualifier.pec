@@ -1,0 +1,3 @@
+define main as method doing:
+    v = 'v3.4.7-alpha'
+    printLine "v.qualifier -> " + v.qualifier
