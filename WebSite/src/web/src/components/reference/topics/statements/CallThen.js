@@ -9,7 +9,7 @@ class CallThenTopicItem extends TopicItem {
         const active = this.props.topic===this.props.activeTopic;
         return <>
             <li className={active ? "uk-active" : ""}>
-                <button class="uk-button uk-button-link" onSelect={this.onSelect.bind(this)}><i>Call</i> then</button>
+                <button className="uk-button p-button-customPrimary" onClick={this.onSelect.bind(this)}><i>Call</i>&nbsp;... then</button>
             </li>
             { this.renderChildren()}
         </>;
@@ -21,7 +21,7 @@ class CallThenTopicItem extends TopicItem {
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Call then");
+        super("Call ... then");
     }
 
     renderItem(topicSelected, activeTopic, level) {
@@ -52,7 +52,7 @@ class ThisTopic extends Topic {
                  Without it, the browser would be blocked until the method has completed (which could take seconds or minutes).<br/>
                  You should <i>never</i> make assumptions on the execution sequence of async statements.
                  Notably, if you call multiple async statements, you should not expect that their respective continuations will be executed in the same sequence.<br/>
-                As of writing, Prompto executes async statements only when running in the browser. In other environments, it waits for completion.</p>
+                As of writing, Prompto executes async statements asynchronously only when running in the browser. In other environments, it waits for completion.</p>
              </>;
     }
 
