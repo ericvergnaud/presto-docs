@@ -1,6 +1,6 @@
 import React from 'react';
 import Topic from "../../../content/Topic";
-import PromptoPlayer from "../../../prompto-player/PromptoPlayer";
+import PromptoPlayer from "../../../player/PromptoPlayer";
 
 class ThisTopic extends Topic {
 
@@ -15,13 +15,14 @@ class ThisTopic extends Topic {
             <p>The <code>Version</code> type is a technical type often used in IT systems to provide software version.<br/>
                 A regular Version literal optionally starts with a 'v', and comprises a major number comprised between 0 and 250, a minor number comprised between 0 and 250,
                 an optional fix number comprised between 0 and 250, and an optional qualifier: 'alpha', 'beta' or 'candidate' ('release' is implicit).<br/>
-                Prompto also supports 2 special version literals: 'development' and 'latest';
+                Prompto also supports 2 special version literals: 'development' and 'latest'.<br/>
                 A Version literal must be enclosed in single quotes.</p>
                 Here are a few examples:
-                <pre><code>'v1.12.37'
-                'v1.12-alpha'
-                'development'</code></pre>
-            <br/>
+                <pre><code>'v2.0'
+'v1.12.37'
+'latest'
+'v1.12-alpha'
+'development'</code></pre>
 
             <h3>
                 Version attributes
