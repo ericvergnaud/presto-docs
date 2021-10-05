@@ -8,11 +8,13 @@ import CodeType from "./CodeType";
 import WorkerType from "./WorkerType";
 import VoidType from "./VoidType";
 import Topic from "../../../content/Topic";
+import CssType from "./CssType";
+import HtmlType from "./HtmlType";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Special types", [ AnyType, VoidType, IteratorType, CursorType, TypeType, MethodType, CodeType, WorkerType ]);
+        super("Special types", [ AnyType, VoidType, CssType, HtmlType, IteratorType, CursorType, TypeType, MethodType, CodeType, WorkerType ]);
     }
 
     renderContent(topicSelected) {
@@ -24,6 +26,8 @@ class ThisTopic extends Topic {
             <ul>
                 <li>Any</li>
                 <li>Void</li>
+                <li>Css</li>
+                <li>Html</li>
                 <li>Iterator</li>
                 <li>Cursor</li>
                 <li>Type</li>

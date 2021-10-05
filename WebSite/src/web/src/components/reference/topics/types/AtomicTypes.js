@@ -12,8 +12,6 @@ import UuidType from "./UuidType";
 import BlobType from "./BlobType";
 import ImageType from "./ImageType";
 import VersionType from "./VersionType";
-import CssType from "./CssType";
-import HtmlType from "./HtmlType";
 import Topic from "../../../content/Topic";
 
 class ThisTopic extends Topic {
@@ -21,15 +19,16 @@ class ThisTopic extends Topic {
     constructor() {
         super("Atomic types", [ TextType, IntegerType, DecimalType, BooleanType, CharacterType,
                                 DateType, TimeType, DateTimeType, PeriodType,
-                                UuidType, VersionType, CssType, HtmlType, BlobType, ImageType ]);
+                                UuidType, VersionType, BlobType, ImageType ]);
     }
 
     renderContent(topicSelected) {
         return <div>
-                <h2>Atomic types</h2>
+                <h2>Atomic data types</h2>
 
-                <p>Atomic types are technical types which can hold a single 'atomic' value: text, number, date and so forth.<br/>
-                    All atomic types are defined by Prompto, there is no way to define custom atomic types in Prompto.<br/>
+                <p>Atomic data types are technical types which can hold a single 'atomic' data value: text, number, date and so forth.<br/>
+                    All atomic data types are defined by Prompto, there is no way to define custom atomic types in Prompto.<br/>
+                    Atomic data types can be stored.
                 </p>
                 <p>Prompto defines the following atomic types:</p>
                 <ul>
@@ -43,8 +42,6 @@ class ThisTopic extends Topic {
                     <li>Period</li>
                     <li>Uuid</li>
                     <li>Version</li>
-                    <li>Css</li>
-                    <li>Html</li>
                     <li>Blob</li>
                     <li>Image</li>
                 </ul>
