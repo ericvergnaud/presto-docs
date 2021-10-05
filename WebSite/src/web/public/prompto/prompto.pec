@@ -107,6 +107,34 @@ define password as Text attribute
 // users typically have an email  
 define email as storable Text attribute with value index
 
+define isAuditEnabled as native method returning Boolean doing:
+	Java: return $store.isAuditEnabled();
+	C#: return $store.IsAuditEnabled();
+	Python2: return $store.isAuditEnabled()
+	Python3: return $store.isAuditEnabled()
+	JavaScript: return $store.isAuditEnabled();
+
+define fetchLatestAuditMetadataId as native method receiving dbId returning Any doing:
+	Java: return $store.fetchLatestAuditMetadataId(dbId);
+	C#: return $store.FetchLatestAuditMetadataId(dbId);
+	Python2: return $store.fetchLatestAuditMetadataId(dbId)
+	Python3: return $store.fetchLatestAuditMetadataId(dbId)
+	JavaScript: return $store.fetchLatestAuditMetadataId(dbId);
+
+define fetchAllAuditMetadataIds as native method receiving dbId returning Any[] doing:
+	Java: return $store.fetchAllAuditMetadataIds(dbId);
+	C#: return $store.FetchAllAuditMetadataIds(dbId);
+	Python2: return $store.fetchAllAuditMetadataIds(dbId)
+	Python3: return $store.fetchAllAuditMetadataIds(dbId)
+	JavaScript: return $store.fetchAllAuditMetadataIds(dbId);
+
+define fetchAuditMetadata as native method receiving dbId returning Document doing:
+	Java: return $store.fetchAuditMetadataAsDocument(dbId);
+	C#: return $store.FetchAuditMetadataAsDocument(dbId);
+	Python2: return $store.fetchAuditMetadataAsDocument(dbId)
+	Python3: return $store.fetchAuditMetadataAsDocument(dbId)
+	JavaScript: return $store.fetchAuditMetadataAsDocument(dbId);
+
 define Category as native category with attribute name, and bindings:
 
 	define category bindings as:
@@ -127,6 +155,7 @@ define Error as enumerated category with attributes name and text, and symbols:
 	NULL_REFERENCE with "Null reference!" as text
 	NOT_MUTABLE with "Not a mutable object!" as text
 	NOT_STORABLE with "Not a storable object!" as text
+	AUDIT_DISABLED with "Audit is disabled!" as text
 	READ_WRITE with "Read/write failed!" as text
 
 define DecimalConstant as enumerated Decimal with symbols:
@@ -463,6 +492,7 @@ define "printLine an integer" as test method doing:
 	printLine 12345 with w as writer
 and verifying: 
 	w.text = "12345\n" 
+
 define Email as native category with bindings:
 	
 	define category bindings as:
@@ -474,36 +504,36 @@ define Email as native category with bindings:
 
 and methods:
 
-	define setFrom as method receiving email doing:
-		Java: this.setFrom(email);
-		C#: this.setFrom(email);
-		Python2: this.setFrom(email)
-		Python3: this.setFrom(email);
-		JavaScript: this.setFrom(email);
+	define setFrom as method receiving email and name = nothing doing:
+		Java: this.setFrom(email, name);
+		C#: this.setFrom(email, name);
+		Python2: this.setFrom(email, name)
+		Python3: this.setFrom(email, name);
+		JavaScript: this.setFrom(email, name);
 
 
-	define addTo as method receiving email doing:
-		Java: this.addTo(email);
-		C#: this.addTo(email);
-		Python2: this.addTo(email)
-		Python3: this.addTo(email);
-		JavaScript: this.addTo(email);
+	define addTo as method receiving email and name = nothing doing:
+		Java: this.addTo(email, name);
+		C#: this.addTo(email, name);
+		Python2: this.addTo(email, name)
+		Python3: this.addTo(email, name);
+		JavaScript: this.addTo(email, name);
 
 
-	define addCC as method receiving email doing:
-		Java: this.addCC(email);
-		C#: this.addCC(email);
-		Python2: this.addCC(email)
-		Python3: this.addCC(email);
-		JavaScript: this.addCC(email);
+	define addCC as method receiving email and name = nothing doing:
+		Java: this.addCC(email, name);
+		C#: this.addCC(email, name);
+		Python2: this.addCC(email, name)
+		Python3: this.addCC(email, name);
+		JavaScript: this.addCC(email, name);
 
 
-	define addBCC as method receiving email doing:
-		Java: this.addBCC(email);
-		C#: this.addBCC(email);
-		Python2: this.addBCC(email)
-		Python3: this.addBCC(email);
-		JavaScript: this.addBCC(email);
+	define addBCC as method receiving email and name = nothing doing:
+		Java: this.addBCC(email, name);
+		C#: this.addBCC(email, name);
+		Python2: this.addBCC(email, name)
+		Python3: this.addBCC(email, name);
+		JavaScript: this.addBCC(email, name);
 
 
 	define setSubject as method receiving Text subject doing:
@@ -641,6 +671,120 @@ define "encodes and decodes uri" as test method doing:
 and verifying: 
 	encoded = "Black%20Mamba" or encoded = "Black+Mamba"
 	uri = decoded
+
+define listRootPaths as native method returning Text[] doing:
+	Java: return prompto.path.Path.listRoots();
+	C#: return prompto.path.Path.listRoots(); 
+	Python2: return listRoots() from module: prompto.path.Path
+	Python3: return listRoots() from module: prompto.path.Path
+	JavaScript: return listRoots(); from module: prompto/path/Path.js
+
+
+define "listRootPaths returns a Text[]" as test method doing:
+	roots = listRootPaths
+and verifying:
+	roots is a Text[]
+	roots.count > 0
+
+
+define listChildPaths as native method receiving path returning Text[] doing:
+	Java: return prompto.path.Path.listChildren(path);
+	C#: return prompto.path.Path.listChildren(path); 
+	Python2: return listChildren(path) from module: prompto.path.Path
+	Python3: return listChildren(path) from module: prompto.path.Path
+	JavaScript: return listChildren(path); from module: prompto/path/Path.js
+
+
+define "listChildPaths returns a Text[]" as test method doing:
+	children = listChildPaths "/"
+and verifying:
+	children is a Text[]
+	children.count > 0
+
+define pathExists as native method receiving path returning Boolean doing:
+	Java: return prompto.path.Path.pathExists(path);
+	C#: return prompto.path.Path.pathExists(path); 
+	Python2: return pathExists(path) from module: prompto.path.Path
+	Python3: return pathExists(path) from module: prompto.path.Path
+	JavaScript: return pathExists(path); from module: prompto/path/Path.js
+
+
+define "pathExists returns a Boolean" as test method doing:
+	exists = pathExists "/"
+and verifying:
+	exists is true
+
+
+define pathIsFile as native method receiving path returning Boolean doing:
+	Java: return prompto.path.Path.pathIsFile(path);
+	C#: return prompto.path.Path.pathIsFile(path); 
+	Python2: return pathIsFile(path) from module: prompto.path.Path
+	Python3: return pathIsFile(path) from module: prompto.path.Path
+	JavaScript: return pathIsFile(path); from module: prompto/path/Path.js
+
+
+define "pathIsFile returns a Boolean" as test method doing:
+	isFile = pathIsFile "/"
+and verifying:
+	isFile is false
+	
+	
+define pathIsDirectory as native method receiving path returning Boolean doing:
+	Java: return prompto.path.Path.pathIsDirectory(path);
+	C#: return prompto.path.Path.pathIsDirectory(path); 
+	Python2: return pathIsDirectory(path) from module: prompto.path.Path
+	Python3: return pathIsDirectory(path) from module: prompto.path.Path
+	JavaScript: return pathIsDirectory(path); from module: prompto/path/Path.js
+
+
+define "pathIsDirectory returns a Boolean" as test method doing:
+	isDir = pathIsDirectory "/"
+and verifying:
+	isDir is true
+
+	
+define pathIsLink as native method receiving path returning Boolean doing:
+	Java: return prompto.path.Path.pathIsLink(path);
+	C#: return prompto.path.Path.pathIsLink(path); 
+	Python2: return pathIsLink(path) from module: prompto.path.Path
+	Python3: return pathIsLink(path) from module: prompto.path.Path
+	JavaScript: return pathIsLink(path); from module: prompto/path/Path.js
+
+
+define "pathIsLink returns a Boolean" as test method doing:
+	isLink = pathIsLink "/"
+and verifying:
+	isLink is false
+
+
+define compressToTempPath as native method receiving path returning Text doing:
+	Java: return prompto.path.Path.compressToTempPath(path);
+	C#: return prompto.path.Path.compressToTempPath(path); 
+	Python2: return compressToTempPath(path) from module: prompto.path.Path
+	Python3: return compressToTempPath(path) from module: prompto.path.Path
+	JavaScript: return compressToTempPath(path); from module: prompto/path/Path.js
+
+
+define decompressToTempPath as native method receiving path returning Text doing:
+	Java: return prompto.path.Path.decompressToTempPath(path);
+	C#: return prompto.path.Path.decompressToTempPath(path); 
+	Python2: return decompressToTempPath(path) from module: prompto.path.Path
+	Python3: return decompressToTempPath(path) from module: prompto.path.Path
+	JavaScript: return decompressToTempPath(path); from module: prompto/path/Path.js
+
+define sysGetEnvironmentVariable as native method receiving Text name returning Text doing:
+	Java: return java.lang.System.getenv(name);
+	C#: return System.Environment.GetEnvironmentVariable(name); 
+	Python2: return getenv(name) from module: os
+	Python3: return getenv(name) from module: os
+	JavaScript: return process.env[name]; 
+
+
+define "sysGetEnvironmentVariable returns a Text" as test method doing:
+	home = sysGetEnvironmentVariable "HOME"
+and verifying:
+	home is a Text
+
 define iterateCsv as native method receiving text, Text<:> columnNames = nothing, Character separator = ',', Character quote = '"' returning Iterator<Document> doing:
 	Java: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote);
 	C#: return prompto.reader.CSVReader.iterator(text, columnNames, separator, quote); 
@@ -951,8 +1095,12 @@ and methods:
 define ClickEventCallback as abstract method receiving ClickEvent event
 define MouseEventCallback as abstract method receiving MouseEvent event
 define KeyboardEventCallback as abstract method receiving KeyboardEvent event
+// TODO kept for compatibility, but should be removed
 define RadioChangedCallback as abstract method receiving RadioChangedEvent event
+define RadioChangedEventCallback as abstract method receiving RadioChangedEvent event
+// TODO kept for compatibility, but should be removed
 define InputChangedCallback as abstract method receiving InputChangedEvent event
+define InputChangedEventCallback as abstract method receiving InputChangedEvent event
 define SubmitEventCallback as abstract method receiving SubmitEvent event
 define DateChangedCallback as abstract method receiving Date value
 define ToggleChangedCallback as abstract method receiving Boolean value
