@@ -4,13 +4,13 @@ import CollectionTypes from "./CollectionTypes";
 import DocumentType from "./DocumentType";
 import AttributeType from "./AttributeType";
 import EnumerationType from "./EnumerationType";
-import TransientTypes from "./TransientTypes";
+import SpecialTypes from "./SpecialTypes";
 import Topic from "../../../content/Topic";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Types", [ AtomicTypes, CollectionTypes, DocumentType, AttributeType, EnumerationType, TransientTypes ]);
+        super("Types", [ AtomicTypes, CollectionTypes, DocumentType, AttributeType, EnumerationType, SpecialTypes ]);
     }
 
     renderContent() {
