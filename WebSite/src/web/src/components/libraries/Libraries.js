@@ -13,9 +13,10 @@ import Server from "./topics/server/Server";
 import Frameworks from "./topics/frameworks/Frameworks";
 import TopicList from "../content/TopicList";
 import SearchEngine from "../search/SearchEngine";
+import Audit from "./topics/audit/Audit";
 import '../../assets/css/topics.scss';
 
-const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud, Files ];
+const TOPICS = [ Overview, Data, Internet, Frameworks, Server, Attributes, Maths, Console, Utilities, Parsing, Cloud, Files, Audit ];
 
 TOPICS.forEach(t=>SearchEngine.addTopic(t, "libraries"));
 

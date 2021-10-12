@@ -14,7 +14,7 @@ class ThisTopic extends Topic {
             <pre>{String.raw`// runtime reference of any object
 define id as Any attribute`}</pre>
             <pre>{String.raw`// database reference of stored object
-define dbId as Any attribute`}</pre>
+define dbId as DbId attribute`}</pre>
             <pre>{String.raw`// any object has a text attribute, used for display
 define text as storable Text attribute with value and words index`}</pre>
             <pre>{String.raw`// many objects have a name, it is not unique

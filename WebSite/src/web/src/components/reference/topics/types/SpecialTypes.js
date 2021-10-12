@@ -5,16 +5,17 @@ import TypeType from "./TypeType";
 import IteratorType from "./IteratorType";
 import CursorType from "./CursorType";
 import CodeType from "./CodeType";
-import WorkerType from "./WorkerType";
 import VoidType from "./VoidType";
 import Topic from "../../../content/Topic";
 import CssType from "./CssType";
 import HtmlType from "./HtmlType";
+import DbIdType from "./DbIdType";
+import WorkerType from "./WorkerType";
 
 class ThisTopic extends Topic {
 
     constructor() {
-        super("Special types", [ AnyType, VoidType, CssType, HtmlType, IteratorType, CursorType, TypeType, MethodType, CodeType, WorkerType ]);
+        super("Special types", [ VoidType, DbIdType, AnyType, CssType, HtmlType, IteratorType, CursorType, TypeType, MethodType, CodeType, WorkerType ]);
     }
 
     renderContent(topicSelected) {
@@ -24,8 +25,9 @@ class ThisTopic extends Topic {
 
             <p>Prompto defines the following special types:</p>
             <ul>
-                <li>Any</li>
                 <li>Void</li>
+                <li>DbId</li>
+                <li>Any</li>
                 <li>Css</li>
                 <li>Html</li>
                 <li>Iterator</li>

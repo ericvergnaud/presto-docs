@@ -33,9 +33,9 @@ class ThisTopic extends Topic {
                 the <code>flush</code> statement.</p>
             <p>Consistency in Prompto is achieved by grouping multiple CRUD operations in a single statement. A delete
                 and store statement allows such grouping.</p>
-            <p>A delete and store statement has the form <code>store <i>obj1, obj2 ... objn</i></code> eventually
-                preceded by <code>delete <i>obj1, obj2 ... objn</i></code>,
-                where <code>obj<i>i</i></code> is any valid category or category collection expression.
+            <p>A delete and store statement has the form <code>store <i>obj1, obj2 ... objn</i></code> optionally
+                preceded by <code>delete <i>obj1, obj2 ... objn</i></code> optionally followed by <code>with metadata <i>metadata</i></code>
+                where <code>obj<i>i</i></code> is any valid category or category collection expression and <code>metadata</code> is a Document expression.
             </p>
 
             <h3>
@@ -74,7 +74,17 @@ class ThisTopic extends Topic {
                 statement, as follows:</p>
             <PromptoPlayer key={PromptoPlayer.nextKey()} lines={12} sampleUrl="samples/statements/delete-store.pec" runnable={true}/>
             <br/>
-            </>;
+
+            <h3>
+                Metadata
+            </h3>
+            <p>If audit is enabled (and supported by the data store), Prompto can store metadata for each <code>delete and store</code> statement</p>
+            <p>To learn more about audit, read the Library -> Audit section.</p>
+            <p>Metadata is simply a Document, which can contain any data, such as the user or process initiating the change,
+                the reason for the change and/or any data useful to track data changes</p>
+            <p>To populate metadata, simply append <code>with metadata ( <i>metadata</i> )</code> to the <code>delete and store</code> statement, as follows:</p>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/statements/store-metadata.pec" runnable={true}/>
+        </>;
     }
 
 }

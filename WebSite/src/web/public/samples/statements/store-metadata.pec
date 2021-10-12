@@ -1,0 +1,15 @@
+define Person as storable category with attribute name
+
+define main as method doing:
+    p1 = Person with "John" as name
+    store p1 with { user: "albert" } as metadata
+    p2 = fetch one mutable Person where name = "John"
+    p2.name = "Johnny"
+    store p2 with { user: "jennifer" } as metadata
+    delete p2 with { user: "craig" } as metadata
+    audits = fetchAllAuditRecords with p2.dbId as dbId
+    for each audit in audits:
+        printLine "operation: " + audit.operation
+        meta = fetchAuditMetadata with (audit.metadataDbId as DbId) as dbId
+        printLine "utcTimestamp: " + meta.utcTimestamp
+        printLine "user: " + meta.user
