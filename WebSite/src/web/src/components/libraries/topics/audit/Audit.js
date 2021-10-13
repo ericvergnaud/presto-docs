@@ -52,7 +52,7 @@ class ThisTopic extends Topic {
                         <li>A <code>utcTimestamp</code>, the UTC time of the change on the server</li>
                     </ul>
                     <p>Optionally, an audit metadata record <i>may</i> contain additional data provided as part of the <code>delete and store</code> statement. Here is an example :</p>
-                    <code>delete prospect and store client with &#123; user: "albert" &#125, origin: "phone call"; as metadata</code>
+                    <pre>delete prospect and store client with &#123; user: "albert" , origin: "phone call" } as metadata</pre>
 
                     <h4>Audit methods</h4>
                     <p>Storing audit records and audit metadata is automated.</p>
