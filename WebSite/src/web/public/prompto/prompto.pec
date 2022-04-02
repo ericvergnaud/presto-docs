@@ -951,6 +951,37 @@ and verifying:
 	o[1].field = 122
 
 
+define readXml as native method receiving text, Boolean keepNamespaces = false and Boolean keepAttributes = false returning Document doing:
+	Java: return prompto.reader.XMLReader.read(text, keepNamespaces, keepAttributes);
+	C#: return prompto.reader.XMLReader.read(text, keepNamespaces, keepAttributes); 
+	Python2: return xmlRead(text, keepNamespaces, keepAttributes) from module: prompto.reader.XMLReader
+	Python3: return xmlRead(text, keepNamespaces, keepAttributes) from module: prompto.reader.XMLReader
+	JavaScript: return xmlRead(text, keepNamespaces, keepAttributes); from module: prompto/reader/XMLReader.js
+
+
+define "readXml returns a Document" as test method doing:
+    xml = "<a><b>abc</b></a>"
+	o = readXml xml
+and verifying:
+	o is a Document
+	o.a.b = "abc"
+
+
+define writeXml as native method receiving Document doc returning Text doing:
+	Java: return prompto.writer.XMLWriter.write(doc);
+	C#: return prompto.writer.XMLWriter.write(doc); 
+	Python2: return xmlWrite(doc) from module: prompto.writer.XMLWriter
+	Python3: return xmlWrite(doc) from module: prompto.writer.XMLWriter
+	JavaScript: return xmlWrite(doc); from module: prompto/writer/XMLWriter.js
+
+
+define "writeXml writes a Document" as test method doing:
+	src = { a: { b: "abc" } }
+	xml = writeXml src
+    dst = readXml xml
+and verifying:
+	dst is a Document
+	dst = src
 define readYaml as native method receiving text returning Document[] doing:
 	Java: return prompto.reader.YAMLReader.read(text);
 	C#: return prompto.reader.YAMLReader.read(text); 
@@ -1006,13 +1037,13 @@ and methods:
 	define close as method doing:
 		Java: this.close();
 
-define serviceHandler as abstract method receiving Document doc
+define ServiceHandler as abstract method receiving Document doc
 
-define installServiceHandler as native method receiving Text path and serviceHandler doing:
+define installServiceHandler as native method receiving Text path and ServiceHandler serviceHandler doing:
     Java: $server.installHandler(path, serviceHandler);
 
 define getLoginFactory as native method receiving Text config = nothing returning LoginFactory doing:
-    Java: $server.getLoginFactory(config);
+    Java: return $server.getLoginFactory(config);
 
 define getHttpUser as native method returning Text doing:
 	Java: return $server.getHttpUser();
@@ -1036,21 +1067,6 @@ define httpRedirect as native method receiving Text path doing:
 	JavaScript: browserGoto(location); from module: prompto/web/Browser.js
 
 @Inlined
-define ClickEvent as native category with bindings:
-	
-	define category bindings as:
-		JavaScript: Event
-
-and methods:
-		
-	define stopPropagation as method doing:
-		JavaScript: this.stopPropagation();
-
-	define preventDefault as method doing:
-		JavaScript: this.preventDefault();
-		
-
-@Inlined
 define MouseEvent as native category with bindings:
 	
 	define category bindings as:
@@ -1063,6 +1079,18 @@ and methods:
 
 	define preventDefault as method doing:
 		JavaScript: this.preventDefault();
+
+	define altKey as method returning Boolean doing:
+		JavaScript: this.altKey;
+
+	define ctrlKey as method returning Boolean doing:
+		JavaScript: this.ctrlKey;
+
+	define shiftKey as method returning Boolean doing:
+		JavaScript: this.shiftKey;
+
+	define metaKey as method returning Boolean doing:
+		JavaScript: this.metaKey;
 		
 
 @Inlined
@@ -1079,6 +1107,18 @@ and methods:
 	define preventDefault as method doing:
 		JavaScript: this.preventDefault();
 		
+	define altKey as method returning Boolean doing:
+		JavaScript: this.altKey;
+
+	define ctrlKey as method returning Boolean doing:
+		JavaScript: this.ctrlKey;
+
+	define shiftKey as method returning Boolean doing:
+		JavaScript: this.shiftKey;
+
+	define metaKey as method returning Boolean doing:
+		JavaScript: this.metaKey;
+
 
 @Inlined
 define RadioChangedEvent as native category with bindings:
@@ -1133,7 +1173,8 @@ and methods:
 	define preventDefault as method doing:
 		JavaScript: this.preventDefault();
 
-define ClickEventCallback as abstract method receiving ClickEvent event
+// TODO kept for compatibility, but should be removed
+define ClickEventCallback as abstract method receiving MouseEvent event
 define MouseEventCallback as abstract method receiving MouseEvent event
 define KeyboardEventCallback as abstract method receiving KeyboardEvent event
 // TODO kept for compatibility, but should be removed
@@ -1147,6 +1188,7 @@ define DateChangedCallback as abstract method receiving Date value
 define ToggleChangedCallback as abstract method receiving Boolean value
 define ItemSelectedCallback as abstract method receiving Any value
 define PageSelectedCallback as abstract method receiving Integer value
+
 @Inlined
 define FileRef as native category with bindings:
 
@@ -1209,7 +1251,7 @@ define hideReactModal as native method doing:
 	JavaScript: ReactUtils.hideModal();
 
 
-define showReactContextMenu as native method receiving ClickEvent event and Html menu doing:
+define showReactContextMenu as native method receiving MouseEvent event and Html menu doing:
 	JavaScript: ReactUtils.showContextMenu(event, menu);
 
 
