@@ -1,0 +1,3 @@
+define main as method doing:
+    t = "Index of 'this' is 11"
+    printLine "t.indexOf \"this\" -> " + t.indexOf "this"

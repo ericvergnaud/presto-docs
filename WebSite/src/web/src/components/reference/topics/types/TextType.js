@@ -77,6 +77,10 @@ class ThisTopic extends Topic {
                         <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/trim.pec" runnable={true}/>
                         <br/>
                     </li>
+                    <li><code>indexOf</code>: returns a 1-based Integer index of a Character or Text value, or null if absent<p/>
+                        <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/indexOf.pec" runnable={true}/>
+                        <br/>
+                    </li>
                     <li><code>replace</code>: returns a Text with one occurence replaced<p/>
                         <PromptoPlayer key={PromptoPlayer.nextKey()} sampleUrl="/samples/types/text/replace.pec" runnable={true}/>
                         <br/>
