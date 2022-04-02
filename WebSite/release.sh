@@ -2,6 +2,7 @@
 echo "Are you using the latest platform version?"
 read -p "version to publish: " version
 read -p "release name: " name
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.13.jdk/Contents/Home
 mvn versions:set -DnewVersion=$version -DgenerateBackupPoms=false
 mvn clean deploy -P deploy -DskipTests=true
 deploy=$?
