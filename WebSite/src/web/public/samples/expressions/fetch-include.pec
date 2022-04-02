@@ -1,15 +1,14 @@
-define Person as storable category with attribute name
+define attr1 as storable Text attribute
+define attr2 as storable Text attribute
+define attr3 as storable Text attribute
+define Person as storable category with attributes name, attr1, attr2 and attr3
 
 define main as method doing:
-    p1 = Person with "John" as name
-    p2 = Person with "Sophie" as name
-    p3 = Person with "Alex" as name
+    p1 = Person with "John" as name, "a1" as attr1, "a2" as attr2 and "a3" as attr3
+    p2 = Person with "Sophie" as name, "a1" as attr1, "a2" as attr2 and "a3" as attr3
+    p3 = Person with "Alex" as name, "a1" as attr1, "a2" as attr2 and "a3" as attr3
     store p1, p2, p3
-    c = fetch all order by name
-    printLine "sorted by name ascending:"
-    for each p in c:
-        printLine "p -> " + p
-    printLine "sorted by name descending:"
-    c = fetch all order by name descending
+    c = fetch all Person include name order by name
+    printLine "only return name:"
     for each p in c:
         printLine "p -> " + p

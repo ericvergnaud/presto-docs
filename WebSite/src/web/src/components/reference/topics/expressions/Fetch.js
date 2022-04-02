@@ -79,6 +79,15 @@ class ThisTopic extends Topic {
             <br/>
 
             <h3>
+                Returning only selected attributes
+            </h3>
+            <p>When fetching objects, Prompto lets you specify which fields are retrieved.<br/>
+                This is useful for optimizing queries when they return complex objects and you know in advance which attributes will be accessed.<br/>
+                This is done by specifying one or more included attributes, as follows:
+            </p>
+            <PromptoPlayer key={PromptoPlayer.nextKey()} lines={16} sampleUrl="samples/expressions/fetch-include.pec" runnable={true} />
+
+            <h3>
                 Sorting fetched objects
             </h3>
             <p>When fetching multiple objects, Prompto lets you specify the order in which the objects
