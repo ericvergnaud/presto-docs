@@ -1,0 +1,3 @@
+define main as method doing:
+    l = [ 12, 35, 41, 12, 35 ]
+    printLine "l.toSet -> " + l.toSet

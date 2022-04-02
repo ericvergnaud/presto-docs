@@ -1,0 +1,4 @@
+define main as method doing:
+    l = mutable [ 12, 35, -7]
+    l.removeItem 2
+    printLine "l.removeItem 2 -> " + l

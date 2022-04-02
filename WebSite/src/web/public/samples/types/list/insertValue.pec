@@ -1,0 +1,4 @@
+define main as method doing:
+    l = mutable [ 12, 35 ]
+    l.insertValue -2 with 2 as atIndex
+    printLine "after insertValue -> " + l

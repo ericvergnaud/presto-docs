@@ -1,0 +1,4 @@
+define main as method doing:
+    l = mutable [ 12 ]
+    l.addValue 35
+    printLine "after addValue -> " + l
