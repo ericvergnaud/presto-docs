@@ -28,8 +28,8 @@ class ThisTopic extends Topic {
                             <p>The ContextMenu component, is a custom component combining <code>Clearfix and &lt;ul class="dropdown-menu"&gt;</code> to simplify display of context menus.</p>
                             Example usage:<br/>
                             <code>{String.raw `menu = <ContextMenu>`}<br/>
-                                { nbsp.repeat(11) + String.raw `<MenuItem key={1} onClick={someAction1}>Some item</MenuItem>`}<br/>
-                                { nbsp.repeat(11) + String.raw `<MenuItem key={2} onClick={someAction2}>Other item</MenuItem>`}<br/>
+                                { nbsp.repeat(11) + String.raw `<DropdownItem key={1} onClick={someAction1}>Some item</DropdownItem>`}<br/>
+                                { nbsp.repeat(11) + String.raw `<DropdownItem key={2} onClick={someAction2}>Other item</DropdownItem>`}<br/>
                                 { nbsp.repeat(7) + String.raw `</ContextMenu>;`}<br/>
                                 {String.raw `showReactContextMenu(event, menu);`};
                             </code>
